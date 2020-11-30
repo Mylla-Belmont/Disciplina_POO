@@ -45,7 +45,6 @@ public class Sapo_lutador{
         Scanner input = new Scanner (System.in); 
         Random gerador = new Random();
 
-        do{
             int ataque, dano, jogador = gerador.nextInt(1);
         
             if(jogador == 0){
@@ -66,9 +65,7 @@ public class Sapo_lutador{
             System.out.println(Kermit);
             System.out.println(Caco);
             System.out.println("\n");
-            
-        }while(Caco.vida());
-
+      
         input.close();
     }
 }
