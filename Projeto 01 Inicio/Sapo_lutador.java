@@ -1,70 +1,61 @@
 import java.util.Scanner;
+import java.util.Random;
 
 public class Sapo_lutador{
     int vida;
-    int forca;
-    int teste;
+    int ataque;
     
-    Sapo_lutador(int vida, int forca, int teste){ 
+    Sapo_lutador(int vida, int ataque){ 
         this.vida = vida;
-        this.forca = forca;
-        this.teste = teste;
+        this.ataque = ataque;
     }
 
-    int jogada(){
-        teste = 0;
-        return teste;
-    }
-
-    void dano(){
-        vida -= 10;
-        System.out.println("Ai minha cabeça!");
+    void dano(int dano){
+        if(vida > 0){
+            vida -= dano;
+            System.out.println("Ai minha cabeça!");
+        }else 
+            System.out.println("Pare com isso! Eu já morri..."); 
     } 
 
-    void ataque(){
-        if(vida > 0){
-            forca -= 10;
+    int ataque(){
+        Random gerador = new Random();
+        int casoTeste =  gerador.nextInt(1);
+
+        if(casoTeste == 0){
             System.out.println("Toma isso!");
-            return;
-        }    
-    }
-
-    void curar(){
-        if(forca > 50){
-            vida += 20;
-            System.out.println("Sai de casa comi pra car*lho");
-            return;
+            ataque = 50;
+        }   
+        if(casoTeste == 1){
+            System.out.println("Agora você não escapa!");
+            ataque = 80;
         }
+        return ataque;    
     }
 
-    void recuperarPoder(){
-        if(vida > 50){
-            forca += 20;
-            System.out.println("Saiu da jaula o monstro!");
-            return;
-        }
-    }
-
-    public String toString() {
-        return "Vida: " + vida + "/150" + " Força: " + forca + "/100" + " Teste:" + teste;
+    public String toString(){
+        return "Vida: " + vida + "/150" + " Ataque: " + ataque;
     }
 
     public static void main(String[] args){
-        Sapo_lutador Kermit = new Sapo_lutador(150, 100, 0);
-        
-        int dano;
+        Sapo_lutador Kermit = new Sapo_lutador(150, 0);
+        Sapo_lutador Saiyajin = new Sapo_lutador(150, 0);
+
         Scanner input = new Scanner (System.in);
 
-        System.out.println("Faça a jogada");
-        dano = input.nextInt();
+        int jogada, dano;    
+        System.out.println("Faça seu ataque:\n1 - Normal\n2 - Especial");
+        jogada = input.nextInt();
         input.close();
-        
-        for(int i=0; i < dano ; i++){
-            Kermit.dano();
+      
+        if(jogada == 1){
+            dano = Kermit.ataque();
+            Saiyajin.dano(dano);
+        }else{
+            dano = Kermit.ataque();
+            Saiyajin.dano(dano);
         }
-            Kermit.ataque();
-            Kermit.curar();
-            Kermit.recuperarPoder();
-            System.out.println(Kermit);
+        System.out.println(Kermit);
+        System.out.println(Saiyajin);
     }
 }
