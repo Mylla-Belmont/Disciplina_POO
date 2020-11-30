@@ -10,23 +10,24 @@ public class Sapo_lutador{
         this.ataque = ataque;
     }
 
+    boolean vida(){
+        if(vida <= 0)
+            return false;
+        return true;
+    }
+
     void dano(int dano){
-        if(vida > 0){
-            vida -= dano;
-            System.out.println("Ai minha cabeça!");
-        }else 
-            System.out.println("Pare com isso! Eu já morri..."); 
+        vida -= dano;
+        System.out.println("Ai minha cabeça!"); 
     } 
 
-    int ataque(){
-        Random gerador = new Random();
-        int casoTeste =  gerador.nextInt(1);
-
-        if(casoTeste == 0){
+    int ataque(int ataque){
+        
+        if(ataque == 0){
             System.out.println("Toma isso!");
             ataque = 50;
         }   
-        if(casoTeste == 1){
+        if(ataque == 1){
             System.out.println("Agora você não escapa!");
             ataque = 80;
         }
@@ -34,28 +35,40 @@ public class Sapo_lutador{
     }
 
     public String toString(){
-        return "Vida: " + vida + "/150" + " Ataque: " + ataque;
+        return "Vida: " + vida + "/150";
     }
 
     public static void main(String[] args){
         Sapo_lutador Kermit = new Sapo_lutador(150, 0);
-        Sapo_lutador Saiyajin = new Sapo_lutador(150, 0);
+        Sapo_lutador Caco = new Sapo_lutador(150, 0);
+        
+        Scanner input = new Scanner (System.in); 
+        Random gerador = new Random();
 
-        Scanner input = new Scanner (System.in);
+        do{
+            int ataque, dano, jogador = gerador.nextInt(1);
+        
+            if(jogador == 0){
+                System.out.println("Caco, faça seu ataque:\n1 - Normal\n2 - Especial");
+            }else
+                System.out.println("Kermit, faça seu ataque:\n1 - Normal\n2 - Especial");
+                ataque = input.nextInt();
+        
+            switch(jogador){
+                case 0:
+                    dano = Caco.ataque(ataque);
+                    Kermit.dano(dano); break;
+                case 1:
+                    dano = Kermit.ataque(ataque);
+                    Caco.dano(dano); break;
+            }
+       
+            System.out.println(Kermit);
+            System.out.println(Caco);
+            System.out.println("\n");
+            
+        }while(Caco.vida());
 
-        int jogada, dano;    
-        System.out.println("Faça seu ataque:\n1 - Normal\n2 - Especial");
-        jogada = input.nextInt();
         input.close();
-      
-        if(jogada == 1){
-            dano = Kermit.ataque();
-            Saiyajin.dano(dano);
-        }else{
-            dano = Kermit.ataque();
-            Saiyajin.dano(dano);
-        }
-        System.out.println(Kermit);
-        System.out.println(Saiyajin);
     }
 }
