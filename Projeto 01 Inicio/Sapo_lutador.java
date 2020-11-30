@@ -3,10 +3,17 @@ import java.util.Scanner;
 public class Sapo_lutador{
     int vida;
     int forca;
+    int teste;
     
-    Sapo_lutador(int vida, int forca){ 
+    Sapo_lutador(int vida, int forca, int teste){ 
         this.vida = vida;
         this.forca = forca;
+        this.teste = teste;
+    }
+
+    int jogada(){
+        teste = 0;
+        return teste;
     }
 
     void dano(){
@@ -39,11 +46,11 @@ public class Sapo_lutador{
     }
 
     public String toString() {
-        return "Vida: " + vida + "/150" + " Força: " + forca + "/100";
+        return "Vida: " + vida + "/150" + " Força: " + forca + "/100" + " Teste:" + teste;
     }
 
     public static void main(String[] args){
-        Sapo_lutador Kermit = new Sapo_lutador(150, 100);
+        Sapo_lutador Kermit = new Sapo_lutador(150, 100, 0);
         
         int dano;
         Scanner input = new Scanner (System.in);
@@ -59,6 +66,5 @@ public class Sapo_lutador{
             Kermit.curar();
             Kermit.recuperarPoder();
             System.out.println(Kermit);
-        
     }
 }
