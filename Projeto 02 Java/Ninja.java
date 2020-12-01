@@ -83,15 +83,19 @@ public class Ninja {
     public String toString(){
         return "Vida: " + vida + "/100" + " Chakra: " + chakra;
     }
-
-    public static void main(String[] args) {
-        Ninja Naruto = new Ninja(100, 100, 50);
-        Ninja Sasuke = new Ninja(100, 100, 50);
-        
+    
+    public static void luta_Ninja(){
         System.out.println("\nNaruto: - SASUKEEE!!!\nSasuke: - NARUTOOO!!!");
         System.out.println("Sakura: - Naruto! O sasuke tá ficando doido! Mete a surra nele!!!");
         System.out.println("\n1 - Rasengan\n2 - Jutsu multiclones da sombras\n3 - Dedo secreto da aldeia da folha");
         System.out.println("4 - Recuperar chakra\n5 - Recuperar vida");
+    }
+
+    public static void main(String[] args) {
+        Ninja Naruto = new Ninja(100, 100, 50);
+        Ninja Sasuke = new Ninja(100, 100, 50);
+
+        luta_Ninja();
 
         Scanner input = new Scanner(System.in);
         Random aleatorio = new Random();
