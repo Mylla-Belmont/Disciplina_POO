@@ -99,6 +99,8 @@ public class Ninja_Interativo {
                 Naruto.recuperarChakra();
             }else if(line.equals("chakra")){
                 Naruto.recuperarVida();
+            }if(line.equals("end")){
+                break;
             }else{
                 System.out.println("fail: comando invalido");
             }
