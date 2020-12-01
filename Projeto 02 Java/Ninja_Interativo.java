@@ -1,12 +1,12 @@
 import java.util.Scanner;
 
-class Ninja {
+class Ninja_personagem {
     int vida;
     int chakra;
     int especial;
     int agilidade;
     
-    Ninja (int vida, int chakra, int agilidade){ 
+    Ninja_personagem (int vida, int chakra, int agilidade){ 
         this.vida = vida;
         this.chakra = chakra;
         this.agilidade = agilidade;
@@ -57,8 +57,8 @@ class Ninja {
     }
 
     public static void main(String[] args) {
-        Ninja Naruto = new Ninja(100, 100, 50);
-        Ninja Sasuke = new Ninja(100, 100, 50);
+        Ninja_personagem Naruto = new Ninja_personagem(100, 100, 50);
+        Ninja_personagem Sasuke = new Ninja_personagem(100, 100, 50);
 
         System.out.println(Naruto);
         System.out.println(Sasuke);
