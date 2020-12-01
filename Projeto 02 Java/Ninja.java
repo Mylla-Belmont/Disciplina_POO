@@ -4,18 +4,44 @@ import java.util.Random;
 public class Ninja {
     int vida;
     int chakra;
+    int velocidade;
     
     Ninja (int vida, int chakra){ 
         this.vida = vida;
         this.chakra = chakra;
     }
 
-    boolean vida(int dano){
-        if(vida > 0){
-            vida -= dano;
+    boolean vida(){
+        if(vida > 0)
+            return true;
+        else 
             return false;
-        }
-        return true;
+    }
+
+    void recuperarVida(){
+        if(chakra >= 20 && chakra <= 40){
+            vida += 10;
+        }else if(chakra >= 40 && chakra <= 80){
+            vida += 20;
+        }else if(chakra >= 80 && chakra < 100){
+            vida += 30;
+        }else
+            System.out.println("Isso não vai ser possiel.");
+    }
+
+    void recuperarChakra(){
+        if(vida >= 20 && vida <= 40){
+            chakra += 20;
+        }else if(vida >= 40 && vida <= 80){
+            chakra += 30;
+        }else if(vida >= 80 && vida < 100){
+            chakra += 40;
+        }else
+            System.out.println("Isso não vai ser possiel.");
+    }
+
+    void dano(int dano){
+        vida -= dano;
     }
 
     void chakra(int ataque){
@@ -28,17 +54,14 @@ public class Ninja {
     }
 
     int ataque(int ataque){
-        switch(ataque){
-            case 1:
-                return 30; 
-            case 2:
-                return 40; 
-            case 3:
-                return 50; 
-            default:
-                System.out.println("Errou!");
-        }
-        return 0;
+        if(ataque == 1 && chakra >= 20){
+            return 10;
+        }else if(ataque == 2 && chakra >= 30){
+            return 20;
+        }else if(ataque == 3 && chakra >= 40){
+            return 30;
+        }else
+            return 0;
     }
 
     public String toString(){
@@ -49,39 +72,42 @@ public class Ninja {
         Ninja Naruto = new Ninja(100, 100);
         Ninja Sasuke = new Ninja(100, 100);
         
-        System.out.println("\nNaruto: - SASUKEEE!!!");
-        System.out.println("Sasuke: - NARUTOOO!!!");
-
+        System.out.println("\nNaruto: - SASUKEEE!!!\nSasuke: - NARUTOOO!!!");
         System.out.println("Sakura: - Naruto! O sasuke tá ficando doido! Mete a surra nele!!!");
-        System.out.println("\n1 - Rasengan\n");
-        System.out.println("2 - Jutsu multiclones da sombras\n");
-        System.out.println("3 - Dedo secreto da aldeia da folha");
+        System.out.println("\n1 - Rasengan\n2 - Jutsu multiclones da sombras\n3 - Dedo secreto da aldeia da folha");
+        System.out.println("4 - Recuperar chakra\n5 - Recuperar vida");
 
         Scanner input = new Scanner(System.in);
         Random aleatorio = new Random();
 
-        for(int i=0; i != -1; i++){        //loop infinito
+        while(Naruto.vida() == true && Sasuke.vida() == true){        //loop infinito
 
-            if(Sasuke.vida(0) == true || Naruto.vida(0)  == true){
-                System.err.println("Alguém morreu...");
-                break;
-            }
+            System.out.println("\nNaruto, escolha o seu jutsu:");
+            int acao = input.nextInt();
 
-            System.out.println("\nNaruto, escolha o seu jutsu:\n");
-            int ataque = input.nextInt();
-
-            Sasuke.vida(Naruto.ataque(ataque));
-            Naruto.chakra(ataque);
+            if(acao == 1 || acao == 2 || acao == 3){
+                Sasuke.dano(Naruto.ataque(acao));           //Ataque naruto
+                Naruto.chakra(acao);
+            }else if(acao == 4){
+                Naruto.recuperarChakra();           //Recuperar chakra
+            }else if(acao == 5)
+                Naruto.recuperarVida();             //Recuperar vida
            
-            int ataqueSasuke = aleatorio.nextInt(4);
-
-            System.out.println("\nEle te acertou também!");
-            Naruto.vida(Sasuke.ataque(ataqueSasuke));
+            int ataqueSasuke = aleatorio.nextInt(4);    //Ataque do Sasuke
+            Naruto.dano(Sasuke.ataque(ataqueSasuke));
             Sasuke.chakra(ataqueSasuke);
 
-            System.out.println("Sasuke " + Sasuke);
+            System.out.println("\nSasuke " + Sasuke);
             System.out.println("Naruto " + Naruto);
-        }   
+        }
+
+        if(Naruto.vida() == true && Sasuke.vida() == false){
+            System.out.println("Sasuke morreu...");
+        }else if(Sasuke.vida() == true && Naruto.vida() == false){   
+            System.out.println("Naruto morreu...");
+        }else
+            System.out.println("Ambos morreram...");
+
         input.close();
     }    
 }
