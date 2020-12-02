@@ -89,20 +89,20 @@ public class Ninja_Interativo {
             System.out.println("\nNaruto, escolha sua ação:");
             String line = input.nextLine();
             String[] ui = line.split(" ");
-            
-            if(line.equals("show")){
-                System.out.println("Sasuke " + Sasuke);
-                System.out.println("Naruto " + Naruto);
-            }else if(line.equals("ataque")){
-                Sasuke.dano(Naruto.ataque(Integer.parseInt(ui[1])));
-            }else if(line.equals("chakra")){
-                Naruto.recuperarChakra();
-            }else if(line.equals("chakra")){
-                Naruto.recuperarVida();
-            }if(line.equals("end")){
-                break;
+
+            if(line.equals("end")){
+                    break;
+            }else if(line.equals("show")){
+                    System.out.println("Sasuke " + Sasuke);
+                    System.out.println("Naruto " + Naruto);
+            }else if(ui[0].equals("ataque")){
+                    Sasuke.dano(Naruto.ataque(Integer.parseInt(ui[1])));
+            }else if(ui[0].equals("chakra")){
+                    Naruto.recuperarChakra();
+            }else if(ui[0].equals("vida")){
+                    Naruto.recuperarVida();
             }else{
-                System.out.println("fail: comando invalido");
+                    System.out.println("fail: comando invalido");
             }
         }
         input.close();
