@@ -5,6 +5,13 @@ class Ninja_personagem {
     int chakra;
     int especial;
     int agilidade;
+
+    boolean vida(){            //Verifica se algum deles ainda estão vivo
+        if(vida > 0)
+            return true;
+        else 
+            return false;
+    }
     
     Ninja_personagem (int vida, int chakra, int agilidade){ 
         this.vida = vida;
@@ -69,10 +76,10 @@ class Ninja_personagem {
 public class Ninja_Interativo {
     public static void main(String[] args){
 
-        Ninja Naruto = new Ninja(100, 100, 50);
+        Ninja Naruto = new Ninja(100, 100, 50);         //Objetos do código
         Ninja Sasuke = new Ninja(100, 100, 50);
 
-        Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);         //Inicializando scanner com noe input
 
         System.out.println("\nNaruto: - SASUKEEE!!!\nSasuke: - NARUTOOO!!!");
         System.out.println("Sakura: - Naruto! O sasuke tá ficando doido! Mete a surra nele!!!");
@@ -84,22 +91,22 @@ public class Ninja_Interativo {
         System.out.println("Vida (recuperar)");
         System.out.println("Especial");
         
-        while(true){
+        while(Naruto.vida() == true && Sasuke.vida() == true){            //loop infinito pra continuidade do jogo
 
             System.out.println("\nNaruto, escolha sua ação:");
             String line = input.nextLine();
-            String[] ui = line.split(" ");
+            String[] tipo = line.split(" ");
 
             if(line.equals("end")){
                     break;
             }else if(line.equals("show")){
                     System.out.println("Sasuke " + Sasuke);
                     System.out.println("Naruto " + Naruto);
-            }else if(ui[0].equals("ataque")){
-                    Sasuke.dano(Naruto.ataque(Integer.parseInt(ui[1])));
-            }else if(ui[0].equals("chakra")){
+            }else if(tipo[0].equals("ataque")){
+                    Sasuke.dano(Naruto.ataque(Integer.parseInt(tipo[1])));
+            }else if(tipo[0].equals("chakra")){
                     Naruto.recuperarChakra();
-            }else if(ui[0].equals("vida")){
+            }else if(tipo[0].equals("vida")){
                     Naruto.recuperarVida();
             }else{
                     System.out.println("fail: comando invalido");
