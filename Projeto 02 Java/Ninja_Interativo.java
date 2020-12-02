@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Random;
 
 class Ninja_personagem {
     int vida;
@@ -45,7 +46,7 @@ class Ninja_personagem {
     }
 
     boolean agilidade(){
-        if(agilidade >= 25){
+        if(agilidade > 0){
             agilidade -= 10;
             return true;
         }else 
@@ -101,6 +102,7 @@ public class Ninja_Interativo {
         Ninja_personagem Sasuke = new Ninja_personagem(100, 100, 0, 50);
 
         Scanner input = new Scanner(System.in);         //Inicializando scanner com noe input
+        Random aleatorio = new Random();                //Inicializando gerador de numeros aleatorios
 
         imprimir();
         
@@ -114,20 +116,16 @@ public class Ninja_Interativo {
             if(line.equals("end")){
                 System.out.println("Você desistiu da luta. Você não iria matar se amigo, não é mesmo?");
                 break;
-            
-            }else if(line.equals("show")){
-                System.out.println("Sasuke " + Sasuke);
-                System.out.println("Naruto " + Naruto);
-
+        
             }else if(tipo[0].equals("ataque")){
 
-                if(Sasuke.agilidade() == true){
+                if(aleatorio.nextBoolean() == true && Sasuke.agilidade() == true){
                     System.out.println("Sasuke desviou.");
                 }else{
                     System.out.println("Sasuke sofreu dano!");
-                    Sasuke.dano(Naruto.ataque(Integer.parseInt(tipo[1])));
+                    Sasuke.dano(Naruto.ataque(Integer.parseInt(tipo[1]))); 
                 }
-                
+
             }else if(tipo[0].equals("chakra")){
                 Naruto.recuperarChakra();
 
