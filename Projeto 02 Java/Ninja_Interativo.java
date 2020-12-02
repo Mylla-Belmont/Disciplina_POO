@@ -98,7 +98,7 @@ public class Ninja_Interativo {
             String[] tipo = line.split(" ");
 
             if(line.equals("end")){
-                    break;
+                    System.out.println("Você desistiu da luta. Você não iria matar se amigo, não é mesmo?"); break;
             }else if(line.equals("show")){
                     System.out.println("Sasuke " + Sasuke);
                     System.out.println("Naruto " + Naruto);
