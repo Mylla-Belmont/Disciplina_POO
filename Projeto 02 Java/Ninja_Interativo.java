@@ -28,7 +28,7 @@ class Ninja_personagem {
         }else if(chakra >= 40 && chakra <= 80){
             vida += 20;
             return true;
-        }else if(chakra >= 80 && chakra <= 99){
+        }else if(chakra >= 80 && chakra < 90){
             vida += 30;
             return true;
         }else{
@@ -44,7 +44,7 @@ class Ninja_personagem {
             chakra += 30;
             agilidade += 5;
             return true;
-        }else if(vida >= 80 && vida <= 99){
+        }else if(vida >= 80 && vida < 90){
             chakra += 40;
             agilidade += 10;
             return true;
@@ -109,12 +109,12 @@ public class Ninja_Interativo {
         int movimentoSasuke = aleatorio.nextInt(3);
 
             if(movimentoSasuke == 1){           //Ataques
-                
+
                 int ataqueSasuke = aleatorio.nextInt(3);    
                 if(Sasuke.ataque(ataqueSasuke) != 0){
                     Naruto.dano(Sasuke.ataque(ataqueSasuke));
                     Sasuke.chakra(ataqueSasuke);
-                    System.out.println("Você sofreu dano!");
+                    System.out.println("Sasuke atacou e você sofreu dano!");
                 }else
                     System.out.println("Que sorte! Sasuke errou o golpe.");
 
@@ -131,12 +131,13 @@ public class Ninja_Interativo {
                     System.out.println("Sasuke recuperou vida!");
                 }else
                     System.out.println("SAKURA: - Naruto idiota! Não machuque o meu Sasuke!");
-            }
+            }else
+                System.out.println("SASUKE: - NARUTOOOOO!!!!");
     }
 
     static void imprimir(){
-        System.out.println("\nNaruto: - SASUKEEE!!!\nSasuke: - NARUTOOO!!!");
-        System.out.println("Sakura: - Naruto! O sasuke tá ficando doido! Mete a surra nele!!!");
+        System.out.println("\nNARUTO: - SASUKEEE!!!\nSASUKE: - NARUTOOO!!!");
+        System.out.println("SAKURA: - Naruto! O sasuke tá ficando doido! Mete a surra nele!!!");
         System.out.println("\nAtaque 1 - Rasengan");
         System.out.println("Ataque 2 - Jutsu multiclones da sombras");
         System.out.println("Ataque 3 - Dedo secreto da aldeia da folha");
