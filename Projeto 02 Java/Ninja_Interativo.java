@@ -22,14 +22,17 @@ class Ninja_personagem {
     }
 
     boolean recuperarVida(){         //Permiti recuperar vida de acordo com a quantidade de chakra
-        if(chakra >= 20 && chakra <= 40){
-            vida += 10;
-            return true;
-        }else if(chakra >= 40 && chakra <= 80){
-            vida += 20;
-            return true;
-        }else if(chakra >= 80 && chakra < 90){
+        if(chakra >= 10 && chakra <= 40 && vida < 100){
             vida += 30;
+            agilidade += 5;
+            return true;
+        }else if(chakra >= 50 && chakra <= 70 && vida < 100){
+            vida += 20;
+            agilidade += 10;
+            return true;
+        }else if(chakra >= 80 && chakra < 100 && vida < 100){
+            vida += 10;
+            agilidade += 20;
             return true;
         }else{
             return false;
@@ -37,16 +40,17 @@ class Ninja_personagem {
     }
 
     boolean recuperarChakra(){     //Permiti recuperar chakra de acordo com a quantidade de vida
-        if((vida >= 20 && vida <= 40) && (chakra >= 20 && vida <= 70)){
-            chakra += 20;
-            return true;
-        }else if((vida >= 40 && vida <= 80) && (chakra >= 20 && vida <= 70)){
+        if(vida >= 10 && vida <= 40 && chakra < 100){
             chakra += 30;
             agilidade += 5;
             return true;
-        }else if((vida >= 80 && vida < 100) && (chakra >= 20 && vida <= 70)){
-            chakra += 40;
+        }else if(vida >= 50 && vida <= 70 && chakra < 100){
+            chakra += 20;
             agilidade += 10;
+            return true;
+        }else if(vida >= 80 && vida < 100 && chakra < 100){
+            chakra += 10;
+            agilidade += 20;
             return true;
         }else{
             return false;
@@ -54,7 +58,7 @@ class Ninja_personagem {
     }
 
     boolean agilidade(){
-        if(agilidade > 0){
+        if(agilidade > 5){
             agilidade -= 10;
             return true;
         }else 
@@ -103,15 +107,13 @@ class Ninja_personagem {
 }
 
 public class Ninja_Interativo {
-
     static void sasukeInterativo(Ninja_personagem Sasuke, Ninja_personagem Naruto, Random aleatorio){
 
         int movimentoSasuke = aleatorio.nextInt(3);
 
             if(movimentoSasuke == 0){           //Ataques
-
-                int ataqueSasuke = aleatorio.nextInt(3);    
-                if(Sasuke.ataque(ataqueSasuke) != 0){
+                int ataqueSasuke = aleatorio.nextInt(4);    
+                if(Sasuke.ataque(ataqueSasuke) != 0){       //Gera um ataque aleatório e verifica se é possivel ser executado
                     Naruto.dano(Sasuke.ataque(ataqueSasuke));
                     Sasuke.chakra(ataqueSasuke);
                     System.out.println("Sasuke atacou e você sofreu dano!");
@@ -119,25 +121,25 @@ public class Ninja_Interativo {
                     System.out.println("Que sorte! Sasuke errou o golpe.");
 
             }else if(movimentoSasuke == 1){     //Recuperar chakra
-
-                if(Sasuke.recuperarChakra() == true){
+                if(Sasuke.recuperarChakra() == true){         //Verifica se é possivel recuperar chakra
                     System.out.println("Sasuke recuperou chakra!");
                 }else 
                     System.out.println("Seu oponente é muito forte, mas ele não é pareo pra você!");
 
             }else if(movimentoSasuke == 2){     //recuperar vida
-
-                if(Sasuke.recuperarVida() == true){
+                if(Sasuke.recuperarVida() == true){         //Verifica se é possivel recuperar vida
                     System.out.println("Sasuke recuperou vida!");
                 }else
                     System.out.println("SAKURA: - Naruto idiota! Não machuque o meu Sasuke!");
+
             }else
-                System.out.println("SASUKE: - NARUTOOOOO!!!!");
+                System.out.println("SASUKE: - Naruto, seu imbecil!");
     }
 
     static void imprimir(){
         System.out.println("\nNARUTO: - SASUKEEE!!!\nSASUKE: - NARUTOOO!!!");
-        System.out.println("SAKURA: - Naruto! O sasuke tá ficando doido! Mete a surra nele!!!");
+        System.out.println("SAKURA: - Kakashi sensei! Faça alguma coisa!");
+        System.out.println("KAKASHI: - Deixe eles lutarem, vamos ver onde isso vai dar...");
         System.out.println("\nAtaque 1 - Rasengan");
         System.out.println("Ataque 2 - Jutsu multiclones da sombras");
         System.out.println("Ataque 3 - Dedo secreto da aldeia da folha");
@@ -164,7 +166,8 @@ public class Ninja_Interativo {
             System.out.println("\n");
 
             if(line.equals("end")){
-                System.out.println("Você desistiu da luta. Você não iria matar se amigo, não é mesmo?"); break;
+                System.out.println("KAKASHI: - Naruto desistiu da luta. Você não iria matar se amigo, não é mesmo?\n"); break;
+
             }else if(tipo[0].equals("ataque")){        
                 if(aleatorio.nextBoolean() == true && Sasuke.agilidade() == true){      //Gera aleatoriedade para movimento e verifica se desvio é possivel
                     System.out.println("Sasuke desviou.");
@@ -173,18 +176,21 @@ public class Ninja_Interativo {
                     Naruto.chakra(Integer.parseInt(tipo[1]));
                     System.out.println("Sasuke sofreu dano!");
                 }
+
             }else if(tipo[0].equals("chakra")){
-                if(Naruto.recuperarChakra() == true){   //Mudar essa parte do código para todos
+                if(Naruto.recuperarChakra() == true){   
                     System.out.println("Você recuperou seu chakra");
                 }else{
                     System.out.println("Não foi possivel recuperar seu chakra.");
                 }
+
             }else if(tipo[0].equals("vida")){
                 if(Naruto.recuperarVida() == true){
                     System.out.println("Você recuperou sua vida");
                 }else{
                     System.out.println("Não foi possui recuperar sua vida");
                 }
+
             }else
                 System.out.println("fail: comando invalido");
 
@@ -193,6 +199,14 @@ public class Ninja_Interativo {
             System.out.println("Sasuke " + Sasuke);
             System.out.println("Naruto " + Naruto);
         }
+
+        if(Naruto.vida() == true && Sasuke.vida() == false){
+            System.out.println("KAKASHI: - Sasuke perdeu. Parabéns Naruto!");
+        }else if(Sasuke.vida() == true && Naruto.vida() == false){   
+            System.out.println("KAKASHI: - É Naruto, não foi dessa vez.");
+        }else
+            System.out.println("KAKASHI: - O dois perderam. Só não consigo entender como.");
+
         input.close();
     }
 }
@@ -202,3 +216,5 @@ public class Ninja_Interativo {
 //Melhorar recuperação de vida
 //Melhorar comentarios
 //Organizar código
+//Adicionar final do jogo e vencedor
+//Diminuir chakra quando recuperar vida
