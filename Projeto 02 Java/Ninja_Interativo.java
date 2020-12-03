@@ -37,14 +37,14 @@ class Ninja_personagem {
     }
 
     boolean recuperarChakra(){     //Permiti recuperar chakra de acordo com a quantidade de vida
-        if(vida >= 20 && vida <= 40){
+        if((vida >= 20 && vida <= 40) && (chakra >= 20 && vida <= 70)){
             chakra += 20;
             return true;
-        }else if(vida >= 40 && vida <= 80){
+        }else if((vida >= 40 && vida <= 80) && (chakra >= 20 && vida <= 70)){
             chakra += 30;
             agilidade += 5;
             return true;
-        }else if(vida >= 80 && vida < 90){
+        }else if((vida >= 80 && vida < 100) && (chakra >= 20 && vida <= 70)){
             chakra += 40;
             agilidade += 10;
             return true;
@@ -108,7 +108,7 @@ public class Ninja_Interativo {
 
         int movimentoSasuke = aleatorio.nextInt(3);
 
-            if(movimentoSasuke == 1){           //Ataques
+            if(movimentoSasuke == 0){           //Ataques
 
                 int ataqueSasuke = aleatorio.nextInt(3);    
                 if(Sasuke.ataque(ataqueSasuke) != 0){
@@ -118,14 +118,14 @@ public class Ninja_Interativo {
                 }else
                     System.out.println("Que sorte! Sasuke errou o golpe.");
 
-            }else if(movimentoSasuke == 2){     //Recuperar chakra
+            }else if(movimentoSasuke == 1){     //Recuperar chakra
 
                 if(Sasuke.recuperarChakra() == true){
                     System.out.println("Sasuke recuperou chakra!");
                 }else 
                     System.out.println("Seu oponente é muito forte, mas ele não é pareo pra você!");
 
-            }else if(movimentoSasuke == 3){     //recuperar vida
+            }else if(movimentoSasuke == 2){     //recuperar vida
 
                 if(Sasuke.recuperarVida() == true){
                     System.out.println("Sasuke recuperou vida!");
@@ -196,3 +196,9 @@ public class Ninja_Interativo {
         input.close();
     }
 }
+
+
+//Melhorar perda de agilidade 
+//Melhorar recuperação de vida
+//Melhorar comentarios
+//Organizar código
