@@ -94,7 +94,7 @@ class Ninja_personagem {
     }
 
     public String toString(){
-        return "Vida: " + vida + "/100" + " Chakra: " + chakra + " Agilidade: " + agilidade;
+        return "Vida: " + vida + "/100" + " Chakra: " + chakra;
     }
 
     public static void main(String[] args) {
@@ -143,8 +143,8 @@ public class Ninja_Interativo {
         System.out.println("\nAtaque 1 - Rasengan");
         System.out.println("Ataque 2 - Jutsu multiclones da sombras");
         System.out.println("Ataque 3 - Dedo secreto da aldeia da folha");
-        System.out.println("Chakra (recuperar)");
-        System.out.println("Vida (recuperar)");
+        System.out.println("Chakra - recuperar");
+        System.out.println("Vida - recuperar");
         System.out.println("Especial");
     }
 
@@ -201,11 +201,11 @@ public class Ninja_Interativo {
         }
 
         if(Naruto.vida() == true && Sasuke.vida() == false){
-            System.out.println("KAKASHI: - Sasuke perdeu. Parabéns Naruto!");
+            System.out.println("\nKAKASHI: - Sasuke perdeu. Parabéns Naruto!");
         }else if(Sasuke.vida() == true && Naruto.vida() == false){   
-            System.out.println("KAKASHI: - É Naruto, não foi dessa vez.");
+            System.out.println("\nKAKASHI: - É Naruto, não foi dessa vez.");
         }else
-            System.out.println("KAKASHI: - O dois perderam. Só não consigo entender como.");
+            System.out.println("\nKAKASHI: - O dois perderam. Só não consigo entender como.");
 
         input.close();
     }
