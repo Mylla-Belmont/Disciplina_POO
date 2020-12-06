@@ -177,16 +177,16 @@ public class Ninja_Interativo {
 
             }else if(tipo[0].equals("chakra")){
                 if(Naruto.recuperarChakra() == true){   
-                    System.out.println("Você recuperou seu chakra");
+                    System.out.println("Você recuperou seu chakra.");
                 }else{
                     System.out.println("Não foi possivel recuperar seu chakra.");
                 }
 
             }else if(tipo[0].equals("vida")){
                 if(Naruto.recuperarVida() == true){
-                    System.out.println("Você recuperou sua vida");
+                    System.out.println("Você recuperou sua vida.");
                 }else{
-                    System.out.println("Não foi possui recuperar sua vida");
+                    System.out.println("Não foi possui recuperar sua vida.");
                 }
 
             }else
@@ -199,9 +199,9 @@ public class Ninja_Interativo {
         }
 
         if(Naruto.vida() == true && Sasuke.vida() == false){
-            System.out.println("\nKAKASHI: - Sasuke perdeu. Parabéns Naruto!\n\n");
+            System.out.println("\nKAKASHI: - Naruto ganhou! Parabéns, apesar da pouca habilidade foi uma ótima luta.\n\n");
         }else if(Sasuke.vida() == true && Naruto.vida() == false){   
-            System.out.println("\nKAKASHI: - É Naruto, não foi dessa vez.\n\n");
+            System.out.println("\nKAKASHI: - Sasuke ganhou! É Naruto, não foi dessa vez...\n\n");
         }else
             System.out.println("\nKAKASHI: - O dois perderam. Só não consigo entender como.\n\n");
 
@@ -214,6 +214,5 @@ public class Ninja_Interativo {
 //Melhorar recuperação de vida
 //Melhorar comentarios
 //Organizar código
-//Adicionar final do jogo e vencedor
 //Diminuir chakra quando recuperar vida
 //Usar switch em aleatorio
