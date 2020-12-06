@@ -134,6 +134,7 @@ public class Ninja_Interativo {
             case 2:
                 if(Sasuke.especial() == true){         //Verifica se é possivel executar especial
                     Naruto.dano(50);
+                    System.out.println("Sasuke usou um jutsu avançado.");
                     System.out.println("SASUKE: - NARUTOOOO!");
                 }else{
                     System.out.println("SASUKE: - Onde está sua determinação, idiota?!");
@@ -158,9 +159,9 @@ public class Ninja_Interativo {
         System.out.println("\nAtaque 1 - Rasengan");
         System.out.println("Ataque 2 - Jutsu multiclones da sombras");
         System.out.println("Ataque 3 - Dedo secreto da aldeia da folha");
-        System.out.println("Chakra - recuperar");
-        System.out.println("Vida - recuperar");
         System.out.println("Especial");
+        System.out.println("Chakra");
+        System.out.println("Vida");
     }
 
     public static void main(String[] args){
@@ -181,7 +182,7 @@ public class Ninja_Interativo {
             System.out.println("\n");
 
             if(line.equals("end")){
-                System.out.println("KAKASHI: - Acho que você não se sente muito confiante. Não é?\n");
+                System.out.println("SASUKE: - O que foi Naruto? Está com medo?!\n");
                 break;
 
             }else if(tipo[0].equals("ataque")){        
@@ -224,12 +225,15 @@ public class Ninja_Interativo {
         }
 
         if(Naruto.vida() == true && Sasuke.vida() == false){
-            System.out.println("\nKAKASHI: - Naruto ganhou! Parabéns, apesar da pouca habilidade foi uma ótima luta.\n\n");
-        }else if(Sasuke.vida() == true && Naruto.vida() == false){   
-            System.out.println("\nKAKASHI: - Sasuke ganhou! É Naruto, não foi dessa vez...\n\n");
-        }else
-            System.out.println("\nKAKASHI: - O dois perderam. Só não consigo entender como.\n\n");
-
+            System.out.println("VOCÊ GANHOU!");
+            System.out.println("\nKAKASHI: - Parabéns, apesar das poucas habilidades, foi uma ótima luta.\n\n");
+        }else if(Sasuke.vida() == true && Naruto.vida() == false){  
+            System.out.println("VOCÊ PERDEU!"); 
+            System.out.println("\nKAKASHI: - É Naruto, não foi dessa vez...\n\n");
+        }else if(Naruto.vida() == false && Sasuke.vida() == false){
+            System.out.println("AMBOS PERDERAM!");
+            System.out.println("\nKAKASHI: - Só não consigo entender como. Crianças...\n\n");
+        }
         input.close();
     }
 }
