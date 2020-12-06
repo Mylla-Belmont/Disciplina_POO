@@ -1,6 +1,6 @@
 # Projeto java 2
 
-Projeto: Naruto - Ultimate ninja pancadaria
+Projeto: Naruto - Ultimate ninja
 
 Autor: Camila Belmont
 
