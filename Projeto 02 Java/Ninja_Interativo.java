@@ -135,7 +135,6 @@ public class Ninja_Interativo {
                 if(Sasuke.especial() == true){         //Verifica se é possivel executar especial
                     Naruto.dano(50);
                     System.out.println("Sasuke usou um jutsu avançado.");
-                    System.out.println("SASUKE: - NARUTOOOO!");
                 }else{
                     System.out.println("SASUKE: - Onde está sua determinação, idiota?!");
                 }break;
@@ -210,7 +209,7 @@ public class Ninja_Interativo {
             }else if(tipo[0].equals("especial")){
                 if(Naruto.especial() == true){          //Verifica se é possivel executar especial
                     Sasuke.dano(50);
-                    System.out.println("NARUTO: - SASUKEEEE!!!");
+                    System.out.println("Você usou um jutsu avançado.");
                 }else{
                     System.out.println("Não foi possivel executar sua habilidade especial.");
                 }
