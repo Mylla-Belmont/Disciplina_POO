@@ -1,10 +1,8 @@
 # Projeto java 2
 
-<b>Projeto:</b> 
-<p>Naruto - Ultimate ninja</p>
+<b>Projeto:</b> <p>Naruto - Ultimate ninja</p>
 
-<b>Desenvolverdor(a):</b> 
-<p>Camila Belmont</p>
+<b>Desenvolverdor(a):</b> <p>Camila Belmont</p>
 
 <b>Descrição:</b>
 <p>Jogo interativo baseado no anime japonês Naruto.</p>
