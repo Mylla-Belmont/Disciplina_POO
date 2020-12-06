@@ -224,14 +224,14 @@ public class Ninja_Interativo {
         }
 
         if(Naruto.vida() == true && Sasuke.vida() == false){
-            System.out.println("VOCÊ GANHOU!");
-            System.out.println("\nKAKASHI: - Parabéns, apesar das poucas habilidades, foi uma ótima luta.\n\n");
+            System.out.println("\nVOCÊ GANHOU!");
+            System.out.println("KAKASHI: - Parabéns, apesar das poucas habilidades, foi uma ótima luta.\n\n");
         }else if(Sasuke.vida() == true && Naruto.vida() == false){  
-            System.out.println("VOCÊ PERDEU!"); 
-            System.out.println("\nKAKASHI: - É Naruto, não foi dessa vez...\n\n");
+            System.out.println("\nVOCÊ PERDEU!"); 
+            System.out.println("KAKASHI: - É Naruto, não foi dessa vez...\n\n");
         }else if(Naruto.vida() == false && Sasuke.vida() == false){
-            System.out.println("AMBOS PERDERAM!");
-            System.out.println("\nKAKASHI: - Só não consigo entender como. Crianças...\n\n");
+            System.out.println("\nAMBOS PERDERAM!");
+            System.out.println("KAKASHI: - Só não consigo entender como. Crianças...\n\n");
         }
         input.close();
     }
