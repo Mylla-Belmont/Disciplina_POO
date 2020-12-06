@@ -4,7 +4,7 @@ Projeto: Naruto - Ultimate ninja
 
 Autor: Camila Belmont
 
-Descrição:
+<h1>Descrição:<\h1>
       - Jogo interativo para um jogador.
 
 O que foi feito:
