@@ -1,13 +1,15 @@
 # Projeto java 2
 
-<b>Projeto:</b> Naruto - Ultimate ninja
+<b>Projeto:</b> 
+<p>Naruto - Ultimate ninja</p>
 
-<b>Autor:</b> Camila Belmont
+<b>Desenvolverdor(a):</b> 
+<p>Camila Belmont</p>
 
 <b>Descrição:</b>
-<p>Jogo interativo para um jogador.</p>
+<p>Jogo interativo para um player.</p>
 
 <b>O que foi feito:</b>
-<p>O projeto foi inicializado com o objetivo de permitir apenas um jogador, de modo que o personagem adversário execute seus movimentos sem um input de comandos.</p>
+<p>O projeto foi inicializado com o objetivo de permitir que apenas o jogador principal faça o input de comandos, sem necessitar o auxilio de um segundo jogador para garantir a jogabilidade.</p>
 
 
