@@ -33,7 +33,16 @@ class Ninja_personagem {
             return false;
     }
 
-    boolean recuperarVida(){         //Permiti recuperar vida de acordo com a quantidade de chakra
+    boolean especial(){          //Permiti fazer golpe especial de acordo com o nivel de chakra
+        if(especial  == 10 && chakra >= 90){
+            especial -= 10;
+            chakra -= 60;
+            return true;
+        }else 
+            return false;
+    }
+
+    boolean recuperarVida(){    //Permiti recuperar vida de acordo com a quantidade de chakra
         if(chakra >= 10 && chakra <= 40 && vida <= 70){
             vida += 30;
             chakra -= 20;
@@ -94,8 +103,8 @@ class Ninja_personagem {
     }
 
     public static void main(String[] args) {
-        Ninja_personagem Naruto = new Ninja_personagem(100, 100, 0, 50);
-        Ninja_personagem Sasuke = new Ninja_personagem(100, 100, 0, 50);
+        Ninja_personagem Naruto = new Ninja_personagem(100, 100, 10, 50);
+        Ninja_personagem Sasuke = new Ninja_personagem(100, 100, 10, 50);
         
         System.out.println(Naruto);
         System.out.println(Sasuke);
@@ -120,6 +129,14 @@ public class Ninja_Interativo {
                     System.out.println("Sasuke recuperou vida!");
                 }else{
                     System.out.println("SAKURA: - Naruto idiota! Não machuque o meu Sasuke!");
+                }break;
+            
+            case 2:
+                if(Sasuke.especial() == true){         //Verifica se é possivel executar especial
+                    Naruto.dano(50);
+                    System.out.println("SASUKE: - NARUTOOOO!");
+                }else{
+                    System.out.println("SASUKE: - Onde está sua determinação, idiota?!");
                 }break;
                 
             default:       //Ataques
@@ -148,8 +165,8 @@ public class Ninja_Interativo {
 
     public static void main(String[] args){
 
-        Ninja_personagem Naruto = new Ninja_personagem(100, 100, 0, 50);
-        Ninja_personagem Sasuke = new Ninja_personagem(100, 100, 0, 50);
+        Ninja_personagem Naruto = new Ninja_personagem(100, 100, 10, 50);
+        Ninja_personagem Sasuke = new Ninja_personagem(100, 100, 10, 50);
 
         Scanner input = new Scanner(System.in);         //Inicializando scanner
         Random aleatorio = new Random();                //Inicializando gerador de numeros aleatorios
@@ -189,6 +206,14 @@ public class Ninja_Interativo {
                     System.out.println("Não foi possui recuperar sua vida.");
                 }
 
+            }else if(tipo[0].equals("especial")){
+                if(Naruto.especial() == true){          //Verifica se é possivel executar especial
+                    Sasuke.dano(50);
+                    System.out.println("NARUTO: - SASUKEEEE!!!");
+                }else{
+                    System.out.println("Não foi possivel executar sua habilidade especial.");
+                }
+
             }else
                 System.out.println("fail: comando invalido");
             
@@ -208,11 +233,3 @@ public class Ninja_Interativo {
         input.close();
     }
 }
-
-
-//Melhorar perda de agilidade 
-//Melhorar recuperação de vida
-//Melhorar comentarios
-//Organizar código
-//Diminuir chakra quando recuperar vida
-//Usar switch em aleatorio
