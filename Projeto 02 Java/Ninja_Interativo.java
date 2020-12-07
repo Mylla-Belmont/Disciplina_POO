@@ -114,7 +114,7 @@ class Ninja_personagem {
 public class Ninja_Interativo {
     static void sasukeInterativo(Ninja_personagem Sasuke, Ninja_personagem Naruto, Random aleatorio){
 
-        int movimentoSasuke = aleatorio.nextInt(4);     //Escolhe aleatoriamente os movimentos do Sasuke
+        int movimentoSasuke = aleatorio.nextInt(6);     //Escolhe aleatoriamente os movimentos do Sasuke
 
         switch (movimentoSasuke){
             case 0:       //Recuperar vida
