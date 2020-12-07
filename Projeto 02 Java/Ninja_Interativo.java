@@ -155,9 +155,9 @@ public class Ninja_Interativo {
         System.out.println("\nNARUTO: - SASUKEEE!!!\nSASUKE: - NARUTOOO!!!");
         System.out.println("SAKURA: - Kakashi sensei! Faça alguma coisa!");
         System.out.println("KAKASHI: - Deixe eles lutarem, vamos ver onde isso vai dar...");
-        System.out.println("\nAtaque 1 - Rasengan");
+        System.out.println("\nAtaque 1 - Dedo secreto da aldeia da folha");
         System.out.println("Ataque 2 - Jutsu multiclones da sombras");
-        System.out.println("Ataque 3 - Dedo secreto da aldeia da folha");
+        System.out.println("Ataque 3 - Rasengan");
         System.out.println("Especial");
         System.out.println("Chakra");
         System.out.println("Vida");
