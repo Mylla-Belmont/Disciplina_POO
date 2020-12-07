@@ -8,7 +8,7 @@
 <p>Jogo interativo baseado no anime japonês Naruto.</p>
 
 <b>O que foi feito:</b>
-<p>O projeto foi inicializado com o objetivo de permitir que apenas o jogador principal faça o input de comandos, sem necessitar o auxilio de um segundo jogador para garantir a jogabilidade. Tal funcionalidade só foi possivel devido a utilização da classe <b>Random</b> e estuturas condicionais.></p>
+<p>O projeto foi inicializado com o objetivo de permitir que apenas o jogador principal faça o input de comandos, sem necessitar o auxilio de um segundo jogador para garantir a jogabilidade. Tal funcionalidade só foi possivel devido a utilização da classe <b>Random</b> e estuturas condicionais.</p>
 
 <b>Com quem fez:</b>
 <p>Apesar de surgir algumas dúvidas no decorrer do projeto, não se fez necessario a contribuição de outro desenvolvedor. Os questionamentos em questão puderam ser supridos com pesquisas rápidas e perguntas respondidas no servidor de POO no discord.</p>
