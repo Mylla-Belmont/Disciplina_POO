@@ -22,11 +22,12 @@
  - Tópicos aprendidos:
     - Tipos de váriaveis
     - Entrada de strings
-    - Lógica de gameficação
     - Estruturas condicionais 
     - Utilização da classe Random
+    - Lógica básica de gameficação
     - Passar objetos com parametros
-    - Manipulação de atributos de objetos diferentes
+    - Manipulação de atributos com objetos diferentes
 
-
+<b>Quanto tempo levou:</b>
+<p>A estruturação principal do jogo demorou cerca de 2 à 3 dias, enquanto as atualizações de resolução de problemas, incrementação simples de funcionalidades e melhorias durou até o prazo limite do projeto.</p>
 
