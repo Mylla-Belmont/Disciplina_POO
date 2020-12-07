@@ -19,16 +19,14 @@
 <b>O que aprendeu:</b>
 <p>Entre todas as abordagens da linguagem, vale destacar como principal aprendizado a estruturação básica do java, como a utilização das classes, objetos, métodos e atributos, além da expêriencia adiquirida durante a resolução de problemas.</p>
 
-Tópicos aprendidos:
-<p>
-  - Tipos de váriaveis
-  - Entrada de strings
-  - Lógica de gameficação
-  - Estruturas condicionais 
-  - Utilização da classe Random
-  - Passar objetos com parametros
-  - Manipulação de atributos de objetos diferentes
-</p>
+ - Tópicos aprendidos:
+    - Tipos de váriaveis
+    - Entrada de strings
+    - Lógica de gameficação
+    - Estruturas condicionais 
+    - Utilização da classe Random
+    - Passar objetos com parametros
+    - Manipulação de atributos de objetos diferentes
 
 
 
