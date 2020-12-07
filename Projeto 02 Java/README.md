@@ -4,7 +4,7 @@
 
 <b>Desenvolverdor(a):</b> Camila Belmont
 
-<b>Descrição:</b>
+##<b>Descrição:</b>
 <p>Jogo interativo baseado no anime japonês Naruto.</p>
 
 <b>O que foi feito:</b>
