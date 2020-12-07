@@ -1,0 +1,29 @@
+
+
+Você, Naruto, brigou novamente com Sasuke, mas dessa vez ambos estão lutando com todas as forças e ninguém pode impedi-los de humilhar o adversário em uma épica batalha.
+
+Prepare-se para atacar, usando suas tecnicas ninjas preferidas:
+   
+    - ataque 1: Dedos secreto da aldeia da folha (-10 dano)
+    - ataque 2: Jutsu multiclone das sombras  (-20 dano)
+    - ataque 3: Rasengan  (-30 dano)
+
+  *Lembre-se que seu chakra diminui a cada ataque, então tenha cuidado pois sem chakra você       conseguirá atacar.
+  **Para executar um ataque, basta digitar 'ataque (número do jutsu)'
+
+Seu oponente também é muito hábil, e ele não vai hesitar em usar suas hábilidades para ataca-lo ou desviar de seus jutsu. Então, caso seja atingido diversas vezes e sua vida ou chakra encontre-se baixo, você pode usar sua tecnica de recuperação de vida ou a tecnica de recuperação de chakra.
+
+     - vida
+     - chakra
+
+   *Recuperar vida implica na diminuição do seu chakra. Uma troca justa, não?
+   **Recuperar chakra não vai afeta-lo muito. Por isso não se preocupe, concentre-se na luta!
+
+Mas isso não é o fim! Se você estiver em uma situação dificil e seu chakra estiver alto o suficiente, você pode usar uma tecnica especial que tira 50 de dano no oponente, mas que infelizmente só pode ser usado uma vez...
+
+Esteja avisado, Sasuke conhece seus truques. Eles vai usa-los contra você sempre que possivel.
+
+Isso é tudo que precisa saber.
+Prepare-se para luta! 
+3, 2, 1...
+
