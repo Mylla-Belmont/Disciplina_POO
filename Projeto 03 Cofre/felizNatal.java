@@ -44,10 +44,12 @@ class Cachorro  {       //Classe para caracterizar cachorro
 class Personagens  {        //Classe para caracterizar personagens
     int vida;
     int energia;
+    boolean recursos;
     
-    Personagens(int vida, int energia){
+    Personagens(int vida, int energia, boolean recursos){
         this.vida = vida;
         this.energia = energia;
+        this.recursos = recursos;
     }
 
     void perderVida(){
@@ -69,17 +71,24 @@ class Personagens  {        //Classe para caracterizar personagens
         }
     }
 
+    boolean recursos(){
+        if(recursos == true){
+            return true;
+        }
+        return false;
+    }
+
     public String toString() {
         return "Vida: " + vida + "/100";
     }
 
     public static void main(String[] args) {
 
-        Personagens papaiNoel = new Personagens(0, 0);
-        Personagens doidin = new Personagens(0, 0);
+        Personagens papaiNoel = new Personagens(0, 0, false);
+        Personagens grinch = new Personagens(0, 0, false);
 
         System.out.println(papaiNoel);
-        System.out.println(doidin);
+        System.out.println(grinch);
     }
 }
 
@@ -87,8 +96,8 @@ public class felizNatal {       //Classe interativa
 
     public static void main(String[] args) {
 
-        Personagens papaiNoel = new Personagens(0, 0);
-        Personagens doidin = new Personagens(0, 0);
+        Personagens papaiNoel = new Personagens(0, 0, false);
+        Personagens grinch = new Personagens(0, 0, false);
         //Cachorro cachorro = new Cachorro(0, 0);
 
         Scanner scanner = new Scanner(System.in);
@@ -110,12 +119,15 @@ public class felizNatal {       //Classe interativa
 
             }else if(input[0].equals("presente")){
 
-                if(random.nextBoolean()){
+                if(!papaiNoel.recursos && random.nextBoolean()){    //Se não tiver recurso nenhum pode pegar presente
                     papaiNoel.pegarPresente(input[0]);
                     System.out.println("Papai noel pegou o presente!");
+                }else if(!grinch.recursos){
+                    grinch.pegarPresente(input[0]);
+                    System.out.println("O grinch pegou o presente!");
                 }else{
-                    doidin.pegarPresente(input[0]);
-                    System.out.println("O doidin pegou o presente!");
+                    //fazer cachorro comer presente
+                    System.out.println("Ninguém pegou o presente");
                 }
 
             }else if(line.equals("vomitar")){
