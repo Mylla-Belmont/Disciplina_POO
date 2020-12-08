@@ -46,8 +46,23 @@ public class felizNatal {
 
     public static void main(String[] args) {
 
-    Scanner scanner = new Scanner(System.in);
-    Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
 
+        while(true){
+
+            System.out.println("O que você vai fazer?");
+            String line = scanner.nextLine();
+
+            if(line.equals("end")){
+                System.out.println("\nPAPAI NOEL: - Não me deixe aqui sozinho!");
+                break;
+            }else if(line.equals("presente")){
+                
+            }else if(line.equals("vomitar")){
+                
+            }
+        }
+        scanner.close();
     }
 }
