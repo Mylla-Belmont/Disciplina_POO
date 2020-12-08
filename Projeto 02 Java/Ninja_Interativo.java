@@ -1,45 +1,44 @@
 import java.util.Scanner;
 import java.util.Random;
 
-class Ninja_personagem {
+class NinjaPersonagem {
     int vida;
     int chakra;
     int especial;
     int agilidade;
     
-    Ninja_personagem (int vida, int chakra, int especial, int agilidade){ 
+    NinjaPersonagem (int vida, int chakra, int especial, int agilidade){ 
         this.vida = vida;
         this.chakra = chakra;
         this.especial = especial;
         this.agilidade = agilidade;
     }
 
-    void dano(int dano){           //Subtrai a vida dos personagens de acordo com os ataques
-        vida -= dano;
+    void levarDano(int levarDano){           //Subtrai a vida dos personagens de acordo com os ataques
+        vida -= levarDano;
     }
 
-    boolean vida(){               //Verifica se algum deles ainda estão vivo
+    boolean estaVivo(){               //Verifica se algum deles ainda estão vivo
         if(vida > 0)
             return true;
-        else 
-            return false;
+        return false;
     }
 
-    boolean agilidade(){         //Decrementa agilidade no método ataque
+    boolean diminuirAgilidade(){         //Decrementa agilidade no método ataque
         if(agilidade > 5){
             agilidade -= 10;
             return true;
-        }else 
-            return false;
+        }
+        return false;
     }
 
-    boolean especial(){          //Permiti fazer golpe especial de acordo com o nivel de chakra
+    boolean ativarEspecial(){          //Permiti fazer golpe especial de acordo com o nivel de chakra
         if(especial  == 10 && chakra >= 90){
             especial -= 10;
             chakra -= 60;
             return true;
-        }else 
-            return false;
+        }
+        return false;
     }
 
     boolean recuperarVida(){    //Permiti recuperar vida de acordo com a quantidade de chakra
@@ -58,9 +57,8 @@ class Ninja_personagem {
             chakra -= 5;
             agilidade += 20;
             return true;
-        }else{
-            return false;
         }
+        return false;
     }
 
     boolean recuperarChakra(){     //Permiti recuperar chakra de acordo com a quantidade de vida
@@ -76,9 +74,8 @@ class Ninja_personagem {
             chakra += 10;
             agilidade += 20;
             return true;
-        }else{
-            return false;
         }
+        return false;
     }
 
     int ataque(int ataque){      //Executa o ataque conforme a quantidade de chakra
@@ -94,8 +91,8 @@ class Ninja_personagem {
             chakra -= 20;
             agilidade -= 20;
             return 30;
-        }else
-            return 0;
+        }
+        return 0;
     }
 
     public String toString(){   //Imprime informações dos pesonagens
@@ -103,8 +100,8 @@ class Ninja_personagem {
     }
 
     public static void main(String[] args) {
-        Ninja_personagem Naruto = new Ninja_personagem(100, 100, 10, 50);
-        Ninja_personagem Sasuke = new Ninja_personagem(100, 100, 10, 50);
+        NinjaPersonagem Naruto = new NinjaPersonagem(100, 100, 10, 50);
+        NinjaPersonagem Sasuke = new NinjaPersonagem(100, 100, 10, 50);
         
         System.out.println(Naruto);
         System.out.println(Sasuke);
@@ -112,7 +109,7 @@ class Ninja_personagem {
 }
 
 public class Ninja_Interativo {
-    static void sasukeInterativo(Ninja_personagem Sasuke, Ninja_personagem Naruto, Random aleatorio){
+    static void sasukeInterativo(NinjaPersonagem Sasuke, NinjaPersonagem Naruto, Random aleatorio){
 
         int movimentoSasuke = aleatorio.nextInt(6);     //Escolhe aleatoriamente os movimentos do Sasuke
 
@@ -132,8 +129,8 @@ public class Ninja_Interativo {
                 }break;
             
             case 2:
-                if(Sasuke.especial() == true){         //Verifica se é possivel executar especial
-                    Naruto.dano(50);
+                if(Sasuke.ativarEspecial() == true){         //Verifica se é possivel executar especial
+                    Naruto.levarDano(50);
                     System.out.println("Sasuke usou um jutsu avançado.");
                 }else{
                     System.out.println("SASUKE: - Onde está sua determinação, idiota?!");
@@ -143,8 +140,8 @@ public class Ninja_Interativo {
                 int ataqueSasuke = aleatorio.nextInt(4);    
                
                 if(ataqueSasuke != 0){       //Gera um ataque aleatório e verifica se é possivel ser executado
-                    Naruto.dano(Sasuke.ataque(ataqueSasuke));
-                    System.out.println("Sasuke atacou e você sofreu dano!");
+                    Naruto.levarDano(Sasuke.ataque(ataqueSasuke));
+                    System.out.println("Sasuke atacou e você sofreu levarDano!");
                 }else{
                     System.out.println("Que sorte! Sasuke errou o golpe.");
                 }break;
@@ -165,15 +162,14 @@ public class Ninja_Interativo {
 
     public static void main(String[] args){
 
-        Ninja_personagem Naruto = new Ninja_personagem(100, 100, 10, 50);
-        Ninja_personagem Sasuke = new Ninja_personagem(100, 100, 10, 50);
+        NinjaPersonagem Naruto = new NinjaPersonagem(100, 100, 10, 50);
+        NinjaPersonagem Sasuke = new NinjaPersonagem(100, 100, 10, 50);
 
         Scanner input = new Scanner(System.in);         //Inicializando scanner
         Random aleatorio = new Random();                //Inicializando gerador de numeros aleatorios
-
         imprimir();
         
-        while(Naruto.vida() == true && Sasuke.vida() == true){            //loop para continuidade do jogo
+        while(Naruto.estaVivo() == true && Sasuke.estaVivo() == true){            //loop para continuidade do jogo
 
             System.out.println("\nNaruto, escolha sua ação:");
             String line = input.nextLine();                               //Leitura de entrada-string
@@ -185,11 +181,11 @@ public class Ninja_Interativo {
                 break;
 
             }else if(tipo[0].equals("ataque")){        
-                if(aleatorio.nextBoolean() == true && Sasuke.agilidade() == true){      //Gera aleatoriedade para movimento e verifica se desvio é possivel
+                if(aleatorio.nextBoolean() == true && Sasuke.diminuirAgilidade() == true){      //Gera aleatoriedade para movimento e verifica se desvio é possivel
                     System.out.println("Sasuke desviou.");
                 }else{
-                    Sasuke.dano(Naruto.ataque(Integer.parseInt(tipo[1])));              //Sasuke sofre dano de acordo com o ataque de Naruto
-                    System.out.println("Sasuke sofreu dano!");
+                    Sasuke.levarDano(Naruto.ataque(Integer.parseInt(tipo[1])));              //Sasuke sofre levarDano de acordo com o ataque de Naruto
+                    System.out.println("Sasuke sofreu levarDano!");
                 }
 
             }else if(tipo[0].equals("chakra")){
@@ -207,10 +203,10 @@ public class Ninja_Interativo {
                 }
 
             }else if(tipo[0].equals("especial")){
-                if(aleatorio.nextBoolean() == true && Sasuke.agilidade() == true){      //Gera aleatoriedade para movimento e verifica se desvio é possivel
+                if(aleatorio.nextBoolean() == true && Sasuke.diminuirAgilidade() == true){      //Gera aleatoriedade para movimento e verifica se desvio é possivel
                     System.out.println("Sasuke desviou.");
-                }else if(Naruto.especial() == true){          //Verifica se é possivel executar especial
-                    Sasuke.dano(50);
+                }else if(Naruto.ativarEspecial() == true){          //Verifica se é possivel executar especial
+                    Sasuke.levarDano(50);
                     System.out.println("Você usou um jutsu avançado.");
                 }else{
                     System.out.println("Não foi possivel executar sua habilidade especial.");
@@ -225,13 +221,13 @@ public class Ninja_Interativo {
             System.out.println("Naruto " + Naruto);
         }
 
-        if(Naruto.vida() == true && Sasuke.vida() == false){
+        if(Naruto.estaVivo() == true && Sasuke.estaVivo() == false){
             System.out.println("\nVOCÊ GANHOU!");
             System.out.println("KAKASHI: - Parabéns, apesar das poucas habilidades, foi uma ótima luta.\n\n");
-        }else if(Sasuke.vida() == true && Naruto.vida() == false){  
+        }else if(Sasuke.estaVivo() == true && Naruto.estaVivo() == false){  
             System.out.println("\nVOCÊ PERDEU!"); 
             System.out.println("KAKASHI: - É Naruto, não foi dessa vez...\n\n");
-        }else if(Naruto.vida() == false && Sasuke.vida() == false){
+        }else if(Naruto.estaVivo() == false && Sasuke.estaVivo() == false){
             System.out.println("\nAMBOS PERDERAM!");
             System.out.println("KAKASHI: - Só não consigo entender como. Crianças...\n\n");
         }
