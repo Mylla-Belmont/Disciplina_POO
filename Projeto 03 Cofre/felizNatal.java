@@ -112,8 +112,11 @@ public class felizNatal {       //Classe interativa
 
                 if(random.nextBoolean()){
                     papaiNoel.pegarPresente(input[0]);
-                }else
+                    System.out.println("Papai noel pegou o presente!");
+                }else{
                     doidin.pegarPresente(input[0]);
+                    System.out.println("O doidin pegou o presente!");
+                }
 
             }else if(line.equals("vomitar")){
 
