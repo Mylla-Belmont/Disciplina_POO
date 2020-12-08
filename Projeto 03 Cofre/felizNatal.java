@@ -1,5 +1,19 @@
 import java.util.Scanner;
 
+class Cachorro  {
+    int barriga;
+
+    Cachorro (int barriga){
+        this.barriga = barriga;
+    }
+
+    public static void main(String[] args) {
+        
+        Cachorro cachorro = new Cachorro(0);
+
+        System.out.println(cachorro);
+    }
+}
 
 class Personagens  {
     int vida;
@@ -9,7 +23,7 @@ class Personagens  {
     }
 
     void perderVida(){
-        vida -= golpe;
+        //vida -= golpe;
     }
 
     int atacar(){
@@ -31,7 +45,7 @@ public class felizNatal {
 
     public static void main(String[] args) {
 
-        
+
 
     }
 }
