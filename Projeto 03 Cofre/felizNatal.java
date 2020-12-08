@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Random;
 
 class Cachorro  {
     int barriga;
@@ -45,7 +46,8 @@ public class felizNatal {
 
     public static void main(String[] args) {
 
-
+    Scanner scanner = new Scanner(System.in);
+    Random random = new Random();
 
     }
 }
