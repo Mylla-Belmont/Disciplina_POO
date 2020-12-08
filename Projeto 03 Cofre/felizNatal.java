@@ -1,7 +1,15 @@
 import java.util.Scanner;
 import java.util.Random;
 
-class Cachorro  {
+class Presente  {
+    String cor;
+
+    Presente (String cor){
+        this.cor = cor;
+    }
+}
+
+class Cachorro  {       //Classe para caracterizar cachorro
     int barriga;
     int maxBarriga;
 
@@ -33,7 +41,7 @@ class Cachorro  {
     }
 }
 
-class Personagens  {
+class Personagens  {        //Classe para caracterizar personagens
     int vida;
     int energia;
     
@@ -46,17 +54,20 @@ class Personagens  {
         //vida -= golpe;
     }
 
-    // int atacar(){
-    //     if("rosa"){
+    void pegarPresente(String input){
 
-    //     }if("azul"){
+        //Presente presente = new Presente(input);
 
-    //     }if("verde"){
+        if(input.equals("rosa")){
 
-    //     }
+        }
+        if(input.equals("azul")){
 
-    //     return 0;
-    // }
+        }
+        if(input.equals("verde")){
+
+        }
+    }
 
     public String toString() {
         return "Vida: " + vida + "/100";
@@ -72,13 +83,13 @@ class Personagens  {
     }
 }
 
-public class felizNatal {
+public class felizNatal {       //Classe interativa
 
     public static void main(String[] args) {
 
         Personagens papaiNoel = new Personagens(0, 0);
         Personagens doidin = new Personagens(0, 0);
-        Cachorro cachorro = new Cachorro(0, 0)
+        //Cachorro cachorro = new Cachorro(0, 0);
 
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
@@ -87,14 +98,23 @@ public class felizNatal {
 
             System.out.println("O que você vai fazer?");
             String line = scanner.nextLine();
+            String[] input = line.split(" ");
 
-            if(line.equals("end")){
+
+            if(input[0].equals("end")){
                 System.out.println("\nPAPAI NOEL: - Não me deixe aqui sozinho!");
                 break;
-            }else if(line.equals("show")){ 
+
+            }else if(input[0].equals("show")){ 
                 System.out.println("Papai Noel: " + papaiNoel);
-            }else if(line.equals("presente")){
-                
+
+            }else if(input[0].equals("presente")){
+
+                if(random.nextBoolean()){
+                    papaiNoel.pegarPresente(input[0]);
+                }else
+                    doidin.pegarPresente(input[0]);
+
             }else if(line.equals("vomitar")){
 
             }
