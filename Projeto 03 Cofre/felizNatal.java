@@ -1,11 +1,17 @@
 import java.util.Scanner;
 import java.util.Random;
 
-class Presente  {
+class Presente  {       //Classe para caracterizar os presentes
     String cor;
 
     Presente (String cor){
         this.cor = cor;
+    }
+
+    public static void main(String[] args) {
+
+        Presente presente = new Presente("cor");
+        System.out.println(presente);
     }
 }
 
@@ -58,16 +64,14 @@ class Personagens  {        //Classe para caracterizar personagens
 
     void pegarPresente(String input){
 
-        //Presente presente = new Presente(input);
-
         if(input.equals("rosa")){
-
+            System.out.println("Você jogou um presente rosa");
         }
         if(input.equals("azul")){
-
+            System.out.println("Você jogou um presente azul");
         }
         if(input.equals("verde")){
-
+            System.out.println("Você jogou um presente verde");
         }
     }
 
@@ -105,7 +109,7 @@ public class felizNatal {       //Classe interativa
 
         while(true){
 
-            System.out.println("O que você vai fazer?");
+            System.out.println("\nO que você vai fazer?");
             String line = scanner.nextLine();
             String[] input = line.split(" ");
 
@@ -120,10 +124,10 @@ public class felizNatal {       //Classe interativa
             }else if(input[0].equals("presente")){
 
                 if(!papaiNoel.recursos && random.nextBoolean()){    //Se não tiver recurso nenhum pode pegar presente
-                    papaiNoel.pegarPresente(input[0]);
+                    papaiNoel.pegarPresente(input[1]);
                     System.out.println("Papai noel pegou o presente!");
                 }else if(!grinch.recursos){
-                    grinch.pegarPresente(input[0]);
+                    grinch.pegarPresente(input[1]);
                     System.out.println("O grinch pegou o presente!");
                 }else{
                     //fazer cachorro comer presente
