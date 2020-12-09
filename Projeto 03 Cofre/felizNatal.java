@@ -3,42 +3,43 @@ import java.util.Random;
 
 class sacolaPresente  {       //Classe para caracterizar os presentes
     int resistencia;
+    String nomePresente;
 
-    sacolaPresente (int resistencia){   
+    sacolaPresente (int resistencia, String nomePresente){   
         this.resistencia = resistencia;
+        this.nomePresente = nomePresente;
     }
 
-    String pacotePresente(String input, Random random){    //Especificar qual presente
+    void pacotePresente(String input, Random random){    //Especificar qual presente
 
-        if(input.equals("rosa") && resistencia != 0){
+        if(input.equals("rosa")){
 
-            int objeto = random.nextInt(0);         //Usar array
+            int objeto = random.nextInt(4);         //Usar array
 
-            if(objeto == 0){
-                return "palito de dente";
+            if(objeto == 0){        //Adicionar resistencia depois
+                nomePresente = "palito de dente";
             }
             if(objeto == 1){
-                return "Iphone 12 pro max";
+                nomePresente = "Iphone 2 pro max";
             }
             if(objeto == 2){
-                return "fone de ouvido";
-            }if(objeto == 3){
-                return "1k de arroz";
+                nomePresente = "fonde de ouvido";
             }
-            return "";
+            if(objeto == 3){
+                nomePresente = "1k de arroz";
+            }
         }
 
-        if(input.equals("azul") && resistencia != 0){
+        if(input.equals("azul")){  
             
-        }if(input.equals("verde") && resistencia != 0){
+        }if(input.equals("verde")){ 
             
         }
-        return "";
     }
 
     public static void main(String[] args) {
 
-        sacolaPresente presente = new sacolaPresente(0);
+        sacolaPresente presente = new sacolaPresente(0, "");
         System.out.println(presente);
     }
 }
@@ -128,7 +129,7 @@ class Personagens  {        //Classe para caracterizar personagens
 
         Personagens papaiNoel = new Personagens(0, 0, false, 0);
         Personagens grinch = new Personagens(0, 0, false, 0);
-        sacolaPresente presente = new sacolaPresente(0);
+        sacolaPresente presente = new sacolaPresente(0, "");
 
         
 
@@ -144,7 +145,7 @@ public class felizNatal {       //Classe interativa
 
         Personagens papaiNoel = new Personagens(0, 0, false, 0);
         Personagens grinch = new Personagens(0, 0, false, 0);
-        sacolaPresente presente = new sacolaPresente(0);
+        sacolaPresente presente = new sacolaPresente(0, "");
         
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
@@ -165,15 +166,15 @@ public class felizNatal {       //Classe interativa
 
             }else if(input[0].equals("presente")){
 
-                String conteudoPresente = presente.pacotePresente(input[1], random);
+                presente.pacotePresente(input[1], random);
 
                 if(!papaiNoel.recurso && random.nextBoolean()){    //Se não tiver recurso nenhum pode pegar presente
                     papaiNoel.pegarPresente(input[1]);
-                    System.out.println("Papai noel pegou um " + conteudoPresente);
+                    System.out.println("Papai noel pegou um " + presente.nomePresente);
                     
                 }else if(!grinch.recurso){
                     grinch.pegarPresente(input[1]);
-                    System.out.println("O grinch pegou um " + conteudoPresente);
+                    System.out.println("O grinch pegou um " + presente.nomePresente);
 
                 }else{
                     //fazer cachorro comer presente
