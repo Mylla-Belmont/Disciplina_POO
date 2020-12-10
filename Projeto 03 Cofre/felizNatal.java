@@ -12,28 +12,40 @@ class sacolaPresente  {       //Classe para caracterizar os presentes
 
     void pacotePresente(String input, Random random){    //Especificar qual presente
 
+        int objeto = random.nextInt(4);         //Usar array
+
         if(input.equals("rosa")){
-
-            int objeto = random.nextInt(4);         //Usar array
-
             if(objeto == 0){        //Adicionar resistencia depois
                 nomePresente = "palito de dente";
-            }
-            if(objeto == 1){
-                nomePresente = "Iphone 2 pro max";
-            }
-            if(objeto == 2){
-                nomePresente = "fonde de ouvido";
-            }
-            if(objeto == 3){
+            }else if(objeto == 1){
+                nomePresente = "Iphone 12 pro max";
+            }else if(objeto == 2){
+                nomePresente = "fone de ouvido";
+            }else if(objeto == 3){
                 nomePresente = "1k de arroz";
             }
         }
-
-        if(input.equals("azul")){  
+        if(input.equals("azul")){ 
+            if(objeto == 0){        //Adicionar resistencia depois
+                nomePresente = "violão";
+            }else if(objeto == 1){
+                nomePresente = "tênis";
+            }else if(objeto == 2){
+                nomePresente = "gato";
+            }else if(objeto == 3){
+                nomePresente = "conjunto de panelas da tramontina";
+            } 
             
         }if(input.equals("verde")){ 
-            
+            if(objeto == 0){        //Adicionar resistencia depois
+                nomePresente = "Play Station 5";
+            }else if(objeto == 1){
+                nomePresente = "frigobar da polishop";
+            }else if(objeto == 2){
+                nomePresente = "estojo de maquiagem";
+            }else if(objeto == 3){
+                nomePresente = "poster do Felipe Neto";
+            }
         }
     }
 
@@ -80,24 +92,24 @@ class Personagens  {        //Classe para caracterizar personagens
     int vida;
     int energia;
     boolean recurso;
-    int poderrecurso;
+    int poderRecurso;
     
-    Personagens(int vida, int energia, Boolean recurso, int poderrecurso){
+    Personagens(int vida, int energia, Boolean recurso, int poderRecurso){
         this.vida = vida;
         this.energia = energia;
         this.recurso = recurso;
-        this.poderrecurso = poderrecurso;
+        this.poderRecurso = poderRecurso;
     }
 
-    void brigar(Personagens other){     //FALTA adicionar entrada de parametros na main
-        if(this.poderrecurso > other.poderrecurso){
-            //other.vida -= *****;
-        }
-        if(other.poderrecurso > this.poderrecurso){
-            //this.vida -= *****;
-        }
+    // void brigar(Personagens other){     //FALTA adicionar entrada de parametros na main
+    //     if(this.poderRecurso > other.poderRecurso){
+    //         //other.vida -= *****;
+    //     }
+    //     if(other.poderRecurso > this.poderRecurso){
+    //         //this.vida -= *****;
+    //     }
 
-    }
+    // }
 
     void pegarPresente(String input){
 
@@ -130,8 +142,6 @@ class Personagens  {        //Classe para caracterizar personagens
         Personagens papaiNoel = new Personagens(0, 0, false, 0);
         Personagens grinch = new Personagens(0, 0, false, 0);
         sacolaPresente presente = new sacolaPresente(0, "");
-
-        
 
         System.out.println(papaiNoel);
         System.out.println(grinch);
@@ -174,7 +184,7 @@ public class felizNatal {       //Classe interativa
                     
                 }else if(!grinch.recurso){
                     grinch.pegarPresente(input[1]);
-                    System.out.println("O grinch pegou um " + presente.nomePresente);
+                    System.out.println("Grinch pegou um " + presente.nomePresente);
 
                 }else{
                     //fazer cachorro comer presente
