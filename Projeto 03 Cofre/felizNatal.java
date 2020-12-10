@@ -6,29 +6,42 @@ class sacolaPresente  {       //Classe para caracterizar os presentes
     String nomePresente;
     int poderPresente;
     int qtdPresentes;
+    int maxPresentes;
+    int resistencia;
 
-    sacolaPresente (String nomePresente, int poderPresente, int qtdPresentes){   
+    sacolaPresente (String nomePresente, int poderPresente, int qtdPresentes, int maxPresentes, int resistencia){   
         this.nomePresente = nomePresente;
         this.poderPresente = poderPresente;
         this.qtdPresentes = qtdPresentes;
+        this.maxPresentes = maxPresentes;
+        this.resistencia = resistencia;
     }
 
-    void abrirPresente(Random random){    //Especificar qual presente
+    void abrirPresente(int tipoPresente){    //Recebe como parametro um aleatorio para escolher um dos presentes
 
         ArrayList<String> conteudoPresente = new ArrayList<String>();
-        int tipoPresente = random.nextInt(7);
 
         conteudoPresente.add("palito de dente");
         conteudoPresente.add("poster do Felipe Neto");
-        conteudoPresente.add("Iphone 12 pro max");
-        conteudoPresente.add("fone de ouvido");
         conteudoPresente.add("estojo de maquiagem");
+        conteudoPresente.add("fone de ouvido");
+        conteudoPresente.add("Iphone 12 pro max");
         conteudoPresente.add("1k de arroz");
-        conteudoPresente.add("frigobar da polishop");
         conteudoPresente.add("Play Station 5");
+        conteudoPresente.add("frigobar da polishop");
 
         nomePresente = conteudoPresente.get(tipoPresente);
+        resistencia = tipoPresente;
         poderPresente = tipoPresente;
+    }
+
+    boolean diminuirResistencia(){
+
+        if(resistencia > 0){
+            resistencia -= 1;
+            return true;
+        }
+        return false;
     }
 
     public String toString() {
@@ -37,7 +50,7 @@ class sacolaPresente  {       //Classe para caracterizar os presentes
 
     public static void main(String[] args) {
 
-        sacolaPresente presente = new sacolaPresente("", 0, 0);
+        sacolaPresente presente = new sacolaPresente("", 0, 0, 28, 0);
         System.out.println(presente);
     }
 }
@@ -78,21 +91,23 @@ class Personagens  {        //Classe para caracterizar personagens
     int vida;
     boolean recurso;
     int poderRecurso;
+    int levarDano;
     
-    Personagens(int vida, int energia, Boolean recurso, int poderRecurso){
+    Personagens(int vida, int energia, Boolean recurso, int poderRecurso, int levarDano){
         this.vida = vida;
         this.recurso = recurso;
         this.poderRecurso = poderRecurso;
+        this.levarDano = levarDano;
     }
 
     void brigar(Personagens other){     //FALTA adicionar entrada de parametros na main
         if(this.poderRecurso > other.poderRecurso){
             other.vida -= this.poderRecurso;
-            this.recurso = false;
+            other.levarDano += this.poderRecurso; 
         }
         if(other.poderRecurso > this.poderRecurso){
             this.vida -= other.poderRecurso;
-            other.recurso = false;
+            this.levarDano += poderRecurso; 
         }
     }
 
@@ -102,9 +117,9 @@ class Personagens  {        //Classe para caracterizar personagens
 
     public static void main(String[] args) {
 
-        Personagens papaiNoel = new Personagens(100, 0, false, 0);
-        Personagens grinch = new Personagens(100, 0, false, 0);
-        sacolaPresente presente = new sacolaPresente("", 0, 0);
+        Personagens papaiNoel = new Personagens(100, 0, false, 0, 0);
+        Personagens grinch = new Personagens(100, 0, false, 0, 0);
+        sacolaPresente presente = new sacolaPresente("", 0, 0, 28, 0);
 
         System.out.println(papaiNoel);
         System.out.println(grinch);
@@ -116,9 +131,9 @@ public class felizNatal {       //Classe interativa
 
     public static void main(String[] args) {
 
-        Personagens papaiNoel = new Personagens(100, 0, false, 0);
-        Personagens grinch = new Personagens(100, 0, false, 0);
-        sacolaPresente presente = new sacolaPresente("", 0, 0);
+        Personagens papaiNoel = new Personagens(100, 0, false, 0, 0);
+        Personagens grinch = new Personagens(100, 0, false, 0, 0);
+        sacolaPresente presente = new sacolaPresente("", 0, 0, 28, 0);
         
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
@@ -140,31 +155,47 @@ public class felizNatal {       //Classe interativa
 
                 System.out.println("\nVocê jogou um presente.");
                 System.out.println("\n");
-                
-                presente.abrirPresente(random);      //Chama o metodo abrirPresente da classe sacolaPresente para sortear o conteudo do presente
 
-                if(!papaiNoel.recurso && random.nextBoolean()){    //Se não tiver recurso nenhum pode pegar presente
-                    papaiNoel.recurso = true;                      //Modifica atributo recurso para True, já que o personagem pegou o presente
+                int tipoPresente = random.nextInt(7);
+                presente.abrirPresente(tipoPresente);                   //Chama o metodo abrirPresente da classe sacolaPresente para sortear o conteudo do presente
+                
+                if(!papaiNoel.recurso && random.nextBoolean()){         //Se não tiver recurso nenhum pode pegar presente
+                    papaiNoel.recurso = true;                           //Modifica atributo recurso para True, já que o personagem pegou o presente
                     papaiNoel.poderRecurso = presente.poderPresente;    //Atributo poderRecurso recebe valor do atributo proderPresente da classe sacolaPresente
-                    papaiNoel.brigar(grinch);                      //Chama o metodo brigar
                     System.out.println("Papai noel pegou um " + presente.nomePresente);
+
+                        do{
+                            papaiNoel.brigar(grinch);                           //Chama o metodo brigar~
+                        }while(presente.diminuirResistencia());
+
+                    System.out.println("Papai noel atacou " + tipoPresente + " vezes");
+                    System.out.println("Grinch sofreu " + grinch.levarDano + " de dano");
+                    papaiNoel.recurso = false;
                     
                 }else if(!grinch.recurso){                         
                     grinch.recurso = true;                         
                     grinch.poderRecurso = presente.poderPresente;
-                    grinch.brigar(papaiNoel);
                     System.out.println("Grinch pegou um " + presente.nomePresente);
+
+                        do{
+                            grinch.brigar(papaiNoel);
+                        }while(presente.diminuirResistencia());
+
+                    System.out.println("Grinch atacou " + tipoPresente + " vezes");
+                    System.out.println("Papai Noel sofreu " + papaiNoel.levarDano + " de dano");
+                    grinch.recurso = false;
 
                 }else{
                     //fazer cachorro comer presente
                     System.out.println("Ninguém pegou o presente");
                 }
+
             }else if(line.equals("vomitar")){
 
             }else
-                System.out.println("Fail: Comano invélido");
+                System.out.println("Fail: Comano inválido");
 
-            System.out.println("Papai Noel:" + papaiNoel);
+            System.out.println("\nPapai Noel:" + papaiNoel);
             System.out.println("Grinch: " + grinch);
         }
         scanner.close();
@@ -176,5 +207,4 @@ public class felizNatal {       //Classe interativa
 //Melhorar metodo personagem
 //Melhorar classe presente (adicionar mais atributos - poderPresente objetos para que eles se quebrem)
 //Fazer classe cachorro
-//Melhorar entrada de valores - tornar mais facil
-//Sofrer dano
+//Resolver lógica de dano e ataque
