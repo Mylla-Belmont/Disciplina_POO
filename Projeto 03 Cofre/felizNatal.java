@@ -4,18 +4,19 @@ import java.util.ArrayList;
 
 class sacolaPresente  {       //Classe para caracterizar os presentes
     String nomePresente;
-    int resistencia;
+    int poderPresente;
     int qtdPresentes;
 
-    sacolaPresente (String nomePresente, int resistencia, int qtdPresentes){   
+    sacolaPresente (String nomePresente, int poderPresente, int qtdPresentes){   
         this.nomePresente = nomePresente;
-        this.resistencia = resistencia;
+        this.poderPresente = poderPresente;
         this.qtdPresentes = qtdPresentes;
     }
 
-    int pacotePresente(Random random){    //Especificar qual presente
+    void abrirPresente(Random random){    //Especificar qual presente
 
         ArrayList<String> conteudoPresente = new ArrayList<String>();
+        int tipoPresente = random.nextInt(7);
 
         conteudoPresente.add("palito de dente");
         conteudoPresente.add("poster do Felipe Neto");
@@ -26,52 +27,8 @@ class sacolaPresente  {       //Classe para caracterizar os presentes
         conteudoPresente.add("frigobar da polishop");
         conteudoPresente.add("Play Station 5");
 
-
-
-
-        // int objeto = random.nextInt(7);         //Usar array
-            
-            // if(objeto == 0){        //Adicionar resistencia depois
-            //     nomePresente = "palito de dente";
-            //     qtdPresentes = 7;
-            //     return 0;
-            // }
-            // if(objeto == 1){
-            //     nomePresente = "Iphone 12 pro max";
-            //     qtdPresentes = 6;
-            //     return 1;
-            // }
-            // if(objeto == 2){
-            //     nomePresente = "fone de ouvido";
-            //     qtdPresentes = 5;
-            //     return 2;
-            // }
-            // if(objeto == 3){
-            //     nomePresente = "1k de arroz";
-            //     qtdPresentes = 4;
-            //     return 3;
-            // }
-            // if(objeto == 4){        //Adicionar resistencia depois
-            //     nomePresente = "poster do Felipe Neto";
-            //     qtdPresentes = 3;
-            //     return 0;
-            // }
-            // if(objeto == 5){
-            //     nomePresente = "estojo de maquiagem";
-            //     qtdPresentes = 2;
-            //     return 1;
-            // }
-            // if(objeto == 6){
-            //     nomePresente = "frigobar da polishop";
-            //     qtdPresentes = 1;
-            //     return 2;
-            // }
-            // if(objeto == 7){
-            //     nomePresente = "Play Station 5";
-            //     qtdPresentes = 1;
-            //     return 3;
-            // }
-        return 0;
+        nomePresente = conteudoPresente.get(tipoPresente);
+        poderPresente = tipoPresente;
     }
 
     public String toString() {
@@ -165,7 +122,7 @@ public class felizNatal {       //Classe interativa
         
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
-
+        
         while(true){
 
             System.out.println("\nO que você vai fazer?");
@@ -184,15 +141,17 @@ public class felizNatal {       //Classe interativa
                 System.out.println("\nVocê jogou um presente.");
                 System.out.println("\n");
                 
+                presente.abrirPresente(random);      //Chama o metodo abrirPresente da classe sacolaPresente para sortear o conteudo do presente
+
                 if(!papaiNoel.recurso && random.nextBoolean()){    //Se não tiver recurso nenhum pode pegar presente
-                    papaiNoel.recurso = true;
-                    papaiNoel.poderRecurso = presente.pacotePresente(random);
-                    papaiNoel.brigar(grinch);
+                    papaiNoel.recurso = true;                      //Modifica atributo recurso para True, já que o personagem pegou o presente
+                    papaiNoel.poderRecurso = presente.poderPresente;    //Atributo poderRecurso recebe valor do atributo proderPresente da classe sacolaPresente
+                    papaiNoel.brigar(grinch);                      //Chama o metodo brigar
                     System.out.println("Papai noel pegou um " + presente.nomePresente);
                     
-                }else if(!grinch.recurso){
-                    grinch.recurso = true;
-                    grinch.poderRecurso = presente.pacotePresente(random);
+                }else if(!grinch.recurso){                         
+                    grinch.recurso = true;                         
+                    grinch.poderRecurso = presente.poderPresente;
                     grinch.brigar(papaiNoel);
                     System.out.println("Grinch pegou um " + presente.nomePresente);
 
@@ -213,10 +172,9 @@ public class felizNatal {       //Classe interativa
 }
 
 
-//Resolver poder dos presentes
+//Resolver poderPresente dos presentes
 //Melhorar metodo personagem
-//Melhorar classe presente (adicionar mais atributos - resistencia objetos para que eles se quebrem)
+//Melhorar classe presente (adicionar mais atributos - poderPresente objetos para que eles se quebrem)
 //Fazer classe cachorro
 //Melhorar entrada de valores - tornar mais facil
 //Sofrer dano
-//retirar input
