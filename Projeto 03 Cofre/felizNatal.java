@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.Random;
+import java.util.ArrayList;
 
 class sacolaPresente  {       //Classe para caracterizar os presentes
     String nomePresente;
@@ -14,48 +15,62 @@ class sacolaPresente  {       //Classe para caracterizar os presentes
 
     int pacotePresente(Random random){    //Especificar qual presente
 
-        int objeto = random.nextInt(7);         //Usar array
+        ArrayList<String> conteudoPresente = new ArrayList<String>();
+
+        conteudoPresente.add("palito de dente");
+        conteudoPresente.add("poster do Felipe Neto");
+        conteudoPresente.add("Iphone 12 pro max");
+        conteudoPresente.add("fone de ouvido");
+        conteudoPresente.add("estojo de maquiagem");
+        conteudoPresente.add("1k de arroz");
+        conteudoPresente.add("frigobar da polishop");
+        conteudoPresente.add("Play Station 5");
+
+
+
+
+        // int objeto = random.nextInt(7);         //Usar array
             
-            if(objeto == 0){        //Adicionar resistencia depois
-                nomePresente = "palito de dente";
-                qtdPresentes = 7;
-                return 0;
-            }
-            if(objeto == 1){
-                nomePresente = "Iphone 12 pro max";
-                qtdPresentes = 6;
-                return 1;
-            }
-            if(objeto == 2){
-                nomePresente = "fone de ouvido";
-                qtdPresentes = 5;
-                return 2;
-            }
-            if(objeto == 3){
-                nomePresente = "1k de arroz";
-                qtdPresentes = 4;
-                return 3;
-            }
-            if(objeto == 4){        //Adicionar resistencia depois
-                nomePresente = "poster do Felipe Neto";
-                qtdPresentes = 3;
-                return 0;
-            }
-            if(objeto == 5){
-                nomePresente = "estojo de maquiagem";
-                qtdPresentes = 2;
-                return 1;
-            }
-            if(objeto == 6){
-                nomePresente = "frigobar da polishop";
-                qtdPresentes = 1;
-                return 2;
-            }
-            if(objeto == 7){
-                nomePresente = "Play Station 5";
-                qtdPresentes = 1;
-                return 3;
-            }
+            // if(objeto == 0){        //Adicionar resistencia depois
+            //     nomePresente = "palito de dente";
+            //     qtdPresentes = 7;
+            //     return 0;
+            // }
+            // if(objeto == 1){
+            //     nomePresente = "Iphone 12 pro max";
+            //     qtdPresentes = 6;
+            //     return 1;
+            // }
+            // if(objeto == 2){
+            //     nomePresente = "fone de ouvido";
+            //     qtdPresentes = 5;
+            //     return 2;
+            // }
+            // if(objeto == 3){
+            //     nomePresente = "1k de arroz";
+            //     qtdPresentes = 4;
+            //     return 3;
+            // }
+            // if(objeto == 4){        //Adicionar resistencia depois
+            //     nomePresente = "poster do Felipe Neto";
+            //     qtdPresentes = 3;
+            //     return 0;
+            // }
+            // if(objeto == 5){
+            //     nomePresente = "estojo de maquiagem";
+            //     qtdPresentes = 2;
+            //     return 1;
+            // }
+            // if(objeto == 6){
+            //     nomePresente = "frigobar da polishop";
+            //     qtdPresentes = 1;
+            //     return 2;
+            // }
+            // if(objeto == 7){
+            //     nomePresente = "Play Station 5";
+            //     qtdPresentes = 1;
+            //     return 3;
+            // }
         return 0;
     }
 
