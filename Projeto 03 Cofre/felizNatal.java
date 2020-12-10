@@ -2,56 +2,59 @@ import java.util.Scanner;
 import java.util.Random;
 
 class sacolaPresente  {       //Classe para caracterizar os presentes
-    int resistencia;
     String nomePresente;
 
-    sacolaPresente (int resistencia, String nomePresente){   
-        this.resistencia = resistencia;
+    sacolaPresente (String nomePresente){   
         this.nomePresente = nomePresente;
     }
 
-    void pacotePresente(String input, Random random){    //Especificar qual presente
+    int pacotePresente(String input, Random random){    //Especificar qual presente
 
         int objeto = random.nextInt(4);         //Usar array
 
         if(input.equals("rosa")){
             if(objeto == 0){        //Adicionar resistencia depois
                 nomePresente = "palito de dente";
-            }else if(objeto == 1){
+                return 0;
+            }
+            if(objeto == 1){
                 nomePresente = "Iphone 12 pro max";
-            }else if(objeto == 2){
+                return 1;
+            }
+            if(objeto == 2){
                 nomePresente = "fone de ouvido";
-            }else if(objeto == 3){
+                return 2;
+            }
+            if(objeto == 3){
                 nomePresente = "1k de arroz";
+                return 3;
             }
         }
-        if(input.equals("azul")){ 
+       
+        if(input.equals("verde")){ 
             if(objeto == 0){        //Adicionar resistencia depois
-                nomePresente = "violão";
-            }else if(objeto == 1){
-                nomePresente = "tênis";
-            }else if(objeto == 2){
-                nomePresente = "gato";
-            }else if(objeto == 3){
-                nomePresente = "conjunto de panelas da tramontina";
-            } 
-            
-        }if(input.equals("verde")){ 
-            if(objeto == 0){        //Adicionar resistencia depois
-                nomePresente = "Play Station 5";
-            }else if(objeto == 1){
-                nomePresente = "frigobar da polishop";
-            }else if(objeto == 2){
-                nomePresente = "estojo de maquiagem";
-            }else if(objeto == 3){
                 nomePresente = "poster do Felipe Neto";
+                return 0;
+            }
+            if(objeto == 1){
+                nomePresente = "estojo de maquiagem";
+                return 1;
+            }
+            if(objeto == 2){
+                nomePresente = "frigobar da polishop";
+                return 2;
+            }
+            if(objeto == 3){
+                nomePresente = "Play Station 5";
+                return 3;
             }
         }
+        return 0;
     }
 
     public static void main(String[] args) {
 
-        sacolaPresente presente = new sacolaPresente(0, "");
+        sacolaPresente presente = new sacolaPresente("");
         System.out.println(presente);
     }
 }
@@ -90,47 +93,24 @@ class Cachorro  {       //Classe para caracterizar cachorro
 
 class Personagens  {        //Classe para caracterizar personagens
     int vida;
-    int energia;
     boolean recurso;
     int poderRecurso;
     
     Personagens(int vida, int energia, Boolean recurso, int poderRecurso){
         this.vida = vida;
-        this.energia = energia;
         this.recurso = recurso;
         this.poderRecurso = poderRecurso;
     }
 
-    // void brigar(Personagens other){     //FALTA adicionar entrada de parametros na main
-    //     if(this.poderRecurso > other.poderRecurso){
-    //         //other.vida -= *****;
-    //     }
-    //     if(other.poderRecurso > this.poderRecurso){
-    //         //this.vida -= *****;
-    //     }
-
-    // }
-
-    void pegarPresente(String input){
-
-        if(input.equals("rosa")){
-            //chamar metodo de outra classe
-            System.out.println("Você jogou um presente rosa");
+    void brigar(Personagens other){     //FALTA adicionar entrada de parametros na main
+        if(this.poderRecurso > other.poderRecurso){
+            other.vida -= this.poderRecurso;
+            this.recurso = false;
         }
-        if(input.equals("azul")){
-            System.out.println("Você jogou um presente azul");
+        if(other.poderRecurso > this.poderRecurso){
+            this.vida -= other.poderRecurso;
+            other.recurso = false;
         }
-        if(input.equals("verde")){
-            System.out.println("Você jogou um presente verde");
-        }
-    }
-
-    boolean recurso(){
-        if(recurso){
-            // recurso = 
-            return true;
-        }
-        return false;
     }
 
     public String toString() {
@@ -139,9 +119,9 @@ class Personagens  {        //Classe para caracterizar personagens
 
     public static void main(String[] args) {
 
-        Personagens papaiNoel = new Personagens(0, 0, false, 0);
-        Personagens grinch = new Personagens(0, 0, false, 0);
-        sacolaPresente presente = new sacolaPresente(0, "");
+        Personagens papaiNoel = new Personagens(100, 0, false, 0);
+        Personagens grinch = new Personagens(100, 0, false, 0);
+        sacolaPresente presente = new sacolaPresente("");
 
         System.out.println(papaiNoel);
         System.out.println(grinch);
@@ -153,9 +133,9 @@ public class felizNatal {       //Classe interativa
 
     public static void main(String[] args) {
 
-        Personagens papaiNoel = new Personagens(0, 0, false, 0);
-        Personagens grinch = new Personagens(0, 0, false, 0);
-        sacolaPresente presente = new sacolaPresente(0, "");
+        Personagens papaiNoel = new Personagens(100, 0, false, 0);
+        Personagens grinch = new Personagens(100, 0, false, 0);
+        sacolaPresente presente = new sacolaPresente("");
         
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
@@ -176,14 +156,19 @@ public class felizNatal {       //Classe interativa
 
             }else if(input[0].equals("presente")){
 
-                presente.pacotePresente(input[1], random);
-
+                System.out.println("\nVocê jogou um presente " + input[1]);
+                System.out.println("\n");
+                
                 if(!papaiNoel.recurso && random.nextBoolean()){    //Se não tiver recurso nenhum pode pegar presente
-                    papaiNoel.pegarPresente(input[1]);
+                    papaiNoel.recurso = true;
+                    papaiNoel.poderRecurso = presente.pacotePresente(input[1], random);
+                    papaiNoel.brigar(grinch);
                     System.out.println("Papai noel pegou um " + presente.nomePresente);
                     
                 }else if(!grinch.recurso){
-                    grinch.pegarPresente(input[1]);
+                    grinch.recurso = true;
+                    grinch.poderRecurso = presente.pacotePresente(input[1], random);
+                    grinch.brigar(papaiNoel);
                     System.out.println("Grinch pegou um " + presente.nomePresente);
 
                 }else{
@@ -194,6 +179,9 @@ public class felizNatal {       //Classe interativa
             }else if(line.equals("vomitar")){
 
             }
+
+            System.out.println("Papai Noel:" + papaiNoel);
+            System.out.println("Grinch: " + grinch);
         }
         scanner.close();
     }
