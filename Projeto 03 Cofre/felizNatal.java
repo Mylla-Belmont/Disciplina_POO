@@ -186,3 +186,10 @@ public class felizNatal {       //Classe interativa
         scanner.close();
     }
 }
+
+
+//Resolver poder dos presentes
+//Melhorar metodo personagem
+//Melhorar classe presente (adicionar mais atributos - resistencia objetos para que eles se quebrem)
+//Fazer classe cachorro
+//Melhorar entrada de valores - tornar mais facil
