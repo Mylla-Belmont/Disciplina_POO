@@ -204,3 +204,4 @@ public class felizNatal {       //Classe interativa
 //Fazer classe cachorro
 //Melhorar entrada de valores - tornar mais facil
 //Sofrer dano
+//retirar input
