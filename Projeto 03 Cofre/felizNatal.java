@@ -4,19 +4,17 @@ import java.util.ArrayList;
 import java.io.IOException;
 
 class sacolaPresente  {       //Classe para caracterizar os presentes
-    String nomePresente;
-    int poderPresente;
     int resistencia;
     int qtdPresentes;
+    String nomePresente;
 
-    sacolaPresente (String nomePresente, int poderPresente, int resistencia, int qtdPresentes){   
-        this.nomePresente = nomePresente;
-        this.poderPresente = poderPresente;
+    sacolaPresente (int resistencia, int qtdPresentes, String nomePresente){   
         this.resistencia = resistencia;
         this.qtdPresentes = qtdPresentes;
+        this.nomePresente = nomePresente;
     }
 
-    void abrirPresente(int tipoPresente){    //Recebe como parametro um aleatorio para escolher um dos presentes
+    void abrirPresente(int tipoPresente){    
 
         ArrayList<String> conteudoPresente = new ArrayList<String>();
 
@@ -30,8 +28,6 @@ class sacolaPresente  {       //Classe para caracterizar os presentes
         conteudoPresente.add("frigobar da polishop");
 
         nomePresente = conteudoPresente.get(tipoPresente);
-        resistencia = tipoPresente;
-        poderPresente = tipoPresente;
     }
 
     boolean diminuirResistencia(){
@@ -55,8 +51,7 @@ class sacolaPresente  {       //Classe para caracterizar os presentes
     }
 
     public static void main(String[] args) {
-
-        sacolaPresente presente = new sacolaPresente("", 0, 0, 15);
+        sacolaPresente presente = new sacolaPresente(0, 20, "");
         System.out.println(presente);
     }
 }
@@ -80,18 +75,8 @@ class Cachorro  {       //Classe para caracterizar cachorro
         return false;
     }
 
-    // boolean vomitar(){
-    //     if(barriga != 0){
-    //         System.out.println("O cachorro vomitou o presente");
-    //         return true;
-    //     }
-    //     return false;
-    // }
-
-    public static void main(String[] args) {
-        
+    public static void main(String[] args) {      
         Cachorro cachorro = new Cachorro(0, 5);
-
         System.out.println(cachorro);
     }
 }
@@ -99,25 +84,30 @@ class Cachorro  {       //Classe para caracterizar cachorro
 class Personagens  {        //Classe para caracterizar personagens
     int vida;
     boolean recurso;
+    String nomeRecurso;
     int poderRecurso;
-    int levarDano;
     
-    Personagens(int vida, int energia, Boolean recurso, int poderRecurso, int levarDano){
+    Personagens(int vida, int energia, Boolean recurso, String nomeRecurso, int poderRecurso){
         this.vida = vida;
         this.recurso = recurso;
+        this.nomeRecurso = nomeRecurso;
         this.poderRecurso = poderRecurso;
-        this.levarDano = levarDano;
     }
 
-    void brigar(Personagens other){     //FALTA adicionar entrada de parametros na main
-        if(this.poderRecurso > other.poderRecurso){
+    int brigar(Personagens other){     
+        if(this.poderRecurso > other.poderRecurso)
             other.vida -= this.poderRecurso;
-            other.levarDano = this.poderRecurso; 
-        }
-        if(other.poderRecurso > this.poderRecurso){
+
+        if(other.poderRecurso > this.poderRecurso)
             this.vida -= other.poderRecurso;
-            this.levarDano = poderRecurso; 
-        }
+
+        return poderRecurso;
+    }
+
+    void pegarPresente(int valorPresente, String nomePresente){
+        this.recurso = true;
+        this.poderRecurso = valorPresente;
+        this.nomeRecurso = nomePresente;
     }
 
     boolean estaVivo(){
@@ -133,8 +123,8 @@ class Personagens  {        //Classe para caracterizar personagens
 
     public static void main(String[] args) {
 
-        Personagens papaiNoel = new Personagens(100, 0, false, 0, 0);
-        Personagens grinch = new Personagens(100, 0, false, 0, 0);
+        Personagens papaiNoel = new Personagens(100, 0, false, "", 0);
+        Personagens grinch = new Personagens(100, 0, false, "", 0);
 
         System.out.println(papaiNoel);
         System.out.println(grinch);
@@ -146,37 +136,36 @@ public class felizNatal {       //Classe interativa
     static void batalha(Personagens papaiNoel, Personagens grinch, sacolaPresente presente,  int tipoPresente){
 
         if(papaiNoel.recurso && papaiNoel.poderRecurso > grinch.poderRecurso){
-            papaiNoel.brigar(grinch);
+            int totalDano = papaiNoel.brigar(grinch);
 
             if(!presente.diminuirResistencia()){
                 papaiNoel.recurso = false;
                 System.out.println("Papai Noel não tem mais recuros! Jogue alguma coisa");
             }
 
-        System.out.println("Papai noel atacou " + tipoPresente + " vezes");
-        System.out.println("Grinch sofreu " + grinch.levarDano + " de dano");
+        System.out.println("Papai noel atacou " + tipoPresente + " vezes com " + presente.nomePresente);
+        System.out.println("Grinch sofreu " + totalDano + " de dano");
                 
         }else if(grinch.recurso && grinch.poderRecurso > papaiNoel.poderRecurso){
-            grinch.brigar(papaiNoel);
+            int totalDano = grinch.brigar(papaiNoel);
 
             if(!presente.diminuirResistencia()){
                 grinch.recurso = false;
                 System.out.println("Grinch não tem mais recursos");
             }
 
-        System.out.println("Grinch atacou " + tipoPresente + " vezes");
-        System.out.println("Papai Noel sofreu " + papaiNoel.levarDano + " de dano");
+        System.out.println("Grinch atacou " + tipoPresente + " vezes com " + presente.nomePresente);
+        System.out.println("Papai Noel sofreu " + totalDano + " de dano");
         
         }else 
             System.out.println("Eles estão discutindo. Tente jogar alguma coisa");
     }
 
-
     public static void main(String[] args) throws IOException, InterruptedException {
 
-        Personagens papaiNoel = new Personagens(100, 0, false, 0, 0);
-        Personagens grinch = new Personagens(100, 0, false, 0, 0);
-        sacolaPresente presente = new sacolaPresente("", 0, 0, 15);
+        Personagens papaiNoel = new Personagens(100, 0, false, "", 0);
+        Personagens grinch = new Personagens(100, 0, false, "", 0);
+        sacolaPresente presente = new sacolaPresente(0, 20, "");
         //Cachorro cachorro = new Cachorro(0, 5);
         
         Scanner scanner = new Scanner(System.in);
@@ -188,12 +177,11 @@ public class felizNatal {       //Classe interativa
             String line = scanner.nextLine();
             String[] input = line.split(" ");
 
-            if (System.getProperty("os.name").contains("Windows"))
-                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-            else
-                Runtime.getRuntime().exec("clear");
+            if (System.getProperty("os.name").contains("Windows")) { new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor(); }
+            else { Runtime.getRuntime().exec("clear"); }
 
             int tipoPresente = random.nextInt(7);
+
             presente.abrirPresente(tipoPresente);
             
             if(input[0].equals("end")){
@@ -211,21 +199,18 @@ public class felizNatal {       //Classe interativa
                 presente.qtdPresentes -= 1;
                 
                 if(presente.qtdPresentes > 0){
-                    if(!papaiNoel.recurso && random.nextBoolean()){        
-                        papaiNoel.recurso = true;                           
-                        papaiNoel.poderRecurso = presente.poderPresente;    
-                        System.out.println("Papai noel pegou um " + presente.nomePresente);
+                    if(!papaiNoel.recurso && random.nextBoolean()){
+                        papaiNoel.pegarPresente(tipoPresente, presente.nomePresente);      
+                        System.out.println("Papai noel pegou um " + papaiNoel.nomeRecurso);
                     
-                    }else if(!grinch.recurso){                         
-                        grinch.recurso = true;                         
-                        grinch.poderRecurso = presente.poderPresente;                    
-                        System.out.println("Grinch pegou um " + presente.nomePresente);
+                    }else if(!grinch.recurso){   
+                        grinch.pegarPresente(tipoPresente, presente.nomePresente);                          
+                        System.out.println("Grinch pegou um " + grinch.nomeRecurso);
                     
                     }else 
                         System.out.println("Eles ainda estão brigando");
                 }else  
                     System.out.println("A sacola está vazia! Você não tem mais presentes pra jogar");
-
             }else
                 System.out.println("Fail: Comano inválido");
             
@@ -252,3 +237,4 @@ public class felizNatal {       //Classe interativa
 //Sempre que grinch não tiver recuros, cachorro vomita
 //Faxer cachorro comer presentes que ninguém pega
 //Fazer presentes serem queimados quando cachorro estiver cheio
+//Melhorar MUITA COISA DESSA MERDA!!!
