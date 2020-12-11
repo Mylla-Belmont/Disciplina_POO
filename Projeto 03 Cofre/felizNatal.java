@@ -133,7 +133,7 @@ class Personagens  {        //Classe para caracterizar personagens
 
 public class felizNatal {       //Classe interativa
 
-    static void batalha(Personagens papaiNoel, Personagens grinch, sacolaPresente presente,  int tipoPresente){
+    static void batalha(Personagens papaiNoel, Personagens grinch, sacolaPresente presente){
 
         if(papaiNoel.recurso && papaiNoel.poderRecurso > grinch.poderRecurso){
             int totalDano = papaiNoel.brigar(grinch);
@@ -143,7 +143,7 @@ public class felizNatal {       //Classe interativa
                 System.out.println("Papai Noel não tem mais recuros! Jogue alguma coisa");
             }
 
-        System.out.println("Papai noel atacou " + tipoPresente + " vezes com " + presente.nomePresente);
+        System.out.println("Papai noel atacou " + totalDano + " vezes com " + presente.nomePresente);
         System.out.println("Grinch sofreu " + totalDano + " de dano");
                 
         }else if(grinch.recurso && grinch.poderRecurso > papaiNoel.poderRecurso){
@@ -154,7 +154,7 @@ public class felizNatal {       //Classe interativa
                 System.out.println("Grinch não tem mais recursos");
             }
 
-        System.out.println("Grinch atacou " + tipoPresente + " vezes com " + presente.nomePresente);
+        System.out.println("Grinch atacou " + totalDano + " vezes com " + presente.nomePresente);
         System.out.println("Papai Noel sofreu " + totalDano + " de dano");
         
         }else 
@@ -166,7 +166,6 @@ public class felizNatal {       //Classe interativa
         Personagens papaiNoel = new Personagens(100, 0, false, "", 0);
         Personagens grinch = new Personagens(100, 0, false, "", 0);
         sacolaPresente presente = new sacolaPresente(0, 20, "");
-        //Cachorro cachorro = new Cachorro(0, 5);
         
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
@@ -175,27 +174,24 @@ public class felizNatal {       //Classe interativa
 
             System.out.println("\nO que você vai fazer?");
             String line = scanner.nextLine();
-            String[] input = line.split(" ");
-
+            
             if (System.getProperty("os.name").contains("Windows")) { new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor(); }
             else { Runtime.getRuntime().exec("clear"); }
-
-            int tipoPresente = random.nextInt(7);
-
-            presente.abrirPresente(tipoPresente);
             
-            if(input[0].equals("end")){
-                System.out.println("\nPAPAI NOEL: - Não me deixe aqui sozinho!");
-                break;
+            if(line.equals("end")){
+                System.out.println("\nVocê deixou o Papai Noel sozinho na arena"); break;
 
-            }else if(input[0].equals("brigar")){
+            }else if(line.equals("brigar")){
                 if(papaiNoel.recurso || grinch.recurso){
-                    batalha(papaiNoel, grinch, presente, tipoPresente);
+                    batalha(papaiNoel, grinch, presente);
                 }else   
                     System.out.println("Eles não possuem recursos! Jogue alguma coisa");
 
-            }else if(input[0].equals("jogar")){
-                System.out.println("\nVocê jogou um presente.");
+            }else if(line.equals("jogar")){
+                System.out.println("\nVocê jogou um presente");
+
+                int tipoPresente = random.nextInt(7);
+                presente.abrirPresente(tipoPresente);
                 presente.qtdPresentes -= 1;
                 
                 if(presente.qtdPresentes > 0){
@@ -229,6 +225,8 @@ public class felizNatal {       //Classe interativa
     }
 }
 
+
+//MELHORAR RELAÇÃO ENTRE BRIGAR E JOGAR
 //Fazer classe cachorro
 //Adicionar quantidade de presentes
 //Melhorar classe cachorro
@@ -238,3 +236,4 @@ public class felizNatal {       //Classe interativa
 //Faxer cachorro comer presentes que ninguém pega
 //Fazer presentes serem queimados quando cachorro estiver cheio
 //Melhorar MUITA COISA DESSA MERDA!!!
+//Se grinch pegar um presente, fazer jogar outra vez
