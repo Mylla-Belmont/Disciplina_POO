@@ -5,15 +5,11 @@ import java.util.ArrayList;
 class sacolaPresente  {       //Classe para caracterizar os presentes
     String nomePresente;
     int poderPresente;
-    int qtdPresentes;
-    int maxPresentes;
     int resistencia;
 
-    sacolaPresente (String nomePresente, int poderPresente, int qtdPresentes, int maxPresentes, int resistencia){   
+    sacolaPresente (String nomePresente, int poderPresente, int resistencia){   
         this.nomePresente = nomePresente;
         this.poderPresente = poderPresente;
-        this.qtdPresentes = qtdPresentes;
-        this.maxPresentes = maxPresentes;
         this.resistencia = resistencia;
     }
 
@@ -44,13 +40,9 @@ class sacolaPresente  {       //Classe para caracterizar os presentes
         return false;
     }
 
-    public String toString() {
-        return nomePresente + ": " + qtdPresentes;
-    }
-
     public static void main(String[] args) {
 
-        sacolaPresente presente = new sacolaPresente("", 0, 0, 28, 0);
+        sacolaPresente presente = new sacolaPresente("", 0, 0);
         System.out.println(presente);
     }
 }
@@ -64,24 +56,27 @@ class Cachorro  {       //Classe para caracterizar cachorro
         this.maxBarriga = maxBarriga;
     }
 
-    void comer(){
+    boolean comerPresente(){
         if(barriga <= maxBarriga){
-            System.out.println("Já estou cheio!");
-        }else
-            System.out.println("Presentes! Delicius!!!");
-    }
-
-    boolean vomitar(){
-        if(barriga != 0){
-            System.out.println("O cachorro vomitou o presente");
+            System.out.println("O cachorro comeu o presente");
+            barriga += 1;
             return true;
         }
+        System.out.println("O cachorro chegou ao seu limite");
         return false;
     }
 
+    // boolean vomitar(){
+    //     if(barriga != 0){
+    //         System.out.println("O cachorro vomitou o presente");
+    //         return true;
+    //     }
+    //     return false;
+    // }
+
     public static void main(String[] args) {
         
-        Cachorro cachorro = new Cachorro(0, 0);
+        Cachorro cachorro = new Cachorro(0, 5);
 
         System.out.println(cachorro);
     }
@@ -126,7 +121,7 @@ class Personagens  {        //Classe para caracterizar personagens
 
         Personagens papaiNoel = new Personagens(100, 0, false, 0, 0);
         Personagens grinch = new Personagens(100, 0, false, 0, 0);
-        sacolaPresente presente = new sacolaPresente("", 0, 0, 28, 0);
+        sacolaPresente presente = new sacolaPresente("", 0, 0);
 
         System.out.println(papaiNoel);
         System.out.println(grinch);
@@ -140,7 +135,8 @@ public class felizNatal {       //Classe interativa
 
         Personagens papaiNoel = new Personagens(100, 0, false, 0, 0);
         Personagens grinch = new Personagens(100, 0, false, 0, 0);
-        sacolaPresente presente = new sacolaPresente("", 0, 0, 28, 0);
+        sacolaPresente presente = new sacolaPresente("", 0, 0);
+        Cachorro cachorro = new Cachorro(0, 0);
         
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
@@ -155,9 +151,6 @@ public class felizNatal {       //Classe interativa
                 System.out.println("\nPAPAI NOEL: - Não me deixe aqui sozinho!");
                 break;
 
-            }else if(input[0].equals("presentes")){ 
-                System.out.println("Papai Noel: " + papaiNoel);
-
             }else if(input[0].equals("jogar")){
 
                 System.out.println("\nVocê jogou um presente.");
@@ -169,35 +162,35 @@ public class felizNatal {       //Classe interativa
                 if(!papaiNoel.recurso && random.nextBoolean()){         //Se não tiver recurso nenhum pode pegar presente
                     papaiNoel.recurso = true;                           //Modifica atributo recurso para True, já que o personagem pegou o presente
                     papaiNoel.poderRecurso = presente.poderPresente;    //Atributo poderRecurso recebe valor do atributo proderPresente da classe sacolaPresente
+                    papaiNoel.brigar(grinch);
+
                     System.out.println("Papai noel pegou um " + presente.nomePresente);
-
-                        do{
-                            papaiNoel.brigar(grinch);                           //Chama o metodo brigar~
-                        }while(presente.diminuirResistencia());
-
                     System.out.println("Papai noel atacou " + tipoPresente + " vezes até o " + presente.nomePresente + " quebrar");
                     System.out.println("Grinch sofreu " + grinch.levarDano + " de dano");
-                    papaiNoel.recurso = false;
+
+                    if(!presente.diminuirResistencia()){
+                        papaiNoel.recurso = false;
+                    }
                     
                 }else if(!grinch.recurso){                         
                     grinch.recurso = true;                         
-                    grinch.poderRecurso = presente.poderPresente;
+                    grinch.poderRecurso = presente.poderPresente;                    
+                    grinch.brigar(papaiNoel);
+
                     System.out.println("Grinch pegou um " + presente.nomePresente);
-
-                        do{
-                            grinch.brigar(papaiNoel);
-                        }while(presente.diminuirResistencia());
-
                     System.out.println("Grinch atacou " + tipoPresente + " vezes até o " + presente.nomePresente + " quebrar");
                     System.out.println("Papai Noel sofreu " + papaiNoel.levarDano + " de dano");
-                    grinch.recurso = false;
 
-                }else{
-                    //fazer cachorro comer presente
-                    System.out.println("Ninguém pegou o presente");
-                }
+                    if(!presente.diminuirResistencia()){
+                        grinch.recurso = false;
+                    }
 
-            }else if(line.equals("vomitar")){
+                }else if(cachorro.comerPresente()){
+                        papaiNoel.recurso = false;
+                    }else
+                        System.out.println("Ninguém pegou o presente");
+                
+            // }else if(line.equals("vomitar")){
 
             }else
                 System.out.println("Fail: Comano inválido");
