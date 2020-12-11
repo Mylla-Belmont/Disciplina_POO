@@ -111,6 +111,13 @@ class Personagens  {        //Classe para caracterizar personagens
         }
     }
 
+    boolean estaVivo(){
+        if(vida > 0){
+            return true;
+        }
+        return false;
+    }
+
     public String toString() {
         return "Vida: " + vida + "/100";
     }
@@ -138,7 +145,7 @@ public class felizNatal {       //Classe interativa
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
         
-        while(true){
+        while(papaiNoel.estaVivo() && grinch.estaVivo()){
 
             System.out.println("\nO que você vai fazer?");
             String line = scanner.nextLine();
@@ -168,7 +175,7 @@ public class felizNatal {       //Classe interativa
                             papaiNoel.brigar(grinch);                           //Chama o metodo brigar~
                         }while(presente.diminuirResistencia());
 
-                    System.out.println("Papai noel atacou " + tipoPresente + " vezes");
+                    System.out.println("Papai noel atacou " + tipoPresente + " vezes até o " + presente.nomePresente + " quebrar");
                     System.out.println("Grinch sofreu " + grinch.levarDano + " de dano");
                     papaiNoel.recurso = false;
                     
@@ -181,7 +188,7 @@ public class felizNatal {       //Classe interativa
                             grinch.brigar(papaiNoel);
                         }while(presente.diminuirResistencia());
 
-                    System.out.println("Grinch atacou " + tipoPresente + " vezes");
+                    System.out.println("Grinch atacou " + tipoPresente + " vezes até o " + presente.nomePresente + " quebrar");
                     System.out.println("Papai Noel sofreu " + papaiNoel.levarDano + " de dano");
                     grinch.recurso = false;
 
@@ -197,6 +204,13 @@ public class felizNatal {       //Classe interativa
 
             System.out.println("\nPapai Noel:" + papaiNoel);
             System.out.println("Grinch: " + grinch);
+        }
+        if(papaiNoel.estaVivo() == true && grinch.estaVivo() == false){
+            System.out.println("\nPapai Noel ganhou! Parabéns por ajudar!\n\n");
+        }else if(grinch.estaVivo() == true && papaiNoel.estaVivo() == false){  
+            System.out.println("Grinch ganhou! O natal não vai ser bom pra ninguém...\n\n");
+        }else if(papaiNoel.estaVivo() == false && grinch.estaVivo() == false){
+            System.out.println("Ningupem ganhou. Grinch fugiu e Papai Noel está muito cansado...\n\n");
         }
         scanner.close();
     }
