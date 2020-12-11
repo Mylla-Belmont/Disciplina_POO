@@ -1,6 +1,7 @@
 import java.util.Scanner;
 import java.util.Random;
 import java.util.ArrayList;
+import java.io.IOException;
 
 class sacolaPresente  {       //Classe para caracterizar os presentes
     String nomePresente;
@@ -98,11 +99,11 @@ class Personagens  {        //Classe para caracterizar personagens
     void brigar(Personagens other){     //FALTA adicionar entrada de parametros na main
         if(this.poderRecurso > other.poderRecurso){
             other.vida -= this.poderRecurso;
-            other.levarDano += this.poderRecurso; 
+            other.levarDano = this.poderRecurso; 
         }
         if(other.poderRecurso > this.poderRecurso){
             this.vida -= other.poderRecurso;
-            this.levarDano += poderRecurso; 
+            this.levarDano = poderRecurso; 
         }
     }
 
@@ -131,12 +132,12 @@ class Personagens  {        //Classe para caracterizar personagens
 
 public class felizNatal {       //Classe interativa
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, InterruptedException {
 
         Personagens papaiNoel = new Personagens(100, 0, false, 0, 0);
         Personagens grinch = new Personagens(100, 0, false, 0, 0);
         sacolaPresente presente = new sacolaPresente("", 0, 0);
-        Cachorro cachorro = new Cachorro(0, 0);
+        Cachorro cachorro = new Cachorro(0, 5);
         
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
@@ -147,6 +148,11 @@ public class felizNatal {       //Classe interativa
             String line = scanner.nextLine();
             String[] input = line.split(" ");
 
+            if (System.getProperty("os.name").contains("Windows"))s
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            else
+                Runtime.getRuntime().exec("clear");
+
             if(input[0].equals("end")){
                 System.out.println("\nPAPAI NOEL: - Não me deixe aqui sozinho!");
                 break;
@@ -154,7 +160,6 @@ public class felizNatal {       //Classe interativa
             }else if(input[0].equals("jogar")){
 
                 System.out.println("\nVocê jogou um presente.");
-                System.out.println("\n");
 
                 int tipoPresente = random.nextInt(7);
                 presente.abrirPresente(tipoPresente);                   //Chama o metodo abrirPresente da classe sacolaPresente para sortear o conteudo do presente
@@ -165,7 +170,7 @@ public class felizNatal {       //Classe interativa
                     papaiNoel.brigar(grinch);
 
                     System.out.println("Papai noel pegou um " + presente.nomePresente);
-                    System.out.println("Papai noel atacou " + tipoPresente + " vezes até o " + presente.nomePresente + " quebrar");
+                    System.out.println("Papai noel atacou " + tipoPresente + " vezes");
                     System.out.println("Grinch sofreu " + grinch.levarDano + " de dano");
 
                     if(!presente.diminuirResistencia()){
@@ -178,7 +183,7 @@ public class felizNatal {       //Classe interativa
                     grinch.brigar(papaiNoel);
 
                     System.out.println("Grinch pegou um " + presente.nomePresente);
-                    System.out.println("Grinch atacou " + tipoPresente + " vezes até o " + presente.nomePresente + " quebrar");
+                    System.out.println("Grinch atacou " + tipoPresente + " vezes");
                     System.out.println("Papai Noel sofreu " + papaiNoel.levarDano + " de dano");
 
                     if(!presente.diminuirResistencia()){
@@ -209,9 +214,5 @@ public class felizNatal {       //Classe interativa
     }
 }
 
-
-//Resolver poderPresente dos presentes
-//Melhorar metodo personagem
-//Melhorar classe presente (adicionar mais atributos - poderPresente objetos para que eles se quebrem)
 //Fazer classe cachorro
-//Resolver lógica de dano e ataque
+//Adicionar quantidade de presentes
