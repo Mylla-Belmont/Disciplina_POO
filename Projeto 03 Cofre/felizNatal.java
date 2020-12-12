@@ -31,15 +31,14 @@ class sacolaPresente  {       //Classe para caracterizar os presentes
     }
 
     void tirarPresenteSacola(){
-            qtdPresentes -= 1;
+        qtdPresentes -= 1;
     }
 
-    boolean sacolaPresenteCheio(){      //Verifica se a sacola de presentes não está vazia
-        if(qtdPresentes > 0){
+    boolean sacolaCheia(){      //Verifica se a sacola de presentes não está vazia
+        if(qtdPresentes > 0)
             return true;
-        }
-        System.out.println("Não há mais presentes na sacola");
-        return false;
+    System.out.println("Não há mais presentes na sacola");
+    return false;
     }
 
     public String toString(){
@@ -67,9 +66,9 @@ class Cachorro  {       //Classe para caracterizar cachorro
     void comerPresente(){
         if(barriga <= maxBarriga){
             barriga += 1;
-            System.out.println("o cachorro comeu o o que você jogou");
+            System.out.println("o cachorro comeu o que você jogou");
         }else
-            System.out.println("o presente queimou na laleira");
+            System.out.println("o presente queimou na lareira");
     }
 
     public static void main(String[] args) {      
@@ -85,24 +84,28 @@ class Personagens  {        //Classe para caracterizar personagens
     int vida;
     boolean recurso;
     String nomeRecurso;
-    int poderRecurso;
+    int PoderRecurso;
     
-    Personagens(int vida, int energia, Boolean recurso, String nomeRecurso, int poderRecurso){
+    Personagens(int vida, int energia, Boolean recurso, String nomeRecurso, int PoderRecurso){
         this.vida = vida;
         this.recurso = recurso;
         this.nomeRecurso = nomeRecurso;
-        this.poderRecurso = poderRecurso;
+        this.PoderRecurso = PoderRecurso;
     }
 
     void brigar(Personagens other){     
-        other.vida -= this.poderRecurso;
-        this.vida -= other.poderRecurso;
+        other.vida -= this.PoderRecurso;
+        this.vida -= other.PoderRecurso;
     }
 
     void pegarPresente(int poderPresente, String nomePresenteSorteado){
         this.recurso = true;
-        this.poderRecurso = poderPresente;
+        this.PoderRecurso = poderPresente;
         this.nomeRecurso = nomePresenteSorteado;
+    }
+
+    void perderForcaRecurso(){
+        PoderRecurso -= 1;
     }
 
     boolean estaVivo(){     //Verifica se o personagem está vivo
@@ -130,27 +133,29 @@ public class felizNatal {       //Classe interativa
 
     static void batalha(Personagens papaiNoel, Personagens grinch){
 
-        int maisForte;
-       
-        if(papaiNoel.poderRecurso > grinch.poderRecurso){   //Verifica quem possui o recurso mais forte
-            maisForte = papaiNoel.poderRecurso;
-            papaiNoel.recurso = false;                      //Faz com que o recurso "quebre" apos atacar
+        if(papaiNoel.PoderRecurso > grinch.PoderRecurso){   //Verifica quem possui o recurso mais forte
+            papaiNoel.perderForcaRecurso();
             System.out.println("Papai Noel atacou com um " + papaiNoel.nomeRecurso);
-            System.out.println("Grinch sofreu " + papaiNoel.poderRecurso + " de dano");
-            System.out.println("O " + papaiNoel.nomeRecurso + " do papai Noel não tem mais efeito");
-            System.out.println("Jogue alguma coisa!");
+            System.out.println("Grinch sofreu " + papaiNoel.PoderRecurso + " de dano");
 
         }else{
-            maisForte = grinch.poderRecurso;
-            grinch.recurso = false;
+            grinch.perderForcaRecurso();
             System.out.println("Grinch atacou com um " + papaiNoel.nomeRecurso);
-            System.out.println("Papai Noel sofreu " + grinch.poderRecurso + " de dano");
+            System.out.println("Papai Noel sofreu " + grinch.PoderRecurso + " de dano");
         }
 
-        for(int i = maisForte; i != 0; i--){
-            papaiNoel.brigar(grinch);
-            grinch.brigar(papaiNoel);
+        if(papaiNoel.PoderRecurso == 0){
+            papaiNoel.recurso = false;
+            System.out.println("O " + papaiNoel.nomeRecurso + " do papai Noel não tem mais efeito");
+            System.out.println("Jogue alguma coisa!");
         }
+
+        if(grinch.PoderRecurso == 0){
+            grinch.recurso = false;
+        }
+
+        papaiNoel.brigar(grinch);
+        grinch.brigar(papaiNoel);
     }
 
 //____________________________________________________________________
@@ -174,14 +179,17 @@ public class felizNatal {       //Classe interativa
             System.out.println("\nO que você vai fazer?");
             int line = scanner.nextInt();
             
-            if (System.getProperty("os.name").contains("Windows")) { new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor(); }
-            else { Runtime.getRuntime().exec("clear"); }
+            if (System.getProperty("os.name").contains("Windows")){ 
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor(); 
+            }else 
+                Runtime.getRuntime().exec("clear"); 
 
             int presenteSorteado = random.nextInt(7);
             presente.abrirPresente(presenteSorteado);
 
-            if(line == 1){                                                  //Assitir a briga
-                if(presente.sacolaPresenteCheio()){
+            if(line == 1){                                                  //Asisitir a briga
+
+                if(!grinch.recurso && presente.sacolaCheia() && random.nextBoolean()){
                     presente.tirarPresenteSacola();
                     grinch.pegarPresente(presenteSorteado, presente.nomePresenteSorteado);                          
                     System.out.println("Grinch roubou um " + grinch.nomeRecurso);
@@ -190,20 +198,26 @@ public class felizNatal {       //Classe interativa
                     batalha(papaiNoel, grinch);
                 }else   
                     System.out.println("\nPapai Noel está de mãos vazias! Jogue alguma coisa");
+            
             }else
                 
             if(line == 2){                                                  //Jogar presente na arena
                 System.out.println("\nVocê jogou um presente");
-                presente.tirarPresenteSacola();
 
-                if(!papaiNoel.recurso && presente.sacolaPresenteCheio()){
+                if(!papaiNoel.recurso && presente.sacolaCheia()){
+                    presente.tirarPresenteSacola();
                     papaiNoel.pegarPresente(presenteSorteado, presente.nomePresenteSorteado);      
                     System.out.println("Papai noel pegou um " + papaiNoel.nomeRecurso);
-                }else{ 
-                    System.out.println("Papai Noel já pegou um presente, então");
-                    cachorro.comerPresente();
-                }     
+                }else
+                    if(presente.sacolaCheia()){ 
+                        presente.tirarPresenteSacola();
+                        System.out.println("Papai Noel já pegou um presente, então");
+                        cachorro.comerPresente();
+                    }
+
             }else
+
+            //Cachorro vomitar
 
             if(line == 5){
                 System.out.println("\nVocê deixou o Papai Noel sozinho na arena"); break;
@@ -219,12 +233,10 @@ public class felizNatal {       //Classe interativa
         
         if(papaiNoel.estaVivo() && !grinch.estaVivo()){
             System.out.println("\nPapai Noel ganhou! Parabéns por ajudar!\n\n");
-        }else   
-            if(grinch.estaVivo() && !papaiNoel.estaVivo()){  
-                System.out.println("Grinch ganhou! O natal não vai ser bom pra ninguém...\n\n");
-            }else 
-                if(!papaiNoel.estaVivo() && !grinch.estaVivo()){
-                    System.out.println("Ningupem ganhou. Grinch fugiu e Papai Noel está muito cansado...\n\n");
+        }else  if(grinch.estaVivo() && !papaiNoel.estaVivo()){  
+            System.out.println("Grinch ganhou! O natal não vai ser bom pra ninguém...\n\n");
+        }else  if(!papaiNoel.estaVivo() && !grinch.estaVivo()){
+            System.out.println("Ningupem ganhou. Grinch fugiu e Papai Noel está muito cansado...\n\n");
         }
         scanner.close();
     }
@@ -234,3 +246,4 @@ public class felizNatal {       //Classe interativa
 //Melhorar classe cachorro
 //Fazer cachorro vomitar
 //Fazer metodo para quando a sacola de presentes estiver vazia
+//Melhorar loop de brigas
