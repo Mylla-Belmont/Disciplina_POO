@@ -44,14 +44,13 @@ class sacolaPresente  {       //Classe para caracterizar os presentes
     }
 
     public static void main(String[] args) {
-        
+
         sacolaPresente presente = new sacolaPresente(0, 20, "");
         System.out.println(presente);
     }
 }
 
-
-
+//____________________________________________________________________
 
 class Cachorro  {       //Classe para caracterizar cachorro
     int barriga;
@@ -79,8 +78,7 @@ class Cachorro  {       //Classe para caracterizar cachorro
     }
 }
 
-
-
+//____________________________________________________________________
 
 class Personagens  {        //Classe para caracterizar personagens
     int vida;
@@ -125,8 +123,7 @@ class Personagens  {        //Classe para caracterizar personagens
     }
 }
 
-
-
+//____________________________________________________________________
 
 public class felizNatal {       //Classe interativa
     static void batalha(Personagens papaiNoel, Personagens grinch, sacolaPresente presente){
@@ -153,7 +150,7 @@ public class felizNatal {       //Classe interativa
         }
     }
 
-
+//____________________________________________________________________
 
     public static void main(String[] args) throws IOException, InterruptedException {
 
@@ -234,10 +231,8 @@ public class felizNatal {       //Classe interativa
 
 //MELHORAR RELAÇÃO ENTRE BRIGAR E JOGAR
 //Fazer classe cachorro
-//Adicionar quantidade de presentes
 //Melhorar classe cachorro
 //Melhorar metodo brigar
-//Adicionar tirar presente
 //Sempre que grinch não tiver recuros, cachorro vomita
 //Faxer cachorro comer presentes que ninguém pega
 //Fazer presentes serem queimados quando cachorro estiver cheio
