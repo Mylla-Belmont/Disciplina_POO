@@ -3,7 +3,7 @@ import java.util.Random;
 import java.util.ArrayList;
 import java.io.IOException;
 
-class sacolaPresente  {       //Classe para caracterizar os presentes
+class sacolaPresente  {       
     int resistencia;
     int qtdPresentes;
     String nomePresenteSorteado;
@@ -34,11 +34,12 @@ class sacolaPresente  {       //Classe para caracterizar os presentes
         qtdPresentes -= 1;
     }
 
-    boolean sacolaCheia(){      //Verifica se a sacola de presentes não está vazia
-        if(qtdPresentes > 0)
+    boolean sacolaCheia(){      
+        if(qtdPresentes > 0){
             return true;
-    System.out.println("Não há mais presentes na sacola");
-    return false;
+        }
+        System.out.println("Não há mais presentes na sacola");
+        return false;
     }
 
     public String toString(){
@@ -52,9 +53,7 @@ class sacolaPresente  {       //Classe para caracterizar os presentes
     }
 }
 
-//____________________________________________________________________
-
-class Cachorro  {       //Classe para caracterizar cachorro
+class Cachorro  {       
     int barriga;
     int maxBarriga;
 
@@ -71,6 +70,14 @@ class Cachorro  {       //Classe para caracterizar cachorro
             System.out.println("o presente queimou na lareira");
     }
 
+    boolean vomitarPresente(){
+        if(barriga != 0){
+            barriga -= 1;
+            return true;
+        }
+        return false;
+    }
+
     public static void main(String[] args) {      
 
         Cachorro cachorro = new Cachorro(0, 5);
@@ -78,9 +85,7 @@ class Cachorro  {       //Classe para caracterizar cachorro
     }
 }
 
-//____________________________________________________________________
-
-class Personagens  {        //Classe para caracterizar personagens
+class Personagens  {        
     int vida;
     boolean recurso;
     String nomeRecurso;
@@ -108,9 +113,10 @@ class Personagens  {        //Classe para caracterizar personagens
         PoderRecurso -= 1;
     }
 
-    boolean estaVivo(){     //Verifica se o personagem está vivo
-        if(vida > 0)
+    boolean estaVivo(){     
+        if(vida > 0){ 
             return true;
+        }
         return false;
     }
 
@@ -127,13 +133,11 @@ class Personagens  {        //Classe para caracterizar personagens
     }
 }
 
-//____________________________________________________________________
-
 public class felizNatal {       //Classe interativa
 
     static void batalha(Personagens papaiNoel, Personagens grinch){
 
-        if(papaiNoel.PoderRecurso > grinch.PoderRecurso){   //Verifica quem possui o recurso mais forte
+        if(papaiNoel.PoderRecurso > grinch.PoderRecurso){   
             papaiNoel.perderForcaRecurso();
             System.out.println("Papai Noel atacou com um " + papaiNoel.nomeRecurso);
             System.out.println("Grinch sofreu " + papaiNoel.PoderRecurso + " de dano");
@@ -146,7 +150,7 @@ public class felizNatal {       //Classe interativa
 
         if(papaiNoel.PoderRecurso == 0){
             papaiNoel.recurso = false;
-            System.out.println("O " + papaiNoel.nomeRecurso + " do papai Noel não tem mais efeito");
+            System.out.println("\nO " + papaiNoel.nomeRecurso + " do papai Noel não tem mais efeito");
             System.out.println("Jogue alguma coisa!");
         }
 
@@ -184,11 +188,10 @@ public class felizNatal {       //Classe interativa
             }else 
                 Runtime.getRuntime().exec("clear"); 
 
-            int presenteSorteado = random.nextInt(7);
+            int presenteSorteado = random.nextInt(7);       
             presente.abrirPresente(presenteSorteado);
 
-            if(line == 1){                                                  //Asisitir a briga
-
+            if(line == 1){                                                  
                 if(!grinch.recurso && presente.sacolaCheia() && random.nextBoolean()){
                     presente.tirarPresenteSacola();
                     grinch.pegarPresente(presenteSorteado, presente.nomePresenteSorteado);                          
@@ -198,10 +201,9 @@ public class felizNatal {       //Classe interativa
                     batalha(papaiNoel, grinch);
                 }else   
                     System.out.println("\nPapai Noel está de mãos vazias! Jogue alguma coisa");
-            
             }else
-                
-            if(line == 2){                                                  //Jogar presente na arena
+
+            if(line == 2){                                             
                 System.out.println("\nVocê jogou um presente");
 
                 if(!papaiNoel.recurso && presente.sacolaCheia()){
@@ -209,19 +211,24 @@ public class felizNatal {       //Classe interativa
                     papaiNoel.pegarPresente(presenteSorteado, presente.nomePresenteSorteado);      
                     System.out.println("Papai noel pegou um " + papaiNoel.nomeRecurso);
                 }else
-                    if(presente.sacolaCheia()){ 
-                        presente.tirarPresenteSacola();
-                        System.out.println("Papai Noel já pegou um presente, então");
-                        cachorro.comerPresente();
-                    }
-
+                        
+                if(presente.sacolaCheia()){ 
+                    presente.tirarPresenteSacola();
+                    System.out.println("Papai Noel já pegou um presente, então");
+                    cachorro.comerPresente();
+                }
             }else
 
-            //Cachorro vomitar
+            if(line == 3){
+                if(cachorro.vomitarPresente()){
+                    presente.qtdPresentes += 1;
+                    System.out.println("O cachorro vomitou um presente. Tente usa-lo na luta");
+                }else
+                    System.out.println("A barriga do cachorro está vazia!");
+            }else 
 
-            if(line == 5){
+            if(line == 4){
                 System.out.println("\nVocê deixou o Papai Noel sozinho na arena"); break;
-            
             }else
                 System.out.println("Fail: Comano inválido");
             
@@ -241,9 +248,3 @@ public class felizNatal {       //Classe interativa
         scanner.close();
     }
 }
-
-
-//Melhorar classe cachorro
-//Fazer cachorro vomitar
-//Fazer metodo para quando a sacola de presentes estiver vazia
-//Melhorar loop de brigas
