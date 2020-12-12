@@ -64,14 +64,12 @@ class Cachorro  {       //Classe para caracterizar cachorro
         this.maxBarriga = maxBarriga;
     }
 
-    boolean comerPresente(){
+    void comerPresente(){
         if(barriga <= maxBarriga){
-            System.out.println("O cachorro comeu o presente");
             barriga += 1;
-            return true;
-        }
-        System.out.println("O cachorro chegou ao seu limite");
-        return false;
+            System.out.println("o cachorro comeu o o que você jogou");
+        }else
+            System.out.println("o presente queimou na laleira");
     }
 
     public static void main(String[] args) {      
@@ -162,6 +160,7 @@ public class felizNatal {       //Classe interativa
         Personagens papaiNoel = new Personagens(100, 0, false, "", 0);
         Personagens grinch = new Personagens(100, 0, false, "", 0);
         sacolaPresente presente = new sacolaPresente(0, 20, "");
+        Cachorro cachorro = new Cachorro(0, 5);
         
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
@@ -169,9 +168,8 @@ public class felizNatal {       //Classe interativa
         do{
             System.out.println("\n1 - Assitir a briga");
             System.out.println("2 - Jogar presente na arena");
-            System.out.println("3 - Fazer cachorro comer presente");
-            System.out.println("4 - Fazer chacorro vomitar presente");
-            System.out.println("5 - Fim da luta");
+            System.out.println("3 - Fazer chacorro vomitar presente");
+            System.out.println("4 - Fim da luta");
 
             System.out.println("\nO que você vai fazer?");
             int line = scanner.nextInt();
@@ -196,13 +194,15 @@ public class felizNatal {       //Classe interativa
                 
             if(line == 2){                                                  //Jogar presente na arena
                 System.out.println("\nVocê jogou um presente");
+                presente.tirarPresenteSacola();
+
                 if(!papaiNoel.recurso && presente.sacolaPresenteCheio()){
-                    presente.tirarPresenteSacola();
                     papaiNoel.pegarPresente(presenteSorteado, presente.nomePresenteSorteado);      
                     System.out.println("Papai noel pegou um " + papaiNoel.nomeRecurso);
-                }else 
+                }else{ 
                     System.out.println("Papai Noel já pegou um presente, então");
-                    //o cachorro pegou o presente
+                    cachorro.comerPresente();
+                }     
             }else
 
             if(line == 5){
@@ -219,22 +219,18 @@ public class felizNatal {       //Classe interativa
         
         if(papaiNoel.estaVivo() && !grinch.estaVivo()){
             System.out.println("\nPapai Noel ganhou! Parabéns por ajudar!\n\n");
-        }else 
-        
-        if(grinch.estaVivo() && !papaiNoel.estaVivo()){  
-            System.out.println("Grinch ganhou! O natal não vai ser bom pra ninguém...\n\n");
-        }else 
-        
-        if(!papaiNoel.estaVivo() && !grinch.estaVivo()){
-            System.out.println("Ningupem ganhou. Grinch fugiu e Papai Noel está muito cansado...\n\n");
+        }else   
+            if(grinch.estaVivo() && !papaiNoel.estaVivo()){  
+                System.out.println("Grinch ganhou! O natal não vai ser bom pra ninguém...\n\n");
+            }else 
+                if(!papaiNoel.estaVivo() && !grinch.estaVivo()){
+                    System.out.println("Ningupem ganhou. Grinch fugiu e Papai Noel está muito cansado...\n\n");
         }
         scanner.close();
     }
 }
 
 
-//Fazer classe cachorro
 //Melhorar classe cachorro
-//Faxer cachorro comer presentes que ninguém pega
-//Fazer presentes serem queimados quando cachorro estiver cheio
-//Melhorar MUITA COISA DESSA MERDA!!!
+//Fazer cachorro vomitar
+//Fazer metodo para quando a sacola de presentes estiver vazia
