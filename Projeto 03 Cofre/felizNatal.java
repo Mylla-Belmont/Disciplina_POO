@@ -28,15 +28,11 @@ class sacolaPresente  {       //Classe para caracterizar os presentes
         conteudoPresente.add("frigobar da polishop");
 
         nomePresente = conteudoPresente.get(presenteSorteado);
-        qtdPresentes -= 1;
     }
 
-    boolean tirarPresente(){
-        if(qtdPresentes > 0){
+    void tirarPresenteSacola(){
+        if(qtdPresentes > 0)
             qtdPresentes -= 1;
-            return true;
-        }
-        return false;
     }
 
     public String toString(){
@@ -98,9 +94,9 @@ class Personagens  {        //Classe para caracterizar personagens
         this.vida -= other.poderRecurso;
     }
 
-    void pegarPresente(int valorPresente, String nomePresente){
+    void pegarPresente(int poderPresente, String nomePresente){
         this.recurso = true;
-        this.poderRecurso = valorPresente;
+        this.poderRecurso = poderPresente;
         this.nomeRecurso = nomePresente;
     }
 
@@ -126,7 +122,8 @@ class Personagens  {        //Classe para caracterizar personagens
 //____________________________________________________________________
 
 public class felizNatal {       //Classe interativa
-    static void batalha(Personagens papaiNoel, Personagens grinch, sacolaPresente presente){
+    
+    static void batalha(Personagens papaiNoel, Personagens grinch){
 
         int maisForte;
        
@@ -135,7 +132,8 @@ public class felizNatal {       //Classe interativa
             papaiNoel.recurso = false;
             System.out.println("Papai Noel atacou com um " + papaiNoel.nomeRecurso);
             System.out.println("Grinch sofreu " + papaiNoel.poderRecurso + " de dano");
-            System.out.println("O " + papaiNoel.nomeRecurso + " do papai Noel quebrou");
+            System.out.println("O " + papaiNoel.nomeRecurso + " do papai Noel quebrou.");
+            System.out.println("Jogue alguma coisa!");
 
         }else{
             maisForte = grinch.poderRecurso;
@@ -180,10 +178,11 @@ public class felizNatal {       //Classe interativa
             if(line == 1){
                 if(papaiNoel.recurso){
                     if(!grinch.recurso && presente.qtdPresentes > 0){
+                        presente.tirarPresenteSacola();
                         grinch.pegarPresente(presenteSorteado, presente.nomePresente);                          
                         System.out.println("Grinch roubou um " + grinch.nomeRecurso);
                     }
-                    batalha(papaiNoel, grinch, presente);
+                    batalha(papaiNoel, grinch);
                 }else   
                     System.out.println("\nEles não possuem recursos! Jogue alguma coisa");
             }else
@@ -192,6 +191,7 @@ public class felizNatal {       //Classe interativa
                 System.out.println("\nVocê jogou um presente");
                 if(presente.qtdPresentes > 0){
                     if(!papaiNoel.recurso){
+                        presente.tirarPresenteSacola();
                         papaiNoel.pegarPresente(presenteSorteado, presente.nomePresente);      
                         System.out.println("Papai noel pegou um " + papaiNoel.nomeRecurso);
                     }else 
@@ -207,7 +207,7 @@ public class felizNatal {       //Classe interativa
             }else
                 System.out.println("Fail: Comano inválido");
             
-            System.out.println("\nPapai Noel:" + papaiNoel);
+            System.out.println("\nPapai Noel: " + papaiNoel);
             System.out.println("Grinch: " + grinch);
             System.out.println("\n" + presente);
         
