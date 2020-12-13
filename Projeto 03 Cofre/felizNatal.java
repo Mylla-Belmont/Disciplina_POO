@@ -106,7 +106,7 @@ class Personagens  {
     private int vida;
     boolean recurso;
     String nomeRecurso;
-    private int PoderRecurso;
+    int PoderRecurso;
     
     Personagens(int vida, int energia, Boolean recurso, String nomeRecurso, int PoderRecurso){
         this.vida = vida;
