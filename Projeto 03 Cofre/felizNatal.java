@@ -1,3 +1,13 @@
+//  É Natal! E o papai noel já está distribuindo os presentes com muita alegria, porém, Grinch, o ser 
+//  verde mais perverso que alguém já viu está por ai para acabar com o natal. Ele invadiu sua casa
+//  para roubar seus presentes, mas o papai noel não vai deixar isso acontecer! 
+
+//  Seu objetivo é impedir que Grinch roube todos os presentes da sacola, mas para isso você tem que ajudar o papai noel
+//  jogando presentes que possam ser usados para atacar o Grinch; mas cuidado, a sacola pode secar rapidamente.
+
+//  Dica: O cachorro está faminto, então sempre que você jogar algo e o papai noel não pega-lo, o cachorro irá comer
+//  até que fique cheio. Mas não se preocupe, você pode recuperar os presentes fazendo ele vomitar. Eca! Que nojo!
+
 import java.util.Scanner;
 import java.util.Random;
 import java.util.ArrayList;
@@ -162,8 +172,6 @@ public class felizNatal {       //Classe interativa
         grinch.brigar(papaiNoel);
     }
 
-//____________________________________________________________________
-
     public static void main(String[] args) throws IOException, InterruptedException {
 
         Personagens papaiNoel = new Personagens(100, 0, false, "", 0);
@@ -201,9 +209,8 @@ public class felizNatal {       //Classe interativa
                     batalha(papaiNoel, grinch);
                 }else   
                     System.out.println("\nPapai Noel está de mãos vazias! Jogue alguma coisa");
-            }else
-
-            if(line == 2){                                             
+            
+            }else if(line == 2){                                             
                 System.out.println("\nVocê jogou um presente");
 
                 if(!papaiNoel.recurso && presente.sacolaCheia()){
@@ -217,18 +224,17 @@ public class felizNatal {       //Classe interativa
                     System.out.println("Papai Noel já pegou um presente, então");
                     cachorro.comerPresente();
                 }
-            }else
-
-            if(line == 3){
+            
+            }else if(line == 3){
                 if(cachorro.vomitarPresente()){
                     presente.qtdPresentes += 1;
                     System.out.println("O cachorro vomitou um presente. Tente usa-lo na luta");
                 }else
-                    System.out.println("A barriga do cachorro está vazia!");
-            }else 
-
-            if(line == 4){
-                System.out.println("\nVocê deixou o Papai Noel sozinho na arena"); break;
+                    System.out.println("\nA barriga do cachorro está vazia!");
+            
+            }else if(line == 4){
+                System.out.println("\nVocê deixou o Papai Noel sozinho\n"); break;
+            
             }else
                 System.out.println("Fail: Comano inválido");
             
@@ -240,9 +246,11 @@ public class felizNatal {       //Classe interativa
         
         if(papaiNoel.estaVivo() && !grinch.estaVivo()){
             System.out.println("\nPapai Noel ganhou! Parabéns por ajudar!\n\n");
-        }else  if(grinch.estaVivo() && !papaiNoel.estaVivo()){  
+
+        }else if(grinch.estaVivo() && !papaiNoel.estaVivo()){  
             System.out.println("Grinch ganhou! O natal não vai ser bom pra ninguém...\n\n");
-        }else  if(!papaiNoel.estaVivo() && !grinch.estaVivo()){
+
+        }else if(!papaiNoel.estaVivo() && !grinch.estaVivo()){
             System.out.println("Ningupem ganhou. Grinch fugiu e Papai Noel está muito cansado...\n\n");
         }
         scanner.close();
