@@ -16,11 +16,13 @@ import java.io.IOException;
 class sacolaPresente  {       
     int resistencia;
     int qtdPresentes;
+    private int maxPresentes;
     String nomePresenteSorteado;
 
-    sacolaPresente (int resistencia, int qtdPresentes, String nomePresenteSorteado){   
+    sacolaPresente (int resistencia, int qtdPresentes, int maxPresentes, String nomePresenteSorteado){   
         this.resistencia = resistencia;
         this.qtdPresentes = qtdPresentes;
+        this.maxPresentes = maxPresentes;
         this.nomePresenteSorteado = nomePresenteSorteado;
     }
 
@@ -44,12 +46,19 @@ class sacolaPresente  {
         qtdPresentes -= 1;
     }
 
-    boolean sacolaCheia(){      
-        if(qtdPresentes > 0){
-            return true;
+    void adicionarPresenteSacola(){
+        if(qtdPresentes == maxPresentes){
+            System.out.println("A sacola está cheia!");
+            return;
         }
-        System.out.println("Não há mais presentes na sacola");
-        return false;
+        qtdPresentes += 1;
+    }
+
+    boolean sacolaCheia(){      
+        if(qtdPresentes == 0){
+               return false;
+        }
+        return true;
     }
 
     public String toString(){
@@ -58,7 +67,7 @@ class sacolaPresente  {
 
     public static void main(String[] args) {
 
-        sacolaPresente presente = new sacolaPresente(0, 15, "");
+        sacolaPresente presente = new sacolaPresente(0, 15, 15, "");
         System.out.println(presente);
     }
 }
@@ -176,7 +185,7 @@ public class felizNatal {       //Classe interativa
 
         Personagens papaiNoel = new Personagens(100, 0, false, "", 0);
         Personagens grinch = new Personagens(100, 0, false, "", 0);
-        sacolaPresente presente = new sacolaPresente(0, 15, "");
+        sacolaPresente presente = new sacolaPresente(0, 15, 15, "");
         Cachorro cachorro = new Cachorro(0, 5);
         
         Scanner scanner = new Scanner(System.in);
@@ -210,29 +219,32 @@ public class felizNatal {       //Classe interativa
                 }else   
                     System.out.println("\nPapai Noel está de mãos vazias! Jogue alguma coisa");
             
-            }else if(line == 2){                                             
-                System.out.println("\nVocê jogou um presente");
+            }else if(line == 2){      
+                if(presente.sacolaCheia()){
+                    System.out.println("\nVocê jogou um presente");
 
-                if(!papaiNoel.recurso && presente.sacolaCheia()){
-                    presente.tirarPresenteSacola();
-                    papaiNoel.pegarPresente(presenteSorteado, presente.nomePresenteSorteado);      
-                    System.out.println("Papai noel pegou um " + papaiNoel.nomeRecurso);
+                    if(!papaiNoel.recurso && presente.sacolaCheia()){
+                        presente.tirarPresenteSacola();
+                        papaiNoel.pegarPresente(presenteSorteado, presente.nomePresenteSorteado);      
+                        System.out.println("Papai noel pegou um " + papaiNoel.nomeRecurso);
                 
-                }else if(presente.sacolaCheia()){ 
-                    presente.tirarPresenteSacola();
-                    System.out.println("Papai Noel já pegou um presente, então");
-                    cachorro.comerPresente();
+                    }else if(presente.sacolaCheia()){ 
+                        presente.tirarPresenteSacola();
+                        System.out.println("Papai Noel já pegou um presente, então");
+                        cachorro.comerPresente();
+                    }
                 }
             
             }else if(line == 3){
                 if(cachorro.vomitarPresente()){
-                    presente.qtdPresentes += 1;
+                    presente.adicionarPresenteSacola();
                     System.out.println("O cachorro vomitou um presente. Tente usa-lo na luta");
                 }else
                     System.out.println("\nA barriga do cachorro está vazia!");
             
             }else if(line == 4){
-                System.out.println("\nVocê deixou o Papai Noel sozinho\n"); break;
+                System.out.println("\nVocê deixou o Papai Noel sozinho\n");
+                break;
             
             }else
                 System.out.println("Fail: Comano inválido");
