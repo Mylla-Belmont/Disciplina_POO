@@ -14,7 +14,7 @@
 <p>Não houve participação com outros desenvolvedores, já que os questionamentos seguintes poderam ser respondidos com o auxilio de apoio externo, tais como sites de dúvidas (DevMedia, stack overflow) e apostilas de desenvolvimento java.</p>
 
 <b>Como fez:</b>
-<p>De inicio foi a idealização lógica do projeto e o planejamento da estrutura base do código, para enfim entrar em ação com a elaboração das classes principais, seus atributos e os objetos. Na classe interativa foi necessário fazer diversas atualizações para melhorar a jogabilidade, mas, apesar de estar meio confuso no começo, foi possivel estabeler estrátegias para um melhor aproveitamento do código com o uso da classe <b>ArrayList</b></p>
+<p>De inicio foi a idealização lógica do projeto e o planejamento da estrutura base do código, para enfim entrar em ação com a elaboração das classes principais, seus atributos e os objetos. Na classe interativa foi necessário fazer diversas atualizações para melhorar a jogabilidade, mas, apesar de estar meio confuso no começo, foi possivel estabeler estrátegias para um melhor aproveitamento do código com o uso da classe ArrayList</p>
 
 <b>O que aprendeu:</b>
 <p>Novamente ressalto como principal aprendizado o funcionamento das classes e a relação entre objetos e atributos, além de um melhor esclarecimento sobre contrutor  e a aplicação prática do ArrayList</p>
