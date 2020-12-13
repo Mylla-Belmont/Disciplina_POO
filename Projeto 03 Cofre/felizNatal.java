@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.io.IOException;
 
 class sacolaPresente  {       
-    int qtdPresentes;
+    private int qtdPresentes;
     private int maxPresentes;
     String nomePresenteSorteado;
 
@@ -71,7 +71,7 @@ class sacolaPresente  {
 }
 
 class Cachorro  {       
-    int barriga;
+    private int barriga;
     private int maxBarriga;
 
     Cachorro (int barriga, int maxBarriga){
@@ -103,10 +103,10 @@ class Cachorro  {
 }
 
 class Personagens  {       
-    int vida;
+    private int vida;
     boolean recurso;
     String nomeRecurso;
-    int PoderRecurso;
+    private int PoderRecurso;
     
     Personagens(int vida, int energia, Boolean recurso, String nomeRecurso, int PoderRecurso){
         this.vida = vida;
