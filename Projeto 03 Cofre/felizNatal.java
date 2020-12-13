@@ -58,7 +58,7 @@ class sacolaPresente  {
 
     public static void main(String[] args) {
 
-        sacolaPresente presente = new sacolaPresente(0, 20, "");
+        sacolaPresente presente = new sacolaPresente(0, 15, "");
         System.out.println(presente);
     }
 }
@@ -176,7 +176,7 @@ public class felizNatal {       //Classe interativa
 
         Personagens papaiNoel = new Personagens(100, 0, false, "", 0);
         Personagens grinch = new Personagens(100, 0, false, "", 0);
-        sacolaPresente presente = new sacolaPresente(0, 20, "");
+        sacolaPresente presente = new sacolaPresente(0, 15, "");
         Cachorro cachorro = new Cachorro(0, 5);
         
         Scanner scanner = new Scanner(System.in);
