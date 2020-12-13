@@ -247,10 +247,10 @@ public class felizNatal {       //Classe interativa
             System.out.println("\nPapai Noel ganhou! Parabéns por ajudar!\n\n");
 
         }else if(grinch.estaVivo() && !papaiNoel.estaVivo()){  
-            System.out.println("Grinch ganhou! O natal não vai ser bom pra ninguém...\n\n");
+            System.out.println("\nGrinch ganhou! O natal não vai ser bom pra ninguém...\n\n");
 
         }else if(!papaiNoel.estaVivo() && !grinch.estaVivo()){
-            System.out.println("Ningupem ganhou. Grinch fugiu e Papai Noel está muito cansado...\n\n");
+            System.out.println("\nNingupem ganhou. Grinch fugiu e Papai Noel está muito cansado...\n\n");
         }
         scanner.close();
     }
