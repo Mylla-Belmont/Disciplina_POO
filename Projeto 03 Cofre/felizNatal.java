@@ -217,9 +217,8 @@ public class felizNatal {       //Classe interativa
                     presente.tirarPresenteSacola();
                     papaiNoel.pegarPresente(presenteSorteado, presente.nomePresenteSorteado);      
                     System.out.println("Papai noel pegou um " + papaiNoel.nomeRecurso);
-                }else
-                        
-                if(presente.sacolaCheia()){ 
+                
+                }else if(presente.sacolaCheia()){ 
                     presente.tirarPresenteSacola();
                     System.out.println("Papai Noel já pegou um presente, então");
                     cachorro.comerPresente();
