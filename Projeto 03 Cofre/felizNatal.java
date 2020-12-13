@@ -14,13 +14,11 @@ import java.util.ArrayList;
 import java.io.IOException;
 
 class sacolaPresente  {       
-    int resistencia;
     int qtdPresentes;
     private int maxPresentes;
     String nomePresenteSorteado;
 
-    sacolaPresente (int resistencia, int qtdPresentes, int maxPresentes, String nomePresenteSorteado){   
-        this.resistencia = resistencia;
+    sacolaPresente (int qtdPresentes, int maxPresentes, String nomePresenteSorteado){   
         this.qtdPresentes = qtdPresentes;
         this.maxPresentes = maxPresentes;
         this.nomePresenteSorteado = nomePresenteSorteado;
@@ -56,7 +54,7 @@ class sacolaPresente  {
 
     boolean sacolaCheia(){      
         if(qtdPresentes == 0){
-               return false;
+            return false;
         }
         return true;
     }
@@ -67,14 +65,14 @@ class sacolaPresente  {
 
     public static void main(String[] args) {
 
-        sacolaPresente presente = new sacolaPresente(0, 15, 15, "");
+        sacolaPresente presente = new sacolaPresente(15, 15, "");
         System.out.println(presente);
     }
 }
 
 class Cachorro  {       
     int barriga;
-    int maxBarriga;
+    private int maxBarriga;
 
     Cachorro (int barriga, int maxBarriga){
         this.barriga = barriga;
@@ -104,7 +102,7 @@ class Cachorro  {
     }
 }
 
-class Personagens  {        
+class Personagens  {       
     int vida;
     boolean recurso;
     String nomeRecurso;
@@ -185,7 +183,7 @@ public class felizNatal {       //Classe interativa
 
         Personagens papaiNoel = new Personagens(100, 0, false, "", 0);
         Personagens grinch = new Personagens(100, 0, false, "", 0);
-        sacolaPresente presente = new sacolaPresente(0, 15, 15, "");
+        sacolaPresente presente = new sacolaPresente(15, 15, "");
         Cachorro cachorro = new Cachorro(0, 5);
         
         Scanner scanner = new Scanner(System.in);
@@ -233,7 +231,8 @@ public class felizNatal {       //Classe interativa
                         System.out.println("Papai Noel já pegou um presente, então");
                         cachorro.comerPresente();
                     }
-                }
+                }else
+                    System.out.println("A sacola está vazia!");
             
             }else if(line == 3){
                 if(cachorro.vomitarPresente()){
