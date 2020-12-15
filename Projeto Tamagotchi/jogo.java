@@ -168,6 +168,7 @@ public class jogo{
                 System.out.println("Fail: Comando inválido");
         }
         System.out.println(tamagotchi);
+        System.out.println("\n");
         scanner.close();
     }
 }
