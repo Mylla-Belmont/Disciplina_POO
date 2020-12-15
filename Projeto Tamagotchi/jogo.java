@@ -120,9 +120,13 @@ class tamagotchi{
         this.setIdade(getIdade() + qtdDormida);
     }
 
+    public String toString(){
+        return energia + "/" + maxEnergia + ", " + saciedade + "/" + maxSaciedade + ", " + limpeza + "/" + maxLimpeza + ", " + diamante + ", " + idade;
+    }
+
     public static void main(String[] args) {
 
-        tamagotchi tamagotchi = new tamagotchi(10, 10, 10, 0, 0);
+        tamagotchi tamagotchi = new tamagotchi(0, 0, 0, 0, 0);
         System.out.println(tamagotchi);
         
     }
