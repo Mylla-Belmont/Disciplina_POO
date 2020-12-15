@@ -33,6 +33,18 @@ class tamagotchi{
         }
     }
 
+    public boolean vida(){
+        return vida;
+    }
+
+    private void setIdade(int valor){
+        idade = valor;
+    }
+
+    private void setDiamante(int valor){
+        diamante = valor;
+    }
+
     private void setSaciedade(int valor){
         saciedade = valor;
         if(saciedade > maxSaciedade){
@@ -57,6 +69,14 @@ class tamagotchi{
         }
     }
 
+    public int getIdade(){
+        return idade;
+    }
+
+    public int getDiamante(){
+        return diamante;
+    }
+
     public int getEnergia(){
         return energia;
     }
@@ -70,29 +90,35 @@ class tamagotchi{
     }
 
     public void getComer(){
-        this.setEnergia(getEnergia() - 1 );
+        this.setEnergia(getEnergia() - 1);
         this.setSaciedade(getSaciedade() + 4);
         this.setlimpeza(getLimpeza() - 2);
-        diamante = 0;   //Modificar para get e set depois
-        idade = 1;
+        this.setIdade(getIdade() + 1);
     }
 
     public void getBrincar(){
-
+        this.setEnergia(getEnergia() - 2);
+        this.setSaciedade(getSaciedade() - 1);
+        this.setlimpeza(getLimpeza() - 3);
+        this.setDiamante(getDiamante() + 1);
+        this.setIdade(getIdade() + 1);
     }
 
-    public void getDormir(){
-
+    public void getBanho(){
+        this.setEnergia(getEnergia() - 3);
+        this.setSaciedade(getSaciedade() - 1);
+        this.setlimpeza(getLimpeza() + maxLimpeza);
+        this.setIdade(getIdade() + 2);
     }
 
-    void novoTamagochi(int valorEnegia, int valorSaciedade, int valorLimpeza){
-        vida = true;
-        maxEnergia = valorEnegia;
-        maxSaciedade = valorSaciedade;
-        maxLimpeza = valorLimpeza;
+    public void getDormir(int qtdDormida){
+        if(this.energia == maxEnergia){
+            System.out.println("O Tamagotchi não está com sono");
+            return;
+        }
+        this.setEnergia(getEnergia() + maxEnergia);
+        this.setIdade(getIdade() + qtdDormida);
     }
-
-
 
     public static void main(String[] args) {
 
