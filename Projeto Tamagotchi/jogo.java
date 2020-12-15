@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 class tamagotchi{
     private int saciedade;
     private int energia;
@@ -7,7 +9,7 @@ class tamagotchi{
     private int maxLimpeza;
     private int diamante;
     private int idade;
-    private boolean vida;
+    private boolean Alive;
 
     tamagotchi(int maxSaciedade, int maxEnergia, int maxLimpeza, int diamante, int idade){
         this.saciedade = maxSaciedade;
@@ -18,55 +20,55 @@ class tamagotchi{
         this.maxLimpeza = maxLimpeza;
         this.diamante = diamante;
         this.idade = idade;
-        this.vida = true;
+        this.Alive = true;
     }
 
-    private void setlimpeza(int valor){
-        limpeza = valor;
+    private void setlimpeza(int entrada ){
+        limpeza = entrada ;
         if(limpeza > maxLimpeza){
             limpeza = maxLimpeza;
         }
         if(limpeza < 0){
             limpeza = 0;
-            this.vida = false;
+            this.Alive = false;
             System.out.println("Seu Tamagotchi morreu doente");
         }
     }
 
-    public boolean vida(){
-        return vida;
+    private void setIdade(int entrada ){
+        idade = entrada ;
     }
 
-    private void setIdade(int valor){
-        idade = valor;
+    private void setDiamante(int entrada ){
+        diamante = entrada ;
     }
 
-    private void setDiamante(int valor){
-        diamante = valor;
-    }
-
-    private void setSaciedade(int valor){
-        saciedade = valor;
+    private void setSaciedade(int entrada ){
+        saciedade = entrada ;
         if(saciedade > maxSaciedade){
             saciedade = maxSaciedade;
         }
         if(saciedade < 0){
             saciedade = 0;
-            this.vida = false;
+            this.Alive = false;
             System.out.println("Seu Tamagotchi morreu de Saciedade");
         }
     }
 
-    private void setEnergia(int valor){
-        energia = valor;
+    private void setEnergia(int entrada ){
+        energia = entrada ;
         if(energia > maxEnergia){
             energia = maxEnergia;
         }
         if(energia < 0){
             energia = 0;
-            this.vida = false;
+            this.Alive = false;
             System.out.println("Seu Tamagotchi morreu de cansaço");
         }
+    }
+
+    public boolean isAlive(){
+        return this.Alive;
     }
 
     public int getIdade(){
@@ -126,7 +128,7 @@ class tamagotchi{
 
     public static void main(String[] args) {
 
-        tamagotchi tamagotchi = new tamagotchi(0, 0, 0, 0, 0);
+        tamagotchi tamagotchi = new tamagotchi(10, 10, 10, 0, 0);
         System.out.println(tamagotchi);
         
     }
@@ -134,8 +136,37 @@ class tamagotchi{
 
 public class jogo{
     public static void main(String[] args) {
+        
+        Scanner scanner = new Scanner(System.in);
+        tamagotchi tamagotchi = new tamagotchi(10, 10, 10, 0, 0);   //Mudar entrada
 
-        tamagotchi tamagotchi = new tamagotchi(0, 0, 0, 0, 0);
+        while(tamagotchi.isAlive()){
 
+            System.out.println("\nO que você vai fazer?");
+            String input = scanner.nextLine();
+            String[] entrada = input.split(" ");
+            int qtdDormida = entrada.length;
+
+            if(input.equals("show")){
+                System.out.println(tamagotchi);
+            }else
+            if(input.equals("play")){
+                tamagotchi.getBrincar();
+            }else
+            if(input.equals("eat")){
+                tamagotchi.getComer();
+            }else 
+            if(entrada[0].equals("sleep")){
+                tamagotchi.getDormir(qtdDormida);
+            }else
+            if(input.equals("clean")){
+                tamagotchi.getBanho();
+            }else
+            if(input.equals("end")){
+                break;
+            }else
+                System.out.println("Fail: Comando inválido");
+        }
+        scanner.close();
     }
 }
