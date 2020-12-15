@@ -23,6 +23,14 @@ class tamagotchi{
         this.Alive = true;
     }
 
+    private void setIdade(int entrada ){
+        idade = entrada ;
+    }
+
+    private void setDiamante(int entrada ){
+        diamante = entrada ;
+    }
+
     private void setlimpeza(int entrada ){
         limpeza = entrada ;
         if(limpeza > maxLimpeza){
@@ -31,16 +39,8 @@ class tamagotchi{
         if(limpeza < 0){
             limpeza = 0;
             this.Alive = false;
-            System.out.println("Seu Tamagotchi morreu doente");
+            System.out.println("\nSeu Tamagotchi morreu doente");
         }
-    }
-
-    private void setIdade(int entrada ){
-        idade = entrada ;
-    }
-
-    private void setDiamante(int entrada ){
-        diamante = entrada ;
     }
 
     private void setSaciedade(int entrada ){
@@ -51,7 +51,7 @@ class tamagotchi{
         if(saciedade < 0){
             saciedade = 0;
             this.Alive = false;
-            System.out.println("Seu Tamagotchi morreu de Saciedade");
+            System.out.println("\nSeu Tamagotchi morreu de Saciedade");
         }
     }
 
@@ -63,7 +63,7 @@ class tamagotchi{
         if(energia < 0){
             energia = 0;
             this.Alive = false;
-            System.out.println("Seu Tamagotchi morreu de cansaço");
+            System.out.println("\nSeu Tamagotchi morreu de cansaço");
         }
     }
 
@@ -115,7 +115,7 @@ class tamagotchi{
 
     public void getDormir(int qtdDormida){
         if(this.energia == maxEnergia){
-            System.out.println("O Tamagotchi não está com sono");
+            System.out.println("\nO Tamagotchi não está com sono");
             return;
         }
         this.setEnergia(getEnergia() + maxEnergia);
@@ -123,7 +123,7 @@ class tamagotchi{
     }
 
     public String toString(){
-        return energia + "/" + maxEnergia + ", " + saciedade + "/" + maxSaciedade + ", " + limpeza + "/" + maxLimpeza + ", " + diamante + ", " + idade;
+        return "E:" + energia + "/" + maxEnergia + ", S:" + saciedade + "/" + maxSaciedade + ", L:" + limpeza + "/" + maxLimpeza + ", D:" + diamante + ", I:" + idade;
     }
 
     public static void main(String[] args) {
@@ -167,6 +167,7 @@ public class jogo{
             }else
                 System.out.println("Fail: Comando inválido");
         }
+        System.out.println(tamagotchi);
         scanner.close();
     }
 }
