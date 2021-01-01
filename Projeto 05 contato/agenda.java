@@ -1,12 +1,12 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
-class fone{
-    
+class Fone{
+
     String label;
     String number;
 
-    fone(String label, String number){
+    Fone(String label, String number){
         this.label = label;
         this.number = number;
     }
@@ -19,31 +19,36 @@ class fone{
                 return false;                               // .charAt() - retorna caracter especificado da posição i
         return true;
     }
-
-    public String toString(){
-        return label + ":" + number;
-    }
 }
 
 class contato{
 
-    private String nome;
-    ArrayList<fone> fones; 
+    String nome;
+    ArrayList<Fone> fones; 
 
     contato(String nome){
         this.nome = nome;
         this.fones = new ArrayList<>();
     }
 
-    public void dicionarFone(String label, String number){
-        if(fone.validandoNumero(number))
-            fones.add(new fone (label, number));       //Adicionar novo fone
+    public void adicionarFone(String label, String number){
+        if(Fone.validandoNumero(number))
+            fones.add(new Fone (label, number));       //Adicionar novo Fone
+        System.out.println("Número inválido!");
     }
 
+    public void removerFone(int index){
+        fones.remove(index);
+    }
 
+    public String toString(){
+        return nome + " [";
+    }
+    
     public static void main(String[] args) {
         contato contato = new contato("");
 
+        System.out.println(contato);
     }
 }
 
@@ -52,8 +57,23 @@ public class agenda {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
-        contato contato = new contato("");
+        contato novoContato = new contato("");
 
-        //contato.adicionarFones(input, input);
+
+        System.out.println("O que deseja fazer na agenda?");
+        String line = input.nextLine();
+        String[] type = line.split(" ");
+
+        if(type[0].equals("adicionar")){
+            novoContato.nome = type[1];
+        }
+        if(type[0].equals("add")){
+            novoContato.adicionarFone(type[1], type[2]);
+        }
+        if(type[0].equals("rm")){
+            int index = Integer.parseInt(type[1]);
+            novoContato.removerFone(index);
+        }
+        input.close();
     }
 }
