@@ -32,9 +32,10 @@ class contato{
     }
 
     public void adicionarFone(String label, String number){
-        if(Fone.validandoNumero(number))
+        if(Fone.validandoNumero(number)){
             fones.add(new Fone (label, number));       //Adicionar novo Fone
-        System.out.println("Número inválido!");
+        }else
+            System.out.println("Número inválido!");
     }
 
     public void removerFone(int index){
@@ -45,16 +46,13 @@ class contato{
         String saida = this.nome;
         int i = 0;
         for(Fone fone : fones){
-            saida += " [" + i + ":" + fone + "]";
+            saida += " [ " + i + " : " + fone + " ]";
             i++;
         }
         return saida;
     }
     
     public static void main(String[] args) {
-        contato contato = new contato("");
-
-        System.out.println(contato);
     }
 }
 
