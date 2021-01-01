@@ -42,7 +42,13 @@ class contato{
     }
 
     public String toString(){
-        return nome + " [";
+        String saida = this.nome;
+        int i = 0;
+        for(Fone fone : fones){
+            saida += " [" + i + ":" + fone + "]";
+            i++;
+        }
+        return saida;
     }
     
     public static void main(String[] args) {
@@ -59,20 +65,34 @@ public class agenda {
         Scanner input = new Scanner(System.in);
         contato novoContato = new contato("");
 
+        while(true){
 
-        System.out.println("O que deseja fazer na agenda?");
-        String line = input.nextLine();
-        String[] type = line.split(" ");
+            System.out.println("O que deseja fazer na agenda?");
+            String line = input.nextLine();
+            String[] type = line.split(" ");
 
-        if(type[0].equals("adicionar")){
-            novoContato.nome = type[1];
-        }
-        if(type[0].equals("add")){
-            novoContato.adicionarFone(type[1], type[2]);
-        }
-        if(type[0].equals("rm")){
-            int index = Integer.parseInt(type[1]);
-            novoContato.removerFone(index);
+            if(type[0].equals("adicionar")){
+                novoContato.nome = type[1];
+            }else
+            
+            if(type[0].equals("add")){
+                novoContato.adicionarFone(type[1], type[2]);
+            }else
+            
+            if(type[0].equals("rm")){
+                int index = Integer.parseInt(type[1]);
+                novoContato.removerFone(index);
+            }else
+            
+            if(type[0].equals("show")){
+                System.out.println(novoContato);
+            }else
+
+            if(type[0].equals("end")){
+                break;
+            }else
+            
+            System.out.println("Comando inválido!");
         }
         input.close();
     }
