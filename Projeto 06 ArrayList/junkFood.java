@@ -27,12 +27,19 @@ class maquina{
     float lucro;
     int maxProdutos;
 
-    maquina(float saldoCliente, float lucro, int maxProdutos){
+    public maquina(int numEspirais, float saldoCliente, float lucro, int maxProdutos){
         this.espiral = new ArrayList<>();
+        for(int i = 0; i < numEspirais; i++){
+            this.espiral.add(new Espiral("", 0, 0f));
+        }
         this.saldoCliente = saldoCliente;
         this.lucro = lucro;
         this.maxProdutos = maxProdutos;
     }
+
+    public String toString(){
+        return "[]";
+    }   
 }
 
 public class junkFood{
@@ -43,6 +50,12 @@ public class junkFood{
         System.out.println("-----");
         String line = input.nextLine();
         String[] Ui = line.split(" ");
+        
+        maquina novaMaquina = new maquina(0, 0, 0, 0);
+
+        if(Ui[0].equals("show")){
+            System.out.println(novaMaquina);
+        }
 
         input.close();
     }
