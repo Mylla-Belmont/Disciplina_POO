@@ -37,13 +37,15 @@ class junkFood{
     }
 
 
-    float pedirTroco(){
-        return saldoCliente;
+    void pedirTroco(){
+        System.out.println("Você recebeu: " + saldoCliente + " R$");
+        saldoCliente = 0;
     }
 
     void vender(int index){
         if(saldoCliente > 0){
             float valorProduto = espiral.get(index).preco;
+            lucro += valorProduto;
             saldoCliente -= valorProduto;
             espiral.get(index).quantidade -= 1;
             
@@ -76,13 +78,14 @@ class junkFood{
         String saida = "Saldo: " + saldoCliente + "\n";
         int i = 0;
         for(Espiral espiral : espiral){
-            saida +=  i + " [" + espiral.nome + " : " + espiral.quantidade + " U : " + espiral.preco + " RS]\n";
+            saida +=  i + " [" + espiral.nome + " : " + espiral.quantidade + " U : " + espiral.preco + " R$]\n";
             i++;
         }
         return saida;
     }
 
     public static void main(String[] args){
+
         junkFood maquina = new junkFood(3, 5);
 
         //Inserindo produtos na espirais
@@ -96,16 +99,15 @@ class junkFood{
         //Inserindo dinheiro
         maquina.inserirDinheiro(5f);
         maquina.inserirDinheiro(5f);
-
-        //Pedir troco
-        maquina.pedirTroco();
+        maquina.inserirDinheiro(3f);
 
         //Vender produto
         maquina.vender(1);
-        maquina.vender(1);
-        maquina.vender(1);
-        maquina.vender(1);
-
+        maquina.vender(2);
+        maquina.vender(0);
+        
+        //Pedir troco
+        maquina.pedirTroco();
 
         System.out.println(maquina);
 
