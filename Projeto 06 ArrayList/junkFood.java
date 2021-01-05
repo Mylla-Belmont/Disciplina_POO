@@ -36,9 +36,9 @@ class junkFood{
             this.espiral.add(new Espiral("-", 0, 0));
     }
 
-    void alterarEspiral(int index, String nome){
+    void alterarEspiral(int index, String produto, int qtd, float preço){
         if(index >= 0 && index < espiral.size())
-            espiral.set(index, nome); 
+            espiral.set(index, produto, qtd, preço); 
     }
 
     public String toString(){
@@ -54,6 +54,5 @@ class junkFood{
     public static void main(String[] args){
         junkFood maquina = new junkFood(3, 5);
 
-        maquina.alterarEspiral(1, "nome");
-    }
+        maquina.alterarEspiral(2, "todinho", 3, 2.50f); 
 }
