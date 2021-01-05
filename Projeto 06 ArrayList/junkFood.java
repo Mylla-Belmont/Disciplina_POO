@@ -38,14 +38,14 @@ class junkFood{
 
     void alterarEspiral(int index, String produto, int qtd, float preço){
         if(index >= 0 && index < espiral.size())
-            espiral.set(index, produto, qtd, preço); 
+            espiral.set(index, new Espiral(produto, qtd, preço)); 
     }
 
     public String toString(){
         String saida = "";
         int i = 0;
         for(Espiral espiral : espiral){
-            saida += " [" + i + ":" + espiral + "]";
+            saida += i + " [ " + espiral.nome + " : " + espiral.quantidade + " U : " + espiral.preco + " RS]\n";
             i++;
         }
         return saida;
@@ -55,4 +55,7 @@ class junkFood{
         junkFood maquina = new junkFood(3, 5);
 
         maquina.alterarEspiral(2, "todinho", 3, 2.50f); 
+        System.out.println(maquina);
+
+    }
 }
