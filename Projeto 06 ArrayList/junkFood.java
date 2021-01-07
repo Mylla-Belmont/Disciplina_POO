@@ -36,7 +36,6 @@ class junkFood{
             this.espiral.add(new Espiral("-", 0, 0));
     }
 
-
     void pedirTroco(){
         System.out.println("Você recebeu: " + saldoCliente + " R$");
         saldoCliente = 0;
@@ -66,7 +65,7 @@ class junkFood{
         if(index >= 0 && index < espiral.size()){
             espiral.remove(index);
             espiral.add(index, new Espiral("-", 0, 0));
-        }
+       }
     }
 
     void alterarEspiral(int index, String produto, int quantidade, float preco){
@@ -94,7 +93,7 @@ class junkFood{
         maquina.alterarEspiral(2, "pamonha", 5, 5.20f); 
 
         //Removendo produtos na espirais
-        //maquina.limparEspiral(1);
+        maquina.limparEspiral(1);
 
         //Inserindo dinheiro
         maquina.inserirDinheiro(5f);
