@@ -15,6 +15,10 @@ class Cliente{
         this.fone = fone;
     }
 
+    String getNome(){
+        return nome;
+    }
+
     public String toString(){
         return nome + ":" + fone;
     }
@@ -27,17 +31,16 @@ class Cinema{
     Cinema(int lugares){
         this.cliente = new ArrayList<>();
         for(int i=0; i < lugares; i++)
-            this.cliente.add(new Cliente(null, null));
+            cliente.add(new Cliente(null, null));
     }
 
     void reservar(String nome, String fone, int index){
-        if(index >= 0 && index < cliente.size()){
-            if(cliente.get(index) != null){
-                cliente.set(index, new Cliente(nome, fone));
-            }else 
+        for(Cliente cliente : cliente)
+            if(!cliente.getNome().equals(null)){
                 System.out.println("A cadeira já está ocupada");
-        }else
-            System.out.println("Cadeira não existe");
+                return;
+        }
+        cliente.set(index, new Cliente(nome, fone));
     }  
     
     // void cancelar(String elemento){
@@ -51,9 +54,9 @@ class Cinema{
         String saida = "";
         for(Cliente cliente : cliente)
             if(cliente.nome == null)
-                saida += " - ";
+                saida += "- ";
             else
-                saida += cliente;
+                saida += " " + cliente + " ";
         return "[" + saida + "]";
     }
 }
