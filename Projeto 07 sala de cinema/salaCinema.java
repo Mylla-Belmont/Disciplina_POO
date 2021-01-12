@@ -5,7 +5,7 @@ class Cliente{
     String nome;
     String fone;
 
-    Cliente(String nome, String fone){
+    public Cliente(String nome, String fone){
         this.nome = nome;
         this.fone = fone;
     }
@@ -13,10 +13,6 @@ class Cliente{
     public void cliente(String nome, String fone){
         this.nome = nome;
         this.fone = fone;
-    }
-
-    String getNome(){
-        return nome;
     }
 
     public String toString(){
@@ -31,14 +27,23 @@ class Cinema{
     Cinema(int lugares){
         this.cliente = new ArrayList<>();
         for(int i=0; i < lugares; i++)
-            cliente.add(new Cliente(null, null));
+            cliente.add(null);
     }
 
     void reservar(String nome, String fone, int index){
-        for(Cliente cliente : cliente)
-            if(!cliente.getNome().equals(null)){
-                System.out.println("A cadeira já está ocupada");
+        if(index < 0 && index >= cliente.size()){
+            System.out.println("Indice inválido");
+            return;
+        }
+        if(cliente.get(index) != null){
+            System.out.println("A cadeira já está ocupada");
+            return; 
+        }
+        for(Cliente cliente : cliente){
+            if(cliente != null && cliente.nome.equals(nome)){
+                System.out.println("O cliente ja esta no cinema!");
                 return;
+            }
         }
         cliente.set(index, new Cliente(nome, fone));
     }  
@@ -53,7 +58,7 @@ class Cinema{
     public String toString(){
         String saida = "";
         for(Cliente cliente : cliente)
-            if(cliente.nome == null)
+            if(cliente == null)
                 saida += "- ";
             else
                 saida += " " + cliente + " ";
@@ -68,6 +73,7 @@ public class salaCinema{
     
     cinema.reservar("davi", "3232", 0);
     cinema.reservar("joao", "3131", 3);
+    cinema.reservar("joao", "3131", 4);
     cinema.reservar("kleber", "9673", 3);
 
     System.out.println(cinema);
