@@ -48,12 +48,16 @@ class Cinema{
         cliente.set(index, new Cliente(nome, fone));
     }  
     
-    // void cancelar(String elemento){
-    //     if(cliente.indexOf(elemento) != -1) {
-    //         int index = cliente.indexOf(elemento);
-    //         cliente.set(index, new Cliente(" - ", " "));
-    //     }
-    // }
+    void cancelar(String nome){
+        for(int i=0; i < cliente.size(); i++){
+            if(cliente.get(i) != null && cliente.get(i).nome.equals(nome)){
+                cliente.set(i, null);
+                System.out.println("Reserva cancelada");
+                return;
+            }
+        }
+        System.out.println("O cliente não foi encontrado");
+    }
     
     public String toString(){
         String saida = "";
@@ -75,21 +79,15 @@ public class salaCinema{
     cinema.reservar("joao", "3131", 3);
     cinema.reservar("joao", "3131", 4);
     cinema.reservar("kleber", "9673", 3);
-
     System.out.println(cinema);
 
-    // // [ davi:3232 - - joao:3131 ]
-    // cinema.reservar("rute", "3030", 0);
-    // // fail: cadeira ja esta ocupada
-    // cinema.reservar("davi", "3234", 2);
-    // // fail: cliente ja esta no cinema
-    // cinema.cancelar("davi");
-    // System.out.println(cinema);
-    // // [ - - - joao:3131 ]
-    // cinema.cancelar("rita");
-    // // fail: cliente nao esta no cinema
-    // System.out.println(cinema);
-    // // [ - - - joao:3131 ]
+    cinema.reservar("rute", "3030", 0);
+    cinema.reservar("davi", "3234", 2);
+    cinema.cancelar("davi");
+    System.out.println(cinema);
 
+    cinema.cancelar("rita");
+    System.out.println(cinema);
+    
     }
 }
