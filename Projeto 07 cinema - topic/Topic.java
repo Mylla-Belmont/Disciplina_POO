@@ -38,40 +38,33 @@ class Carro{
             
             if(idade >= 60 && (i < qtdPreferencial) && cadeiras.get(i) == null){
                 cadeiras.set(i, new Passageiros(nome, idade));
-                System.out.println("1");
                 return;
             }
-
-            if(idade >= 60 && (i > qtdPreferencial) && cadeiras.get(i) == null){
+            if(idade >= 60 && (i >= qtdPreferencial) && cadeiras.get(i) == null){
                 cadeiras.set(i, new Passageiros(nome, idade));
-                System.out.println("2");
                 return;
             }
-
             if(i >= qtdPreferencial && cadeiras.get(i) == null){
                 cadeiras.set(i, new Passageiros(nome, idade));
-                System.out.println("3");
                 return;
             }
         }
+        System.out.println("Todas as cadeiras estão ocupadas!");
     }
 
     public String toString(){
         String saida = "[";
+        int i = 0;
         int preferencial = qtdPreferencial;
 
         for(Passageiros cadeiras : cadeiras){
-
-            if(preferencial != 0 && cadeiras == null){
+            if(i < preferencial && cadeiras == null){
                 saida += " @ ";
-                preferencial -= 1;
-            }else
-
-            if(preferencial == 0 && cadeiras == null){
+            }else if(i >= preferencial && cadeiras == null){
                 saida += " = ";
             }else
-         
                 saida += " " + cadeiras + " ";
+            i++;
         }
         return saida + "]";
     }
@@ -83,9 +76,14 @@ public class Topic{
         Carro carro = new Carro(5, 2);
 
         carro.subir("davi", 17);
-        carro.subir("joão", 103);
-        carro.subir("maria", 92);
-        carro.subir("jorge", 18);
+        // carro.subir("joão", 103);
+        // carro.subir("maria", 92);
+        // // carro.subir("jorge", 188);
+        // // carro.subir("Socorro", 128);
+        carro.subir("Klebinho", 12);
+        carro.subir("nino", 13);
+        carro.subir("ana", 33);
+
 
         System.out.println(carro);
     }
@@ -106,4 +104,34 @@ public class Topic{
 //         saida += " = ";
 //     }else 
 //         saida += " " + cadeiras + " ";
+// }
+
+// int preferencial = qtdPreferencial;
+
+//         for(Passageiros cadeiras : cadeiras){
+
+//             if(preferencial != 0 && cadeiras == null){
+//                 saida += " @ ";
+//                 preferencial -= 1;
+//             }else
+
+//             if(preferencial == 0 && cadeiras == null){
+//                 saida += " = ";
+//             }else
+         
+//                 saida += " " + cadeiras + " ";
+//         }
+
+// for(int i=0; i < qtdPreferencial; i++){
+//     if(cadeiras.get(i) == null)
+//         saida += " @ ";
+//     else    
+//         saida += cadeiras;
+// }
+
+// for(int i=qtdPreferencial; i < cadeiras.size(); i++){
+//     if(cadeiras.get(i) == null)
+//         saida += " = ";
+//     else    
+//         saida += cadeiras;
 // }
