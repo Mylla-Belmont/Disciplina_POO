@@ -33,7 +33,7 @@ class Carro{
     // }
 
     void subir(String nome, int idade){
-        
+
         for(int i=0; i < cadeiras.size(); i++){
             
             if(idade >= 60 && (i < qtdPreferencial) && cadeiras.get(i) == null){
@@ -76,15 +76,11 @@ public class Topic{
         Carro carro = new Carro(5, 2);
 
         carro.subir("davi", 17);
-        // carro.subir("joão", 103);
-        // carro.subir("maria", 92);
-        // // carro.subir("jorge", 188);
-        // // carro.subir("Socorro", 128);
-        carro.subir("Klebinho", 12);
-        carro.subir("nino", 13);
-        carro.subir("ana", 33);
-
-
+        carro.subir("joão", 103);
+        carro.subir("maria", 92);
+        carro.subir("jorge", 188);
+        carro.subir("Socorro", 128);
+        
         System.out.println(carro);
     }
 }
