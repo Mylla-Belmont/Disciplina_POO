@@ -23,19 +23,26 @@ class Carro{
     Carro(int qtd, int qtdPreferencial){
         this.qtdPreferencial = qtdPreferencial;
         this.cadeiras = new ArrayList<>();
-
         for(int i=0; i < qtd; i++)
             cadeiras.add(null);
     }
 
-    // boolean descer(String nome){
-    //     return true;
-    // }
+    void descer(String nome){
+        for(int i=0; i < cadeiras.size(); i++)
+            if(cadeiras.get(i) != null && cadeiras.get(i).nome.equals(nome)){
+                cadeiras.set(i, null);
+                return;
+        }System.out.println("O passageiro não está na topic");
+    }
 
     void subir(String nome, int idade){
-
+        for(Passageiros cadeiras : cadeiras){
+            if(cadeiras != null && cadeiras.nome.equals(nome)){
+                System.out.println("O passageiro já está na topic");
+                return;
+            }
+        }
         for(int i=0; i < cadeiras.size(); i++){
-            
             if(idade >= 60 && (i < qtdPreferencial) && cadeiras.get(i) == null){
                 cadeiras.set(i, new Passageiros(nome, idade));
                 return;
@@ -48,8 +55,7 @@ class Carro{
                 cadeiras.set(i, new Passageiros(nome, idade));
                 return;
             }
-        }
-        System.out.println("Todas as cadeiras estão ocupadas!");
+        }System.out.println("Todas as cadeiras estão ocupadas!");
     }
 
     public String toString(){
@@ -75,59 +81,19 @@ public class Topic{
 
         Carro carro = new Carro(5, 2);
 
+        //Adicionar passageiro
         carro.subir("davi", 17);
         carro.subir("joão", 103);
         carro.subir("maria", 92);
         carro.subir("jorge", 188);
-        carro.subir("Socorro", 128);
-        
+        carro.subir("joão", 103);
+        System.out.println(carro);
+
+        //Descer passageiro
+        carro.descer("davi");
+        carro.descer("joão");
+        carro.descer("maria");
+        carro.descer("maria");
         System.out.println(carro);
     }
 }
-
-
-// for(int i=0; i < qtdPreferencial; i++){
-//     if(cadeiras == null)
-//         saida += " @ ";
-// }
-
-// for(Passageiros cadeiras : cadeiras){
-//     if(preferencial != 0 && cadeiras == null){
-//         saida += " @ ";
-//         preferencial -= 1;
-
-//     }else if(preferencial == 0 && cadeiras == null){
-//         saida += " = ";
-//     }else 
-//         saida += " " + cadeiras + " ";
-// }
-
-// int preferencial = qtdPreferencial;
-
-//         for(Passageiros cadeiras : cadeiras){
-
-//             if(preferencial != 0 && cadeiras == null){
-//                 saida += " @ ";
-//                 preferencial -= 1;
-//             }else
-
-//             if(preferencial == 0 && cadeiras == null){
-//                 saida += " = ";
-//             }else
-         
-//                 saida += " " + cadeiras + " ";
-//         }
-
-// for(int i=0; i < qtdPreferencial; i++){
-//     if(cadeiras.get(i) == null)
-//         saida += " @ ";
-//     else    
-//         saida += cadeiras;
-// }
-
-// for(int i=qtdPreferencial; i < cadeiras.size(); i++){
-//     if(cadeiras.get(i) == null)
-//         saida += " = ";
-//     else    
-//         saida += cadeiras;
-// }
