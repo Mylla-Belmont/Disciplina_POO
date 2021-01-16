@@ -10,8 +10,8 @@ class Passageiros{
         this.idade = idade;
     }
 
-    public String ToString(){
-        return nome + " " + idade;
+    public String toString(){
+        return nome + ":" + idade;
     }
 }
 
@@ -33,29 +33,47 @@ class Carro{
     // }
 
     void subir(String nome, int idade){
-        int i = 0;
-        for(Passageiros passageiro : cadeiras){
-            if(passageiro.idade >= 60 && qtdPreferencial != 0 && cadeiras.get(i) == null){
+        
+        for(int i=0; i < cadeiras.size(); i++){
+            
+            if(idade >= 60 && (i < qtdPreferencial) && cadeiras.get(i) == null){
                 cadeiras.set(i, new Passageiros(nome, idade));
-                qtdPreferencial -= 1;
-                i++;
+                System.out.println("1");
+                return;
+            }
+
+            if(idade >= 60 && (i > qtdPreferencial) && cadeiras.get(i) == null){
+                cadeiras.set(i, new Passageiros(nome, idade));
+                System.out.println("2");
+                return;
+            }
+
+            if(i >= qtdPreferencial && cadeiras.get(i) == null){
+                cadeiras.set(i, new Passageiros(nome, idade));
+                System.out.println("3");
+                return;
             }
         }
     }
 
     public String toString(){
-        String saida = "";
+        String saida = "[";
         int preferencial = qtdPreferencial;
 
         for(Passageiros cadeiras : cadeiras){
+
             if(preferencial != 0 && cadeiras == null){
                 saida += " @ ";
                 preferencial -= 1;
-            }
-            if(preferencial == 0 && cadeiras == null)
+            }else
+
+            if(preferencial == 0 && cadeiras == null){
                 saida += " = ";
+            }else
+         
+                saida += " " + cadeiras + " ";
         }
-        return "[" + saida + "]";
+        return saida + "]";
     }
 }
 
@@ -66,6 +84,8 @@ public class Topic{
 
         carro.subir("davi", 17);
         carro.subir("joão", 103);
+        carro.subir("maria", 92);
+        carro.subir("jorge", 18);
 
         System.out.println(carro);
     }
@@ -75,4 +95,15 @@ public class Topic{
 // for(int i=0; i < qtdPreferencial; i++){
 //     if(cadeiras == null)
 //         saida += " @ ";
+// }
+
+// for(Passageiros cadeiras : cadeiras){
+//     if(preferencial != 0 && cadeiras == null){
+//         saida += " @ ";
+//         preferencial -= 1;
+
+//     }else if(preferencial == 0 && cadeiras == null){
+//         saida += " = ";
+//     }else 
+//         saida += " " + cadeiras + " ";
 // }
