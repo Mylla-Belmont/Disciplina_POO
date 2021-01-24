@@ -55,12 +55,12 @@ class Contato{
         return null;
     }
 
-    void rmFone(String name){
-        for(Fone fone : fones)
-            if(fone.id.equals(name))
-                fones.remove();
-        System.out.println("O seguinte número não existe");
-    }
+    // void rmFone(String name){
+    //     for(Fone fone : fones)
+    //         if(fone.id.equals(name))
+    //             fones.remove();
+    //     System.out.println("O seguinte número não existe");
+    // }
 
     public String toString(){
         String saida = this.name;
@@ -86,16 +86,16 @@ class Agenda{
                 System.out.println("Esse contato já existe");
                 return;
             }
-        for(Contato contact : contato)  
+        for(Contato contact : contato)
             contato.add(contact.addFone(name, fone));
     }
 
-    void rmContato(String name){
-        for(int i=0; i < contato.size(); i++)
-            if(contato.get(i).name.equals(name))
-                contato.remove(name);
-        System.out.println("O contato não existe");
-    }
+    // void rmContato(String name){
+    //     for(int i=0; i < contato.size(); i++)
+    //         if(contato.get(i).name.equals(name))
+    //             contato.remove(name);
+    //     System.out.println("O contato não existe");
+    // }
     
     void removerFone(String number, int index){
 
