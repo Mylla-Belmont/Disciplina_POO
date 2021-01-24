@@ -91,9 +91,10 @@ class Agenda{
     //     for(int i=0; i < fone.size(); i++)
     //         number += fone.get(i);
 
-    //     for(Contato contato : contato)
-    //         this.contato.add(contato.addFone(name, number));
-    // }
+        // // for(Contato contato : contato)
+        //     contato.addAll(con)
+        //     this.contato.add(contato.addFone(name, number));
+    }
 
     // void rmContato(String name){
     //     for(int i=0; i < contato.size(); i++)
