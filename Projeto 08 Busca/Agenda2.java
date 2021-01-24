@@ -86,8 +86,13 @@ class Agenda{
                 System.out.println("Esse contato já existe");
                 return;
             }
-        for(Contato contact : contato)
-            contato.add(contact.addFone(name, fone));
+        
+        String number = "";    
+        for(int i=0; i < fone.size(); i++)
+            number += fone.get(i);
+
+        for(Contato contato : contato)
+            contato.addFone(name, number);
     }
 
     // void rmContato(String name){
