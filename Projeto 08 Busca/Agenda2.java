@@ -40,22 +40,22 @@ class Contato{
         System.out.println("Número inválido");
     }
 
-    Fone getFone(int index){
-        if(index < 0 && index > fones.size()){
-            System.out.println("Número não encontrado");
-            return null;
-        }
-        return fones.get(index);
-    }
+    // Fone getFone(int index){
+    //     if(index < 0 && index > fones.size()){
+    //         System.out.println("Número não encontrado");
+    //         return null;
+    //     }
+    //     return fones.get(index);
+    // }
 
-    Fone getName(String numero){
-        for(Fone fone : fones)
-            if(fone.number.equals(numero))
-                return fone;
-        return null;
-    }
+    // Fone getName(String numero){
+    //     for(Fone fone : fones)
+    //         if(fone.number.equals(numero))
+    //             return fone;
+    //     return null;
+    // }
 
-    // void rmFone(String name){
+    // // void rmFone(String name){
     //     for(Fone fone : fones)
     //         if(fone.id.equals(name))
     //             fones.remove();
@@ -80,20 +80,25 @@ class Agenda{
         this.contato = new ArrayList<>();
     }
 
-    void addContato(String name, List<Fone> fone){
-        for(Contato contato : contato)
-            if(contato.name.equals(name)){
-                System.out.println("Esse contato já existe");
-                return;
-            }
-        
-    //     String number = "";    
-    //     for(int i=0; i < fone.size(); i++)
-    //         number += fone.get(i);
+    boolean findContato(String name){
+        for(int i=0; i < contato.size(); i++)
+            if(contato.get(i).name.equals(name))
+                return true;
+        return false;
+    }
 
-        // // for(Contato contato : contato)
-        //     contato.addAll(con)
-        //     this.contato.add(contato.addFone(name, number));
+    void addContato(String name, List<Fone> fone){
+        if(findContato(name)){
+            System.out.println("Esse contato já existe");
+            return;
+        }
+        
+        String number = "";
+        for(int i=0; i < fone.size(); i++)
+            number += fone.get(i);    
+
+        for(Contato contato : contato)
+            contato.addFone(name, number);
     }
 
     // void rmContato(String name){
@@ -103,14 +108,14 @@ class Agenda{
     //     System.out.println("O contato não existe");
     // }
     
-    void removerFone(String number, int index){
+    // void removerFone(String number, int index){
 
-    }
+    // }
 
     public String toString(){
         String saida = "";
         for(Contato contato : contato)
-            saida += contato.fones;
+            saida += contato;
         return saida + "";
     }
 }
