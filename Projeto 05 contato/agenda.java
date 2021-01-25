@@ -51,9 +51,6 @@ class contato{
         }
         return saida;
     }
-    
-    public static void main(String[] args) {
-    }
 }
 
 
