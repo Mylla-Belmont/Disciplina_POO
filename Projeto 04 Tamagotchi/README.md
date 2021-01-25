@@ -26,6 +26,7 @@
     - Tornar código mais legivel para terceiros
     - Trabalhar com a relação entre classes distintas
 
+
 <b>Quanto tempo levou:</b>
 <p>A estruturação principal do jogo demorou cerca de 2 à 3 dias, enquanto as atualizações, resoluções de problemas, incrementações simples de funcionalidades e melhorias duraram até um dia antes do prazo limite do projeto.</p>
 
