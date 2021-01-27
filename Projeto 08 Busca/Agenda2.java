@@ -72,10 +72,8 @@ class Agenda{
             return;
         }
         Contato contato = new Contato(name);
-       // for(Fone fones : fone)
         for(int i=0; i < fone.size(); i++)
             contato.addFone(fone.get(i).id, fone.get(i).number);
-
         this.contato.add(contato);
     }
 
@@ -96,7 +94,7 @@ public class Agenda2{
         agenda.addContato("eva", Arrays.asList(new Fone("oio", "8585"), new Fone("cla", "9999")));
         agenda.addContato("ana", Arrays.asList(new Fone("Tim", "3434")));
         agenda.addContato("bia", Arrays.asList(new Fone("viv", "5454")));
-       // agenda.addContato("ana", Arrays.asList(new Fone("cas", 4567), new Fone("oio", 8754)));  
+        //agenda.addContato("ana", Arrays.asList(new Fone("cas", "4567"), new Fone("oio", "8754")));  
         System.out.println(agenda);
 
     //     //Removendo contato
