@@ -33,9 +33,9 @@ class Contato{
         this.fones = new ArrayList<>();
     }
 
-    void addFone(String name, String number){
+    void addFone(String id, String number){
         if(Fone.validate(number)){
-            fones.add(new Fone(name, number));
+            fones.add(new Fone(id, number));
             return;
         }
         System.out.println("fail: número inválido");
@@ -74,7 +74,7 @@ class Agenda{
         Contato contato = new Contato(name);
        // for(Fone fones : fone)
         for(int i=0; i < fone.size(); i++)
-            contato.addFone(name, fone.get(i).number);
+            contato.addFone(fone.get(i).id, fone.get(i).number);
 
         this.contato.add(contato);
     }
@@ -82,7 +82,7 @@ class Agenda{
     public String toString(){
         String saida = "";
         for(Contato contato : contato)
-            saida += contato.name + contato.fones;
+            saida += contato + "\n";
         return saida + "";
     }
 }
