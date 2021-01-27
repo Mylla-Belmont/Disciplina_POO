@@ -29,12 +29,12 @@ class Contato{
     String name;
     ArrayList<Fone> fones;
 
-    public Contato(String name){
+    public Contato(List<Fone> fone){
         this.name = name;
         this.fones = new ArrayList<>();
     }
 
-    void addFone(String[] id, String[] number){
+    void addFone(List<Fone> fone){
         for(int i=0; i < id.length; i++)
             if(Fone.validate(number[i]))
                 fones.add(new Fone(id, number));
@@ -73,12 +73,8 @@ class Agenda{
             return;
         }
 
-        String number = "";
-        for(int i=0; i < fone.size(); i++){
-            number += fone;
-            
-            for(Contato contato : contato)
-                this.contato.add(contato.addFone(name, number));
+        for(Contato contato : contato)
+            this.contato.add(contato.addFone(fone));
         }
     }
 
