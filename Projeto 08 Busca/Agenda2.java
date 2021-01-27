@@ -13,11 +13,10 @@ class Fone{
 
     public static boolean validate(String number){
         String validos = "0123456789()-";
-
-        for(int i=0; i < number.length(); i++)
+        for(int i = 0; i < number.length(); i++)
             if(validos.indexOf(number.charAt(i)) == -1)
                 return false;
-            return true;
+        return true;
     }
 
     public String toString(){
@@ -34,14 +33,12 @@ class Contato{
         this.fones = new ArrayList<>();
     }
 
-    void addFone(String name, List<Fone> fone){
-        String number = "";
-        for(int i=0; i < fone.size(); i++)
-            if(Fone.validate(fone.get(i).number))
-                number += fone.get(i).id + ":" + fone.get(i).number;
-            else
-                System.out.println("O número" + fone.get(i).number + "é inválido");
-       fones.add(new Fone(name, number));
+    void addFone(String name, String number){
+        if(Fone.validate(name)){
+            fones.add(new Fone(name, number));
+            return;
+        }
+        System.out.println("fail: número inválido");
     }
 
     public String toString(){
@@ -74,15 +71,18 @@ class Agenda{
             System.out.println("Esse contato já existe");
             return;
         }
+        Contato contato = new Contato(name);
+       // for(Fone fones : fone)
         for(int i=0; i < fone.size(); i++)
-            for(Contato contato : contato)
-                contato.addFone(name, fone);
+            contato.addFone(name, fone.get(i).number);
+
+        this.contato.add(contato);
     }
 
     public String toString(){
         String saida = "";
         for(Contato contato : contato)
-            saida += contato.name;
+            saida += contato.name + contato.fones;
         return saida + "";
     }
 }
@@ -94,6 +94,9 @@ public class Agenda2{
         
         //Adicionando contato
         agenda.addContato("eva", Arrays.asList(new Fone("oio", "8585"), new Fone("cla", "9999")));
+        agenda.addContato("ana", Arrays.asList(new Fone("Tim", "3434")));
+        agenda.addContato("bia", Arrays.asList(new Fone("viv", "5454")));
+       // agenda.addContato("ana", Arrays.asList(new Fone("cas", 4567), new Fone("oio", 8754)));  
         System.out.println(agenda);
 
     //     //Removendo contato
