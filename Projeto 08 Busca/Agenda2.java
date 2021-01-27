@@ -59,22 +59,21 @@ class Agenda{
         this.contato = new ArrayList<>();
     }
 
-    boolean findContato(String name){
-        for(int i=0; i < contato.size(); i++)
-            if(contato.get(i).name.equals(name))
-                return true;
-        return false;
-    }
-
     void addContato(String name, List<Fone> fone){
-        if(findContato(name)){
-            System.out.println("Esse contato já existe");
-            return;
-        }
         Contato contato = new Contato(name);
         for(int i=0; i < fone.size(); i++)
             contato.addFone(fone.get(i).id, fone.get(i).number);
+
+        for(int i=0; i < this.contato.size(); i++)
+            if(this.contato.get(i).name.equals(name)){
+                this.contato.add(i, contato);
+                return;
+            }
         this.contato.add(contato);
+    }   
+
+    void removeContato(){
+        
     }
 
     public String toString(){
