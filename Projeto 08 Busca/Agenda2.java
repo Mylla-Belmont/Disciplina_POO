@@ -76,13 +76,13 @@ class Agenda{
         }
         for(int i=0; i < fone.size(); i++)
             for(Contato contato : contato)
-                this.contato.add(contato.addFone(name, fone));
+                contato.addFone(name, fone);
     }
 
     public String toString(){
         String saida = "";
         for(Contato contato : contato)
-            saida += contato;
+            saida += contato.name;
         return saida + "";
     }
 }
