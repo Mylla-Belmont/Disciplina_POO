@@ -33,7 +33,8 @@ class Contato{
         this.fones = new ArrayList<>();
     }
 
-    void addFone(String id, String number){
+    void addFone(int index, String id, String number){
+        
         if(Fone.validate(number)){
             fones.add(new Fone(id, number));
             return;
@@ -59,22 +60,20 @@ class Agenda{
         this.contato = new ArrayList<>();
     }
 
+    int findContato(String name){
+        for(int i=0; i < this.contato.size(); i++)
+            if(this.contato.get(i).name.equals(name))
+                return i;
+        return -1;
+    }
+
     void addContato(String name, List<Fone> fone){
         Contato contato = new Contato(name);
+        int index = findContato(name);
         for(int i=0; i < fone.size(); i++)
-            contato.addFone(fone.get(i).id, fone.get(i).number);
-
-        for(int i=0; i < this.contato.size(); i++)
-            if(this.contato.get(i).name.equals(name)){
-                this.contato.add(i, contato);
-                return;
-            }
+            contato.addFone(index, fone.get(i).id, fone.get(i).number);
         this.contato.add(contato);
-    }   
-
-    void removeContato(){
-        
-    }
+    }  
 
     public String toString(){
         String saida = "";
@@ -93,7 +92,7 @@ public class Agenda2{
         agenda.addContato("eva", Arrays.asList(new Fone("oio", "8585"), new Fone("cla", "9999")));
         agenda.addContato("ana", Arrays.asList(new Fone("Tim", "3434")));
         agenda.addContato("bia", Arrays.asList(new Fone("viv", "5454")));
-        //agenda.addContato("ana", Arrays.asList(new Fone("cas", "4567"), new Fone("oio", "8754")));  
+        agenda.addContato("ana", Arrays.asList(new Fone("cas", "4567"), new Fone("oio", "8754")));  
         System.out.println(agenda);
 
     //     //Removendo contato
