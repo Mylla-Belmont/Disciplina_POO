@@ -34,7 +34,7 @@ class Contato{
     }
 
     void addFone(String name, String number){
-        if(Fone.validate(name)){
+        if(Fone.validate(number)){
             fones.add(new Fone(name, number));
             return;
         }
