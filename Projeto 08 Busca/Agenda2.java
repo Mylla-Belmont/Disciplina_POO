@@ -3,10 +3,10 @@ import java.util.List;
 import java.util.Arrays;
 
 class Fone{
-    String[] id;
-    String[] number;
+    String id;
+    String number;
 
-    public Fone(String[] id, String[] number){
+    public Fone(String id, String number){
         this.id = id;
         this.number = number;
     }
@@ -29,17 +29,19 @@ class Contato{
     String name;
     ArrayList<Fone> fones;
 
-    public Contato(List<Fone> fone){
+    public Contato(String name){
         this.name = name;
         this.fones = new ArrayList<>();
     }
 
-    void addFone(List<Fone> fone){
-        for(int i=0; i < id.length; i++)
-            if(Fone.validate(number[i]))
-                fones.add(new Fone(id, number));
+    void addFone(String name, List<Fone> fone){
+        String number = "";
+        for(int i=0; i < fone.size(); i++)
+            if(Fone.validate(fone.get(i).number))
+                number += fone.get(i).id + ":" + fone.get(i).number;
             else
-                System.out.println("Número inválido");
+                System.out.println("O número" + fone.get(i).number + "é inválido");
+       fones.add(new Fone(name, number));
     }
 
     public String toString(){
@@ -72,10 +74,9 @@ class Agenda{
             System.out.println("Esse contato já existe");
             return;
         }
-
-        for(Contato contato : contato)
-            this.contato.add(contato.addFone(fone));
-        }
+        for(int i=0; i < fone.size(); i++)
+            for(Contato contato : contato)
+                this.contato.add(contato.addFone(name, fone));
     }
 
     public String toString(){
