@@ -75,16 +75,16 @@ class Agenda{
     }
 
     void addContato(String name, List<Fone> fone){
-        Contato contato = new Contato(name);
-        
         for(int i=0; i < fone.size(); i++){
-            if(findContato(name) == -1){
-                contato.addFone(fone.get(i).id, fone.get(i).number);
-            }else
+            if(findContato(name) != -1){
                 this.contato.get(findContato(name)).addFone(fone.get(i).id, fone.get(i).number);
+            }else{
+                Contato contato = new Contato(name);
+                contato.addFone(fone.get(i).id, fone.get(i).number);
+                this.contato.add(contato);
+            }
         }
-        this.contato.add(contato);
-    }  
+    }
 
     void rmFone(String name, int index){
         if(findContato(name) != -1){
