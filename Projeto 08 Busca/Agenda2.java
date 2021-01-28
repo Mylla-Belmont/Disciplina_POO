@@ -102,6 +102,10 @@ class Agenda{
         System.out.println("fail: esse contato não existe");
     }
 
+    void search(String patter){
+       
+    }
+
     public String toString(){
         String saida = "";
         for(Contato contato : contato)
@@ -129,5 +133,11 @@ public class Agenda2{
         //case removendo contato
         agenda.rmContato("bia");
         System.out.println(agenda);
+
+        //Adicionando contato
+        agenda.addContato("ava", Arrays.asList(new Fone("viv", "5454")));
+        agenda.addContato("rui", Arrays.asList(new Fone("viv", "2222"),new Fone("oio", "9991")));
+        agenda.addContato("zac", Arrays.asList(new Fone("rec", "3131")));
+        System.out.println(agenda); 
     }
 }
