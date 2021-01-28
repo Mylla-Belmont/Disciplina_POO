@@ -102,8 +102,13 @@ class Agenda{
         System.out.println("fail: esse contato não existe");
     }
 
-    void search(String patter){
-       
+    ArrayList<Contato> search(String patter){
+        ArrayList<Contato> busca = new ArrayList<>();
+        for (Contato contato : busca) {
+            if(contato.name.equals(patter))
+                busca.add(contato);
+        }
+        return busca;
     }
 
     public String toString(){
@@ -139,5 +144,14 @@ public class Agenda2{
         agenda.addContato("rui", Arrays.asList(new Fone("viv", "2222"),new Fone("oio", "9991")));
         agenda.addContato("zac", Arrays.asList(new Fone("rec", "3131")));
         System.out.println(agenda); 
+
+        //case busca por padrao
+        for(Contato contato : agenda.search("va")){
+            System.out.println(contato);
+        }
+        /*
+        - ava [0:tim:5454]
+        - eva [0:oio:8585] [1:cla:9999]
+        */
     }
 }
