@@ -94,6 +94,14 @@ class Agenda{
         System.out.println("fail: esse contato não existe");
     }
 
+    void rmContato(String name){
+        if(findContato(name) != -1){
+            this.contato.remove(findContato(name));
+            return;
+        }
+        System.out.println("fail: esse contato não existe");
+    }
+
     public String toString(){
         String saida = "";
         for(Contato contato : contato)
@@ -116,6 +124,10 @@ public class Agenda2{
 
         //Removendo telefone
         agenda.rmFone("eva", 1);
+        System.out.println(agenda);
+
+        //case removendo contato
+        agenda.rmContato("bia");
         System.out.println(agenda);
     }
 }
