@@ -33,13 +33,20 @@ class Contato{
         this.fones = new ArrayList<>();
     }
 
-    void addFone(int index, String id, String number){
-        
+    void addFone(String id, String number){
         if(Fone.validate(number)){
             fones.add(new Fone(id, number));
             return;
         }
         System.out.println("fail: número inválido");
+    }
+
+    void rmFone(int index){
+        if(fones.get(index) != null){
+            fones.remove(index);
+            return;
+        }
+        System.out.println("fail: esse número não existe");
     }
 
     public String toString(){
@@ -69,11 +76,23 @@ class Agenda{
 
     void addContato(String name, List<Fone> fone){
         Contato contato = new Contato(name);
-        int index = findContato(name);
-        for(int i=0; i < fone.size(); i++)
-            contato.addFone(index, fone.get(i).id, fone.get(i).number);
+        
+        for(int i=0; i < fone.size(); i++){
+            if(findContato(name) == -1){
+                contato.addFone(fone.get(i).id, fone.get(i).number);
+            }else
+                this.contato.get(findContato(name)).addFone(fone.get(i).id, fone.get(i).number);
+        }
         this.contato.add(contato);
     }  
+
+    void rmFone(String name, int index){
+        if(findContato(name) != -1){
+            this.contato.get(findContato(name)).rmFone(index);
+            return;
+        }
+        System.out.println("fail: esse contato não existe");
+    }
 
     public String toString(){
         String saida = "";
@@ -95,8 +114,8 @@ public class Agenda2{
         agenda.addContato("ana", Arrays.asList(new Fone("cas", "4567"), new Fone("oio", "8754")));  
         System.out.println(agenda);
 
-    //     //Removendo contato
-    //     agenda.rmFone("ana", 0);
-    //     System.out.println(agenda);
+        //Removendo telefone
+        agenda.rmFone("eva", 1);
+        System.out.println(agenda);
     }
 }
