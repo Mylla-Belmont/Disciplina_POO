@@ -102,13 +102,13 @@ class Agenda{
         System.out.println("fail: esse contato não existe");
     }
 
-    boolean comparador(String contato, String patter){
+    boolean comparador(Contato contato, String patter){
         String busca = "";
-        for(int i=0; i < contato.length(); i++)
+        for(int i=0; i < contato.name.length(); i++)
             for(int j=0; j < patter.length(); j++)
-                if(contato.charAt(i) == patter.charAt(j))
-                    busca += contato.charAt(i);
-        
+                if(contato.name.charAt(i) == patter.charAt(j))
+                    busca += contato.name.charAt(i);
+       
         if(busca.equals(patter))
             return true;
         return false;
@@ -117,7 +117,7 @@ class Agenda{
     ArrayList<Contato> search(String patter){
         ArrayList<Contato> busca = new ArrayList<>();
         for(Contato contato : this.contato) 
-            if(comparador(contato.name, patter))
+            if(comparador(contato, patter))
                 busca.add(contato);
         return busca;
     }
@@ -157,12 +157,16 @@ public class Agenda2{
         System.out.println(agenda); 
 
         //case busca por padrao
-        for(Contato contato : agenda.search("r")){
+        for(Contato contato : agenda.search("va")){
+            System.out.println(contato);
+        }
+
+        for(Contato contato : agenda.search("999")){
             System.out.println(contato);
         }
         /*
-        - ava [0:tim:5454]
         - eva [0:oio:8585] [1:cla:9999]
+        - rui [0:viv:2222] [1:oio:9991]
         */
     }
 }
