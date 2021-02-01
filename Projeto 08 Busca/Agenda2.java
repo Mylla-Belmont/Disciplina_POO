@@ -62,14 +62,6 @@ class Contato{
     }
 }
 
-class ComparadorContatos implements Comparator<Contato>{
-    public int compare(Contato arg0, Contato arg1){
-        if(arg0.name.compareTo(arg1.name) != 0)
-            return arg0.name.compareTo(arg1.name);
-        return arg1.name.compareTo(arg0.name);
-    }
-}
-
 class Agenda{
     ArrayList<Contato> contato;
 
@@ -132,6 +124,14 @@ class Agenda{
         for(Contato contato : contato)
             saida += contato + "\n";
         return saida + "";
+    }
+}
+
+class ComparadorContatos implements Comparator<Contato>{
+    public int compare(Contato arg0, Contato arg1){
+        if(arg0.name.compareTo(arg1.name) != 0)
+            return arg0.name.compareTo(arg1.name);
+        return arg1.name.compareTo(arg0.name);
     }
 }
 
