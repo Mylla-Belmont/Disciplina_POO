@@ -137,6 +137,7 @@ class ComparadorContatos implements Comparator<Contato>{
 
 public class Agenda2{
     public static void main(String[] agrs){
+        
         Agenda agenda = new Agenda(); 
         
         //Adicionando contato
