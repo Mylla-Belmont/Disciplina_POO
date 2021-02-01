@@ -169,10 +169,8 @@ public class Agenda2{
             System.out.println(contato);
         }
         
-        System.out.println("");
         //Retornando contato por nome
         System.out.println(agenda.getContato("ava"));
-        System.out.println("");
 
         //Mostrando contatos em ordem alfabetica
         Collections.sort(agenda.contato, new ComparadorContatos());
