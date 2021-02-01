@@ -4,8 +4,7 @@
 
 <b>Desenvolverdor(a):</b> Camila Belmont
 
-<b>O que foi feito:</b>
-<p>Foi realizado a proposta de atividade @015-Busca, que consiste na representação lógica de um sistema de agendas.</p>
+<b>O que foi feito:</b> Foi realizado a proposta de atividade @015-Busca, que consiste na representação lógica de um sistema de agendas.
 
 <b>Com quem fez:</b>
 <p>Não houve participação com outros desenvolvedores, apenas alguns questionamentos foram supridos por pesquisas.</p>
