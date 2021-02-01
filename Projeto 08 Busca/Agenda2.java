@@ -120,11 +120,11 @@ class Agenda{
         return busca;
     }
 
-    ArrayList<String> getContato(){
-        ArrayList<String> retorno = new ArrayList<>();
-        for (Contato contato2 : contato)
-            retorno.add(contato2.name);
-        return retorno;
+    Contato getContato(String name){
+        for(int i=0; i < this.contato.size(); i++)
+            if(this.contato.get(i).name.equals(name))
+                return contato.get(i);
+        return null;
     }
 
     public String toString(){
@@ -137,7 +137,6 @@ class Agenda{
 
 public class Agenda2{
     public static void main(String[] agrs){
-
         Agenda agenda = new Agenda(); 
         
         //Adicionando contato
@@ -161,14 +160,17 @@ public class Agenda2{
         agenda.addContato("rac", Arrays.asList(new Fone("rec", "3131")));
         System.out.println(agenda); 
 
-        //case busca por padrao
+        //case busca por padrao nome
         for(Contato contato : agenda.search("va")){
             System.out.println(contato);
         }
-
+        //case busca por padrao numero
         for(Contato contato : agenda.search("999")){
             System.out.println(contato);
         }
+
+        //Retornando contato por nome
+        System.out.println(agenda.getContato("zui"));
 
         System.out.println("");
 
