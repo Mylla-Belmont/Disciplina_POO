@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 
 class Fone{
     String id;
@@ -60,6 +62,14 @@ class Contato{
     }
 }
 
+class ComparadorContatos implements Comparator<Contato>{
+    public int compare(Contato arg0, Contato arg1){
+        if(arg0.name.compareTo(arg1.name) < 0)
+            return arg0.name.compareTo(arg1.name);
+        return arg1.name.compareTo(arg0.name);
+    }
+}
+
 class Agenda{
     ArrayList<Contato> contato;
 
@@ -85,7 +95,7 @@ class Agenda{
             }
         }
     }
-
+    
     void rmFone(String name, int index){
         if(findContato(name) != -1){
             this.contato.get(findContato(name)).rmFone(index);
@@ -110,6 +120,13 @@ class Agenda{
         return busca;
     }
 
+    ArrayList<String> getContato(){
+        ArrayList<String> retorno = new ArrayList<>();
+        for (Contato contato2 : contato)
+            retorno.add(contato2.name);
+        return retorno;
+    }
+
     public String toString(){
         String saida = "";
         for(Contato contato : contato)
@@ -121,7 +138,7 @@ class Agenda{
 public class Agenda2{
     public static void main(String[] agrs){
 
-        Agenda agenda = new Agenda();
+        Agenda agenda = new Agenda(); 
         
         //Adicionando contato
         agenda.addContato("eva", Arrays.asList(new Fone("oio", "8585"), new Fone("cla", "9999")));
@@ -140,8 +157,8 @@ public class Agenda2{
 
         //Adicionando contato
         agenda.addContato("ava", Arrays.asList(new Fone("viv", "5454")));
-        agenda.addContato("rui", Arrays.asList(new Fone("viv", "2222"),new Fone("oio", "9991")));
-        agenda.addContato("zac", Arrays.asList(new Fone("rec", "3131")));
+        agenda.addContato("zui", Arrays.asList(new Fone("viv", "2222"),new Fone("oio", "9991")));
+        agenda.addContato("rac", Arrays.asList(new Fone("rec", "3131")));
         System.out.println(agenda); 
 
         //case busca por padrao
@@ -152,5 +169,11 @@ public class Agenda2{
         for(Contato contato : agenda.search("999")){
             System.out.println(contato);
         }
+
+        System.out.println("");
+
+        //Ordenando contatos
+        Collections.sort(agenda.getContato());
+        System.out.println(agenda);     
     }
 }
