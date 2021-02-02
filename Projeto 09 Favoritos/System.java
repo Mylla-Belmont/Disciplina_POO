@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.TreeMap;
+import java.util.Scanner;
 
 class Fone{
     String label;
@@ -73,6 +74,13 @@ class Agenda{
 
 public class System{
     public static void main(String[] agrs){
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Digite o que deseja fazer:");
+        String[] input = scanner.nextLine();
+
+        scanner.close();
 
     }
 }
