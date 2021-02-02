@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.TreeMap;
 import java.util.Scanner;
 
@@ -26,8 +27,8 @@ class Fone{
 
 class Contato{
     String name;
-    ArrayList<Fone> fones;
     boolean starred;
+    ArrayList<Fone> fones;
 
     Contato(String name, boolean starred){
         this.name = name;
@@ -70,6 +71,11 @@ class Agenda{
         this.contatos = new TreeMap<>();
         this.bookMarks = new TreeMap<>();
     }
+
+    void addContato(String name, List<Fone> fones){
+        if(!this.contatos.containsKey(name))
+            this.contatos.put(name, new Contato(name, fones));
+    }
 }
 
 public class Sistema{
@@ -78,10 +84,20 @@ public class Sistema{
         Agenda agenda = new Agenda();
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Digite o que deseja fazer:");
-        String[] input = scanner.nextLine();
+        while(true){
+            try{
+                System.out.println("Digite o que deseja fazer:");
+                String input = scanner.nextLine();
+                String[] Ui = input.split(" ");
+
+                if(Ui[0].equals("end")){
+                    break;
+                }
+            }catch(IndexOutOfBoundsException e){
+                System.out.println("Alguma coisa teste");
+            }
+        }
 
         scanner.close();
-
     }
 }
