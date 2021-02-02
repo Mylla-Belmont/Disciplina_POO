@@ -72,9 +72,10 @@ class Agenda{
     }
 }
 
-public class System{
+public class Sistema{
     public static void main(String[] agrs){
 
+        Agenda agenda = new Agenda();
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Digite o que deseja fazer:");
