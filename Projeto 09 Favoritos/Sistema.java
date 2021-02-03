@@ -1,7 +1,8 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.TreeMap;
-import java.util.Scanner;
+//import java.util.Scanner;
 
 class Fone{
     String label;
@@ -101,26 +102,34 @@ public class Sistema{
     public static void main(String[] agrs){
 
         Agenda agenda = new Agenda();
-        Scanner scanner = new Scanner(System.in);
+        agenda.addContato("eva", Arrays.asList(new Fone("oio", "8585"), new Fone("cla", "9999")));
+        agenda.addContato("ana", Arrays.asList(new Fone("Tim", "3434")));
+        agenda.addContato("bia", Arrays.asList(new Fone("viv", "5454")));
+        agenda.addContato("ana", Arrays.asList(new Fone("cas", "4567"), new Fone("oio", "8754")));
+        System.out.println(agenda);
 
-        while(true){
-            try{
-                System.out.println("Digite o que deseja fazer:");
-                String input = scanner.nextLine();
-                String[] Ui = input.split(" ");
+        // Agenda agenda = new Agenda();
+        // Scanner scanner = new Scanner(System.in);
 
-                if(Ui[0].equals("end")){
-                    break;
-                }else if(Ui[0].equals("add")){
-                   //agenda.addContato(Integer.parseInt(Ui[1]), Integer.parseInt(Ui[1]));
-                }
+        // while(true){
+        //     try{
+        //         System.out.println("Digite o que deseja fazer:");
+        //         String input = scanner.nextLine();
+        //         String[] Ui = input.split(" ");
+
+        //         if(Ui[0].equals("end")){
+        //             break;
+        //         }else if(Ui[0].equals("add")){
+        //             for(int i=2; i < Ui.length; i++)
+        //                 agenda.addContato(Ui[1], Ui[i]);
+        //         }
 
 
-            }catch(IndexOutOfBoundsException e){
-                System.out.println("Alguma coisa teste");
-            }
-        }
+        //     }catch(IndexOutOfBoundsException e){
+        //         System.out.println("Alguma coisa teste");
+        //     }
+        // }
 
-        scanner.close();
+        // scanner.close();
     }
 }
