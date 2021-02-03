@@ -17,8 +17,8 @@ class Fone{
         String validos = "123456789-()";
         for(int i=0; i < number.length(); i++)
             if(validos.indexOf(number.charAt(i)) == -1)
-                return true;
-        return false;
+                return false;
+        return true;
     }
 
     public String toString(){
@@ -73,7 +73,11 @@ class Agenda{
     void addContato(String name, List<Fone> fones){
         if(!this.contatos.containsKey(name))
             contatos.put(name, new Contato(name));
-        //Add fone aqui
+        
+        Contato contato = new Contato(name);
+        for(int i=0; i < fones.size(); i++)
+            contato.addFone(fones.get(i).label, fones.get(i).number);  
+        this.contatos.put(name, contato);
     }
 
     boolean rmContato(String name){
@@ -93,7 +97,7 @@ class Agenda{
     public String toString(){
         StringBuilder saida = new StringBuilder();
         for (Contato contato : this.contatos.values())
-            saida.append(contato);
+            saida.append(contato.name + contato.fones + "\n");
         return saida.toString();
     }
 }
