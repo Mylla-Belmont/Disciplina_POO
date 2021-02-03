@@ -73,11 +73,9 @@ class Agenda{
     void addContato(String name, List<Fone> fones){
         if(!this.contatos.containsKey(name))
             contatos.put(name, new Contato(name));
-        
-        Contato contato = new Contato(name);
+
         for(int i=0; i < fones.size(); i++)
-            contato.addFone(fones.get(i).label, fones.get(i).number);  
-        this.contatos.put(name, contato);
+            contatos.get(name).addFone(fones.get(i).label, fones.get(i).number);
     }
 
     boolean rmContato(String name){
@@ -106,6 +104,7 @@ public class Sistema{
     public static void main(String[] agrs){
 
         Agenda agenda = new Agenda();
+
         agenda.addContato("eva", Arrays.asList(new Fone("oio", "8585"), new Fone("cla", "9999")));
         agenda.addContato("ana", Arrays.asList(new Fone("Tim", "3434")));
         agenda.addContato("bia", Arrays.asList(new Fone("viv", "5454")));
