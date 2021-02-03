@@ -30,16 +30,14 @@ class Contato{
     boolean starred;
     ArrayList<Fone> fones;
 
-    Contato(String name, boolean starred){
+    Contato(String name){
         this.name = name;
-        this.starred = starred;
         this.fones = new ArrayList<>();
     }
 
     void addFone(String label, String number){
         if(Fone.validate(number)){
             fones.add(new Fone(label, number));
-            return;
         }
         //Fazer uma excessão aqui
     }
@@ -47,7 +45,6 @@ class Contato{
     void rmFone(int index){
         if(fones.get(index) != null){
             fones.remove(index);
-            return;
         }
         //Fazer uma excessão aqui
     }
@@ -74,7 +71,29 @@ class Agenda{
 
     void addContato(String name, List<Fone> fones){
         if(!this.contatos.containsKey(name))
-            this.contatos.put(name, new Contato(name, fones));
+            contatos.put(name, new Contato(name));
+        //Add fone aqui
+    }
+
+    boolean rmContato(String name){
+        if(this.contatos.containsKey(name))
+            contatos.remove(name);
+            //UnBookMars aqui
+        return false;
+    }
+
+    ArrayList<Contato> search(String patter){
+        ArrayList<Contato> busca = new ArrayList<>();
+        if(this.contatos.containsKey(patter))
+            busca.add(contatos.get(patter));
+        return busca;
+    }
+
+    public String toString(){
+        StringBuilder saida = new StringBuilder();
+        for (Contato contato : this.contatos.values())
+            saida.append(contato);
+        return saida.toString();
     }
 }
 
@@ -92,7 +111,11 @@ public class Sistema{
 
                 if(Ui[0].equals("end")){
                     break;
+                }else if(Ui[0].equals("add")){
+                   //agenda.addContato(Integer.parseInt(Ui[1]), Integer.parseInt(Ui[1]));
                 }
+
+
             }catch(IndexOutOfBoundsException e){
                 System.out.println("Alguma coisa teste");
             }
