@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.TreeMap;
-//import java.util.Scanner;
 
 class Fone{
     String label;
@@ -77,12 +76,13 @@ class Agenda{
             contatos.get(name).addFone(fones.get(i).label, fones.get(i).number);
     }
 
-    boolean rmContato(String name){
+    void rmContato(String name){
         if(this.contatos.containsKey(name)){
             contatos.remove(name);
-            bookMarks.get(name).rmFone();;
-        }
-        return false;
+        }else if(this.bookMarks.containsKey(name))
+            bookMarks.remove(name);
+        //}else
+            //Erro aqui
     }
 
     void addFavorito(String id){
@@ -94,6 +94,15 @@ class Agenda{
         //Fail aqui
     }
 
+    void removerFavorito(String id){
+        Contato contato = contatos.get(id);
+        if(this.contatos.get(id).starred){
+            contato.starred = false;
+            bookMarks.remove(id);
+        }
+        //Erro aqui
+    }
+
     ArrayList<Contato> search(String patter){
         ArrayList<Contato> busca = new ArrayList<>();
         if(this.contatos.containsKey(patter))
@@ -101,10 +110,19 @@ class Agenda{
         return busca;
     }
 
+    ArrayList<Contato> getStarred(){
+        ArrayList<Contato> favoritos = new ArrayList<>();
+        favoritos.addAll(bookMarks.values());
+        return favoritos;
+    }
+
     public String toString(){
         StringBuilder saida = new StringBuilder();
-        for (Contato contato : this.contatos.values())
-            saida.append(contato.name + contato.fones + "\n");
+        for(Contato contato : this.contatos.values())
+            if(bookMarks.containsKey(contato.name)){
+                saida.append("@ " + contato.name + " " + contato.fones + "\n");
+            }else
+                saida.append("- " + contato.name + " " + contato.fones + "\n");
         return saida.toString();
     }
 }
@@ -120,44 +138,23 @@ public class Sistema{
         agenda.addContato("bia", Arrays.asList(new Fone("viv", "5454")));
         agenda.addContato("ana", Arrays.asList(new Fone("cas", "4567"), new Fone("oio", "8754")));
         System.out.println(agenda);
-
-        //case favoritando
+    
+        // //case favoritando
         agenda.addFavorito("eva");
         agenda.addFavorito("ana");
-        //agenda.addFavorito("zac");
-        // agenda.addFavorito("rex");
-        // //fail: contato rex nao existe {java.lang.NullPointerException}
-        System.out.println(agenda.bookMarks);
+        
+        for(Contato favoritos : agenda.getStarred())
+            System.out.println(favoritos);
 
-        //Removendo contato
-        // agenda.rmContato("ana");
-        // System.out.println(agenda);
+    //    //Removendo contato
+    //     agenda.rmContato("ana");
+    //     System.out.println(agenda);
 
-        // //Procurando contato
-        // System.out.println(agenda.search("bia"));
+    //     //Removendo favorito
+    //     agenda.removerFavorito("eva");
+    //     System.out.println(agenda.bookMarks + "\n");
 
-        // Agenda agenda = new Agenda();
-        // Scanner scanner = new Scanner(System.in);
-
-        // while(true){
-        //     try{
-        //         System.out.println("Digite o que deseja fazer:");
-        //         String input = scanner.nextLine();
-        //         String[] Ui = input.split(" ");
-
-        //         if(Ui[0].equals("end")){
-        //             break;
-        //         }else if(Ui[0].equals("add")){
-        //             for(int i=2; i < Ui.length; i++)
-        //                 agenda.addContato(Ui[1], Ui[i]);
-        //         }
-
-
-        //     }catch(IndexOutOfBoundsException e){
-        //         System.out.println("Alguma coisa teste");
-        //     }
-        // }
-
-        // scanner.close();
+    //     //Procurando contato
+    //     System.out.println(agenda.search("bia"));
     }
 }
