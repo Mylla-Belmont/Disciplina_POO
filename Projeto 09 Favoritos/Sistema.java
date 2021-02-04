@@ -73,16 +73,25 @@ class Agenda{
     void addContato(String name, List<Fone> fones){
         if(!this.contatos.containsKey(name))
             contatos.put(name, new Contato(name));
-
         for(int i=0; i < fones.size(); i++)
             contatos.get(name).addFone(fones.get(i).label, fones.get(i).number);
     }
 
     boolean rmContato(String name){
-        if(this.contatos.containsKey(name))
+        if(this.contatos.containsKey(name)){
             contatos.remove(name);
-            //UnBookMars aqui
+            bookMarks.get(name).rmFone();;
+        }
         return false;
+    }
+
+    void addFavorito(String id){
+        Contato contato = contatos.get(id);
+        if(!contatos.get(id).starred){
+            contato.starred = true;
+            bookMarks.put(id, contato);
+        }
+        //Fail aqui
     }
 
     ArrayList<Contato> search(String patter){
@@ -105,11 +114,27 @@ public class Sistema{
 
         Agenda agenda = new Agenda();
 
+        //Adicionando contatos
         agenda.addContato("eva", Arrays.asList(new Fone("oio", "8585"), new Fone("cla", "9999")));
         agenda.addContato("ana", Arrays.asList(new Fone("Tim", "3434")));
         agenda.addContato("bia", Arrays.asList(new Fone("viv", "5454")));
         agenda.addContato("ana", Arrays.asList(new Fone("cas", "4567"), new Fone("oio", "8754")));
         System.out.println(agenda);
+
+        //case favoritando
+        agenda.addFavorito("eva");
+        agenda.addFavorito("ana");
+        //agenda.addFavorito("zac");
+        // agenda.addFavorito("rex");
+        // //fail: contato rex nao existe {java.lang.NullPointerException}
+        System.out.println(agenda.bookMarks);
+
+        //Removendo contato
+        // agenda.rmContato("ana");
+        // System.out.println(agenda);
+
+        // //Procurando contato
+        // System.out.println(agenda.search("bia"));
 
         // Agenda agenda = new Agenda();
         // Scanner scanner = new Scanner(System.in);
