@@ -38,15 +38,17 @@ class Contato{
     void addFone(String label, String number){
         if(Fone.validate(number)){
             fones.add(new Fone(label, number));
+            return;
         }
-        //Fazer uma excessão aqui
+        System.out.println("fail: número inválido!");
     }
 
     void rmFone(int index){
         if(fones.get(index) != null){
             fones.remove(index);
+            return;
         }
-        //Fazer uma excessão aqui
+        System.out.println("fail: contato não existe!");
     }
 
     public String toString(){
@@ -54,7 +56,7 @@ class Contato{
         int i=0;
         for (Fone fones : fones) {
             saida.append("[" + i + ":" + fones + "]");
-            i++;
+            i++;    
         }
         return saida.toString();
     }
@@ -79,10 +81,10 @@ class Agenda{
     void rmContato(String name){
         if(this.contatos.containsKey(name)){
             contatos.remove(name);
-        }else if(this.bookMarks.containsKey(name))
+        }else
+            System.out.println("fail: contato não existe");
+        if(this.bookMarks.containsKey(name))
             bookMarks.remove(name);
-        //}else
-            //Erro aqui
     }
 
     void addFavorito(String id){
@@ -90,8 +92,9 @@ class Agenda{
         if(!contatos.get(id).starred){
             contato.starred = true;
             bookMarks.put(id, contato);
+            return;
         }
-        //Fail aqui
+        System.out.println("fail: contato não existe");
     }
 
     void removerFavorito(String id){
@@ -99,8 +102,9 @@ class Agenda{
         if(this.contatos.get(id).starred){
             contato.starred = false;
             bookMarks.remove(id);
+            return;
         }
-        //Erro aqui
+        System.out.println("fail: contato não existe");
     }
 
     ArrayList<Contato> search(String patter){
