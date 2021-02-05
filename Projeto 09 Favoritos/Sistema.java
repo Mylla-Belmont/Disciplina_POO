@@ -40,11 +40,11 @@ class Contato{
             fones.add(new Fone(label, number));
             return;
         }
-        System.out.println("fail: número inválido!");
+        System.out.println("fail: número inválido");
     }
 
     void rmFone(int index){
-        if(fones.get(index) != null){
+        if(fones.get(index) == null){
             fones.remove(index);
             return;
         }
@@ -87,11 +87,11 @@ class Agenda{
             bookMarks.remove(name);
     }
 
-    void addFavorito(String id){
-        Contato contato = contatos.get(id);
-        if(!contatos.get(id).starred){
+    void addFavorito(String name){
+        Contato contato = contatos.get(name);
+        if(!contatos.get(name).starred){
             contato.starred = true;
-            bookMarks.put(id, contato);
+            bookMarks.put(name, contato);
             return;
         }
         System.out.println("fail: contato não existe");
@@ -116,7 +116,8 @@ class Agenda{
 
     ArrayList<Contato> getStarred(){
         ArrayList<Contato> favoritos = new ArrayList<>();
-        favoritos.addAll(bookMarks.values());
+        for (Contato contato : bookMarks.values())
+            favoritos.add(contato);
         return favoritos;
     }
 
@@ -137,22 +138,22 @@ public class Sistema{
         Agenda agenda = new Agenda();
 
         //Adicionando contatos
-        agenda.addContato("eva", Arrays.asList(new Fone("oio", "8585"), new Fone("cla", "9999")));
+        agenda.addContato("eva", Arrays.asList(new Fone("oio", "2332"), new Fone("cla", "9999")));
         agenda.addContato("ana", Arrays.asList(new Fone("Tim", "3434")));
         agenda.addContato("bia", Arrays.asList(new Fone("viv", "5454")));
-        agenda.addContato("ana", Arrays.asList(new Fone("cas", "4567"), new Fone("oio", "8754")));
+        agenda.addContato("ana", Arrays.asList(new Fone("cas", "3324"), new Fone("oio", "8754")));
         System.out.println(agenda);
-    
-        // //case favoritando
+        
+        //case favoritando
         agenda.addFavorito("eva");
         agenda.addFavorito("ana");
-        
+            
         for(Contato favoritos : agenda.getStarred())
             System.out.println(favoritos);
-
-    //    //Removendo contato
-    //     agenda.rmContato("ana");
-    //     System.out.println(agenda);
+       
+       //Removendo contato
+        agenda.rmContato("ana");
+        System.out.println(agenda);
 
     //     //Removendo favorito
     //     agenda.removerFavorito("eva");
