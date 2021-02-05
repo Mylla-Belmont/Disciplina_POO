@@ -116,7 +116,7 @@ class Agenda{
 
     ArrayList<Contato> getStarred(){
         ArrayList<Contato> favoritos = new ArrayList<>();
-        for (Contato contato : bookMarks.values())
+        for(Contato contato : this.bookMarks.values())
             favoritos.add(contato);
         return favoritos;
     }
