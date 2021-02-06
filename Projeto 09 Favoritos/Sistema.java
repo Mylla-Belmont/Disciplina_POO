@@ -116,8 +116,7 @@ class Agenda{
 
     ArrayList<Contato> getStarred(){
         ArrayList<Contato> favoritos = new ArrayList<>();
-        for(Contato contato : this.bookMarks.values())
-            favoritos.add(contato);
+            favoritos.addAll(bookMarks.values());
         return favoritos;
     }
 
@@ -142,6 +141,7 @@ public class Sistema{
         agenda.addContato("ana", Arrays.asList(new Fone("Tim", "3434")));
         agenda.addContato("bia", Arrays.asList(new Fone("viv", "5454")));
         agenda.addContato("ana", Arrays.asList(new Fone("cas", "3324"), new Fone("oio", "8754")));
+        agenda.addContato("rui", Arrays.asList(new Fone("viv", "4444")));
         System.out.println(agenda);
         
         //case favoritando
@@ -152,14 +152,18 @@ public class Sistema{
             System.out.println(favoritos);
        
        //Removendo contato
-        agenda.rmContato("ana");
-        System.out.println(agenda);
+        agenda.rmContato("rui");
+        System.out.println("\n" + agenda);
 
-    //     //Removendo favorito
-    //     agenda.removerFavorito("eva");
-    //     System.out.println(agenda.bookMarks + "\n");
+        //Removendo favorito
+        agenda.removerFavorito("eva");
+        for(Contato favoritos : agenda.getStarred())
+            System.out.println(favoritos);
 
-    //     //Procurando contato
-    //     System.out.println(agenda.search("bia"));
+        System.out.println("\n" + agenda);
+
+        //Procurando contato
+        for(Contato search : agenda.search("bia"))
+            System.out.println(search);
     }
 }
