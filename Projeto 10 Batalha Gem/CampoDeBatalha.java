@@ -1,17 +1,17 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
-abstract class Gem{
+abstract class Gems{
     abstract int atacar();
     abstract void sofrerDano(int dano);
     abstract void fundir(String nomeFusão);
     abstract void usarPoder();
     abstract void perderEnergia();
-    abstract void recuperarEnergia();    //Volta para dentro da Gem para recuperar energia
+    abstract void recuperarEnergia();    //Volta para dentro da Gems para recuperar energia
     abstract void morrer();
 }
 
-class Fusões{   // extends Gem
+class Fusões{   // extends Gems
     String nomeThis;
     String nomeOther;
     String nomeFusão;
@@ -32,7 +32,7 @@ class Fusões{   // extends Gem
     }
 }
 
-class Perolas extends Gem{    //
+class Perolas extends Gems{    //
     int poder;
     int energia;
     int minimoEnergia = 20;
@@ -62,9 +62,9 @@ class Perolas extends Gem{    //
                 this.energia -= dano;
     }
 
-    public void fundir(String gem){
+    public void fundir(String Gems){
         if(this.vida == true && this.energia >= 50)
-            this.fusão.add(new Fusões("Perola", gem));
+            this.fusão.add(new Fusões("Perola", Gems));
     }
 
     public void usarPoder(){
