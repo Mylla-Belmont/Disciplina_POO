@@ -2,23 +2,41 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 abstract class Gem{
-    abstract void atacar();
-    abstract void sofrerDano();
-    abstract void fundir();
+    abstract int atacar();
+    abstract void sofrerDano(int dano);
+    abstract void fundir(String nomeFusão);
     abstract void usarPoder();
     abstract void perderEnergia();
     abstract void recuperarEnergia();    //Volta para dentro da Gem para recuperar energia
     abstract void morrer();
 }
 
-class Fusões{
-    int durabilidade;
-    int poderFusão;
+interface CristalGem{
+
 }
 
-class Perolas extends Gem{
+class Fusões{   // extends Gem
+    String nome;
+    int durabilidade;
+    int poderFusão;
+
+    Fusões(String nome){
+        this.nome = nome;
+    }
+
+    public void tipoFusão(){
+        if(nome.equals("Ganet")){
+            durabilidade = 50;
+            poderFusão = 40;
+        }
+    }
+}
+
+class Perolas extends Gem implements CristalGem{    //
     int poder;
     int energia;
+    int minimoEnergia = 20;
+    int msximoRecuperação = 2;
     int resistenciaArma;
     boolean vida = true;
     ArrayList<Fusões> fusão;
@@ -30,15 +48,25 @@ class Perolas extends Gem{
         this.fusão = new ArrayList<>();
     }
 
-    public void atacar(){
-
+    public int atacar(){
+        if(this.energia >= minimoEnergia)
+            return 10;
+        return 0;
     }
-    public void sofrerDano(){
 
+    public void sofrerDano(int dano){
+        if(this.vida == true)
+            if(this.energia - dano < 0)
+                this.energia = 0;
+            else 
+                this.energia -= dano;
     }
-    public void fundir(){
 
+    public void fundir(String nomeFusão){
+        if(this.vida == true && this.energia >= 50)
+            this.fusão.add(new Fusões(nomeFusão));
     }
+
     public void usarPoder(){
 
     }
@@ -51,22 +79,6 @@ class Perolas extends Gem{
     public void morrer(){
 
     }
-}
-
-class Ametistas{
-
-}
-
-class Rubis{
-
-}
-
-class Safiras{
-
-}
-
-class Diamantes{
-
 }
 
 public class CampoDeBatalha{
