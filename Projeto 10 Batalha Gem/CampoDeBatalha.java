@@ -16,18 +16,22 @@ interface CristalGem{
 }
 
 class Fusões{   // extends Gem
-    String nome;
+    String nomeThis;
+    String nomeOther;
+    String nomeFusão;
     int durabilidade;
     int poderFusão;
 
-    Fusões(String nome){
-        this.nome = nome;
+    Fusões(String nomeThis, String nomeOther){
+        this.nomeThis = nomeThis;
+        this.nomeOther = nomeOther;
     }
 
     public void tipoFusão(){
-        if(nome.equals("Ganet")){
-            durabilidade = 50;
-            poderFusão = 40;
+        if(nomeThis.equals("Perola") && nomeOther.equals("Ametista") || nomeThis.equals("Ametista") && nomeOther.equals("Perola")){
+            nomeFusão = "Opal";
+            durabilidade = 20;
+            poderFusão = 20;
         }
     }
 }
@@ -62,9 +66,9 @@ class Perolas extends Gem implements CristalGem{    //
                 this.energia -= dano;
     }
 
-    public void fundir(String nomeFusão){
+    public void fundir(String gem){
         if(this.vida == true && this.energia >= 50)
-            this.fusão.add(new Fusões(nomeFusão));
+            this.fusão.add(new Fusões("Perola", gem));
     }
 
     public void usarPoder(){
