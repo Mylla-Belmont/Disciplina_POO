@@ -59,7 +59,7 @@ public class Ametistas extends Gems{
 
     void fundir(String nomeFusão) {
         if(vida == true && energia >= minimoEnergia){
-            fusão.add(new Fusões("Perola", nomeFusão));
-        }throw new RuntimeException("Perola não pode fundir-se com" + nomeFusão);
+            fusão.add(new Fusões("Ametista", nomeFusão));
+        }throw new RuntimeException("Ametista não pode fundir-se com" + nomeFusão);
     }   
 }

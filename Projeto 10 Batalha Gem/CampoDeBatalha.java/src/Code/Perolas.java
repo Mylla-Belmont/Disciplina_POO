@@ -20,7 +20,7 @@ public class Perolas extends Gems{    //
         this.fusão = new ArrayList<>();
     }
 
-    public int atacar(){
+    int atacar(){
         if(energia >= minimoEnergia){
             poder -= 5;
             energia -= 5;
@@ -29,7 +29,7 @@ public class Perolas extends Gems{    //
         }throw new RuntimeException("Perola está com a energia baixa!");
     }
 
-    public void sofrerDano(int dano){
+    void sofrerDano(int dano){
         if(energia - dano < 0){
             vida = false;
             energia = 0;
@@ -39,7 +39,7 @@ public class Perolas extends Gems{    //
             energia -= dano;
     }
 
-    public int usarPoder(){
+    int usarPoder(){
         if(poder >= (maxPoder/2) && energia >= 20){
             poder -= 10;
             energia -= 10;
@@ -47,7 +47,7 @@ public class Perolas extends Gems{    //
         } throw new RuntimeException("Perola está fraca!");
     }
 
-    public void recuperarEnergia(){
+    void recuperarEnergia(){
         if(vida == true && maximoRecuperação != 0){
             poder += 20;
             energia += 20;
@@ -56,7 +56,7 @@ public class Perolas extends Gems{    //
         }throw new RuntimeException("Perola está morta!");
     }    
 
-    public void fundir(String nomeFusão){
+    void fundir(String nomeFusão){
         if(vida == true && energia >= minimoEnergia){
             fusão.add(new Fusões("Perola", nomeFusão));
         }throw new RuntimeException("Perola não pode fundir-se com" + nomeFusão);
