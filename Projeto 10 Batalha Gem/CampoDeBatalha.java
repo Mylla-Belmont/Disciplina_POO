@@ -1,10 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
-class Fusões{
-
-}
-
 abstract class Gem{
     abstract void atacar();
     abstract void sofrerDano();
@@ -15,10 +11,16 @@ abstract class Gem{
     abstract void morrer();
 }
 
+class Fusões{
+    int durabilidade;
+    int poderFusão;
+}
+
 class Perolas extends Gem{
     int poder;
     int energia;
     int resistenciaArma;
+    boolean vida = true;
     ArrayList<Fusões> fusão;
 
     Perolas(int poder, int energia, int resistenciaArma){
