@@ -61,4 +61,8 @@ public class Ametistas extends Gems{
             fusão.add(new Fusões("Ametista", nomeFusão));
         }throw new RuntimeException("Ametista não pode fundir-se com" + nomeFusão);
     }   
+
+    public String toString() {
+        return poder + "/" + maxPoder + "\n" + energia + "\n" + resistenciaArma;
+    }
 }

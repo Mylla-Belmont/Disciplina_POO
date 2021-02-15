@@ -60,4 +60,8 @@ public class Perolas extends Gems{    //
             fusão.add(new Fusões("Perola", nomeFusão));
         }throw new RuntimeException("Perola não pode fundir-se com" + nomeFusão);
     }
+
+    public String toString() {
+        return poder + "/" + maxPoder + "\n" + energia + "\n" + resistenciaArma;
+    }
 }

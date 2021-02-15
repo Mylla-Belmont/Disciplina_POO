@@ -61,4 +61,8 @@ public class Rubis extends Gems{
             fusão.add(new Fusões("Rubi", nomeFusão));
         }throw new RuntimeException("Rubi não pode fundir-se com" + nomeFusão);
     }   
+
+    public String toString() {
+        return poder + "/" + maxPoder + "\n" + energia + "\n" + resistenciaArma;
+    }
 }
