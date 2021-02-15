@@ -35,8 +35,7 @@ public class Perolas extends Gems{    //
             energia = 0;
             throw new RuntimeException("Perola foi destruida!");
         }
-        if(vida == true)
-            energia -= dano;
+        energia -= dano;
     }
 
     int usarPoder(){

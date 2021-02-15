@@ -2,17 +2,17 @@ package Code;
 
 import java.util.ArrayList;
 
-public class Ametistas extends Gems{
+public class Rubis extends Gems{
     int poder;
     int maxPoder;
     int energia;
-    int minimoEnergia = 10;
+    int minimoEnergia = 15;
     int maximoRecuperação = 2;
     int resistenciaArma;
     boolean vida = true;
     ArrayList<Fusões> fusão;
 
-    Ametistas(int poder, int energia, int resistenciaArma){
+    Rubis(int poder, int energia, int resistenciaArma){
         this.poder = poder;
         this.maxPoder = poder;
         this.energia = energia;
@@ -22,43 +22,43 @@ public class Ametistas extends Gems{
 
     int atacar() {
         if(energia >= minimoEnergia){
-            poder -= 10;
-            energia -= 10;
-            resistenciaArma -= 10;
-            return 5;
-        }throw new RuntimeException("Amestista está com a energia baixa!");
+            poder -= 5;
+            energia -= 20;
+            resistenciaArma -= 20;
+            return 10;
+        }throw new RuntimeException("Rubi está com a energia baixa!");
     }
 
     void sofrerDano(int dano) {
         if(energia - dano < 0){
             vida = false;
             energia = 0;
-            throw new RuntimeException("Amestista foi destruida!");
+            throw new RuntimeException("Rubi foi destruida!");
         }
         energia -= dano;
     }
 
     int usarPoder() {
-        if(poder >= (maxPoder/2) && energia >= 10){
-            poder -= 20;
-            energia -= 20;
+        if(poder >= (maxPoder/2) && energia >= 40){
+            poder -= 30;
+            energia -= 40;
             return maxPoder;
-        } throw new RuntimeException("Ametista está fraca!");
+        } throw new RuntimeException("Rubi está fraca!");
     }
 
     void recuperarEnergia() {
         if(vida == true && maximoRecuperação != 0){
-            poder += 20;
-            energia += 5;
-            resistenciaArma += 10;
+            poder += 30;
+            energia += 20;
+            resistenciaArma += 5;
             maximoRecuperação -= 1;
-        }throw new RuntimeException("Ametista está morta!");
+        }throw new RuntimeException("Rubi está morta!");
 
     }
 
     void fundir(String nomeFusão) {
         if(vida == true && energia >= minimoEnergia){
-            fusão.add(new Fusões("Ametista", nomeFusão));
-        }throw new RuntimeException("Ametista não pode fundir-se com" + nomeFusão);
+            fusão.add(new Fusões("Rubi", nomeFusão));
+        }throw new RuntimeException("Rubi não pode fundir-se com" + nomeFusão);
     }   
 }

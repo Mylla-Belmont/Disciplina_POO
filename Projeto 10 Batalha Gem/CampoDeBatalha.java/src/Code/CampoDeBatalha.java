@@ -2,12 +2,12 @@ package Code;
 
 import java.util.Scanner;
 
-abstract class Guerreiras{
+abstract class Gems{
     abstract int atacar();
     abstract void sofrerDano(int dano);
-    abstract void fundir(String nomeFusão);
     abstract int usarPoder();
     abstract void recuperarEnergia();
+    abstract void fundir(String nomeFusão);
 }
 
 public class CampoDeBatalha {
