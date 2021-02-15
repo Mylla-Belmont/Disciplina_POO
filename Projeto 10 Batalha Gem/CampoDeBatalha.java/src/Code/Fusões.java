@@ -1,4 +1,4 @@
-package Main;
+package Code;
 
 public class Fusões {
     String nomeThis;
