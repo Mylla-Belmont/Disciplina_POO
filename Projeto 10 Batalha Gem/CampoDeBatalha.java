@@ -11,10 +11,6 @@ abstract class Gem{
     abstract void morrer();
 }
 
-interface CristalGem{
-
-}
-
 class Fusões{   // extends Gem
     String nomeThis;
     String nomeOther;
@@ -36,7 +32,7 @@ class Fusões{   // extends Gem
     }
 }
 
-class Perolas extends Gem implements CristalGem{    //
+class Perolas extends Gem{    //
     int poder;
     int energia;
     int minimoEnergia = 20;
