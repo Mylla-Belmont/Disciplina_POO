@@ -2,7 +2,7 @@ package Code;
 
 import java.util.ArrayList;
 
-public class Perolas extends Gems{    //
+public class Perolas extends Gems implements CristalGems{    //
     int poder;
     int maxPoder;
     int energia;
@@ -55,7 +55,7 @@ public class Perolas extends Gems{    //
         }throw new RuntimeException("Perola está morta!");
     }    
 
-    void fundir(String nomeFusão){
+    public void fundir(String nomeFusão){
         if(vida == true && energia >= minimoEnergia){
             fusão.add(new Fusões("Perola", nomeFusão));
         }throw new RuntimeException("Perola não pode fundir-se com" + nomeFusão);

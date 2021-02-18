@@ -2,7 +2,7 @@ package Code;
 
 import java.util.ArrayList;
 
-public class Ametistas extends Gems{
+public class Ametistas extends Gems implements CristalGems{
     int poder;
     int maxPoder;
     int energia;
@@ -56,7 +56,7 @@ public class Ametistas extends Gems{
 
     }
 
-    void fundir(String nomeFusão) {
+    public void fundir(String nomeFusão) {
         if(vida == true && energia >= minimoEnergia){
             fusão.add(new Fusões("Ametista", nomeFusão));
         }throw new RuntimeException("Ametista não pode fundir-se com" + nomeFusão);

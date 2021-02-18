@@ -7,7 +7,10 @@ abstract class Gems{
     abstract void sofrerDano(int dano);
     abstract int usarPoder();
     abstract void recuperarEnergia();
-    abstract void fundir(String nomeFusão);
+}
+
+interface CristalGems{
+    void fundir(String nomeFusão);
 }
 
 public class CampoDeBatalha {
