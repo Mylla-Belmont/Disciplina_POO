@@ -35,7 +35,6 @@ public class Lapis extends Gems{    //
         } throw new RuntimeException("Safira está fraca!");
     }
 
-
     void recuperar(){
         if(vida == true && maxRecuperacao != 0){
             poder += 30;
