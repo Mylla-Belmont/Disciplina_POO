@@ -18,7 +18,7 @@ public class Perolas extends Gems implements CristalGems{    //
         if(vida == true && energia >= minEnergia){
             poder -= 10;
             energia -= 10;
-            System.out.println("Perola atacou, mas a sua arma está quebrada!");
+            System.out.println("Perola atacou, mas a sua lança está quebrada!");
             return 5;
         } throw new RuntimeException("Perola está com a energia baixa!");
     }
@@ -30,6 +30,8 @@ public class Perolas extends Gems implements CristalGems{    //
         }else if(energia - dano < 0 && maxRecuperacao == 0){
             vida = false;
             energia = 0;
+        }else{
+            energia -= dano;
         } throw new RuntimeException("Perola foi morta!");
     }
 
@@ -42,10 +44,10 @@ public class Perolas extends Gems implements CristalGems{    //
         } throw new RuntimeException("Perola está fraca!");
     }
 
-    void recuperarEnergia(){
+    void recuperar(){
         if(vida == true && maxRecuperacao != 0){
             poder += 20;
-            energia += 20;
+            energia += 30;
             resistenciaArma += 20;
             maxRecuperacao -= 1;
         } throw new RuntimeException("Perola não pode se recuperar!");
@@ -54,7 +56,7 @@ public class Perolas extends Gems implements CristalGems{    //
     public void fundir(String nomeFusão){
         if(vida == true && energia >= minEnergia){
             fusão.add(new Fusões("Perola", nomeFusão));
-        }throw new RuntimeException("Perola não pode fundir-se com" + nomeFusão);
+        } throw new RuntimeException("Perola não pode fundir-se com" + nomeFusão);
     }
 
     public String toString() {
@@ -62,6 +64,6 @@ public class Perolas extends Gems implements CristalGems{    //
             poder = 0;
         if(energia < 0)
             energia = 0;
-            return poder + "/" + maxPoder + "\n" + energia + "/" + maxEnergia + "\n";
+        return poder + "/" + maxPoder + "\n" + energia + "/" + maxEnergia + "\n";
     }
 }

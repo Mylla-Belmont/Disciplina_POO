@@ -28,7 +28,7 @@ abstract class Gems{
     abstract int atacar();
     abstract void sofrerDano(int dano);
     abstract int usarPoder();
-    abstract void recuperarEnergia();
+    abstract void recuperar();
 }
 
 interface CristalGems{

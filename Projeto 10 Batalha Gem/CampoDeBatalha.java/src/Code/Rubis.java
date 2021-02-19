@@ -14,13 +14,16 @@ public class Rubis extends Gems implements CristalGems{
         }throw new RuntimeException("Rubi está com a energia baixa!");
     }
 
-    void sofrerDano(int dano) {
-        if(energia - dano < 0){
+    void sofrerDano(int dano){
+        if(energia - dano < 0 && maxRecuperacao != 0){
+            energia = 0;
+            System.out.println("Rubi foi destruida!");
+        }else if(energia - dano < 0 && maxRecuperacao == 0){
             vida = false;
             energia = 0;
-            throw new RuntimeException("Rubi foi destruida!");
-        }
-        energia -= dano;
+        }else{
+            energia -= dano;
+        } throw new RuntimeException("Rubi foi morta!");
     }
 
     int usarPoder() {
@@ -28,7 +31,7 @@ public class Rubis extends Gems implements CristalGems{
         return 0;
     }
 
-    void recuperarEnergia() {
+    void recuperar() {
         if(vida == true && maxRecuperacao != 0){
             energia += 20;
             maxRecuperacao -= 1;
@@ -43,6 +46,8 @@ public class Rubis extends Gems implements CristalGems{
     }   
 
     public String toString() {
+        if(energia < 0)
+            energia = 0;
         return energia + "/" + maxEnergia;
     }
 }

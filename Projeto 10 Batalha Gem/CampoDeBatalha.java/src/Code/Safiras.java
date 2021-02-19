@@ -8,37 +8,40 @@ public class Safiras extends Gems implements CristalGems{
 
     int atacar() {
         if(energia >= minEnergia){
-            poder -= 10;
-            energia -= 5;
+            poder -= 20;
+            energia -= 15;
             System.out.println("Safira está atacando usando sua própria força!");
-            return 5;
+            return 10;
         }throw new RuntimeException("Safira está com a energia baixa!");
     }
 
-    void sofrerDano(int dano) {
-        if(energia - dano < 0){
+    void sofrerDano(int dano){
+        if(energia - dano < 0 && maxRecuperacao != 0){
+            energia = 0;
+            System.out.println("Safira foi destruida!");
+        }else if(energia - dano < 0 && maxRecuperacao == 0){
             vida = false;
             energia = 0;
-            throw new RuntimeException("Safira foi destruida!");
-        }
-        energia -= dano;
+        }else{
+            energia -= dano;
+        } throw new RuntimeException("Safira foi morta!");
     }
 
-    int usarPoder() {
-        if(poder >= (maxPoder/2) && energia >= 40){
-            poder -= 50;
-            energia -= 60;
-            return maxPoder;
+    int usarPoder(){
+        if(poder != 0 && energia >= minEnergia){
+            poder -= 5;
+            energia -= 5;
+            System.out.println("Safira está prevendo seus ataques!");
+            return poder;
         } throw new RuntimeException("Safira está fraca!");
     }
 
-    void recuperarEnergia() {
+    void recuperar() {
         if(vida == true && maxRecuperacao != 0){
-            poder += 20;
-            energia += 10;
+            poder += 30;
+            energia += 5;
             maxRecuperacao -= 1;
-        }throw new RuntimeException("Rubi está morta!");
-
+        }throw new RuntimeException("Safira está morta!");
     }
 
     public void fundir(String nomeFusão) {
@@ -48,6 +51,10 @@ public class Safiras extends Gems implements CristalGems{
     }   
 
     public String toString() {
-        return poder + "/" + maxPoder + "\n" + energia;
+        if(poder < 0)
+            poder = 0;
+        if(energia < 0)
+            energia = 0;
+        return poder + "/" + maxPoder + "\n" + energia + "/" + maxEnergia + "\n";
     }
 }

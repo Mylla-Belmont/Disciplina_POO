@@ -7,34 +7,39 @@ public class Lapis extends Gems{    //
     }
 
     int atacar(){
-        if(energia >= minEnergia){
+        if(vida == true && energia >= minEnergia){
             poder -= 5;
             energia -= 5;
-            return 10;
+            return 20;
         }throw new RuntimeException("Lápis Lazúli está com a energia baixa!");
     }
 
     void sofrerDano(int dano){
-        if(energia - dano < 0){
+        if(energia - dano < 0 && maxRecuperacao != 0){
+            energia = 0;
+            System.out.println("Lápis Lazúli foi destruida!");
+        }else if(energia - dano < 0 && maxRecuperacao == 0){
             vida = false;
             energia = 0;
-            throw new RuntimeException("Lápis Lazúli foi destruida!");
-        }
-        energia -= dano;
+        }else{
+            energia -= dano;
+        } throw new RuntimeException("Lápis Lazúli foi morta!");
     }
 
     int usarPoder(){
-        if(poder >= (maxPoder/2) && energia >= 20){
-            poder -= 10;
-            energia -= 5;
-            return maxPoder;
-        } throw new RuntimeException("Lápis Lazúli está fraca!");
+        if(poder != 0 && energia >= minEnergia){
+            poder -= 30;
+            energia -= 10;
+            System.out.println("Lápis Lazúli atacou usando sua hidrosinesi!");
+            return poder;
+        } throw new RuntimeException("Safira está fraca!");
     }
 
-    void recuperarEnergia(){
+
+    void recuperar(){
         if(vida == true && maxRecuperacao != 0){
             poder += 30;
-            energia += 20;
+            energia += 10;
             maxRecuperacao -= 1;
         }throw new RuntimeException("Lápis Lazúli está morta!");
     }    
