@@ -1,7 +1,5 @@
 package Code;
 
-import java.util.ArrayList;
-
 public class Rubis extends Gems implements CristalGems{
     
     public Rubis(int poder, int energia, int minEnergia, int resistenciaArma, int maxRecuperacao){

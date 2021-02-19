@@ -1,7 +1,5 @@
 package Code;
 
-import java.util.ArrayList;
-
 public class Ametistas extends Gems implements CristalGems{
     
     public Ametistas(int poder, int energia, int minEnergia, int resistenciaArma, int maxRecuperacao){
