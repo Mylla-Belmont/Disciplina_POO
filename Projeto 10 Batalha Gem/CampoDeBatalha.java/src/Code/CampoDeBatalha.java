@@ -40,7 +40,11 @@ public class CampoDeBatalha {
         
         Scanner scanner = new Scanner(System.in);
         Perolas perola = new Perolas(100, 100, 100, 100, 100);
-        Ametistas ametistas = new Ametistas(100, 100, 100, 100, 100);;
+        Ametistas ametista = new Ametistas(100, 100, 100, 100, 100);
+        Rubis rubi = new Rubis(100, 100, 100, 100, 100);
+        Safiras safira = new Safiras(100, 100, 100, 100, 100);
+        Lapis Lapis = new Lapis(100, 100, 100, 100, 100);
+        Japers jasper = new Japers(100, 100, 100, 100, 100);
 
         try{
 
@@ -50,8 +54,8 @@ public class CampoDeBatalha {
                 String[] Ui = input.split(" ");
 
                 if(Ui[0].equals("perola") && Ui[1].equals("atacar") && Ui[2].equals("ametista")){
-                    ametistas.sofrerDano(perola.atacar());
-                    System.out.println(ametistas);
+                    ametista.sofrerDano(perola.atacar());
+                    System.out.println(ametista);
                 }if(Ui[0].equals("end")){
                     break;
                 }
