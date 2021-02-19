@@ -3,29 +3,16 @@ package Code;
 import java.util.ArrayList;
 
 public class Rubis extends Gems implements CristalGems{
-    int poder;
-    int maxPoder;
-    int energia;
-    int minimoEnergia = 15;
-    int maximoRecuperação = 2;
-    int resistenciaArma;
-    boolean vida = true;
-    ArrayList<Fusões> fusão;
-
-    Rubis(int poder, int energia, int resistenciaArma){
-        this.poder = poder;
-        this.maxPoder = poder;
-        this.energia = energia;
-        this.resistenciaArma = resistenciaArma;
-        this.fusão = new ArrayList<>();
+    
+    public Rubis(int poder, int energia, int minEnergia, int resistenciaArma, int maxRecuperacao){
+        super(poder, energia, minEnergia, resistenciaArma, maxRecuperacao);
     }
 
     int atacar() {
-        if(energia >= minimoEnergia){
-            poder -= 5;
-            energia -= 20;
-            resistenciaArma -= 20;
-            return 10;
+        if(vida == true && energia >= minEnergia){
+            energia -= 5;
+            System.out.println("Rubi está atacando com sua força!");
+            return 15;
         }throw new RuntimeException("Rubi está com a energia baixa!");
     }
 
@@ -39,30 +26,25 @@ public class Rubis extends Gems implements CristalGems{
     }
 
     int usarPoder() {
-        if(poder >= (maxPoder/2) && energia >= 40){
-            poder -= 30;
-            energia -= 40;
-            return maxPoder;
-        } throw new RuntimeException("Rubi está fraca!");
+        System.out.println("Rubi não possui poderes");
+        return 0;
     }
 
     void recuperarEnergia() {
-        if(vida == true && maximoRecuperação != 0){
-            poder += 30;
+        if(vida == true && maxRecuperacao != 0){
             energia += 20;
-            resistenciaArma += 5;
-            maximoRecuperação -= 1;
+            maxRecuperacao -= 1;
         }throw new RuntimeException("Rubi está morta!");
 
     }
 
     public void fundir(String nomeFusão) {
-        if(vida == true && energia >= minimoEnergia){
+        if(vida == true && energia >= minEnergia){
             fusão.add(new Fusões("Rubi", nomeFusão));
         }throw new RuntimeException("Rubi não pode fundir-se com" + nomeFusão);
     }   
 
     public String toString() {
-        return poder + "/" + maxPoder + "\n" + energia + "\n" + resistenciaArma;
+        return energia + "/" + maxEnergia;
     }
 }

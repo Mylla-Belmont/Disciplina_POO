@@ -3,29 +3,25 @@ package Code;
 import java.util.ArrayList;
 
 public class Ametistas extends Gems implements CristalGems{
-    int poder;
-    int maxPoder;
-    int energia;
-    int minimoEnergia = 10;
-    int maximoRecuperação = 2;
-    int resistenciaArma;
-    boolean vida = true;
-    ArrayList<Fusões> fusão;
-
-    Ametistas(int poder, int energia, int resistenciaArma){
-        this.poder = poder;
-        this.maxPoder = poder;
-        this.energia = energia;
-        this.resistenciaArma = resistenciaArma;
-        this.fusão = new ArrayList<>();
+    
+    public Ametistas(int poder, int energia, int minEnergia, int resistenciaArma, int maxRecuperacao){
+        super(poder, energia, minEnergia, resistenciaArma, maxRecuperacao);
     }
 
     int atacar() {
-        if(energia >= minimoEnergia){
+        if(vida == true && energia >= minEnergia && resistenciaArma > 0){
             poder -= 10;
             energia -= 10;
-            resistenciaArma -= 10;
-            return 5;
+            resistenciaArma -= 5;
+            System.out.println("Ametista está atacando com seu chicote!");
+            return 15;
+        }
+
+        if(vida == true && energia >= minEnergia){
+            poder -= 10;
+            energia -= 10;
+            System.out.println("Ametista está atacando, mas seu chicote partiu ao meio!");
+            return 10;
         }throw new RuntimeException("Amestista está com a energia baixa!");
     }
 
@@ -42,27 +38,32 @@ public class Ametistas extends Gems implements CristalGems{
         if(poder >= (maxPoder/2) && energia >= 10){
             poder -= 20;
             energia -= 20;
+            System.out.println("Ametista fez um vortice com seu chicote!");
             return maxPoder;
         } throw new RuntimeException("Ametista está fraca!");
     }
 
     void recuperarEnergia() {
-        if(vida == true && maximoRecuperação != 0){
+        if(vida == true && maxRecuperacao != 0){
             poder += 20;
             energia += 5;
             resistenciaArma += 10;
-            maximoRecuperação -= 1;
+            maxRecuperacao -= 1;
         }throw new RuntimeException("Ametista está morta!");
 
     }
 
     public void fundir(String nomeFusão) {
-        if(vida == true && energia >= minimoEnergia){
+        if(vida == true && energia >= minEnergia){
             fusão.add(new Fusões("Ametista", nomeFusão));
         }throw new RuntimeException("Ametista não pode fundir-se com" + nomeFusão);
     }   
 
     public String toString() {
-        return poder + "/" + maxPoder + "\n" + energia + "\n" + resistenciaArma;
+        if(poder < 0)
+            poder = 0;
+        if(energia < 0)
+            energia = 0;
+        return poder + "/" + maxPoder + "\n" + energia + "/" + maxEnergia + "\n";
     }
 }

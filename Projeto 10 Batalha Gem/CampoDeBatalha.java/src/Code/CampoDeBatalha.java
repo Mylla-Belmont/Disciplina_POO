@@ -1,8 +1,30 @@
 package Code;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 abstract class Gems{
+    int poder;
+    int maxPoder;
+    int energia;
+    int maxEnergia;
+    int minEnergia;
+    int resistenciaArma;
+    int maxRecuperacao;
+    boolean vida;
+    ArrayList<Fusões> fusão;
+
+    public Gems(int poder, int energia, int minEnergia, int resistenciaArma, int maxRecuperacao){
+        this.poder = poder;
+        this.maxPoder = poder;
+        this.energia = energia;
+        this.maxEnergia = energia;
+        this.minEnergia = minEnergia;
+        this.resistenciaArma = resistenciaArma;
+        this.maxRecuperacao = maxRecuperacao;
+        this.fusão = new ArrayList<>();
+    }
+    
     abstract int atacar();
     abstract void sofrerDano(int dano);
     abstract int usarPoder();
@@ -17,8 +39,8 @@ public class CampoDeBatalha {
     public static void main(String[] pargs) throws Exception {
         
         Scanner scanner = new Scanner(System.in);
-        Perolas perola = new Perolas(90, 70, 70);
-        Ametistas ametistas = new Ametistas(80, 100, 60);
+        Perolas perola = new Perolas(100, 100, 100, 100, 100);
+        Ametistas ametistas = new Ametistas(100, 100, 100, 100, 100);;
 
         try{
 

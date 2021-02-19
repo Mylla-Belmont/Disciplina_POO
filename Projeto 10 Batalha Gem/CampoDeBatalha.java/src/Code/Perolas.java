@@ -1,67 +1,67 @@
 package Code;
 
-import java.util.ArrayList;
-
 public class Perolas extends Gems implements CristalGems{    //
-    int poder;
-    int maxPoder;
-    int energia;
-    int minimoEnergia = 20;
-    int maximoRecuperação = 2;
-    int resistenciaArma;
-    boolean vida = true;
-    ArrayList<Fusões> fusão;
-
-    Perolas(int poder, int energia, int resistenciaArma){
-        this.poder = poder;
-        this.maxPoder = poder;
-        this.energia = energia;
-        this.resistenciaArma = resistenciaArma;
-        this.fusão = new ArrayList<>();
+   
+    public Perolas(int poder, int energia, int minEnergia, int resistenciaArma, int maxRecuperacao){
+        super(poder, energia, minEnergia, resistenciaArma, maxRecuperacao);
     }
 
-    int atacar(){
-        if(energia >= minimoEnergia){
+    int atacar(){       
+        if(vida == true && energia >= minEnergia && resistenciaArma > 0){
             poder -= 5;
             energia -= 5;
             resistenciaArma -= 5;
+            System.out.println("Perola atacou com sua lança!");
             return 10;
-        }throw new RuntimeException("Perola está com a energia baixa!");
+        }
+        
+        if(vida == true && energia >= minEnergia){
+            poder -= 10;
+            energia -= 10;
+            System.out.println("Perola atacou, mas a sua arma está quebrada!");
+            return 5;
+        } throw new RuntimeException("Perola está com a energia baixa!");
     }
 
     void sofrerDano(int dano){
-        if(energia - dano < 0){
+        if(energia - dano < 0 && maxRecuperacao != 0){
+            energia = 0;
+            System.out.println("Perola foi destruida!");
+        }else if(energia - dano < 0 && maxRecuperacao == 0){
             vida = false;
             energia = 0;
-            throw new RuntimeException("Perola foi destruida!");
-        }
-        energia -= dano;
+        } throw new RuntimeException("Perola foi morta!");
     }
 
     int usarPoder(){
-        if(poder >= (maxPoder/2) && energia >= 20){
+        if(poder != 0 && energia >= minEnergia){
             poder -= 10;
             energia -= 10;
-            return maxPoder;
+            System.out.println("Perola criou clones e está atacando!");
+            return poder;
         } throw new RuntimeException("Perola está fraca!");
     }
 
     void recuperarEnergia(){
-        if(vida == true && maximoRecuperação != 0){
+        if(vida == true && maxRecuperacao != 0){
             poder += 20;
             energia += 20;
             resistenciaArma += 20;
-            maximoRecuperação -= 1;
-        }throw new RuntimeException("Perola está morta!");
+            maxRecuperacao -= 1;
+        } throw new RuntimeException("Perola não pode se recuperar!");
     }    
 
     public void fundir(String nomeFusão){
-        if(vida == true && energia >= minimoEnergia){
+        if(vida == true && energia >= minEnergia){
             fusão.add(new Fusões("Perola", nomeFusão));
         }throw new RuntimeException("Perola não pode fundir-se com" + nomeFusão);
     }
 
     public String toString() {
-        return poder + "/" + maxPoder + "\n" + energia + "\n" + resistenciaArma;
+        if(poder < 0)
+            poder = 0;
+        if(energia < 0)
+            energia = 0;
+            return poder + "/" + maxPoder + "\n" + energia + "/" + maxEnergia + "\n";
     }
 }
