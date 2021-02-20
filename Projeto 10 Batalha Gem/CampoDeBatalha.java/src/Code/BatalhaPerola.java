@@ -148,3 +148,5 @@ public class BatalhaPerola {
         }
     }
 }
+
+//Terminar Random para as outras

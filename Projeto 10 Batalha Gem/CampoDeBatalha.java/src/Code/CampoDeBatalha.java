@@ -100,15 +100,15 @@ public class CampoDeBatalha {
                 if(oponente.equals("perola")){
                     batalhaAmetista.ametistaXperola(scanner, ametista, perola);
                 }else if(oponente.equals("ametista")){
-                    batalhaPerola.ametistaXametista(scanner, ametista, ametista);
+                    batalhaAmetista.ametistaXametista(scanner, ametista, ametista);
                 }else if(oponente.equals("rubi")){
-                    batalhaPerola.ametistaXrubi(scanner, ametista, rubi);
+                    batalhaAmetista.ametistaXrubi(scanner, ametista, rubi);
                 }else if(oponente.equals("safira")){
-                    batalhaPerola.ametistaXsafira(scanner, ametista, safira);
+                    batalhaAmetista.ametistaXsafira(scanner, ametista, safira);
                 }else if(oponente.equals("lapis")){
-                    batalhaPerola.ametistaXlapis(scanner, ametista, Lapis);
+                    batalhaAmetista.ametistaXlapis(scanner, ametista, Lapis);
                 }else if(oponente.equals("jasper"))
-                    batalhaPerola.ametistaXjasper(scanner, ametista, jasper);
+                    batalhaAmetista.ametistaXjasper(scanner, ametista, jasper);
                 break;
             }
         scanner.close();

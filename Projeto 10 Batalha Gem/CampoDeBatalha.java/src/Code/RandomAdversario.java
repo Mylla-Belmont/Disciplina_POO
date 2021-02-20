@@ -22,3 +22,5 @@ public class RandomAdversario {
         }
     }
 }
+
+//Fazer random para outras

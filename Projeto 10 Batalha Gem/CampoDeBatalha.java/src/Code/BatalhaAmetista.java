@@ -3,18 +3,18 @@ package Code;
 import java.util.Scanner;
 
 public class BatalhaAmetista {
-    public void ametistaXperola(Scanner scanner, Ametistas ametista, Perolas perolaAdversario){ //fazer fusão
+    public void ametistaXperola(Scanner scanner, Ametistas ametista, Perolas perolasAdversario){ //fazer fusão
         try{
-            while(ametista.vida && perolaAdversario.vida){
+            while(ametista.vida && perolasAdversario.vida){
                 String Ui = scanner.nextLine();
                 if(Ui.equals("1")){
-                    perolaAdversario.sofrerDano(ametista.atacar());
+                    perolasAdversario.sofrerDano(ametista.atacar());
                     System.out.println("\n" + ametista + "\n");
-                    System.out.println(perolaAdversario + "\n");
+                    System.out.println(perolasAdversario + "\n");
                 }else if(Ui.equals("2")){
-                    perolaAdversario.sofrerDano(ametista.usarPoder());
+                    perolasAdversario.sofrerDano(ametista.usarPoder());
                     System.out.println("\n" + ametista + "\n");
-                    System.out.println(perolaAdversario + "\n");
+                    System.out.println(perolasAdversario + "\n");
                 }else if(Ui.equals("3")){
                     ametista.recuperar();
                     System.out.println("\n" + ametista + "\n");
@@ -29,22 +29,21 @@ public class BatalhaAmetista {
 
     public void ametistaXametista(Scanner scanner, Ametistas ametista, Ametistas ametistaAdversario){ //fazer fusão
         try{
-            while(perola.vida && ametistaAdversario.vida){
+            while(ametista.vida && ametistaAdversario.vida){
                 String Ui = scanner.nextLine();
                 if(Ui.equals("1")){
-                    ametistaAdversario.sofrerDano(perola.atacar());
-                    System.out.println("\n" + perola + "\n");
+                    ametistaAdversario.sofrerDano(ametista.atacar());
+                    System.out.println("\n" + ametista + "\n");
                     System.out.println(ametistaAdversario + "\n");
                 }else if(Ui.equals("2")){
-                    ametistaAdversario.sofrerDano(perola.usarPoder());
-                    System.out.println("\n" + perola + "\n");
+                    ametistaAdversario.sofrerDano(ametista.usarPoder());
+                    System.out.println("\n" + ametista + "\n");
                     System.out.println(ametistaAdversario + "\n");
                 }else if(Ui.equals("3")){
-                    perola.recuperar();
-                    System.out.println("\n" + perola + "\n");
+                    ametista.recuperar();
+                    System.out.println("\n" + ametista + "\n");
                 }else if(Ui.equals("end"))
                     break;
-                RandomAdversario.AmetistaAdversario(ametistaAdversario);
                 System.out.println("Qual será sua nova ação?");
             }
         } catch(RuntimeException e){
@@ -52,21 +51,21 @@ public class BatalhaAmetista {
         }
     }
 
-    public void perolaXrubi(Scanner scanner, Perolas perola, Rubis rubiaAdversario){ 
+    public void ametistaXrubi(Scanner scanner, Ametistas ametistas, Rubis rubiaAdversario){ 
         try{
-            while(perola.vida && rubiaAdversario.vida){
+            while(ametistas.vida && rubiaAdversario.vida){
                 String Ui = scanner.nextLine();
                 if(Ui.equals("1")){
-                    rubiaAdversario.sofrerDano(perola.atacar());
-                    System.out.println("\n" + perola + "\n");
+                    rubiaAdversario.sofrerDano(ametistas.atacar());
+                    System.out.println("\n" + ametistas + "\n");
                     System.out.println(rubiaAdversario + "\n");
                 }else if(Ui.equals("2")){
-                    rubiaAdversario.sofrerDano(perola.usarPoder());
-                    System.out.println("\n" + perola + "\n");
+                    rubiaAdversario.sofrerDano(ametistas.usarPoder());
+                    System.out.println("\n" + ametistas + "\n");
                     System.out.println(rubiaAdversario + "\n");
                 }else if(Ui.equals("3")){
-                    perola.recuperar();
-                    System.out.println("\n" + perola + "\n");
+                    ametistas.recuperar();
+                    System.out.println("\n" + ametistas + "\n");
                 }else if(Ui.equals("end"))
                     break;
                 System.out.println("Qual será sua nova ação?");
@@ -76,21 +75,21 @@ public class BatalhaAmetista {
         }
     }
 
-    public void perolaXsafira(Scanner scanner, Perolas perola, Safiras safiraAdversario){ 
+    public void ametistaXsafira(Scanner scanner, Ametistas ametistas, Safiras safiraAdversario){ 
         try{
-            while(perola.vida && safiraAdversario.vida){
+            while(ametistas.vida && safiraAdversario.vida){
                 String Ui = scanner.nextLine();
                 if(Ui.equals("1")){
-                    safiraAdversario.sofrerDano(perola.atacar());
-                    System.out.println("\n" + perola + "\n");
+                    safiraAdversario.sofrerDano(ametistas.atacar());
+                    System.out.println("\n" + ametistas + "\n");
                     System.out.println(safiraAdversario + "\n");
                 }else if(Ui.equals("2")){
-                    safiraAdversario.sofrerDano(perola.usarPoder());
-                    System.out.println("\n" + perola + "\n");
+                    safiraAdversario.sofrerDano(ametistas.usarPoder());
+                    System.out.println("\n" + ametistas + "\n");
                     System.out.println(safiraAdversario + "\n");
                 }else if(Ui.equals("3")){
-                    perola.recuperar();
-                    System.out.println("\n" + perola + "\n");
+                    ametistas.recuperar();
+                    System.out.println("\n" + ametistas + "\n");
                 }else if(Ui.equals("end"))
                     break;
                 System.out.println("Qual será sua nova ação?");
@@ -100,21 +99,21 @@ public class BatalhaAmetista {
         }
     }
 
-    public void perolaXlapis(Scanner scanner, Perolas perola, Lapis lapisAdversario){ 
+    public void ametistaXlapis(Scanner scanner, Ametistas ametistas, Lapis lapisAdversario){ 
         try{
-            while(perola.vida && lapisAdversario.vida){
+            while(ametistas.vida && lapisAdversario.vida){
                 String Ui = scanner.nextLine();
                 if(Ui.equals("1")){
-                    lapisAdversario.sofrerDano(perola.atacar());
-                    System.out.println("\n" + perola + "\n");
+                    lapisAdversario.sofrerDano(ametistas.atacar());
+                    System.out.println("\n" + ametistas + "\n");
                     System.out.println(lapisAdversario + "\n");
                 }else if(Ui.equals("2")){
-                    lapisAdversario.sofrerDano(perola.usarPoder());
-                    System.out.println("\n" + perola + "\n");
+                    lapisAdversario.sofrerDano(ametistas.usarPoder());
+                    System.out.println("\n" + ametistas + "\n");
                     System.out.println(lapisAdversario + "\n");
                 }else if(Ui.equals("3")){
-                    perola.recuperar();
-                    System.out.println("\n" + perola + "\n");
+                    ametistas.recuperar();
+                    System.out.println("\n" + ametistas + "\n");
                 }else if(Ui.equals("end"))
                     break;
                 System.out.println("Qual será sua nova ação?");
@@ -124,21 +123,21 @@ public class BatalhaAmetista {
         }
     }
 
-    public void perolaXjasper(Scanner scanner, Perolas perola, Japers jasperAdversario){ 
+    public void ametistaXjasper(Scanner scanner, Ametistas ametistas, Japers jasperAdversario){ 
         try{
-            while(perola.vida && jasperAdversario.vida){
+            while(ametistas.vida && jasperAdversario.vida){
                 String Ui = scanner.nextLine();
                 if(Ui.equals("1")){
-                    jasperAdversario.sofrerDano(perola.atacar());
-                    System.out.println("\n" + perola + "\n");
+                    jasperAdversario.sofrerDano(ametistas.atacar());
+                    System.out.println("\n" + ametistas + "\n");
                     System.out.println(jasperAdversario + "\n");
                 }else if(Ui.equals("2")){
-                    jasperAdversario.sofrerDano(perola.usarPoder());
-                    System.out.println("\n" + perola + "\n");
+                    jasperAdversario.sofrerDano(ametistas.usarPoder());
+                    System.out.println("\n" + ametistas + "\n");
                     System.out.println(jasperAdversario + "\n");
                 }else if(Ui.equals("3")){
-                    perola.recuperar();
-                    System.out.println("\n" + perola + "\n");
+                    ametistas.recuperar();
+                    System.out.println("\n" + ametistas + "\n");
                 }else if(Ui.equals("end"))
                     break;
                 System.out.println("Qual será sua nova ação?");
@@ -148,3 +147,5 @@ public class BatalhaAmetista {
         }
     }
 }
+
+//Fazer random
