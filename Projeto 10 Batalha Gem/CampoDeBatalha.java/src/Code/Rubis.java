@@ -15,15 +15,20 @@ public class Rubis extends Gems implements CristalGems{
     }
 
     void sofrerDano(int dano){
-        if(energia - dano < 0 && maxRecuperacao != 0){
+        if(energia - dano <= 0 && maxRecuperacao != 0){
             energia = 0;
             System.out.println("Rubi foi destruida!");
-        }else if(energia - dano < 0 && maxRecuperacao == 0){
+            return;
+        }
+        if(energia - dano <= 0 && maxRecuperacao == 0){
             vida = false;
             energia = 0;
-        }else{
-            energia -= dano;
-        } throw new RuntimeException("Rubi foi morta!");
+            return;
+        }
+        if(vida == false)
+            throw new RuntimeException("Rubi foi morta!");
+        energia -= dano;
+        System.out.println("Rubi sofreu dano!");
     }
 
     int usarPoder() {

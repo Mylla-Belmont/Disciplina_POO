@@ -10,20 +10,26 @@ public class Lapis extends Gems{    //
         if(vida == true && energia >= minEnergia){
             poder -= 5;
             energia -= 5;
+            System.out.println("Lápis Lazúli atacou!");
             return 20;
         }throw new RuntimeException("Lápis Lazúli está com a energia baixa!");
     }
 
     void sofrerDano(int dano){
-        if(energia - dano < 0 && maxRecuperacao != 0){
+        if(energia - dano <= 0 && maxRecuperacao != 0){
             energia = 0;
             System.out.println("Lápis Lazúli foi destruida!");
-        }else if(energia - dano < 0 && maxRecuperacao == 0){
+            return;
+        }
+        if(energia - dano <= 0 && maxRecuperacao == 0){
             vida = false;
             energia = 0;
-        }else{
-            energia -= dano;
-        } throw new RuntimeException("Lápis Lazúli foi morta!");
+            return;
+        }
+        if(vida == false)
+            throw new RuntimeException("Lápis Lazúli foi morta!");
+        energia -= dano;
+        System.out.println("Lápis Lazúli sofreu dano!");
     }
 
     int usarPoder(){

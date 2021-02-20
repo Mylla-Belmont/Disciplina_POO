@@ -7,10 +7,10 @@ public class Perolas extends Gems implements CristalGems{    //
     }
 
     int atacar(){       
-        if(vida == true && energia >= minEnergia && resistenciaArma > 0){
+        if(vida == true && energia >= minEnergia && resistenciaArma != 0){
             poder -= 5;
             energia -= 5;
-            resistenciaArma -= 5;
+            resistenciaArma -= 1;
             System.out.println("Perola atacou com sua lança!");
             return 10;
         }
@@ -24,15 +24,20 @@ public class Perolas extends Gems implements CristalGems{    //
     }
 
     void sofrerDano(int dano){
-        if(energia - dano < 0 && maxRecuperacao != 0){
+        if(energia - dano <= 0 && maxRecuperacao != 0){
             energia = 0;
             System.out.println("Perola foi destruida!");
-        }else if(energia - dano < 0 && maxRecuperacao == 0){
+            return;
+        }
+        if(energia - dano <= 0 && maxRecuperacao == 0){
             vida = false;
             energia = 0;
-        }else{
-            energia -= dano;
-        } throw new RuntimeException("Perola foi morta!");
+            return;
+        }
+        if(vida == false)
+            throw new RuntimeException("Perola foi morta!");
+        energia -= dano;
+        System.out.println("Perola sofreu dano!");
     }
 
     int usarPoder(){
@@ -48,7 +53,7 @@ public class Perolas extends Gems implements CristalGems{    //
         if(vida == true && maxRecuperacao != 0){
             poder += 20;
             energia += 30;
-            resistenciaArma += 20;
+            resistenciaArma += 3;
             maxRecuperacao -= 1;
         } throw new RuntimeException("Perola não pode se recuperar!");
     }    

@@ -10,21 +10,26 @@ public class Japers extends Gems{
         if(vida == true && energia >= minEnergia){
             poder -= 10;
             energia -= 20;
-            System.out.println("Jasper atacou com sua lança!");
+            System.out.println("Jasper atacou com sua força!");
             return 40;
         } throw new RuntimeException("Jasper está com a energia baixa!");
     }
 
     void sofrerDano(int dano){
-        if(energia - dano < 0 && maxRecuperacao != 0){
+        if(energia - dano <= 0 && maxRecuperacao != 0){
             energia = 0;
             System.out.println("Jasper foi destruida!");
-        }else if(energia - dano < 0 && maxRecuperacao == 0){
+            return;
+        }
+        if(energia - dano <= 0 && maxRecuperacao == 0){
             vida = false;
             energia = 0;
-        }else{
-            energia -= dano;
-        } throw new RuntimeException("Jasper foi morta!");
+            return;
+        }
+        if(vida == false)
+            throw new RuntimeException("Jasper foi morta!");
+        energia -= dano;
+        System.out.println("Jasper sofreu dano!");
     }
 
     int usarPoder() {

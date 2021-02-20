@@ -10,29 +10,34 @@ public class Ametistas extends Gems implements CristalGems{    //
         if(vida == true && energia >= minEnergia && resistenciaArma > 0){
             poder -= 10;
             energia -= 5;
-            resistenciaArma -= 10;
-            System.out.println("Ametista atacou com sua lança!");
+            resistenciaArma -= 1;
+            System.out.println("Ametista atacou com seu chicote!");
             return 15;
         }
         
         if(vida == true && energia >= minEnergia){
             poder -= 15;
             energia -= 20;
-            System.out.println("Ametista atacou, mas a sua lança está quebrada!");
+            System.out.println("Ametista atacou, mas a seu chicote está partido!");
             return 10;
         } throw new RuntimeException("Ametista está com a energia baixa!");
     }
 
     void sofrerDano(int dano){
-        if(energia - dano < 0 && maxRecuperacao != 0){
+        if(energia - dano <= 0 && maxRecuperacao != 0){
             energia = 0;
             System.out.println("Ametista foi destruida!");
-        }else if(energia - dano < 0 && maxRecuperacao == 0){
+            return;
+        }
+        if(energia - dano <= 0 && maxRecuperacao == 0){
             vida = false;
             energia = 0;
-        }else{
-            energia -= dano;
-        } throw new RuntimeException("Ametista foi morta!");
+            return;
+        }
+        if(vida == false)
+            throw new RuntimeException("Ametista foi morta!");
+        energia -= dano;
+        System.out.println("Ametista sofreu dano!");
     }
 
     int usarPoder(){
@@ -48,7 +53,7 @@ public class Ametistas extends Gems implements CristalGems{    //
         if(vida == true && maxRecuperacao != 0){
             poder += 20;
             energia += 40;
-            resistenciaArma += 30;
+            resistenciaArma += 2;
             maxRecuperacao -= 1;
         } throw new RuntimeException("Ametista não pode se recuperar!");
     }    

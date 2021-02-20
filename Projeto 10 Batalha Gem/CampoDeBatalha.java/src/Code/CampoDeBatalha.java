@@ -15,6 +15,7 @@ abstract class Gems{
     ArrayList<Fusões> fusão;
 
     public Gems(int poder, int energia, int minEnergia, int resistenciaArma, int maxRecuperacao){
+        this.vida = true;
         this.poder = poder;
         this.maxPoder = poder;
         this.energia = energia;
@@ -39,12 +40,12 @@ public class CampoDeBatalha {
     public static void main(String[] pargs) throws Exception {
         
         Scanner scanner = new Scanner(System.in);
-        Perolas perola = new Perolas(100, 100, 100, 100, 100);
-        Ametistas ametista = new Ametistas(100, 100, 100, 100, 100);
-        Rubis rubi = new Rubis(100, 100, 100, 100, 100);
-        Safiras safira = new Safiras(100, 100, 100, 100, 100);
-        Lapis Lapis = new Lapis(100, 100, 100, 100, 100);
-        Japers jasper = new Japers(100, 100, 100, 100, 100);
+        Perolas perola = new Perolas(80, 90, 15, 10, 3);
+        Ametistas ametista = new Ametistas(70, 100, 10, 10, 2);
+        // Rubis rubi = new Rubis(100, 100, 100, 100, 100);
+        // Safiras safira = new Safiras(100, 100, 100, 100, 100);
+        // Lapis Lapis = new Lapis(100, 100, 100, 100, 100);
+        // Japers jasper = new Japers(100, 100, 100, 100, 100);
 
         try{
 
