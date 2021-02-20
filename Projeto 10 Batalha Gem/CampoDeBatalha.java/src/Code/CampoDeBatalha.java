@@ -46,10 +46,6 @@ public class CampoDeBatalha {
         Batalha batalha = new Batalha();
         Perolas perola = new Perolas(80, 90, 15, 10, 3);
         Ametistas ametista = new Ametistas(70, 100, 10, 10, 2);
-        // Rubis rubi = new Rubis(100, 100, 100, 100, 100);
-        // Safiras safira = new Safiras(100, 100, 100, 100, 100);
-        // Lapis Lapis = new Lapis(100, 100, 100, 100, 100);
-        // Japers jasper = new Japers(100, 100, 100, 100, 100);
 
         System.out.println("Escolha sua Gem:");
         String input = scanner.nextLine();
@@ -68,28 +64,36 @@ public class CampoDeBatalha {
         else if(random.nextInt(5) == 5)
             oponente = "jasper";
         
-        System.out.println("Seu oponente será a " + oponente);
-
+            oponente = "ametista"; //Teste
+        
+        System.out.println("Seu oponente será a " + oponente + "!");
             //Apagar mensagem
-
         System.out.println("Sua oponente está preparada para atacar! Qual será sua ação?");
         System.out.println("1 - Atacar");
         System.out.println("2 - Usar poder");
         System.out.println("3 - Recuperar");
         System.out.println("4 - Fundir");
 
-        String Ui = scanner.nextLine();
-
         switch(input){
             case "perola":
+            
                 if(oponente.equals("perola")){
-                    batalha.perolaXperola(Ui, perola, perola);
+                    batalha.perolaXperola(scanner, perola, perola);
                 }else if(oponente.equals("ametista")){
-                    batalha.perolaXametista(Ui, perola, ametista);
+                    batalha.perolaXametista(scanner, perola, ametista);
                 }
                 break;
+            }
+        scanner.close();
+    }
+}
 
-                // case "ametista":
+// Rubis rubi = new Rubis(100, 100, 100, 100, 100);
+        // Safiras safira = new Safiras(100, 100, 100, 100, 100);
+        // Lapis Lapis = new Lapis(100, 100, 100, 100, 100);
+        // Japers jasper = new Japers(100, 100, 100, 100, 100);
+
+// case "ametista":
                 // break;
                 // case "rubi":
                 // break;
@@ -100,7 +104,5 @@ public class CampoDeBatalha {
                 // case "jasper":
                 // break;
                 // default:
-            }
-        scanner.close();
-    }
-}
+
+//Melhorar morte dos personagens
