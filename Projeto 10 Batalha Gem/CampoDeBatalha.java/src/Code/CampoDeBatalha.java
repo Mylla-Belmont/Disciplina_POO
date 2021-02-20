@@ -2,6 +2,7 @@ package Code;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Random;
 
 abstract class Gems{
     int poder;
@@ -38,8 +39,11 @@ interface CristalGems{
 
 public class CampoDeBatalha {
     public static void main(String[] pargs) throws Exception {
-        
+
+        Random random = new Random();
         Scanner scanner = new Scanner(System.in);
+
+        Batalha batalha = new Batalha();
         Perolas perola = new Perolas(80, 90, 15, 10, 3);
         Ametistas ametista = new Ametistas(70, 100, 10, 10, 2);
         // Rubis rubi = new Rubis(100, 100, 100, 100, 100);
@@ -47,25 +51,56 @@ public class CampoDeBatalha {
         // Lapis Lapis = new Lapis(100, 100, 100, 100, 100);
         // Japers jasper = new Japers(100, 100, 100, 100, 100);
 
-        try{
+        System.out.println("Escolha sua Gem:");
+        String input = scanner.nextLine();
+        String oponente = "";
+            
+        if(random.nextInt(5) == 0)
+            oponente = "perola";
+        else if(random.nextInt(5) == 1)
+            oponente = "ametista";
+        else if(random.nextInt(5) == 2)
+            oponente = "rubi";
+        else if(random.nextInt(5) == 3)
+            oponente = "safira";
+        else if(random.nextInt(5) == 4)
+            oponente = "lapis";
+        else if(random.nextInt(5) == 5)
+            oponente = "jasper";
+        
+        System.out.println("Seu oponente será a " + oponente);
 
-            while(true){
-                System.out.println("Escolha uma gem seguinda ação");
-                String input = scanner.nextLine();
-                String[] Ui = input.split(" ");
+            //Apagar mensagem
 
-                if(Ui[0].equals("perola") && Ui[1].equals("atacar") && Ui[2].equals("ametista")){
-                    ametista.sofrerDano(perola.atacar());
-                    System.out.println(ametista);
-                }if(Ui[0].equals("end")){
-                    break;
+        System.out.println("Sua oponente está preparada para atacar! Qual será sua ação?");
+        System.out.println("1 - Atacar");
+        System.out.println("2 - Usar poder");
+        System.out.println("3 - Recuperar");
+        System.out.println("4 - Fundir");
+
+        String Ui = scanner.nextLine();
+
+        switch(input){
+            case "perola":
+                if(oponente.equals("perola")){
+                    batalha.perolaXperola(Ui, perola, perola);
+                }else if(oponente.equals("ametista")){
+                    batalha.perolaXametista(Ui, perola, ametista);
                 }
+                break;
+
+                // case "ametista":
+                // break;
+                // case "rubi":
+                // break;
+                // case "safira":
+                // break;
+                // case "lapis":
+                // break;
+                // case "jasper":
+                // break;
+                // default:
             }
-
-        }catch(RuntimeException e){
-            System.out.println(e.getMessage());
-        }
-
         scanner.close();
     }
 }

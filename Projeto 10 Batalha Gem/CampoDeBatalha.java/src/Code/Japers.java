@@ -38,12 +38,16 @@ public class Japers extends Gems{
     }
 
     void recuperar(){
-        if(vida == true && maxRecuperacao != 0){
-            poder += 40;
+        if(vida == true && maxRecuperacao == 0)
+            throw new RuntimeException("Jasper não pode se recuperar!");
+        
+        if(energia + 50 > maxEnergia){
+            energia = maxPoder;
+        }else if(energia != maxEnergia)
             energia += 50;
-            maxRecuperacao -= 1;
-        } throw new RuntimeException("Jasper não pode se recuperar!");
-    }    
+
+        maxRecuperacao -= 1;
+    }  
 
     public String toString() {
         if(poder < 0)

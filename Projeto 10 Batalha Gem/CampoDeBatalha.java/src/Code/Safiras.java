@@ -41,13 +41,22 @@ public class Safiras extends Gems implements CristalGems{
         } throw new RuntimeException("Safira está fraca!");
     }
 
-    void recuperar() {
-        if(vida == true && maxRecuperacao != 0){
+    void recuperar(){
+        if(vida == true && maxRecuperacao == 0)
+            throw new RuntimeException("Safira não pode se recuperar!");
+        
+        if(poder + 30 > maxPoder){
+            poder = maxPoder;
+        }else if(poder != maxPoder)
             poder += 30;
+        
+        if(energia + 5 > maxEnergia){
+            energia = maxPoder;
+        }else if(energia != maxEnergia)
             energia += 5;
-            maxRecuperacao -= 1;
-        }throw new RuntimeException("Safira está morta!");
-    }
+
+        maxRecuperacao -= 1;
+    }  
 
     public void fundir(String nomeFusão) {
         if(vida == true && energia >= minEnergia){

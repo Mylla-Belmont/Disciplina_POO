@@ -50,13 +50,22 @@ public class Ametistas extends Gems implements CristalGems{    //
     }
 
     void recuperar(){
-        if(vida == true && maxRecuperacao != 0){
+        if(vida == true && maxRecuperacao == 0)
+            throw new RuntimeException("Ametista não pode se recuperar!");
+        
+        if(poder + 20 > maxPoder){
+            poder = maxPoder;
+        }else if(poder != maxPoder)
             poder += 20;
-            energia += 40;
-            resistenciaArma += 2;
-            maxRecuperacao -= 1;
-        } throw new RuntimeException("Ametista não pode se recuperar!");
-    }    
+        
+        if(energia + 40 > maxEnergia){
+            energia = maxPoder;
+        }else if(energia != maxEnergia)
+            energia += 30;
+        
+        resistenciaArma += 2;
+        maxRecuperacao -= 1;
+    }     
 
     public void fundir(String nomeFusão){
         if(vida == true && energia >= minEnergia){
@@ -69,6 +78,6 @@ public class Ametistas extends Gems implements CristalGems{    //
             poder = 0;
         if(energia < 0)
             energia = 0;
-            return "\n" + "Ametista:" + "\n" + "Poder: " + poder + "/" + maxPoder + "\n" + "Energia: " + energia + "/" + maxEnergia + "\n";
+            return "Ametista:" + "\n" + "Poder: " + poder + "/" + maxPoder + "\n" + "Energia: " + energia + "/" + maxEnergia;
     }
 }

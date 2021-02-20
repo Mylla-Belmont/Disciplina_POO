@@ -50,12 +50,21 @@ public class Perolas extends Gems implements CristalGems{    //
     }
 
     void recuperar(){
-        if(vida == true && maxRecuperacao != 0){
+        if(vida == true && maxRecuperacao == 0)
+            throw new RuntimeException("Perola não pode se recuperar!");
+        
+        if(poder + 20 > maxPoder){
+            poder = maxPoder;
+        }else if(poder != maxPoder)
             poder += 20;
+        
+        if(energia + 30 > maxEnergia){
+            energia = maxPoder;
+        }else if(energia != maxEnergia)
             energia += 30;
-            resistenciaArma += 3;
-            maxRecuperacao -= 1;
-        } throw new RuntimeException("Perola não pode se recuperar!");
+        
+        resistenciaArma += 3;
+        maxRecuperacao -= 1;
     }    
 
     public void fundir(String nomeFusão){
@@ -69,6 +78,6 @@ public class Perolas extends Gems implements CristalGems{    //
             poder = 0;
         if(energia < 0)
             energia = 0;
-        return "\n" + "Perola:" + "\n" + "Poder: " + poder + "/" + maxPoder + "\n" + "Energia: " + energia + "/" + maxEnergia + "\n";
+        return "Perola:" + "\n" + "Poder: " + poder + "/" + maxPoder + "\n" + "Energia: " + energia + "/" + maxEnergia;
     }
 }

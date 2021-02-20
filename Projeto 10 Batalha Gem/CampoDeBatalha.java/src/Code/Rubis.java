@@ -36,13 +36,17 @@ public class Rubis extends Gems implements CristalGems{
         return 0;
     }
 
-    void recuperar() {
-        if(vida == true && maxRecuperacao != 0){
-            energia += 20;
-            maxRecuperacao -= 1;
-        }throw new RuntimeException("Rubi está morta!");
-
-    }
+    void recuperar(){
+        if(vida == true && maxRecuperacao == 0)
+            throw new RuntimeException("Rubi não pode se recuperar!");
+        
+        if(energia + 30 > maxEnergia){
+            energia = maxPoder;
+        }else if(energia != maxEnergia)
+            energia += 30;
+        
+        maxRecuperacao -= 1;
+    }  
 
     public void fundir(String nomeFusão) {
         if(vida == true && energia >= minEnergia){
