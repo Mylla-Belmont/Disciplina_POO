@@ -53,6 +53,6 @@ public class Rubis extends Gems implements CristalGems{
     public String toString() {
         if(energia < 0)
             energia = 0;
-        return energia + "/" + maxEnergia;
+        return "\n" + "Rubi:" + "\n" + "Energia: " + energia + "/" + maxEnergia;
     }
 }

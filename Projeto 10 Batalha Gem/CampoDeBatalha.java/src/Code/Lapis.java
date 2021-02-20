@@ -50,6 +50,6 @@ public class Lapis extends Gems{    //
     }    
 
     public String toString() {
-        return poder + "/" + maxPoder + "\n" + energia;
+        return "\n" + "Lápis:" + "\n" + "Poder: " + poder + "/" + maxPoder + "\n" + "Energia: " + energia + "/" + maxEnergia + "\n";
     }
 }

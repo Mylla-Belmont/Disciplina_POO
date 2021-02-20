@@ -60,6 +60,6 @@ public class Safiras extends Gems implements CristalGems{
             poder = 0;
         if(energia < 0)
             energia = 0;
-        return poder + "/" + maxPoder + "\n" + energia + "/" + maxEnergia + "\n";
+            return "\n" + "Safira:" + "\n" + "Poder: " + poder + "/" + maxPoder + "\n" + "Energia: " + energia + "/" + maxEnergia + "\n";
     }
 }

@@ -50,6 +50,6 @@ public class Japers extends Gems{
             poder = 0;
         if(energia < 0)
             energia = 0;
-        return poder + "/" + maxPoder + "\n" + energia + "/" + maxEnergia + "\n";
+            return "\n" + "Jasper:" + "\n" + "Energia: " + energia + "/" + maxEnergia + "\n";
     }
 }
