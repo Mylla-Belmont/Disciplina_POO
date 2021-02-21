@@ -37,7 +37,7 @@ interface CristalGems{
     void fundir(String nomeFusão);
 }
 
-public class CampoDeBatalha {
+public class Main {
     public static void main(String[] pargs) throws Exception {
 
         Random random = new Random();
