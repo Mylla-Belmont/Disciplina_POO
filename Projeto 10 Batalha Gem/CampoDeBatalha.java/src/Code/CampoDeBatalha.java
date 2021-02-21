@@ -110,6 +110,21 @@ public class CampoDeBatalha {
                 }else if(oponente.equals("jasper"))
                     batalhaAmetista.ametistaXjasper(scanner, ametista, jasper);
                 break;
+            
+            case "rubi":
+                if(oponente.equals("perola")){
+                    batalhaAmetista.ametistaXperola(scanner, ametista, perola);
+                }else if(oponente.equals("ametista")){
+                    batalhaAmetista.ametistaXametista(scanner, ametista, ametista);
+                }else if(oponente.equals("rubi")){
+                    batalhaAmetista.ametistaXrubi(scanner, ametista, rubi);
+                }else if(oponente.equals("safira")){
+                    batalhaAmetista.ametistaXsafira(scanner, ametista, safira);
+                }else if(oponente.equals("lapis")){
+                    batalhaAmetista.ametistaXlapis(scanner, ametista, Lapis);
+                }else if(oponente.equals("jasper"))
+                    batalhaAmetista.ametistaXjasper(scanner, ametista, jasper);
+                break;
             }
         scanner.close();
     }

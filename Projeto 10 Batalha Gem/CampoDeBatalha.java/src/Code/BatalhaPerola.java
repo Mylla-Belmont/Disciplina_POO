@@ -20,6 +20,7 @@ public class BatalhaPerola {
                     System.out.println("\n" + perola + "\n");
                 }else if(Ui.equals("end"))
                     break;
+                RandomAdversario.PerolaAdversario(perolaAdversario);
                 System.out.println("Qual será sua nova ação?");
             }
         } catch(RuntimeException e){
@@ -52,23 +53,24 @@ public class BatalhaPerola {
         }
     }
 
-    public void perolaXrubi(Scanner scanner, Perolas perola, Rubis rubiaAdversario){ 
+    public void perolaXrubi(Scanner scanner, Perolas perola, Rubis rubiAdversario){ 
         try{
-            while(perola.vida && rubiaAdversario.vida){
+            while(perola.vida && rubiAdversario.vida){
                 String Ui = scanner.nextLine();
                 if(Ui.equals("1")){
-                    rubiaAdversario.sofrerDano(perola.atacar());
+                    rubiAdversario.sofrerDano(perola.atacar());
                     System.out.println("\n" + perola + "\n");
-                    System.out.println(rubiaAdversario + "\n");
+                    System.out.println(rubiAdversario + "\n");
                 }else if(Ui.equals("2")){
-                    rubiaAdversario.sofrerDano(perola.usarPoder());
+                    rubiAdversario.sofrerDano(perola.usarPoder());
                     System.out.println("\n" + perola + "\n");
-                    System.out.println(rubiaAdversario + "\n");
+                    System.out.println(rubiAdversario + "\n");
                 }else if(Ui.equals("3")){
                     perola.recuperar();
                     System.out.println("\n" + perola + "\n");
                 }else if(Ui.equals("end"))
                     break;
+                RandomAdversario.RubiAdversario(rubiAdversario);
                 System.out.println("Qual será sua nova ação?");
             }
         } catch(RuntimeException e){
@@ -93,6 +95,7 @@ public class BatalhaPerola {
                     System.out.println("\n" + perola + "\n");
                 }else if(Ui.equals("end"))
                     break;
+                RandomAdversario.SafiraAdversario(safiraAdversario);
                 System.out.println("Qual será sua nova ação?");
             }
         } catch(RuntimeException e){
@@ -117,6 +120,7 @@ public class BatalhaPerola {
                     System.out.println("\n" + perola + "\n");
                 }else if(Ui.equals("end"))
                     break;
+                RandomAdversario.LapisAdversario(lapisAdversario);
                 System.out.println("Qual será sua nova ação?");
             }
         } catch(RuntimeException e){
@@ -141,6 +145,7 @@ public class BatalhaPerola {
                     System.out.println("\n" + perola + "\n");
                 }else if(Ui.equals("end"))
                     break;
+                RandomAdversario.JasperAdversario(jasperAdversario);
                 System.out.println("Qual será sua nova ação?");
             }
         } catch(RuntimeException e){

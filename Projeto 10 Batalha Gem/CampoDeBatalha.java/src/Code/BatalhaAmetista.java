@@ -20,6 +20,7 @@ public class BatalhaAmetista {
                     System.out.println("\n" + ametista + "\n");
                 }else if(Ui.equals("end"))
                     break;
+                RandomAdversario.PerolaAdversario(perolasAdversario);
                 System.out.println("Qual será sua nova ação?");
             }
         } catch(RuntimeException e){
@@ -44,6 +45,7 @@ public class BatalhaAmetista {
                     System.out.println("\n" + ametista + "\n");
                 }else if(Ui.equals("end"))
                     break;
+                RandomAdversario.AmetistaAdversario(ametistaAdversario);
                 System.out.println("Qual será sua nova ação?");
             }
         } catch(RuntimeException e){
@@ -68,6 +70,7 @@ public class BatalhaAmetista {
                     System.out.println("\n" + ametistas + "\n");
                 }else if(Ui.equals("end"))
                     break;
+                RandomAdversario.RubiAdversario(rubiaAdversario);
                 System.out.println("Qual será sua nova ação?");
             }
         } catch(RuntimeException e){
@@ -92,6 +95,7 @@ public class BatalhaAmetista {
                     System.out.println("\n" + ametistas + "\n");
                 }else if(Ui.equals("end"))
                     break;
+                RandomAdversario.SafiraAdversario(safiraAdversario);
                 System.out.println("Qual será sua nova ação?");
             }
         } catch(RuntimeException e){
@@ -116,6 +120,7 @@ public class BatalhaAmetista {
                     System.out.println("\n" + ametistas + "\n");
                 }else if(Ui.equals("end"))
                     break;
+                RandomAdversario.LapisAdversario(lapisAdversario);
                 System.out.println("Qual será sua nova ação?");
             }
         } catch(RuntimeException e){
@@ -140,6 +145,7 @@ public class BatalhaAmetista {
                     System.out.println("\n" + ametistas + "\n");
                 }else if(Ui.equals("end"))
                     break;
+                RandomAdversario.JasperAdversario(jasperAdversario);
                 System.out.println("Qual será sua nova ação?");
             }
         } catch(RuntimeException e){
