@@ -45,16 +45,17 @@ public class CampoDeBatalha {
 
         Perolas perola = new Perolas(80, 90, 15, 10, 3);
         Ametistas ametista = new Ametistas(70, 100, 10, 10, 2);
-        Rubis rubi = new Rubis(100, 100, 100, 100, 100);
-        Safiras safira = new Safiras(100, 100, 100, 100, 100);
-        Lapis lapis = new Lapis(100, 100, 100, 100, 100);
-        Japers jasper = new Japers(100, 100, 100, 100, 100);
+        Rubis rubi = new Rubis(0, 90, 5, 0, 2);
+        Safiras safira = new Safiras(90, 70, 20, 0, 2);
+        Lapis lapis = new Lapis(100, 90, 5, 0, 3);
+        Japers jasper = new Japers(0, 100, 5, 0, 4);
 
         BatalhaPerola batalhaPerola = new BatalhaPerola();
         BatalhaAmetista batalhaAmetista = new BatalhaAmetista();
         BatalhaRubi batalhaRubi = new BatalhaRubi();
         BatalhaSafira batalhaSafira = new BatalhaSafira();
         BatalhaLapis batalhaLapis = new BatalhaLapis();
+        BatalhaJasper batalhaJasper = new BatalhaJasper();
 
         System.out.println("Escolha sua Gem:");
         String input = scanner.nextLine();
@@ -155,6 +156,21 @@ public class CampoDeBatalha {
                     batalhaLapis.lapisXlapis(scanner, lapis, lapis);
                 }else if(oponente.equals("jasper"))
                     batalhaLapis.lapisXjasper(scanner, lapis, jasper);
+                break;
+
+            case "jasper":
+                if(oponente.equals("perola")){
+                    batalhaJasper.jasperXperola(scanner, jasper, perola);
+                }else if(oponente.equals("ametista")){
+                    batalhaJasper.jasperXametista(scanner, jasper, ametista);
+                }else if(oponente.equals("rubi")){
+                    batalhaJasper.jasperXrubi(scanner, jasper, rubi);
+                }else if(oponente.equals("safira")){
+                    batalhaJasper.jasperXsafira(scanner, jasper, safira);
+                }else if(oponente.equals("lapis")){
+                    batalhaJasper.jasperXlapis(scanner, jasper, lapis);
+                }else if(oponente.equals("jasper"))
+                    batalhaJasper.jasperXjasper(scanner, jasper, jasper);
                 break;
             }
         scanner.close();
