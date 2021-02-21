@@ -37,7 +37,7 @@ interface CristalGems{
     void fundir(String nomeFusão);
 }
 
-public class Main {
+public class CampoDeBatalha {
     public static void main(String[] pargs) throws Exception {
 
         Random random = new Random();
@@ -52,6 +52,7 @@ public class Main {
 
         BatalhaPerola batalhaPerola = new BatalhaPerola();
         BatalhaAmetista batalhaAmetista = new BatalhaAmetista();
+        BatalhaRubi batalhaRubi = new BatalhaRubi();
 
         System.out.println("Escolha sua Gem:");
         String input = scanner.nextLine();
@@ -113,33 +114,19 @@ public class Main {
             
             case "rubi":
                 if(oponente.equals("perola")){
-                    batalhaAmetista.ametistaXperola(scanner, ametista, perola);
+                    batalhaRubi.rubiXperola(scanner, rubi, perola);
                 }else if(oponente.equals("ametista")){
-                    batalhaAmetista.ametistaXametista(scanner, ametista, ametista);
+                    batalhaRubi.rubiXametista(scanner, rubi, ametista);
                 }else if(oponente.equals("rubi")){
-                    batalhaAmetista.ametistaXrubi(scanner, ametista, rubi);
+                    batalhaRubi.rubiXrubi(scanner, rubi, rubi);
                 }else if(oponente.equals("safira")){
-                    batalhaAmetista.ametistaXsafira(scanner, ametista, safira);
+                    batalhaRubi.rubiXsafira(scanner, rubi, safira);
                 }else if(oponente.equals("lapis")){
-                    batalhaAmetista.ametistaXlapis(scanner, ametista, Lapis);
+                    batalhaRubi.rubiXlapis(scanner, rubi, Lapis);
                 }else if(oponente.equals("jasper"))
-                    batalhaAmetista.ametistaXjasper(scanner, ametista, jasper);
+                    batalhaRubi.rubiXjasper(scanner, rubi, jasper);
                 break;
             }
         scanner.close();
     }
 }
-
-// case "ametista":
-                // break;
-                // case "rubi":
-                // break;
-                // case "safira":
-                // break;
-                // case "lapis":
-                // break;
-                // case "jasper":
-                // break;
-                // default:
-
-//Melhorar morte dos personagens
