@@ -3,6 +3,7 @@ package Code;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Random;
+//import java.io.IOException;
 
 abstract class Gems{
     int poder;
@@ -74,9 +75,9 @@ public class CampoDeBatalha {
         else if(random.nextInt(5) == 5)
             oponente = "jasper";
         
-        System.out.println("Seu oponente será a " + oponente + "!");
-            //Apagar mensagem
-        System.out.println("Sua oponente está preparada para atacar! Qual será sua ação?");
+        System.out.println("Seu oponente será a " + oponente + "!"); 
+    
+        System.out.println(oponente + " está preparada para atacar! Qual será sua ação?");
         System.out.println("1 - Atacar");
         System.out.println("2 - Usar poder");
         System.out.println("3 - Recuperar");
@@ -176,3 +177,7 @@ public class CampoDeBatalha {
         scanner.close();
     }
 }
+
+//Melhorar Gems
+//Organizar codigo
+//Melhorar metodos
