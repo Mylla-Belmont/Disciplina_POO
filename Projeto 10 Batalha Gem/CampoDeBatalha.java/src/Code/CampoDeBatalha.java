@@ -71,8 +71,6 @@ public class CampoDeBatalha {
         else if(random.nextInt(5) == 5)
             oponente = "jasper";
         
-            oponente = "ametista"; //Teste
-        
         System.out.println("Seu oponente será a " + oponente + "!");
             //Apagar mensagem
         System.out.println("Sua oponente está preparada para atacar! Qual será sua ação?");
