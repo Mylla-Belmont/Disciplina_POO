@@ -3,7 +3,6 @@ package Code;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Random;
-//import java.io.IOException;
 
 abstract class Gems{
     int poder;
