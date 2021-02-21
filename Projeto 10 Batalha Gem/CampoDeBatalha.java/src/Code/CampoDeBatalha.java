@@ -47,13 +47,14 @@ public class CampoDeBatalha {
         Ametistas ametista = new Ametistas(70, 100, 10, 10, 2);
         Rubis rubi = new Rubis(100, 100, 100, 100, 100);
         Safiras safira = new Safiras(100, 100, 100, 100, 100);
-        Lapis Lapis = new Lapis(100, 100, 100, 100, 100);
+        Lapis lapis = new Lapis(100, 100, 100, 100, 100);
         Japers jasper = new Japers(100, 100, 100, 100, 100);
 
         BatalhaPerola batalhaPerola = new BatalhaPerola();
         BatalhaAmetista batalhaAmetista = new BatalhaAmetista();
         BatalhaRubi batalhaRubi = new BatalhaRubi();
         BatalhaSafira batalhaSafira = new BatalhaSafira();
+        BatalhaLapis batalhaLapis = new BatalhaLapis();
 
         System.out.println("Escolha sua Gem:");
         String input = scanner.nextLine();
@@ -91,7 +92,7 @@ public class CampoDeBatalha {
                 }else if(oponente.equals("safira")){
                     batalhaPerola.perolaXsafira(scanner, perola, safira);
                 }else if(oponente.equals("lapis")){
-                    batalhaPerola.perolaXlapis(scanner, perola, Lapis);
+                    batalhaPerola.perolaXlapis(scanner, perola, lapis);
                 }else if(oponente.equals("jasper"))
                     batalhaPerola.perolaXjasper(scanner, perola, jasper);
                 break;
@@ -106,7 +107,7 @@ public class CampoDeBatalha {
                 }else if(oponente.equals("safira")){
                     batalhaAmetista.ametistaXsafira(scanner, ametista, safira);
                 }else if(oponente.equals("lapis")){
-                    batalhaAmetista.ametistaXlapis(scanner, ametista, Lapis);
+                    batalhaAmetista.ametistaXlapis(scanner, ametista, lapis);
                 }else if(oponente.equals("jasper"))
                     batalhaAmetista.ametistaXjasper(scanner, ametista, jasper);
                 break;
@@ -121,7 +122,7 @@ public class CampoDeBatalha {
                 }else if(oponente.equals("safira")){
                     batalhaRubi.rubiXsafira(scanner, rubi, safira);
                 }else if(oponente.equals("lapis")){
-                    batalhaRubi.rubiXlapis(scanner, rubi, Lapis);
+                    batalhaRubi.rubiXlapis(scanner, rubi, lapis);
                 }else if(oponente.equals("jasper"))
                     batalhaRubi.rubiXjasper(scanner, rubi, jasper);
                 break;
@@ -136,9 +137,24 @@ public class CampoDeBatalha {
                 }else if(oponente.equals("safira")){
                     batalhaSafira.safiraXsafira(scanner, safira, safira);
                 }else if(oponente.equals("lapis")){
-                    batalhaSafira.safiraXlapis(scanner, safira, Lapis);
+                    batalhaSafira.safiraXlapis(scanner, safira, lapis);
                 }else if(oponente.equals("jasper"))
                     batalhaSafira.safiraXjasper(scanner, safira, jasper);
+                break;
+
+            case "lapis":
+                if(oponente.equals("perola")){
+                    batalhaLapis.lapisXperola(scanner, lapis, perola);
+                }else if(oponente.equals("ametista")){
+                    batalhaLapis.lapisXametista(scanner, lapis, ametista);
+                }else if(oponente.equals("rubi")){
+                    batalhaLapis.lapisXrubi(scanner, lapis, rubi);
+                }else if(oponente.equals("safira")){
+                    batalhaLapis.lapisXsafira(scanner, lapis, safira);
+                }else if(oponente.equals("lapis")){
+                    batalhaLapis.lapisXlapis(scanner, lapis, lapis);
+                }else if(oponente.equals("jasper"))
+                    batalhaLapis.lapisXjasper(scanner, lapis, jasper);
                 break;
             }
         scanner.close();
