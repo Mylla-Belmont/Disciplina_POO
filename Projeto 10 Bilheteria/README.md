@@ -1,14 +1,31 @@
-## Getting Started
+# Projeto java 10
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+<b>Nome do projeto:</b> Batalha Gem
 
-## Folder Structure
+<b>Desenvolverdor(a):</b> Camila Belmont
 
-The workspace contains two folders by default, where:
+<b>Descrição:</b>
+<p>Jogo interativo baseado no desenho animado Steven Universo.</p>
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+<b>O que foi feito:</b>
+<p>O projeto foi desenvolvido para práticar  implementação de heranças e interfaces no código, além da utilização de pacotes e divisão do código.</p>
 
-## Dependency Management
+<b>Com quem fez:</b>
+<p>Não houve participação de terceiros no desenvolvimento do projeto.</p>
 
-The `JAVA DEPENDENCIES` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-pack/blob/master/release-notes/v0.9.0.md#work-with-jar-files-directly).
+<b>Como fez:</b>
+<p>Inicialmente foi elaborado a main interativa e os métodos dos personagens. Posteriormente fez necessário utilizar de um sistema de condicionais para agrupar todas as possibilidades de luta (devido a quantidade de personagens), sendo atribuido para cada condição uma lógica própria.</p>
+
+<b>O que aprendeu:</b>
+<p>Principalmente a formação e aplicação de heranças e interfaces, além da divisão do código em pacotes.</p>
+
+ - Tópicos aprendidos:
+    - Organização do código
+    - Manipulação de ArrayList
+    - Implementação de excessões 
+    - Divisão do código em pacotes
+    - Lógica básica de gameficação
+
+<b>Quanto tempo levou:</b>
+<p>A estruturação principal do jogo demorou cerca de 3 à 5 dias, enquanto as atualizações, resoluções de problemas, incrementações simples de funcionalidades e melhorias duraram até o prazo limite do projeto.</p>
+
