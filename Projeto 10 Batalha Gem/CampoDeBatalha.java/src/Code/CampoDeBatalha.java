@@ -53,6 +53,7 @@ public class CampoDeBatalha {
         BatalhaPerola batalhaPerola = new BatalhaPerola();
         BatalhaAmetista batalhaAmetista = new BatalhaAmetista();
         BatalhaRubi batalhaRubi = new BatalhaRubi();
+        BatalhaSafira batalhaSafira = new BatalhaSafira();
 
         System.out.println("Escolha sua Gem:");
         String input = scanner.nextLine();
@@ -123,6 +124,21 @@ public class CampoDeBatalha {
                     batalhaRubi.rubiXlapis(scanner, rubi, Lapis);
                 }else if(oponente.equals("jasper"))
                     batalhaRubi.rubiXjasper(scanner, rubi, jasper);
+                break;
+            
+            case "safira":
+                if(oponente.equals("perola")){
+                    batalhaSafira.safiraXperola(scanner, safira, perola);
+                }else if(oponente.equals("ametista")){
+                    batalhaSafira.safiraXametista(scanner, safira, ametista);
+                }else if(oponente.equals("rubi")){
+                    batalhaSafira.safiraXrubi(scanner, safira, rubi);
+                }else if(oponente.equals("safira")){
+                    batalhaSafira.safiraXsafira(scanner, safira, safira);
+                }else if(oponente.equals("lapis")){
+                    batalhaSafira.safiraXlapis(scanner, safira, Lapis);
+                }else if(oponente.equals("jasper"))
+                    batalhaSafira.safiraXjasper(scanner, safira, jasper);
                 break;
             }
         scanner.close();
