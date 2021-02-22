@@ -64,14 +64,14 @@ public class Main {
         int randomOponente = random.nextInt(5);
 
         switch(randomOponente){
-            case 0: oponente = "perola"; break;
-            case 1: oponente = "ametista"; break;
-            case 2: oponente = "rubi"; break;
-            case 3: oponente = "safira"; break;
-            case 4: oponente = "lapis"; break;
-            case 5: oponente = "jasper"; break;
+            case 0: oponente = "perola"; 
+            case 1: oponente = "ametista"; 
+            case 2: oponente = "rubi"; 
+            case 3: oponente = "safira";
+            case 4: oponente = "lapis";
+            case 5: oponente = "jasper"; 
         }
-       
+
         System.out.println("Seu oponente será a " + oponente + "!"); 
         System.out.println(oponente + " está preparada para atacar! Qual será sua ação?");
         System.out.println("1 - Atacar");
