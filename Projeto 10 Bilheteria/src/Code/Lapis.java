@@ -1,12 +1,11 @@
 package Code;
 
 public class Lapis extends Gems{    //
-    
     public Lapis(int poder, int energia, int minEnergia, int resistenciaArma, int maxRecuperacao){
         super(poder, energia, minEnergia, resistenciaArma, maxRecuperacao);
     }
 
-    int atacar(){
+    public int atacar(){
         if(vida == true && energia >= minEnergia){
             poder -= 5;
             energia -= 5;
@@ -15,7 +14,7 @@ public class Lapis extends Gems{    //
         }throw new RuntimeException("Lápis Lazúli está com a energia baixa!");
     }
 
-    void sofrerDano(int dano){
+    public void sofrerDano(int dano){
         if(energia - dano <= 0 && maxRecuperacao != 0){
             energia = 0;
             System.out.println("Lápis Lazúli foi destruida!");
@@ -32,7 +31,7 @@ public class Lapis extends Gems{    //
         System.out.println("Lápis Lazúli sofreu dano!");
     }
 
-    int usarPoder(){
+    public int usarPoder(){
         if(poder != 0 && energia >= minEnergia){
             poder -= 30;
             energia -= 10;
@@ -41,7 +40,7 @@ public class Lapis extends Gems{    //
         } throw new RuntimeException("Safira está fraca!");
     }
 
-    void recuperar(){
+    public void recuperar(){
         if(vida == true && maxRecuperacao == 0)
             throw new RuntimeException("Lápis Lazúli não pode se recuperar!");
         

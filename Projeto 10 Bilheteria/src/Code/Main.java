@@ -28,14 +28,14 @@ abstract class Gems{
         this.fusão = new ArrayList<>();
     }
     
-    abstract int atacar();
-    abstract void sofrerDano(int dano);
-    abstract int usarPoder();
-    abstract void recuperar();
+    public abstract int atacar();
+    public abstract void sofrerDano(int dano);
+    public abstract int usarPoder();
+    public abstract void recuperar();
 }
 
 interface CristalGems{
-    void fundir(String nomeFusão);
+    public void fundir(String nomeFusão);
 }
 
 public class Main {

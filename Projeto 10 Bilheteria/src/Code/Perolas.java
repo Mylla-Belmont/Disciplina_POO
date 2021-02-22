@@ -1,7 +1,6 @@
 package Code;
 
 public class Perolas extends Gems implements CristalGems{    //
-   
     public Perolas(int poder, int energia, int minEnergia, int resistenciaArma, int maxRecuperacao){
         super(poder, energia, minEnergia, resistenciaArma, maxRecuperacao);
     }

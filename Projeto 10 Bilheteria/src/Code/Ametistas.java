@@ -1,12 +1,11 @@
 package Code;
 
 public class Ametistas extends Gems implements CristalGems{    //
-   
     public Ametistas(int poder, int energia, int minEnergia, int resistenciaArma, int maxRecuperacao){
         super(poder, energia, minEnergia, resistenciaArma, maxRecuperacao);
     }
 
-    int atacar(){       
+    public int atacar(){       
         if(vida == true && energia >= minEnergia && resistenciaArma > 0){
             poder -= 10;
             energia -= 5;
@@ -14,7 +13,6 @@ public class Ametistas extends Gems implements CristalGems{    //
             System.out.println("Ametista atacou com seu chicote!");
             return 15;
         }
-        
         if(vida == true && energia >= minEnergia){
             poder -= 15;
             energia -= 20;
@@ -23,7 +21,7 @@ public class Ametistas extends Gems implements CristalGems{    //
         } throw new RuntimeException("Ametista está com a energia baixa!");
     }
 
-    void sofrerDano(int dano){
+    public void sofrerDano(int dano){
         if(energia - dano <= 0 && maxRecuperacao != 0){
             energia = 0;
             System.out.println("Ametista foi destruida!");
@@ -40,7 +38,7 @@ public class Ametistas extends Gems implements CristalGems{    //
         System.out.println("Ametista sofreu dano!");
     }
 
-    int usarPoder(){
+    public int usarPoder(){
         if(poder != 0 && energia >= minEnergia){
             poder -= 20;
             energia -= 15;
@@ -49,7 +47,7 @@ public class Ametistas extends Gems implements CristalGems{    //
         } throw new RuntimeException("Ametista está fraca!");
     }
 
-    void recuperar(){
+    public void recuperar(){
         if(vida == true && maxRecuperacao == 0)
             throw new RuntimeException("Ametista não pode se recuperar!");
         

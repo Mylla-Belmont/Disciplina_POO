@@ -1,12 +1,11 @@
 package Code;
 
 public class Japers extends Gems{
-    
     public Japers(int poder, int energia, int minEnergia, int resistenciaArma, int maxRecuperacao){
         super(poder, energia, minEnergia, resistenciaArma, maxRecuperacao);
     }
 
-    int atacar(){       
+    public int atacar(){       
         if(vida == true && energia >= minEnergia){
             poder -= 10;
             energia -= 20;
@@ -15,7 +14,7 @@ public class Japers extends Gems{
         } throw new RuntimeException("Jasper está com a energia baixa!");
     }
 
-    void sofrerDano(int dano){
+    public void sofrerDano(int dano){
         if(energia - dano <= 0 && maxRecuperacao != 0){
             energia = 0;
             System.out.println("Jasper foi destruida!");
@@ -32,12 +31,12 @@ public class Japers extends Gems{
         System.out.println("Jasper sofreu dano!");
     }
 
-    int usarPoder() {
+    public int usarPoder() {
         System.out.println("Jasper não possui poderes");
         return 0;
     }
 
-    void recuperar(){
+    public void recuperar(){
         if(vida == true && maxRecuperacao == 0)
             throw new RuntimeException("Jasper não pode se recuperar!");
         

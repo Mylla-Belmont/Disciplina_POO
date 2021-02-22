@@ -1,12 +1,11 @@
 package Code;
 
-public class Safiras extends Gems implements CristalGems{
-    
+public class Safiras extends Gems implements CristalGems{   
     public Safiras(int poder, int energia, int minEnergia, int resistenciaArma, int maxRecuperacao){
         super(poder, energia, minEnergia, resistenciaArma, maxRecuperacao);
     }
 
-    int atacar() {
+    public int atacar() {
         if(energia >= minEnergia){
             poder -= 20;
             energia -= 15;
@@ -15,7 +14,7 @@ public class Safiras extends Gems implements CristalGems{
         }throw new RuntimeException("Safira está com a energia baixa!");
     }
 
-    void sofrerDano(int dano){
+    public void sofrerDano(int dano){
         if(energia - dano <= 0 && maxRecuperacao != 0){
             energia = 0;
             System.out.println("Safira foi destruida!");
@@ -32,7 +31,7 @@ public class Safiras extends Gems implements CristalGems{
         System.out.println("Safira sofreu dano!");
     }
 
-    int usarPoder(){
+    public int usarPoder(){
         if(poder != 0 && energia >= minEnergia){
             poder -= 5;
             energia -= 5;
@@ -41,7 +40,7 @@ public class Safiras extends Gems implements CristalGems{
         } throw new RuntimeException("Safira está fraca!");
     }
 
-    void recuperar(){
+    public void recuperar(){
         if(vida == true && maxRecuperacao == 0)
             throw new RuntimeException("Safira não pode se recuperar!");
         

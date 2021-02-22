@@ -1,12 +1,11 @@
 package Code;
 
 public class Rubis extends Gems implements CristalGems{
-    
     public Rubis(int poder, int energia, int minEnergia, int resistenciaArma, int maxRecuperacao){
         super(poder, energia, minEnergia, resistenciaArma, maxRecuperacao);
     }
 
-    int atacar() {
+    public int atacar() {
         if(vida == true && energia >= minEnergia){
             energia -= 5;
             System.out.println("Rubi está atacando com sua força!");
@@ -14,7 +13,7 @@ public class Rubis extends Gems implements CristalGems{
         }throw new RuntimeException("Rubi está com a energia baixa!");
     }
 
-    void sofrerDano(int dano){
+    public void sofrerDano(int dano){
         if(energia - dano <= 0 && maxRecuperacao != 0){
             energia = 0;
             System.out.println("Rubi foi destruida!");
@@ -31,12 +30,12 @@ public class Rubis extends Gems implements CristalGems{
         System.out.println("Rubi sofreu dano!");
     }
 
-    int usarPoder() {
+    public int usarPoder() {
         System.out.println("Rubi não possui poderes");
         return 0;
     }
 
-    void recuperar(){
+    public void recuperar(){
         if(vida == true && maxRecuperacao == 0)
             throw new RuntimeException("Rubi não pode se recuperar!");
         
