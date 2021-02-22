@@ -10,15 +10,15 @@ public class BatalhaJasper {
                 String Ui = scanner.nextLine();
                 if(Ui.equals("1")){
                     perolasAdversario.sofrerDano(jasper.atacar());
-                    System.out.println("\n" + jasper + "\n");
-                    System.out.println(perolasAdversario + "\n");
+                    System.out.println(jasper);
+                    System.out.println(perolasAdversario);
                 }else if(Ui.equals("2")){
                     perolasAdversario.sofrerDano(jasper.usarPoder());
-                    System.out.println("\n" + jasper + "\n");
-                    System.out.println(perolasAdversario + "\n");
+                    System.out.println(jasper);
+                    System.out.println(perolasAdversario);
                 }else if(Ui.equals("3")){
                     jasper.recuperar();
-                    System.out.println("\n" + jasper + "\n");
+                    System.out.println(jasper);
                 }else if(Ui.equals("end"))
                     break;
                 RandomAdversario.PerolaAdversario(perolasAdversario);
@@ -35,15 +35,15 @@ public class BatalhaJasper {
                 String Ui = scanner.nextLine();
                 if(Ui.equals("1")){
                     ametistaAdversario.sofrerDano(jasper.atacar());
-                    System.out.println("\n" + jasper + "\n");
-                    System.out.println(ametistaAdversario + "\n");
+                    System.out.println(jasper);
+                    System.out.println(ametistaAdversario);
                 }else if(Ui.equals("2")){
                     ametistaAdversario.sofrerDano(jasper.usarPoder());
-                    System.out.println("\n" + jasper + "\n");
-                    System.out.println(ametistaAdversario + "\n");
+                    System.out.println(jasper);
+                    System.out.println(ametistaAdversario);
                 }else if(Ui.equals("3")){
                     jasper.recuperar();
-                    System.out.println("\n" + jasper + "\n");
+                    System.out.println(jasper);
                 }else if(Ui.equals("end"))
                     break;
                 RandomAdversario.AmetistaAdversario(ametistaAdversario);
@@ -60,15 +60,15 @@ public class BatalhaJasper {
                 String Ui = scanner.nextLine();
                 if(Ui.equals("1")){
                     rubiAdversario.sofrerDano(jasper.atacar());
-                    System.out.println("\n" + jasper + "\n");
-                    System.out.println(rubiAdversario + "\n");
+                    System.out.println(jasper);
+                    System.out.println(rubiAdversario);
                 }else if(Ui.equals("2")){
                     rubiAdversario.sofrerDano(jasper.usarPoder());
-                    System.out.println("\n" + jasper + "\n");
-                    System.out.println(rubiAdversario + "\n");
+                    System.out.println(jasper);
+                    System.out.println(rubiAdversario);
                 }else if(Ui.equals("3")){
                     jasper.recuperar();
-                    System.out.println("\n" + jasper + "\n");
+                    System.out.println(jasper);
                 }else if(Ui.equals("end"))
                     break;
                 RandomAdversario.RubiAdversario(rubiAdversario);
@@ -85,15 +85,15 @@ public class BatalhaJasper {
                 String Ui = scanner.nextLine();
                 if(Ui.equals("1")){
                     safiraAdversario.sofrerDano(jasper.atacar());
-                    System.out.println("\n" + jasper + "\n");
-                    System.out.println(safiraAdversario + "\n");
+                    System.out.println(jasper);
+                    System.out.println(safiraAdversario);
                 }else if(Ui.equals("2")){
                     safiraAdversario.sofrerDano(jasper.usarPoder());
-                    System.out.println("\n" + jasper + "\n");
-                    System.out.println(safiraAdversario + "\n");
+                    System.out.println(jasper);
+                    System.out.println(safiraAdversario);
                 }else if(Ui.equals("3")){
                     jasper.recuperar();
-                    System.out.println("\n" + jasper + "\n");
+                    System.out.println(jasper);
                 }else if(Ui.equals("end"))
                     break;
                 RandomAdversario.SafiraAdversario(safiraAdversario);
@@ -110,15 +110,15 @@ public class BatalhaJasper {
                 String Ui = scanner.nextLine();
                 if(Ui.equals("1")){
                     lapisAdversario.sofrerDano(jasper.atacar());
-                    System.out.println("\n" + jasper + "\n");
-                    System.out.println(lapisAdversario + "\n");
+                    System.out.println(jasper);
+                    System.out.println(lapisAdversario);
                 }else if(Ui.equals("2")){
                     lapisAdversario.sofrerDano(jasper.usarPoder());
-                    System.out.println("\n" + jasper + "\n");
-                    System.out.println(lapisAdversario + "\n");
+                    System.out.println(jasper);
+                    System.out.println(lapisAdversario);
                 }else if(Ui.equals("3")){
                     jasper.recuperar();
-                    System.out.println("\n" + jasper + "\n");
+                    System.out.println(jasper);
                 }else if(Ui.equals("end"))
                     break;
                 RandomAdversario.LapisAdversario(lapisAdversario);
@@ -135,15 +135,15 @@ public class BatalhaJasper {
                 String Ui = scanner.nextLine();
                 if(Ui.equals("1")){
                     jasperAdversario.sofrerDano(jasper.atacar());
-                    System.out.println("\n" + jasper + "\n");
-                    System.out.println(jasperAdversario + "\n");
+                    System.out.println(jasper);
+                    System.out.println(jasperAdversario);
                 }else if(Ui.equals("2")){
                     jasperAdversario.sofrerDano(jasper.usarPoder());
-                    System.out.println("\n" + jasper + "\n");
-                    System.out.println(jasperAdversario + "\n");
+                    System.out.println(jasper);
+                    System.out.println(jasperAdversario);
                 }else if(Ui.equals("3")){
                     jasper.recuperar();
-                    System.out.println("\n" + jasper + "\n");
+                    System.out.println(jasper);
                 }else if(Ui.equals("end"))
                     break;
                 RandomAdversario.JasperAdversario(jasperAdversario);

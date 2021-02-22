@@ -10,15 +10,15 @@ public class BatalhaPerola {
                 String Ui = scanner.nextLine();
                 if(Ui.equals("1")){
                     perolaAdversario.sofrerDano(perola.atacar());
-                    System.out.println("\n" + perola + "\n");
-                    System.out.println(perolaAdversario + "\n");
+                    System.out.println(perola);
+                    System.out.println(perolaAdversario);
                 }else if(Ui.equals("2")){
                     perolaAdversario.sofrerDano(perola.usarPoder());
-                    System.out.println("\n" + perola + "\n");
-                    System.out.println(perolaAdversario + "\n");
+                    System.out.println(perola);
+                    System.out.println(perolaAdversario);
                 }else if(Ui.equals("3")){
                     perola.recuperar();
-                    System.out.println("\n" + perola + "\n");
+                    System.out.println(perola);
                 }else if(Ui.equals("end"))
                     break;
                 RandomAdversario.PerolaAdversario(perolaAdversario);
@@ -35,15 +35,15 @@ public class BatalhaPerola {
                 String Ui = scanner.nextLine();
                 if(Ui.equals("1")){
                     ametistaAdversario.sofrerDano(perola.atacar());
-                    System.out.println("\n" + perola + "\n");
-                    System.out.println(ametistaAdversario + "\n");
+                    System.out.println(perola);
+                    System.out.println(ametistaAdversario);
                 }else if(Ui.equals("2")){
                     ametistaAdversario.sofrerDano(perola.usarPoder());
-                    System.out.println("\n" + perola + "\n");
-                    System.out.println(ametistaAdversario + "\n");
+                    System.out.println(perola);
+                    System.out.println(ametistaAdversario);
                 }else if(Ui.equals("3")){
                     perola.recuperar();
-                    System.out.println("\n" + perola + "\n");
+                    System.out.println(perola);
                 }else if(Ui.equals("end"))
                     break;
                 RandomAdversario.AmetistaAdversario(ametistaAdversario);
@@ -60,15 +60,15 @@ public class BatalhaPerola {
                 String Ui = scanner.nextLine();
                 if(Ui.equals("1")){
                     rubiAdversario.sofrerDano(perola.atacar());
-                    System.out.println("\n" + perola + "\n");
-                    System.out.println(rubiAdversario + "\n");
+                    System.out.println(perola);
+                    System.out.println(rubiAdversario);
                 }else if(Ui.equals("2")){
                     rubiAdversario.sofrerDano(perola.usarPoder());
-                    System.out.println("\n" + perola + "\n");
-                    System.out.println(rubiAdversario + "\n");
+                    System.out.println(perola);
+                    System.out.println(rubiAdversario);
                 }else if(Ui.equals("3")){
                     perola.recuperar();
-                    System.out.println("\n" + perola + "\n");
+                    System.out.println(perola);
                 }else if(Ui.equals("end"))
                     break;
                 RandomAdversario.RubiAdversario(rubiAdversario);
@@ -85,15 +85,15 @@ public class BatalhaPerola {
                 String Ui = scanner.nextLine();
                 if(Ui.equals("1")){
                     safiraAdversario.sofrerDano(perola.atacar());
-                    System.out.println("\n" + perola + "\n");
-                    System.out.println(safiraAdversario + "\n");
+                    System.out.println(perola);
+                    System.out.println(safiraAdversario);
                 }else if(Ui.equals("2")){
                     safiraAdversario.sofrerDano(perola.usarPoder());
-                    System.out.println("\n" + perola + "\n");
-                    System.out.println(safiraAdversario + "\n");
+                    System.out.println(perola);
+                    System.out.println(safiraAdversario);
                 }else if(Ui.equals("3")){
                     perola.recuperar();
-                    System.out.println("\n" + perola + "\n");
+                    System.out.println(perola);
                 }else if(Ui.equals("end"))
                     break;
                 RandomAdversario.SafiraAdversario(safiraAdversario);
@@ -110,15 +110,15 @@ public class BatalhaPerola {
                 String Ui = scanner.nextLine();
                 if(Ui.equals("1")){
                     lapisAdversario.sofrerDano(perola.atacar());
-                    System.out.println("\n" + perola + "\n");
-                    System.out.println(lapisAdversario + "\n");
+                    System.out.println(perola);
+                    System.out.println(lapisAdversario);
                 }else if(Ui.equals("2")){
                     lapisAdversario.sofrerDano(perola.usarPoder());
-                    System.out.println("\n" + perola + "\n");
-                    System.out.println(lapisAdversario + "\n");
+                    System.out.println(perola);
+                    System.out.println(lapisAdversario);
                 }else if(Ui.equals("3")){
                     perola.recuperar();
-                    System.out.println("\n" + perola + "\n");
+                    System.out.println(perola);
                 }else if(Ui.equals("end"))
                     break;
                 RandomAdversario.LapisAdversario(lapisAdversario);
@@ -135,15 +135,15 @@ public class BatalhaPerola {
                 String Ui = scanner.nextLine();
                 if(Ui.equals("1")){
                     jasperAdversario.sofrerDano(perola.atacar());
-                    System.out.println("\n" + perola + "\n");
-                    System.out.println(jasperAdversario + "\n");
+                    System.out.println(perola);
+                    System.out.println(jasperAdversario);
                 }else if(Ui.equals("2")){
                     jasperAdversario.sofrerDano(perola.usarPoder());
-                    System.out.println("\n" + perola + "\n");
-                    System.out.println(jasperAdversario + "\n");
+                    System.out.println(perola);
+                    System.out.println(jasperAdversario);
                 }else if(Ui.equals("3")){
                     perola.recuperar();
-                    System.out.println("\n" + perola + "\n");
+                    System.out.println(perola);
                 }else if(Ui.equals("end"))
                     break;
                 RandomAdversario.JasperAdversario(jasperAdversario);
