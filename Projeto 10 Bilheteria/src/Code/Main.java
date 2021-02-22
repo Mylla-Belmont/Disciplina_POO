@@ -5,14 +5,14 @@ import java.util.ArrayList;
 import java.util.Random;
 
 abstract class Gems{
-    int poder;
-    int maxPoder;
-    int energia;
-    int maxEnergia;
-    int minEnergia;
-    int resistenciaArma;
-    int maxRecuperacao;
-    boolean vida;
+    public int poder;
+    public int maxPoder;
+    public int energia;
+    public int maxEnergia;
+    public int minEnergia;
+    public int resistenciaArma;
+    public int maxRecuperacao;
+    public boolean vida;
     ArrayList<Fusões> fusão;
 
     public Gems(int poder, int energia, int minEnergia, int resistenciaArma, int maxRecuperacao){
@@ -60,22 +60,18 @@ public class Main {
         System.out.println("Escolha sua Gem:");
         String input = scanner.nextLine();
         String oponente = "";
-            
-        if(random.nextInt(5) == 0)
-            oponente = "perola";
-        else if(random.nextInt(5) == 1)
-            oponente = "ametista";
-        else if(random.nextInt(5) == 2)
-            oponente = "rubi";
-        else if(random.nextInt(5) == 3)
-            oponente = "safira";
-        else if(random.nextInt(5) == 4)
-            oponente = "lapis";
-        else if(random.nextInt(5) == 5)
-            oponente = "jasper";
-        
+        int randomOponente = random.nextInt(5);
+
+        switch(randomOponente){
+            case 0: oponente = "perola"; break;
+            case 1: oponente = "ametista"; break;
+            case 2: oponente = "rubi"; break;
+            case 3: oponente = "safira"; break;
+            case 4: oponente = "lapis"; break;
+            case 5: oponente = "jasper"; break;
+        }
+       
         System.out.println("Seu oponente será a " + oponente + "!"); 
-    
         System.out.println(oponente + " está preparada para atacar! Qual será sua ação?");
         System.out.println("1 - Atacar");
         System.out.println("2 - Usar poder");
@@ -180,3 +176,4 @@ public class Main {
 //Melhorar Gems
 //Organizar codigo
 //Melhorar metodos
+//Adicionar função fundir

@@ -1,6 +1,8 @@
-package Code;
+package Code.Batalhas;
 
 import java.util.Scanner;
+import Code.Ametistas;
+import Code.Perolas;
 
 public class BatalhaAmetista {
     public void ametistaXperola(Scanner scanner, Ametistas ametista, Perolas perolasAdversario){ //fazer fusão

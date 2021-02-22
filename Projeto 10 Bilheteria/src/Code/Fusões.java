@@ -4,8 +4,6 @@ public class Fusões {
     String nomeThis;
     String nomeOther;
     String nomeFusão;
-    int durabilidade;
-    int poderFusão;
 
     public Fusões(String nomeThis, String nomeOther){
         this.nomeThis = nomeThis;
@@ -14,9 +12,8 @@ public class Fusões {
 
     public void tipoFusão(){
         if(nomeThis.equals("Perola") && nomeOther.equals("Ametista") || nomeThis.equals("Ametista") && nomeOther.equals("Perola")){
-            nomeFusão = "Opal";
-            durabilidade = 20;
-            poderFusão = 20;
+            System.out.println("As Gems se fundiram e formarm a Opal!");
+        
         }
     }
 }
