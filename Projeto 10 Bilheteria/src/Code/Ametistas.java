@@ -27,15 +27,13 @@ public class Ametistas extends Gems implements CristalGems{    //
             System.out.println("Ametista foi destruida!");
             return;
         }
-        if(energia - dano <= 0 && maxRecuperacao == 0){
-            vida = false;
-            energia = 0;
-            return;
+        if(energia - dano > 0 && maxRecuperacao != 0){
+            energia -= dano;
+            System.out.println("Ametista sofreu dano!");
         }
-        if(vida == false)
-            throw new RuntimeException("Ametista foi morta!");
-        energia -= dano;
-        System.out.println("Ametista sofreu dano!");
+        energia = 0;
+        vida = false; 
+        throw new RuntimeException("Ametista foi morta!");
     }
 
     public int usarPoder(){

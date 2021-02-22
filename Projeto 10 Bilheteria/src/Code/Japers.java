@@ -20,15 +20,13 @@ public class Japers extends Gems{
             System.out.println("Jasper foi destruida!");
             return;
         }
-        if(energia - dano <= 0 && maxRecuperacao == 0){
-            vida = false;
-            energia = 0;
-            return;
+        if(energia - dano > 0 && maxRecuperacao != 0){
+            energia -= dano;
+            System.out.println("Jasper sofreu dano!");
         }
-        if(vida == false)
-            throw new RuntimeException("Jasper foi morta!");
-        energia -= dano;
-        System.out.println("Jasper sofreu dano!");
+        energia = 0;
+        vida = false; 
+        throw new RuntimeException("Jasper foi morta!");
     }
 
     public int usarPoder() {

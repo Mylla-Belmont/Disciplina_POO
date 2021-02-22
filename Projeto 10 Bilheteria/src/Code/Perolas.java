@@ -5,16 +5,18 @@ public class Perolas extends Gems implements CristalGems{    //
         super(poder, energia, minEnergia, resistenciaArma, maxRecuperacao);
     }
 
-    public int atacar(){    
-        if(vida == true && energia >= minEnergia && resistenciaArma > 0){
+    public int atacar(){ 
+        if(vida == false)
+            throw new RuntimeException("Perola foi morta!");
+        
+        if(energia >= minEnergia && resistenciaArma > 0){
             poder -= 10;
             energia -= 5;
             resistenciaArma -= 1;
-            System.out.println("Perola atacou com sua lança!");
+            System.out.println("Perola atacou com a sua lança!");
             return 15;
         }
-        
-        if(vida == true && energia >= minEnergia){
+        if(energia >= minEnergia){
             poder -= 15;
             energia -= 20;
             System.out.println("Perola atacou, mas sua lança está quebrada!");
@@ -28,15 +30,13 @@ public class Perolas extends Gems implements CristalGems{    //
             System.out.println("Perola foi destruida!");
             return;
         }
-        if(energia - dano <= 0 && maxRecuperacao == 0){
-            vida = false;
-            energia = 0;
-            return;
+        if(energia - dano > 0 && maxRecuperacao != 0){
+            energia -= dano;
+            System.out.println("Perola sofreu dano!");
         }
-        if(vida == false)
-            throw new RuntimeException("Perola foi morta!");
-        energia -= dano;
-        System.out.println("Perola sofreu dano!");
+        energia = 0;
+        vida = false; 
+        throw new RuntimeException("Perola foi morta!");
     }
 
     public int usarPoder(){
@@ -51,7 +51,7 @@ public class Perolas extends Gems implements CristalGems{    //
     public void recuperar(){
         if(vida == true && maxRecuperacao == 0)
             throw new RuntimeException("Perola não pode se recuperar!");
-        
+
         if(poder + 20 > maxPoder){
             poder = maxPoder;
         }else if(poder != maxPoder)

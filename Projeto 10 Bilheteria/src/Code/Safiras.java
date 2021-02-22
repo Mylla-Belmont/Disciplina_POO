@@ -20,15 +20,13 @@ public class Safiras extends Gems implements CristalGems{
             System.out.println("Safira foi destruida!");
             return;
         }
-        if(energia - dano <= 0 && maxRecuperacao == 0){
-            vida = false;
-            energia = 0;
-            return;
+        if(energia - dano > 0 && maxRecuperacao != 0){
+            energia -= dano;
+            System.out.println("Safira sofreu dano!");
         }
-        if(vida == false)
-            throw new RuntimeException("Safira foi morta!");
-        energia -= dano;
-        System.out.println("Safira sofreu dano!");
+        energia = 0;
+        vida = false; 
+        throw new RuntimeException("Safira foi morta!");
     }
 
     public int usarPoder(){
