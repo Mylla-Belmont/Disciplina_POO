@@ -1,5 +1,7 @@
 package Code;
 
+import javax.print.attribute.standard.MediaSize.Other;
+
 public class Ametistas extends Gems implements CristalGems{    //
     public Ametistas(int poder, int energia, int minEnergia, int resistenciaArma, int maxRecuperacao){
         super(poder, energia, minEnergia, resistenciaArma, maxRecuperacao);
@@ -63,10 +65,11 @@ public class Ametistas extends Gems implements CristalGems{    //
         maxRecuperacao -= 1;
     }     
 
-    public void fundir(String nomeFusão){
+    public int fundir(String nomeOther){
         if(vida == true && energia >= minEnergia){
-            fusão.add(new Fusões("Ametista", nomeFusão));
-        } throw new RuntimeException("Ametista não pode fundir-se com" + nomeFusão);
+            Fusões fusão = new Fusões("ametista", nomeOther);
+            return fusão.tipoFusão();
+        } throw new RuntimeException("Ametista não pode fundir-se com" + nomeOther);
     }
 
     public String toString() {

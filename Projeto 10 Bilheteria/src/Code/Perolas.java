@@ -66,10 +66,11 @@ public class Perolas extends Gems implements CristalGems{    //
         maxRecuperacao -= 1;
     }    
 
-    public void fundir(String nomeFusão){
+    public int fundir(String nomeOther){
         if(vida == true && energia >= minEnergia){
-            fusão.add(new Fusões("Perola", nomeFusão));
-        } throw new RuntimeException("Perola não pode fundir-se com" + nomeFusão);
+            Fusões fusão = new Fusões("perola", nomeOther);
+            return fusão.tipoFusão();
+        } throw new RuntimeException("Perola não pode fundir-se com" + nomeOther);
     }
 
     public String toString() {

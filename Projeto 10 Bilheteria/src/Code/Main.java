@@ -1,7 +1,6 @@
 package Code;
 
 import java.util.Scanner;
-import java.util.ArrayList;
 import java.util.Random;
 import Code.Batalhas.*;
 
@@ -14,7 +13,6 @@ abstract class Gems{
     public int resistenciaArma;
     public int maxRecuperacao;
     public boolean vida;
-    ArrayList<Fusões> fusão;
 
     public Gems(int poder, int energia, int minEnergia, int resistenciaArma, int maxRecuperacao){
         this.vida = true;
@@ -25,7 +23,6 @@ abstract class Gems{
         this.minEnergia = minEnergia;
         this.resistenciaArma = resistenciaArma;
         this.maxRecuperacao = maxRecuperacao;
-        this.fusão = new ArrayList<>();
     }
     
     public abstract int atacar();
@@ -35,7 +32,7 @@ abstract class Gems{
 }
 
 interface CristalGems{
-    public void fundir(String nomeFusão);
+    public int fundir(String nomeFusão);
 }
 
 public class Main {

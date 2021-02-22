@@ -55,11 +55,12 @@ public class Safiras extends Gems implements CristalGems{
         maxRecuperacao -= 1;
     }  
 
-    public void fundir(String nomeFusão) {
+    public int fundir(String nomeOther){
         if(vida == true && energia >= minEnergia){
-            fusão.add(new Fusões("Safira", nomeFusão));
-        }throw new RuntimeException("Safira não pode fundir-se com" + nomeFusão);
-    }   
+            Fusões fusão = new Fusões("safira", nomeOther);
+            return fusão.tipoFusão();
+        } throw new RuntimeException("Safira não pode fundir-se com" + nomeOther);
+    } 
 
     public String toString() {
         if(poder < 0)

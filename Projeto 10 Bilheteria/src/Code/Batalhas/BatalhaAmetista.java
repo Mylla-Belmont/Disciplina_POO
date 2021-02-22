@@ -19,6 +19,11 @@ public class BatalhaAmetista {
                 }else if(Ui.equals("3")){
                     ametista.recuperar();
                     System.out.println(ametista);
+                }else if(Ui.equals("4")){
+                    System.out.println("Com qual Gem deseja se fundir?");
+                    String nomeOther = scanner.nextLine();
+                    perolasAdversario.sofrerDano(ametista.fundir(nomeOther));;
+                    System.out.println(ametista);
                 }else if(Ui.equals("end"))
                     break;
                 RandomAdversario.PerolaAdversario(perolasAdversario);
@@ -44,6 +49,11 @@ public class BatalhaAmetista {
                 }else if(Ui.equals("3")){
                     ametista.recuperar();
                     System.out.println(ametista);
+                }else if(Ui.equals("4")){
+                    System.out.println("Com qual Gem deseja se fundir?");
+                    String nomeOther = scanner.nextLine();
+                    ametistaAdversario.sofrerDano(ametista.fundir(nomeOther));;
+                    System.out.println(ametista);
                 }else if(Ui.equals("end"))
                     break;
                 RandomAdversario.AmetistaAdversario(ametistaAdversario);
@@ -54,24 +64,29 @@ public class BatalhaAmetista {
         }
     }
 
-    public void ametistaXrubi(Scanner scanner, Ametistas ametistas, Rubis rubiaAdversario){ 
+    public void ametistaXrubi(Scanner scanner, Ametistas ametista, Rubis rubiAdversario){ 
         try{
-            while(ametistas.vida && rubiaAdversario.vida){
+            while(ametista.vida && rubiAdversario.vida){
                 String Ui = scanner.nextLine();
                 if(Ui.equals("1")){
-                    rubiaAdversario.sofrerDano(ametistas.atacar());
-                    System.out.println(ametistas);
-                    System.out.println(rubiaAdversario);
+                    rubiAdversario.sofrerDano(ametista.atacar());
+                    System.out.println(ametista);
+                    System.out.println(rubiAdversario);
                 }else if(Ui.equals("2")){
-                    rubiaAdversario.sofrerDano(ametistas.usarPoder());
-                    System.out.println(ametistas);
-                    System.out.println(rubiaAdversario);
+                    rubiAdversario.sofrerDano(ametista.usarPoder());
+                    System.out.println(ametista);
+                    System.out.println(rubiAdversario);
                 }else if(Ui.equals("3")){
-                    ametistas.recuperar();
-                    System.out.println(ametistas);
+                    ametista.recuperar();
+                    System.out.println(ametista);
+                }else if(Ui.equals("4")){
+                    System.out.println("Com qual Gem deseja se fundir?");
+                    String nomeOther = scanner.nextLine();
+                    rubiAdversario.sofrerDano(ametista.fundir(nomeOther));;
+                    System.out.println(ametista);
                 }else if(Ui.equals("end"))
                     break;
-                RandomAdversario.RubiAdversario(rubiaAdversario);
+                RandomAdversario.RubiAdversario(rubiAdversario);
                 System.out.println("Qual será sua nova ação?");
             }
         } catch(RuntimeException e){
@@ -79,21 +94,26 @@ public class BatalhaAmetista {
         }
     }
 
-    public void ametistaXsafira(Scanner scanner, Ametistas ametistas, Safiras safiraAdversario){ 
+    public void ametistaXsafira(Scanner scanner, Ametistas ametista, Safiras safiraAdversario){ 
         try{
-            while(ametistas.vida && safiraAdversario.vida){
+            while(ametista.vida && safiraAdversario.vida){
                 String Ui = scanner.nextLine();
                 if(Ui.equals("1")){
-                    safiraAdversario.sofrerDano(ametistas.atacar());
-                    System.out.println(ametistas);
+                    safiraAdversario.sofrerDano(ametista.atacar());
+                    System.out.println(ametista);
                     System.out.println(safiraAdversario);
                 }else if(Ui.equals("2")){
-                    safiraAdversario.sofrerDano(ametistas.usarPoder());
-                    System.out.println(ametistas);
+                    safiraAdversario.sofrerDano(ametista.usarPoder());
+                    System.out.println(ametista);
                     System.out.println(safiraAdversario);
                 }else if(Ui.equals("3")){
-                    ametistas.recuperar();
-                    System.out.println(ametistas);
+                    ametista.recuperar();
+                    System.out.println(ametista);
+                }else if(Ui.equals("4")){
+                    System.out.println("Com qual Gem deseja se fundir?");
+                    String nomeOther = scanner.nextLine();
+                    safiraAdversario.sofrerDano(ametista.fundir(nomeOther));
+                    System.out.println(ametista);
                 }else if(Ui.equals("end"))
                     break;
                 RandomAdversario.SafiraAdversario(safiraAdversario);
@@ -104,21 +124,26 @@ public class BatalhaAmetista {
         }
     }
 
-    public void ametistaXlapis(Scanner scanner, Ametistas ametistas, Lapis lapisAdversario){ 
+    public void ametistaXlapis(Scanner scanner, Ametistas ametista, Lapis lapisAdversario){ 
         try{
-            while(ametistas.vida && lapisAdversario.vida){
+            while(ametista.vida && lapisAdversario.vida){
                 String Ui = scanner.nextLine();
                 if(Ui.equals("1")){
-                    lapisAdversario.sofrerDano(ametistas.atacar());
-                    System.out.println(ametistas);
+                    lapisAdversario.sofrerDano(ametista.atacar());
+                    System.out.println(ametista);
                     System.out.println(lapisAdversario);
                 }else if(Ui.equals("2")){
-                    lapisAdversario.sofrerDano(ametistas.usarPoder());
-                    System.out.println(ametistas);
+                    lapisAdversario.sofrerDano(ametista.usarPoder());
+                    System.out.println(ametista);
                     System.out.println(lapisAdversario);
                 }else if(Ui.equals("3")){
-                    ametistas.recuperar();
-                    System.out.println(ametistas);
+                    ametista.recuperar();
+                    System.out.println(ametista);
+                }else if(Ui.equals("4")){
+                    System.out.println("Com qual Gem deseja se fundir?");
+                    String nomeOther = scanner.nextLine();
+                    lapisAdversario.sofrerDano(ametista.fundir(nomeOther));
+                    System.out.println(ametista);
                 }else if(Ui.equals("end"))
                     break;
                 RandomAdversario.LapisAdversario(lapisAdversario);
@@ -129,21 +154,26 @@ public class BatalhaAmetista {
         }
     }
 
-    public void ametistaXjasper(Scanner scanner, Ametistas ametistas, Japers jasperAdversario){ 
+    public void ametistaXjasper(Scanner scanner, Ametistas ametista, Japers jasperAdversario){ 
         try{
-            while(ametistas.vida && jasperAdversario.vida){
+            while(ametista.vida && jasperAdversario.vida){
                 String Ui = scanner.nextLine();
                 if(Ui.equals("1")){
-                    jasperAdversario.sofrerDano(ametistas.atacar());
-                    System.out.println(ametistas);
+                    jasperAdversario.sofrerDano(ametista.atacar());
+                    System.out.println(ametista);
                     System.out.println(jasperAdversario);
                 }else if(Ui.equals("2")){
-                    jasperAdversario.sofrerDano(ametistas.usarPoder());
-                    System.out.println(ametistas);
+                    jasperAdversario.sofrerDano(ametista.usarPoder());
+                    System.out.println(ametista);
                     System.out.println(jasperAdversario);
                 }else if(Ui.equals("3")){
-                    ametistas.recuperar();
-                    System.out.println(ametistas);
+                    ametista.recuperar();
+                    System.out.println(ametista);
+                }else if(Ui.equals("4")){
+                    System.out.println("Com qual Gem deseja se fundir?");
+                    String nomeOther = scanner.nextLine();
+                    jasperAdversario.sofrerDano(ametista.fundir(nomeOther));
+                    System.out.println(ametista);
                 }else if(Ui.equals("end"))
                     break;
                 RandomAdversario.JasperAdversario(jasperAdversario);

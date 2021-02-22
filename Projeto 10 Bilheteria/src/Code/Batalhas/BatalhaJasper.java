@@ -19,6 +19,8 @@ public class BatalhaJasper {
                 }else if(Ui.equals("3")){
                     jasper.recuperar();
                     System.out.println(jasper);
+                }else if(Ui.equals("4")){
+                    System.out.println("Jasper não pode fundir-se");
                 }else if(Ui.equals("end"))
                     break;
                 RandomAdversario.PerolaAdversario(perolasAdversario);
@@ -44,6 +46,8 @@ public class BatalhaJasper {
                 }else if(Ui.equals("3")){
                     jasper.recuperar();
                     System.out.println(jasper);
+                }else if(Ui.equals("4")){
+                    System.out.println("Jasper não pode fundir-se");
                 }else if(Ui.equals("end"))
                     break;
                 RandomAdversario.AmetistaAdversario(ametistaAdversario);
@@ -69,6 +73,8 @@ public class BatalhaJasper {
                 }else if(Ui.equals("3")){
                     jasper.recuperar();
                     System.out.println(jasper);
+                }else if(Ui.equals("4")){
+                    System.out.println("Jasper não pode fundir-se");
                 }else if(Ui.equals("end"))
                     break;
                 RandomAdversario.RubiAdversario(rubiAdversario);
@@ -94,6 +100,8 @@ public class BatalhaJasper {
                 }else if(Ui.equals("3")){
                     jasper.recuperar();
                     System.out.println(jasper);
+                }else if(Ui.equals("4")){
+                    System.out.println("Jasper não pode fundir-se");
                 }else if(Ui.equals("end"))
                     break;
                 RandomAdversario.SafiraAdversario(safiraAdversario);
@@ -119,6 +127,8 @@ public class BatalhaJasper {
                 }else if(Ui.equals("3")){
                     jasper.recuperar();
                     System.out.println(jasper);
+                }else if(Ui.equals("4")){
+                    System.out.println("Jasper não pode fundir-se");
                 }else if(Ui.equals("end"))
                     break;
                 RandomAdversario.LapisAdversario(lapisAdversario);
@@ -144,6 +154,8 @@ public class BatalhaJasper {
                 }else if(Ui.equals("3")){
                     jasper.recuperar();
                     System.out.println(jasper);
+                }else if(Ui.equals("4")){
+                    System.out.println("Jasper não pode fundir-se");
                 }else if(Ui.equals("end"))
                     break;
                 RandomAdversario.JasperAdversario(jasperAdversario);

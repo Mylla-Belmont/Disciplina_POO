@@ -51,7 +51,7 @@ public class Lapis extends Gems{    //
             energia = maxPoder;
         }else if(energia != maxEnergia)
             energia += 10;
-    
+
         maxRecuperacao -= 1;
     }      
 

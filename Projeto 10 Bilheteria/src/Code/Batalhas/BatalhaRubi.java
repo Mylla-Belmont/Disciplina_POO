@@ -19,6 +19,11 @@ public class BatalhaRubi {
                 }else if(Ui.equals("3")){
                     rubi.recuperar();
                     System.out.println(rubi);
+                }else if(Ui.equals("4")){
+                    System.out.println("Com qual Gem deseja se fundir?");
+                    String nomeOther = scanner.nextLine();
+                    perolasAdversario.sofrerDano(rubi.fundir(nomeOther));;
+                    System.out.println(rubi);
                 }else if(Ui.equals("end"))
                     break;
                 RandomAdversario.PerolaAdversario(perolasAdversario);
@@ -43,6 +48,11 @@ public class BatalhaRubi {
                     System.out.println(ametistaAdversario);
                 }else if(Ui.equals("3")){
                     rubi.recuperar();
+                    System.out.println(rubi);
+                }else if(Ui.equals("4")){
+                    System.out.println("Com qual Gem deseja se fundir?");
+                    String nomeOther = scanner.nextLine();
+                    ametistaAdversario.sofrerDano(rubi.fundir(nomeOther));;
                     System.out.println(rubi);
                 }else if(Ui.equals("end"))
                     break;
@@ -69,6 +79,11 @@ public class BatalhaRubi {
                 }else if(Ui.equals("3")){
                     rubis.recuperar();
                     System.out.println(rubis);
+                }else if(Ui.equals("4")){
+                    System.out.println("Com qual Gem deseja se fundir?");
+                    String nomeOther = scanner.nextLine();
+                    rubiAdversario.sofrerDano(rubis.fundir(nomeOther));;
+                    System.out.println(rubis);
                 }else if(Ui.equals("end"))
                     break;
                 RandomAdversario.RubiAdversario(rubiAdversario);
@@ -93,6 +108,11 @@ public class BatalhaRubi {
                     System.out.println(safiraAdversario);
                 }else if(Ui.equals("3")){
                     rubis.recuperar();
+                    System.out.println(rubis);
+                }else if(Ui.equals("4")){
+                    System.out.println("Com qual Gem deseja se fundir?");
+                    String nomeOther = scanner.nextLine();
+                    safiraAdversario.sofrerDano(rubis.fundir(nomeOther));;
                     System.out.println(rubis);
                 }else if(Ui.equals("end"))
                     break;
@@ -119,6 +139,11 @@ public class BatalhaRubi {
                 }else if(Ui.equals("3")){
                     rubis.recuperar();
                     System.out.println(rubis);
+                }else if(Ui.equals("4")){
+                    System.out.println("Com qual Gem deseja se fundir?");
+                    String nomeOther = scanner.nextLine();
+                    lapisAdversario.sofrerDano(rubis.fundir(nomeOther));;
+                    System.out.println(rubis);
                 }else if(Ui.equals("end"))
                     break;
                 RandomAdversario.LapisAdversario(lapisAdversario);
@@ -143,6 +168,11 @@ public class BatalhaRubi {
                     System.out.println(jasperAdversario);
                 }else if(Ui.equals("3")){
                     rubis.recuperar();
+                    System.out.println(rubis);
+                }else if(Ui.equals("4")){
+                    System.out.println("Com qual Gem deseja se fundir?");
+                    String nomeOther = scanner.nextLine();
+                    jasperAdversario.sofrerDano(rubis.fundir(nomeOther));;
                     System.out.println(rubis);
                 }else if(Ui.equals("end"))
                     break;

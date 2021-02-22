@@ -45,11 +45,12 @@ public class Rubis extends Gems implements CristalGems{
         maxRecuperacao -= 1;
     }  
 
-    public void fundir(String nomeFusão) {
+    public int fundir(String nomeOther){
         if(vida == true && energia >= minEnergia){
-            fusão.add(new Fusões("Rubi", nomeFusão));
-        }throw new RuntimeException("Rubi não pode fundir-se com" + nomeFusão);
-    }   
+            Fusões fusão = new Fusões("rubi", nomeOther);
+            return fusão.tipoFusão();
+        } throw new RuntimeException("Rubi não pode fundir-se com" + nomeOther);
+    } 
 
     public String toString() {
         if(energia < 0)
