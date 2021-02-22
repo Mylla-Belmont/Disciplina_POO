@@ -3,6 +3,7 @@ package Code;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Random;
+import Code.Batalhas.*;
 
 abstract class Gems{
     public int poder;

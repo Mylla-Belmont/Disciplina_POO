@@ -1,6 +1,7 @@
-package Code;
+package Code.Batalhas;
 
 import java.util.Scanner;
+import Code.*;
 
 public class BatalhaLapis {
     public void lapisXperola(Scanner scanner, Lapis lapis, Perolas perolasAdversario){ //fazer fusão

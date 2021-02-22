@@ -1,6 +1,7 @@
-package Code;
+package Code.Batalhas;
 
 import java.util.Scanner;
+import Code.*;
 
 public class BatalhaJasper {
     public void jasperXperola(Scanner scanner, Japers jasper, Perolas perolasAdversario) { // fazer fusão
