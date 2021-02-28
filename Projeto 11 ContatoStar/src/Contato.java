@@ -1,12 +1,13 @@
 import java.util.ArrayList;
 
-class Contato{
+abstract class Contato{
     String name;
     boolean starred;
     ArrayList<Fone> fones;
 
     Contato(String name){
         this.name = name;
+        this.starred = false;
         this.fones = new ArrayList<>();
     }
 
@@ -14,16 +15,14 @@ class Contato{
         if(Fone.validate(number)){
             fones.add(new Fone(label, number));
             return;
-        }
-        System.out.println("fail: número inválido");
+        } System.out.println("fail: número inválido");
     }
 
     void rmFone(int index){
         if(fones.get(index) == null){
             fones.remove(index);
             return;
-        }
-        System.out.println("fail: contato não existe!");
+        } System.out.println("fail: contato não existe!");
     }
 
     public String toString(){
