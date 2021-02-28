@@ -5,11 +5,13 @@ public class ContatoPlus extends Contato{
 
     ContatoPlus(String name, List<Fone> list) {
         super(name);
+        this.starred = false;
     }
 
-	void setBookmMarks(){
-        Contato contato = new Contato();
-        if(!contatos.get(name).starred){    
-    }
-
+	boolean setBookmMarks(String name, Contato contato){
+        if(contato.equals(name) && starred)
+            return true;
+        starred = true;
+        return false;
+	}
 }

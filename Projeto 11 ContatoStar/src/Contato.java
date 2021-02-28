@@ -2,12 +2,10 @@ import java.util.ArrayList;
 
 abstract class Contato{
     String name;
-    boolean starred;
     ArrayList<Fone> fones;
 
     Contato(String name){
         this.name = name;
-        this.starred = false;
         this.fones = new ArrayList<>();
     }
 
@@ -24,6 +22,8 @@ abstract class Contato{
             return;
         } System.out.println("fail: contato não existe!");
     }
+
+    abstract boolean setBookmMarks(String name, Contato contato);
 
     public String toString(){
         StringBuilder saida = new StringBuilder();
