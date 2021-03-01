@@ -9,5 +9,12 @@ public class App {
         agenda.addContato(new ContatoPlus("bia", Arrays.asList(new Fone("viv", "5454"))));
         agenda.addContato(new ContatoPlus("ana", Arrays.asList(new Fone("cas", "4567"), new Fone("oio"," 8754"))));
         System.out.println(agenda);
+
+        // agenda.star("eva");
+        // agenda.star("ana");
+        // agenda.star("ana");
+        // agenda.star("zac");
+        // agenda.star("rex");
+        // System.out.println(agenda);
     }
 }

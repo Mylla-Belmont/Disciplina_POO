@@ -8,9 +8,10 @@ abstract class Agenda{
         this.contatos = new TreeMap<>();
     }
 
-    void addContato(ContatoPlus contato){
+    void addContato(Contato contato){
         if(!this.contatos.containsKey(contato.name))
-            contatos.put(contato.name, new ContatoPlus(contato.name, contato.fones));
+            contatos.put(contato.name, new ContatoPlus(contato.name));
+            System.out.println(contato.name);
         for(int i=0; i < contato.fones.size(); i++)
             contatos.get(contato.name).addFone(contato.fones.get(i).label, contato.fones.get(i).number);
     }
