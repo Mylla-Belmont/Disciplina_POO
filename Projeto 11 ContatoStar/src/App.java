@@ -14,5 +14,16 @@ public class App {
         agenda.addFavorito("ana");
         agenda.addFavorito("bia");  
         System.out.println(agenda);
+
+        agenda.rmContato("bia");  
+        System.out.println(agenda);
+
+        for(Contato favoritos : agenda.getStarred())
+            System.out.println(favoritos);
+        
+        System.out.println("\n");
+
+        agenda.removerFavorito("ana");  
+        System.out.println(agenda);
     }
 }

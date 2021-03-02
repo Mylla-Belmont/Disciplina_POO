@@ -27,7 +27,7 @@ public class AgendaPlus extends Agenda{
 
     void removerFavorito(String id){
         Contato contato = contatos.get(id);
-        if(!contato.setBookmMarks(contatos, id, contato)){
+        if(contato.setBookmMarks(contatos, id, contato)){
             bookMarks.remove(id);
             return;
         } System.out.println("fail: contato não existe");

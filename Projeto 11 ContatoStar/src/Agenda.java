@@ -23,6 +23,8 @@ abstract class Agenda{
     }
 
     abstract void addFavorito(String name);
+    abstract void removerFavorito(String id);
+    abstract ArrayList<Contato> getStarred();
     abstract void rmContato(String name);
     abstract public String toString();
 }
