@@ -2,7 +2,7 @@ import java.util.TreeMap;
 import java.util.ArrayList;
 
 public class AgendaPlus extends Agenda{
-    TreeMap<String, ContatoPlus> bookMarks;
+    TreeMap<String, Contato> bookMarks;
 
     AgendaPlus(){
         this.bookMarks = new TreeMap<>();
@@ -17,17 +17,17 @@ public class AgendaPlus extends Agenda{
             bookMarks.remove(name);
     }
 
-    // void addFavorito(String name){
-    //     Contato contato = contatos.get(name);
-    //     if(!contato.setBookmMarks(contato.name, contato)){
-    //         bookMarks.put(name, contato);
-    //         return;
-    //     } System.out.println("fail: contato não existe");
-    // }
+    void addFavorito(String name){
+        Contato contato = contatos.get(name);
+        if(contato.setBookmMarks(contato, name)){
+            bookMarks.put(name, contato);
+            return;
+        } System.out.println("fail: contato não existe");
+    }
 
     void removerFavorito(String id){
         Contato contato = contatos.get(id);
-        if(contato.setBookmMarks(contato.name, contato)){
+        if(!contato.setBookmMarks(contato, id)){
             bookMarks.remove(id);
             return;
         } System.out.println("fail: contato não existe");

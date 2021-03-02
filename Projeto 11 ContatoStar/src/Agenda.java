@@ -21,7 +21,8 @@ abstract class Agenda{
             busca.add(contatos.get(patter));
         return busca;
     }
-    
+
+    abstract void addFavorito(String name);
     abstract void rmContato(String name);
     abstract public String toString();
 }

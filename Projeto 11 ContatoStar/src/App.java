@@ -10,11 +10,11 @@ public class App {
         agenda.addContato(new ContatoPlus("ana", Arrays.asList(new Fone("cas", "4567"), new Fone("oio","8754"))));
         System.out.println(agenda);
 
-        // agenda.star("eva");
-        // agenda.star("ana");
-        // agenda.star("ana");
-        // agenda.star("zac");
-        // agenda.star("rex");
-        // System.out.println(agenda);
+        agenda.addFavorito("eva");
+        agenda.addFavorito("ana");
+        agenda.addFavorito("ana");
+        agenda.addFavorito("zac");
+        agenda.addFavorito("rex");
+        System.out.println(agenda);
     }
 }

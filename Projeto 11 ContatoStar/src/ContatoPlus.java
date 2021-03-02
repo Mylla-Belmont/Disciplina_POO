@@ -9,10 +9,12 @@ public class ContatoPlus extends Contato {
         this.foneTeste = list;
     }
 
-	boolean setBookmMarks(String name, Contato contato){
-        if(contato.equals(name) && starred)
-            return true;
+	boolean setBookmMarks(Contato contato, String name){
+        if(contato.name.equals(name)){
+            System.out.println(contato.name);
+            return false;
+        }
         starred = true;
-        return false;
+        return true;
 	}
 }

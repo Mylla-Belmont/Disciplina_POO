@@ -23,7 +23,7 @@ abstract class Contato{
         } System.out.println("fail: contato não existe!");
     }
 
-    abstract boolean setBookmMarks(String name, Contato contato);
+    abstract boolean setBookmMarks(Contato contato, String name);
 
     public String toString(){
         StringBuilder saida = new StringBuilder();
