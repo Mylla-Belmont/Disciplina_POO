@@ -8,12 +8,11 @@ abstract class Agenda{
         this.contatos = new TreeMap<>();
     }
 
-    void addContato(Contato contato){
-        if(!this.contatos.containsKey(contato.name))
-            contatos.put(contato.name, new ContatoPlus(contato.name));
-            System.out.println(contato.name);
-        for(int i=0; i < contato.fones.size(); i++)
-            contatos.get(contato.name).addFone(contato.fones.get(i).label, contato.fones.get(i).number);
+    void addContato(ContatoPlus contatoPlus){
+        if(!this.contatos.containsKey(contatoPlus.name))
+            contatos.put(contatoPlus.name, new ContatoPlus(contatoPlus.name, contatoPlus.foneTeste));
+        for(int i=0; i < contatoPlus.foneTeste.size(); i++)
+            contatos.get(contatoPlus.name).addFone(contatoPlus.foneTeste.get(i).label, contatoPlus.foneTeste.get(i).number);
     }
 
     ArrayList<Contato> search(String patter){
