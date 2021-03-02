@@ -1,11 +1,14 @@
 import java.util.ArrayList;
+import java.util.TreeMap;
 
 abstract class Contato{
     String name;
+    boolean starred;
     ArrayList<Fone> fones;
 
     Contato(String name){
         this.name = name;
+        this.starred = false;
         this.fones = new ArrayList<>();
     }
 
@@ -23,7 +26,7 @@ abstract class Contato{
         } System.out.println("fail: contato não existe!");
     }
 
-    abstract boolean setBookmMarks(Contato contato, String name);
+    abstract boolean setBookmMarks(TreeMap<String, Contato> contatos, String name, Contato contato);
 
     public String toString(){
         StringBuilder saida = new StringBuilder();

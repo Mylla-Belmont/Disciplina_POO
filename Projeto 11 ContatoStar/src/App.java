@@ -12,9 +12,7 @@ public class App {
 
         agenda.addFavorito("eva");
         agenda.addFavorito("ana");
-        agenda.addFavorito("ana");
-        agenda.addFavorito("zac");
-        agenda.addFavorito("rex");
+        agenda.addFavorito("bia");  
         System.out.println(agenda);
     }
 }

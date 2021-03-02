@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.TreeMap;
 
 public class ContatoPlus extends Contato {
     boolean starred;
@@ -9,12 +10,12 @@ public class ContatoPlus extends Contato {
         this.foneTeste = list;
     }
 
-	boolean setBookmMarks(Contato contato, String name){
-        if(contato.name.equals(name)){
-            System.out.println(contato.name);
-            return false;
+	boolean setBookmMarks(TreeMap<String, Contato> contatos, String name, Contato contato){
+        if(contatos.get(name).starred){
+            contato.starred = false;
+            return true;
         }
-        starred = true;
-        return true;
+        contato.starred = true;
+        return false;
 	}
-}
+}   
