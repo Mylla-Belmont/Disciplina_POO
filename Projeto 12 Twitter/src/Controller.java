@@ -16,4 +16,10 @@ public class Controller {
             return users.get(userName);
         return null;
     }
+
+    void sendTweet(String userName, Tweet msg){
+        if(users.containsKey(userName))
+            tweets.put(nextTwId, msg);
+        else throw new RuntimeException("Usuário não existe.");
+    }
 }
