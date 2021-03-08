@@ -6,6 +6,14 @@ public class Controller {
     int nextTwId;
 
     void addUser(String userName){
-        User user = new User(userName);
+        if(users.containsKey(userName))
+            throw new RuntimeException("Usuário já existe.");
+        users.put(userName, new User(userName));
+    }
+
+    User getUser(String userName){
+        if(users.containsKey(userName))
+            return users.get(userName);
+        return null;
     }
 }
