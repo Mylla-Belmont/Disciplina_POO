@@ -9,6 +9,9 @@ public class User {
 
     User(String userName){
         this.userName = userName;
+        this.followers = new TreeMap<>();
+        this.following = new TreeMap<>();
+        this.timeline = new TreeMap<>();
     }
 
     void follow (User user){
@@ -19,8 +22,12 @@ public class User {
     }
 
     void unfollow(String userName){
-        if(following.containsKey(userName)){
-            following.remove(userName);
-        } throw new RuntimeException("Usuário não encontrado.");
+        if(following.containsKey(userName))
+            throw new RuntimeException("Usuário não encontrado.");
+        following.remove(userName);
+    }
+
+    Tweet getTweet(int idTw){
+        return null;
     }
 }

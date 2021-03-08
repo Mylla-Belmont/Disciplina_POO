@@ -10,5 +10,6 @@ public class Tweet {
         this.idTw = idTw;
         this.UserName = userName;
         this.msg = msg;
+        this.likes = new TreeSet<>();
     }
 }

@@ -5,6 +5,11 @@ public class Controller {
     TreeMap<Integer, Tweet> tweets;
     int nextTwId;
 
+    Controller(){
+        this.tweets = new TreeMap<>();
+        this.users = new TreeMap<>();
+    }
+
     void addUser(String userName){
         if(users.containsKey(userName))
             throw new RuntimeException("Usuário já existe.");
@@ -12,14 +17,14 @@ public class Controller {
     }
 
     User getUser(String userName){
-        if(users.containsKey(userName))
-            return users.get(userName);
-        return null;
+        if(!users.containsKey(userName))
+            throw new RuntimeException("Usuário não existe.");
+        return users.get(userName);
     }
 
     void sendTweet(String userName, Tweet msg){
         if(users.containsKey(userName))
-            tweets.put(nextTwId, msg);
-        else throw new RuntimeException("Usuário não existe.");
+            throw new RuntimeException("Usuário não existe.");
+        tweets.put(nextTwId, msg);
     }
 }
