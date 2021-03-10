@@ -14,6 +14,8 @@ public class Tweet {
     }
 
     void like(String userName){
+        if(this.likes.contains(userName))
+            throw new RuntimeException("fail: você já favoritou a mensagem.");
         likes.add(userName);
     }
 
