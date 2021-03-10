@@ -1,14 +1,26 @@
-## Getting Started
+# Projeto java 12
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+<b>Nome do projeto:</b> Twitter
 
-## Folder Structure
+<b>Desenvolverdor(a):</b> Camila Belmont
 
-The workspace contains two folders by default, where:
+<b>Descrição:</b>
+Codificação da lógica d rede social Twitter.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+<b>O que foi feito:</b>
+O projeto foi desenvolvido para práticar a implementação de associação reflexiva no código.
 
-## Dependency Management
+<b>Com quem fez:</b>
+Não houve participação de terceiros no desenvolvimento do projeto, apenas consultas aos matériais oferecidos pelo professor.
 
-The `JAVA DEPENDENCIES` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-pack/blob/master/release-notes/v0.9.0.md#work-with-jar-files-directly).
+<b>Como fez:</b>
+Utilizando a main interativa fornecida previamente (junto ao diagrama lógico), foi elaborado a estrutura base do código, iniciando com a construção das classes com os atributos e metódos, obedecendo as necessidades para contruir uma associação reflexiva.
+
+ - Tópicos aprendidos:
+    - Organização do código
+    - Manipulação de TreeMap
+    - Melhor implementação de excessões 
+    - Utilização de associações reflexivas
+
+<b>Quanto tempo levou:</b>
+Desconsiderando o tempo gasto em outras disciplinas, cerca de 4 dias.
