@@ -30,4 +30,8 @@ public class User {
     Tweet getTweet(int idTw){
         return null;
     }
+
+    // public String toString(){
+    //     return userName + "\n" + "    " + followers.keySet() + "\n" + following.keySet(); 
+    // }
 }

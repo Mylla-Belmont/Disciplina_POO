@@ -27,4 +27,8 @@ public class Controller {
             throw new RuntimeException("Usuário não existe.");
         tweets.put(nextTwId, msg);
     }
+
+    // public String toString(){
+    //     return users.toString();
+    // }
 }
