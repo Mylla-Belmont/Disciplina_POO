@@ -40,6 +40,7 @@ public class User {
             out.append(unreadCount + ":" + tweet + "\n");
             unreadCount++;
         }
+        unreadCount = 0;
         return out.toString();
     }
 

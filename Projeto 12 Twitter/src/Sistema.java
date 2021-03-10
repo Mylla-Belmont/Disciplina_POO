@@ -7,7 +7,6 @@ public class Sistema {
         
         while(true){
             String line = scanner.nextLine();
-            System.out.println("$" + line);
             String ui[] = line.split(" ");
             try {
                 if (ui[0].equals("end"))

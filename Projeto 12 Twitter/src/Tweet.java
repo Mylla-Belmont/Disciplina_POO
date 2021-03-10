@@ -24,6 +24,6 @@ public class Tweet {
     }
 
     public String toString(){
-        return UserName + "( " + msg + ")";
+        return UserName + "( " + msg + ")" + likes;
     }
 }
