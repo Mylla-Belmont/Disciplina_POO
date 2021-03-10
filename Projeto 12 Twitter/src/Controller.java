@@ -12,23 +12,27 @@ public class Controller {
 
     void addUser(String userName){
         if(users.containsKey(userName))
-            throw new RuntimeException("Usuário já existe.");
+            throw new RuntimeException("fail: usuário já existe.");
         users.put(userName, new User(userName));
     }
 
     User getUser(String userName){
         if(!users.containsKey(userName))
-            throw new RuntimeException("Usuário não existe.");
+            throw new RuntimeException("fail: usuário nao encontrado.");
         return users.get(userName);
     }
 
-    void sendTweet(String userName, Tweet msg){
-        if(users.containsKey(userName))
-            throw new RuntimeException("Usuário não existe.");
-        tweets.put(nextTwId, msg);
+    public void sendTweet(String username, String msg){
+        tweets.put(nextTwId, new Tweet(nextTwId, username, msg));
+        for(User user : this.users.values())
+            user.timeline.put(nextTwId, new Tweet(nextTwId, username, msg));
+        nextTwId++;
     }
 
-    // public String toString(){
-    //     return users.toString();
-    // }
+    public String toString(){
+        StringBuilder out = new StringBuilder();
+        for(User user : this.users.values())
+            out.append(user + "\n");
+        return out.toString();
+    }
 }

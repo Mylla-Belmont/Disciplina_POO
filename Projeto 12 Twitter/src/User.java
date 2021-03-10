@@ -14,24 +14,36 @@ public class User {
         this.timeline = new TreeMap<>();
     }
 
-    void follow (User user){
+    void follow(User user){
         if(followers.containsKey(user.userName))
-            throw new RuntimeException("Você já segue esse usuário.");
+            throw new RuntimeException("fail: você já segue esse usuário.");
         followers.put(user.userName, user);
-        user.follow(this);
+        user.following.put(this.userName, new User(this.userName));
     }
 
-    void unfollow(String userName){
-        if(following.containsKey(userName))
-            throw new RuntimeException("Usuário não encontrado.");
-        following.remove(userName);
+    void unfollow(User user){
+        if(!followers.containsKey(user.userName))
+            throw new RuntimeException("fail: usuário não encontrado.");
+        followers.remove(user.userName);
+        user.following.remove(this.userName);
     }
 
     Tweet getTweet(int idTw){
-        return null;
+        if(!timeline.containsKey(idTw))
+            throw new RuntimeException("fail: mensagem não encontrada.");
+        return timeline.get(idTw);
     }
 
-    // public String toString(){
-    //     return userName + "\n" + "    " + followers.keySet() + "\n" + following.keySet(); 
-    // }
+    public String getTimeline() {
+        StringBuilder out = new StringBuilder();
+        for(Tweet tweet : this.timeline.values()){
+            out.append(unreadCount + ":" + tweet + "\n");
+            unreadCount++;
+        }
+        return out.toString();
+    }
+
+    public String toString(){
+        return userName + "\n" + "  seguindo:    " + followers.keySet() + "\n" + "  seguidores:  " + following.keySet();
+    }
 }

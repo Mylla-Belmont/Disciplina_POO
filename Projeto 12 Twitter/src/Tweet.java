@@ -12,4 +12,18 @@ public class Tweet {
         this.msg = msg;
         this.likes = new TreeSet<>();
     }
+
+    void like(String userName){
+        likes.add(userName);
+    }
+
+    String getTweet(){
+        StringBuilder out = new StringBuilder();
+        out.append(idTw + UserName + msg);
+        return out.toString();
+    }
+
+    public String toString(){
+        return UserName + "( " + msg + ")";
+    }
 }
