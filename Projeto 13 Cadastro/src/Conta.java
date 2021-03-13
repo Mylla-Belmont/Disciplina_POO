@@ -1,4 +1,4 @@
-abstract class Conta {
+public abstract class Conta {
     int id;
     float saldo;
     String idCliente;
@@ -11,5 +11,22 @@ abstract class Conta {
         this.type = type;
     }
 
+    void conta(){
+
+    }
+
+    void sacar(){
+
+    }
+
+    void depositar(){
+
+    }
+
+    void transferir(){
+
+    }
+
+    abstract void atualizacaoMensal();
 
 }
