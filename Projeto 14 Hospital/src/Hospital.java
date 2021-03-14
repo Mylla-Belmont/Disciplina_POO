@@ -16,6 +16,7 @@ public class Hospital {
     }
 
     void addPaciente(IPaciente paciente){
+        pacientes.put(paciente., value)
     }
 
     void addPaciente(IMedico medico){

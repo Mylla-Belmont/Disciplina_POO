@@ -1,5 +1,11 @@
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class Sistema {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        
+        Hospital sistema = new Hospital();
+
+        sistema.addPaciente(Arrays.asList());
     }
 }
