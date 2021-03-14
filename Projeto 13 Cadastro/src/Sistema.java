@@ -10,6 +10,7 @@ public class Sistema {
         while(true){
             String input = scanner.nextLine();
             String[] entry = input.split("");
+            System.out.println("$" + input);
 
             if(entry[0].equals("break;")){
                 break;
