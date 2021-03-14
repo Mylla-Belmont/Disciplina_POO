@@ -4,7 +4,6 @@ public class Sistema {
     public static void main(String[] args) throws Exception {
         
         Scanner scanner = new Scanner(System.in);
-
         System.out.println("O que deseja?");
 
         while(true){
@@ -14,7 +13,8 @@ public class Sistema {
             if(entry[0].equals("break;")){
                 break;
             }else if(entry[0].equals("add")){
-                Cliente cliente = new Cliente(entry[1]);
+                Agencia agencia = new Agencia();
+                agencia.a
             }
         }
         scanner.close();

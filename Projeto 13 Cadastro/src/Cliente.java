@@ -4,12 +4,11 @@ public class Cliente {
     String id;
     TreeSet<Conta> contas;
 
-    Cliente(String id){
-        this.id = id;
+    Cliente(){
         this.contas = new TreeSet<>();
     }
 
-    void conta(String id){
-
+    void cliente(String id){
+        
     }
 }

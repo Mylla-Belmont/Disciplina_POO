@@ -4,14 +4,14 @@ public abstract class Conta {
     String idCliente;
     String type;
 
-    // Conta(int id, float saldo, String idCliente, String type){
-    //     this.id = id;
-    //     this.saldo = saldo;
-    //     this.idCliente = idCliente;
-    //     this.type = type;
-    // }
+    Conta(int id, float saldo, String idCliente, String type){
+        this.id = id;
+        this.saldo = saldo;
+        this.idCliente = idCliente;
+        this.type = type;
+    }
 
-    void conta(){
+    void conta(int id, String idCliente){
 
     }
 
@@ -28,5 +28,4 @@ public abstract class Conta {
     }
 
     abstract void atualizacaoMensal();
-
 }
