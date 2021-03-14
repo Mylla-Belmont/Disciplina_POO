@@ -1,11 +1,11 @@
 import java.util.TreeSet;
 
 public class Agencia {
-    TreeSet<Cliente> cliente;
+    TreeSet<String> clientes;
     TreeSet<Conta> contas;
 
     Agencia(){
-        this.cliente = new TreeSet<>();
+        this.clientes = new TreeSet<>();
         this.contas = new TreeSet<>();
     }
 
@@ -14,7 +14,8 @@ public class Agencia {
     }
 
     void adicionarCliente(String id){
-        cliente.add(id);
+        if(clientes.contains(id))
+            throw new RuntimeException("fail: cliente já esxite.");
+        clientes.add(id);
     }
-
 }
