@@ -13,8 +13,8 @@ public class Sistema {
             if(entry[0].equals("break;")){
                 break;
             }else if(entry[0].equals("add")){
-                Agencia agencia = new Agencia();
-                agencia.a
+                Cliente cliente = new Cliente(entry[1]);
+                cliente.cliente(entry[1]);
             }
         }
         scanner.close();

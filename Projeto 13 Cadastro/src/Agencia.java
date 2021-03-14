@@ -1,12 +1,11 @@
-import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class Agencia {
-    TreeMap<Cliente, Conta> cliente;
+    TreeSet<Cliente> cliente;
     TreeSet<Conta> contas;
 
     Agencia(){
-        this.cliente = new TreeMap<>();
+        this.cliente = new TreeSet<>();
         this.contas = new TreeSet<>();
     }
 
@@ -15,9 +14,7 @@ public class Agencia {
     }
 
     void adicionarCliente(String id){
-        cliente.put(id, new Conta(){
-            
-        };
+        cliente.add(id);
     }
 
 }
