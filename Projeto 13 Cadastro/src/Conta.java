@@ -28,4 +28,8 @@ public abstract class Conta {
     }
 
     abstract void atualizacaoMensal();
+
+    public String toString(){
+        return id+":"+idCliente+":"+saldo+":"+type;
+    }
 }
