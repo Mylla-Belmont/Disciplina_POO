@@ -1,12 +1,13 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        //case init
+        
         WhatsappService whatsapp = new WhatsappService();
+
         whatsapp.createUser("goku");
         whatsapp.createUser("sara");
         whatsapp.createUser("tina");
-        System.out.println(whatsapp.allUsers());
-        //[goku sara tina]
+        System.out.println(whatsapp.allUsers());    //ok
+        
         // whatsapp.createChat("goku", "guerreiros");
         // whatsapp.createChat("goku", "homens");
         // whatsapp.createChat("sara", "familia");
