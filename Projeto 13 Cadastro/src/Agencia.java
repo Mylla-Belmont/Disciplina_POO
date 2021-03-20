@@ -18,4 +18,8 @@ public class Agencia {
             throw new RuntimeException("fail: cliente já esxite.");
         clientes.add(id);
     }
+
+    public String toString(){
+        return contas.toString();
+    }
 }

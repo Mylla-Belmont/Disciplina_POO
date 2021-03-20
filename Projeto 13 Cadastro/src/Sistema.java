@@ -14,9 +14,11 @@ public class Sistema {
             if(entry[0].equals("break;")){
                 break;
             }else if(entry[0].equals("add")){
-                
+                Cliente cliente =  new Cliente();
+                cliente.cliente(entry[1]);
             }else if(entry[0].equals("show")){
-                
+                Agencia agencia = new Agencia();
+                System.out.println(agencia);
             }
         }
         scanner.close();

@@ -9,6 +9,8 @@ public class Cliente {
     }
 
     void cliente(String id){
+        this.id = id;
+        contas.put(new ContaCorrente(0, 0, id, "CC"), new ContaPoupança(0, 0, id, "CP"));
     }
 
     public String toString(){
