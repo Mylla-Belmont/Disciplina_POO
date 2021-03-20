@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Inbox {
     User user;
@@ -7,5 +8,16 @@ public class Inbox {
     Inbox(User user){
         this.user = user;
         this.msgs = new ArrayList<>();
+    }
+
+    void addMsg(){
+    }
+
+    List<Msg> getMsgs(){
+        return null;
+    }
+
+    User getUser(){
+        return null;
     }
 }
