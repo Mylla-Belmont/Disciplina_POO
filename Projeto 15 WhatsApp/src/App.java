@@ -11,7 +11,6 @@ public class App {
         whatsapp.createChat("goku", "guerreiros");
         whatsapp.createChat("goku", "homens");
         whatsapp.createChat("sara", "familia");
-
         whatsapp.createChat("sara", "guerreiros");
 
         System.out.println(whatsapp.getChatsUser("goku"));
