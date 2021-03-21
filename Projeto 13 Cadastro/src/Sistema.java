@@ -2,8 +2,9 @@ import java.util.Scanner;
 
 public class Sistema {
     public static void main(String[] args) throws Exception {
-        
+
         Scanner scanner = new Scanner(System.in);
+        Agencia agencia = new Agencia();
         System.out.println("O que deseja?");
 
         while(true){
@@ -13,14 +14,12 @@ public class Sistema {
 
             if(entry[0].equals("break;")){
                 break;
-            }else if(entry[0].equals("add")){
-                Agencia agencia = new Agencia();
-                agencia.cliente(entry[1]);
+            }else if(entry[0].equals("addCliente")){
+                agencia.adicionarCliente(entry[1]);
             }else if(entry[0].equals("show")){
-                Agencia agencia = new Agencia();
                 System.out.println(agencia);
             }
         }
         scanner.close();
     }
-}
+}   

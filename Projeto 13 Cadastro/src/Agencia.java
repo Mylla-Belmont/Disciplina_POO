@@ -1,26 +1,28 @@
-import java.util.TreeSet;
+import java.util.TreeMap;
 
 public class Agencia {
-    TreeSet<Cliente> clientes;
-    TreeSet<Conta> contas;
+    TreeMap<String, Cliente> clientes;
+    TreeMap<String, Conta> contas;
 
     Agencia(){
-        this.clientes = new TreeSet<>();
-        this.contas = new    TreeSet<>();
+        this.clientes = new TreeMap<>();
+        this.contas = new TreeMap<>();
     }
 
-    void cliente(String id){
-        int num = 0;
-        clientes.add(new ContaCorrente(num, 0, id, "CC"), new )
-    }
+    // void cliente(String id){
+    //     // int num = 0;
+    //     // clientes.add(new ContaCorrente(num, 0, id, "CC"), new )
+    // }
 
     void adicionarCliente(String id){
-        if(clientes.contains(id))
+        if(clientes.containsKey(id))
             throw new RuntimeException("fail: cliente já esxite.");
-        clientes.add(id);
+        Cliente cliente =  new Cliente(id);
+        cliente.cliente(id);
+        clientes.put(id, new Cliente(id));
     }
 
     public String toString(){
-        return "bobocasdf";
+        return contas.values().toString();
     }
 }

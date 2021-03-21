@@ -4,7 +4,8 @@ public class Cliente {
     String id;
     TreeMap<ContaCorrente, ContaPoupança> contas;
 
-    Cliente(){
+    Cliente(String id){
+        this.id = id;
         this.contas = new TreeMap<>();
     }
 
@@ -14,6 +15,6 @@ public class Cliente {
     }
 
     public String toString(){
-        return id + contas + "bubuia";
+        return id + contas.values().toString();
     }
 }

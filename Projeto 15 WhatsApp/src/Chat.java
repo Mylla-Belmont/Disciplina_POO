@@ -11,6 +11,18 @@ public class Chat {
         this.users = new TreeMap<>();
     }
 
+    public String getId(){
+        return id;
+    }
+
+    public void addUserChat(User user){
+        users.put(user.id, user);
+    }
+
+    public void getMsgs(String userId){
+
+    }
+
     public String toString() {
         return id;
     }

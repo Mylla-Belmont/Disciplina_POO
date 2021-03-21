@@ -9,13 +9,13 @@ public class App {
         System.out.println(whatsapp.allUsers());    //ok
         
         whatsapp.createChat("goku", "guerreiros");
-        whatsapp.createChat("goku", "homens");
-        whatsapp.createChat("sara", "familia");
-        whatsapp.createChat("sara", "guerreiros");
+        // whatsapp.createChat("goku", "homens");
+        // whatsapp.createChat("sara", "familia");
+        // whatsapp.createChat("sara", "guerreiros");
 
         System.out.println(whatsapp.getChatsUser("goku"));
-        System.out.println(whatsapp.getChatsUser("sara"));
-        System.out.println(whatsapp.getChatsUser("tina"));
+        // System.out.println(whatsapp.getChatsUser("sara"));
+        // System.out.println(whatsapp.getChatsUser("tina"));
 
         // //case invite
         // whatsapp.addByInvite("goku", "sara", "guerreiros");
