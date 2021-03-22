@@ -19,7 +19,7 @@ public class Sistema {
             }else if(entry[0].equals("show")){
                 System.out.println(agencia);
             }
-        }
         scanner.close();
+        }
     }
 }   
