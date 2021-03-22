@@ -2,7 +2,7 @@ import java.util.TreeMap;
 
 public class Cliente {
     String id;
-    TreeMap<ContaCorrente, ContaPoupança> contas;
+    TreeMap<String, Conta> contas;
 
     Cliente(String id){
         this.id = id;

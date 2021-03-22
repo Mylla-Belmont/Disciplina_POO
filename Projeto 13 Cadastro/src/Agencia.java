@@ -2,7 +2,7 @@ import java.util.TreeMap;
 
 public class Agencia {
     TreeMap<String, Cliente> clientes;
-    TreeMap<Conta, Conta> contas;
+    TreeMap<String, Conta> contas;
     int cont;
 
     Agencia(){
@@ -17,7 +17,9 @@ public class Agencia {
         ContaCorrente CC = new ContaCorrente(cont, id);
         ContaPoupança CP = new ContaPoupança(cont, id);
         clientes.put(id, cliente);
-        contas.put( CC, CP);
+        contas.put(id, CC);
+        contas.put(id, CP);
+
     }
 
     public String toString(){
