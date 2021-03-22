@@ -5,7 +5,7 @@ public class Sistema {
 
         Scanner scanner = new Scanner(System.in);
         Agencia agencia = new Agencia();
-        System.out.println("O que deseja?");
+        System.out.println("$");
 
         while(true){
             String input = scanner.nextLine();
