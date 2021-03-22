@@ -17,9 +17,8 @@ public class Agencia {
     void adicionarCliente(String id){
         if(clientes.containsKey(id))
             throw new RuntimeException("fail: cliente já esxite.");
-        Cliente cliente =  new Cliente(id);
-        cliente.cliente(id);
         clientes.put(id, new Cliente(id));
+        contas.put(id, new ContaCorrente(0, 0, id, "CC"));
     }
 
     public String toString(){

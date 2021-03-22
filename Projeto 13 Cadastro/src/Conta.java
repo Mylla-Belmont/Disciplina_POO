@@ -4,27 +4,26 @@ public abstract class Conta {
     String idCliente;
     String type;
 
-    Conta(int id, float saldo, String idCliente, String type){
+    Conta(int id, String idCliente){
         this.id = id;
-        this.saldo = saldo;
+        this.saldo = 0;
         this.idCliente = idCliente;
-        this.type = type;
     }
 
-    void conta(int id, String idCliente){
-
+    void sacar(float value){
+        if(saldo >= value)
+            saldo -= value;
+        else
+            throw new RuntimeException("fail: saldo insuficiente");
     }
 
-    void sacar(){
-
+    void depositar(float value){
+        saldo += value;
     }
 
-    void depositar(){
-
-    }
-
-    void transferir(){
-
+    void transferir(Conta otherConta, float value){
+        this.sacar(value);
+        otherConta.depositar(value);
     }
 
     abstract void atualizacaoMensal();

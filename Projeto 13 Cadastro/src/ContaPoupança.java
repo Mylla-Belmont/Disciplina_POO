@@ -1,10 +1,11 @@
 public class ContaPoupança extends Conta{
     float rendimento;
 
-    ContaPoupança(int id, float saldo, String idCliente, String type) {
-        super(id, saldo, idCliente, type);
+    ContaPoupança(int id, String idCliente) {
+        super(id, idCliente);
+        this.type = "CP";
     }
-    
+
     void contaPoupança(int id, String idCliente){
 
     }
