@@ -4,13 +4,10 @@ public class ContaPoupança extends Conta{
     ContaPoupança(int id, String idCliente) {
         super(id, idCliente);
         this.type = "CP";
-    }
-
-    void contaPoupança(int id, String idCliente){
-
+        this.rendimento = (float) 1.01;
     }
 
     void atualizacaoMensal() {
-        
+        saldo *= rendimento;
     }
 }
