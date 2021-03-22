@@ -21,6 +21,6 @@ public class Agencia {
     }
 
     public String toString(){
-        return contas.values().toString();
+        return null;
     }
 }
