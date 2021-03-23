@@ -1,28 +1,37 @@
+import java.util.ArrayList;
 import java.util.TreeMap;
 
 public class Agencia {
     TreeMap<String, Cliente> clientes;
-    TreeMap<String, Conta> contas;
+    ArrayList<Conta> contas;
     int cont;
 
     Agencia(){
         this.clientes = new TreeMap<>();
-        this.contas = new TreeMap<>();
+        this.contas = new ArrayList<>();
     }
 
     void adicionarCliente(String id){
         if(clientes.containsKey(id))
             throw new RuntimeException("fail: cliente já esxite.");
         Cliente cliente = new Cliente(id);
-        ContaCorrente CC = new ContaCorrente(cont, id);
-        ContaPoupança CP = new ContaPoupança(cont, id);
         clientes.put(id, cliente);
-        contas.put(id, CC);
-        contas.put(id, CP);
-
+        cliente.contas.put(id, new ContaCorrente(cont, id));
+        cliente.contas.put(id, new ContaPoupança(cont, id));
     }
 
+    // void depositar(int idConta, float value){
+    //     getConta(idConta).depositar(value);
+    // }
+    // void transferir(int contaDe, int contaPara, float value){
+    //     getConta(contaDe).transferir(getConta(contaPara), value);
+    // }
+    // void atualizarContas(){
+    //     for(auto& [k, v] : this->contas)
+    //         v->atualizarMes();
+    // }
+
     public String toString(){
-        return null;
+        return contas.toString();
     }
 }

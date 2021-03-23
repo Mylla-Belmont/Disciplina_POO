@@ -5,19 +5,30 @@ public class Sistema {
 
         Scanner scanner = new Scanner(System.in);
         Agencia agencia = new Agencia();
-        System.out.println("$");
 
         while(true){
-            String input = scanner.nextLine();
-            String[] entry = input.split("");
-            System.out.println("$" + input);
+            try{
+                String line = scanner.nextLine();
+                System.out.println("$" + line);
+                String[] ui = line.split(" ");
 
-            if(entry[0].equals("break;")){
-                break;
-            }else if(entry[0].equals("addCliente")){
-                agencia.adicionarCliente(entry[1]);
-            }else if(entry[0].equals("show")){
-                System.out.println(agencia);
+                if(ui[0].equals("end")){
+                    break;
+                }else if(ui[0].equals("add")){
+                    agencia.adicionarCliente(ui[1]);
+                }else if(ui[0].equals("show")){
+                    System.out.println(agencia);
+                }else if(ui[0].equals("saque")){
+                    agencia.contas.get(Integer.parseInt(ui[1])).sacar(Integer.parseInt(ui[2]));
+                }else if(ui[0].equals("depositar")){
+                    agencia.contas.get(Integer.parseInt(ui[1])).depositar(Integer.parseInt(ui[2]));
+                }else if(ui[0].equals("transferir")){
+                    agencia.contas.get(Integer.parseInt(ui[1])).transferir(agencia.contas.get(Integer.parseInt(ui[2])), Integer.parseInt(ui[3]));;
+                }else{
+                    System.out.println("fail: comando invalido");
+                }
+            }catch(RuntimeException e){
+                System.out.println(e.getMessage());
             }
         }
         scanner.close();
