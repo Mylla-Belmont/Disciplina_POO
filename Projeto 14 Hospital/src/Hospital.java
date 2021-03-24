@@ -1,6 +1,7 @@
+import java.util.Collection;
 import java.util.TreeMap;
 
-public class Hospital {
+public class Hospital implements IMedico, IPaciente {
     TreeMap<String, IPaciente> pacientes;
     TreeMap<String, IMedico> medicos;
 
@@ -9,23 +10,36 @@ public class Hospital {
         this.medicos = new TreeMap<>();
     }
 
-    void removerPaciente(String id){
+    public void addPaciente(IPaciente paciente){
     }
 
-    void removerMedico(String id){
+    public void addMedico(IMedico medico) {
+        
     }
 
-    void addPaciente(IPaciente paciente){
-        pacientes.put(paciente., value)
+    public void removerPaciente(String id){
     }
 
-    void addPaciente(IMedico medico){
+    public void removerMedico(String id){
     }
 
-    void vincular(String nomeMedico, String nomePaciente){
+    public void vincular(String nomeMedico, String nomePaciente){
     }
 
-    String showAll(){
+    public String getId() {
+        return null;
+    }
+
+
+    public Collection<IPaciente> getPacientes() {
+        return null;
+    }
+
+    public Collection<IMedico> getMedicos() {
+        return null;
+    }
+
+    public String showAll(){
         return null;
     }
 }
