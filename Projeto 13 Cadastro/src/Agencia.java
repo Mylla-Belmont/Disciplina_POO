@@ -17,21 +17,17 @@ public class Agencia {
         Cliente cliente = new Cliente(id);
         clientes.put(id, cliente);
         cliente.contas.put(id, new ContaCorrente(cont, id));
+        this.contas.add(new ContaCorrente(cont, id));
+        cont++;
         cliente.contas.put(id, new ContaPoupança(cont, id));
+        this.contas.add(new ContaPoupança(cont, id));
+        ++cont;
     }
 
-    // void depositar(int idConta, float value){
-    //     getConta(idConta).depositar(value);
-    // }
-    // void transferir(int contaDe, int contaPara, float value){
-    //     getConta(contaDe).transferir(getConta(contaPara), value);
-    // }
-    // void atualizarContas(){
-    //     for(auto& [k, v] : this->contas)
-    //         v->atualizarMes();
-    // }
-
     public String toString(){
-        return contas.toString();
+        StringBuilder out = new StringBuilder();
+        for (Conta conta : contas)
+            out.append(conta + "\n");
+        return out.toString();
     }
 }

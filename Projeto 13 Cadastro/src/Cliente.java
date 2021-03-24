@@ -8,8 +8,4 @@ public class Cliente {
         this.id = id;
         this.contas = new TreeMap<>();
     }
-
-    public String toString(){
-        return null;
-    }
 }

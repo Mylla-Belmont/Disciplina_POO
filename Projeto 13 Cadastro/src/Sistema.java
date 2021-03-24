@@ -20,12 +20,16 @@ public class Sistema {
                     System.out.println(agencia);
                 }else if(ui[0].equals("saque")){
                     agencia.contas.get(Integer.parseInt(ui[1])).sacar(Integer.parseInt(ui[2]));
-                }else if(ui[0].equals("depositar")){
+                }else if(ui[0].equals("depositar")){ 
                     agencia.contas.get(Integer.parseInt(ui[1])).depositar(Integer.parseInt(ui[2]));
                 }else if(ui[0].equals("transferir")){
-                    agencia.contas.get(Integer.parseInt(ui[1])).transferir(agencia.contas.get(Integer.parseInt(ui[2])), Integer.parseInt(ui[3]));;
-                }else{
-                    System.out.println("fail: comando invalido");
+                    Conta otherConta = agencia.contas.get(Integer.parseInt(ui[2]));
+                    if(agencia.contas.conteins)
+                    agencia.contas.get(Integer.parseInt(ui[1])).transferir(otherConta, Integer.parseInt(ui[3]));
+                // }else if(ui[0].equals("update")){
+                    
+                // }else{
+                    }else{    System.out.println("fail: comando invalido");
                 }
             }catch(RuntimeException e){
                 System.out.println(e.getMessage());
