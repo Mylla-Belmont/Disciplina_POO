@@ -1,14 +1,23 @@
-## Getting Started
+# Projeto java 13
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+<b>Nome do projeto:</b> Cadastro - Agência 2
 
-## Folder Structure
+<b>Desenvolverdor(a):</b> Camila Belmont
 
-The workspace contains two folders by default, where:
+<b>O que foi feito:</b>
+O projeto foi desenvolvido para práticar  e melhorar a implementação de heranças no código.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+<b>Com quem fez:</b>
+Apenas perguntas e consultas aos matériais oferecidos pelo professor.
 
-## Dependency Management
+<b>Como fez:</b>
+Apesar da dificuldade de entender o diagrama, foi possivel fazer o projeto (após a ajuda do professor) utilizando a lógica aprendida previamente. Inicialmente foi criado as classes juntamente aos atributos e métodos (sem preocupar-se com o funcionamento interno) e com base na main interativa e os requisitos exigidos foi possivel estabelecer as relações entre elas.
 
-The `JAVA DEPENDENCIES` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-pack/blob/master/release-notes/v0.9.0.md#work-with-jar-files-directly).
+ - Tópicos aprendidos:
+    - Herança
+    - Relação de agregação
+    - toString para TreeMaps
+    - Melhor implementação de excessões 
+
+<b>Quanto tempo levou:</b>
+Considerando o tempo para interpretação do diagrama: cerca de 6 dias.
