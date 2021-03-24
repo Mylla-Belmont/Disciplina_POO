@@ -1,10 +1,10 @@
 import java.util.Scanner;
 
-public class Sistema {
+public class hos {
     public static void main(String[] args) throws Exception {
         
         Scanner scanner = new Scanner(System.in);
-        Hospital sistema = new Hospital();
+        Hospital hospital = new Hospital();
 
         while(true){
             try{
@@ -15,10 +15,12 @@ public class Sistema {
                 if(ui[0].equals("end")){
                     break;
                 }else if(ui[0].equals("addPacs")){
-                    for(int i=0; i < ui[i].length(); i++)
-                        sistema.addPaciente(ui[i]);
-                }else if(ui[0].equals("show")){
-                    System.out.println(agencia);
+                    for(int i=0; i < ui[i].length(); i++){
+                        String[] info = ui[i].split("-");
+                        hospital.addPaciente(new Pacient);
+                    }
+                }else if(ui[0].equals("addMeds")){
+                    for
                 }else if(ui[0].equals("saque")){
                     agencia.contas.get(Integer.parseInt(ui[1])).sacar(Integer.parseInt(ui[2]));
                 }else if(ui[0].equals("depositar")){ 
