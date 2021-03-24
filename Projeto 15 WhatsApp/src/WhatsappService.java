@@ -12,22 +12,21 @@ public class WhatsappService {
     public void createUser(String userId) {
         if(rep_user.containsKey(userId)){
             System.out.println("fail: usuário já existe");
-            return;
-        } rep_user.put(userId, new User(userId)); 
+        }else
+            rep_user.put(userId, new User(userId)); 
     }
 
     public void createChat(String userId, String chatId) {
-        if(!rep_user.containsKey(userId)){
+        if(rep_chat.get(chatId) != null){
+            System.out.println("fail: chat " + chatId + " já existe");
+        }else if(!rep_user.containsKey(userId)){
             System.out.println("fail: usuário não existe");
-            return;
-        }
-        for(Chat chat : rep_chat.values())
-            if(chat.id.equals(chatId)){
-                System.out.println("fail: chat " + chatId + " já existe");
-                return;
-            }
-        if(!rep_chat.containsKey(userId))
+        }else{
+            Chat chat = new Chat(chatId);
+            User user = rep_user.get(userId);
+            chat.addUserChat(user);
             rep_chat.put(userId, new Chat(chatId));
+        }
     }
 
     public String allUsers() {
