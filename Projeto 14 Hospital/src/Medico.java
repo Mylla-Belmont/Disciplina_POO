@@ -19,7 +19,7 @@ public class Medico implements IMedico{
     public void addPaciente(IPaciente paciente) {
         if(pacConsulta.get(paciente.getId()) != null)
             throw new RuntimeException("fail: medico já está vinculado com este paciente");
-        pacConsulta.put(paciente.getId(), paciente);
+        //pacConsulta.put(paciente.getId(), paciente);
     }
 
     public void removerPaciente(String idPaciente) {

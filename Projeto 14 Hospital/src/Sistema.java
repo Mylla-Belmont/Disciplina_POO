@@ -16,12 +16,12 @@ public class Sistema {
                     break;
                 }else if(ui[0].equals("addPacs")){
                     for(int i=0; i < ui.length; i++){
-                        String[] info = ui[i].split("-");
+                        String info[] = ui[i].split("-");
                         hospital.addPaciente(new Paciente(info[0], info[1]));
                     }
                 }else if(ui[0].equals("addMeds")){
                     for(int i=0; i < ui.length; i++){
-                        String[] info = ui[i].split("-");
+                        String info[] = ui[i].split("-");
                         hospital.addMedico(new Medico(info[0], info[1]));;
                     }
                 }else if(ui[0].equals("seeAll")){
