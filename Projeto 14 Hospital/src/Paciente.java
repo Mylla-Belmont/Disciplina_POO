@@ -34,4 +34,7 @@ public class Paciente implements IPaciente{
         return medConsulta.values();
     }
     
+    public String toString(){
+        return "Pac: " + id + ":" + diagnostico + "   " + medConsulta.values().toString();
+    }
 }

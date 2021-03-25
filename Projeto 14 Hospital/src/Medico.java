@@ -34,4 +34,7 @@ public class Medico implements IMedico{
         return pacConsulta.values();
     }
     
+    public String toString(){
+        return "Med: " + id + ":" + especialidade + "   " + pacConsulta.values().toString();
+    }
 }
