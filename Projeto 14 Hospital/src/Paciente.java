@@ -20,12 +20,14 @@ public class Paciente implements IPaciente{
         if(medConsulta.get(medico.getId()) != null)
             throw new RuntimeException("fail: paciente já está vinculado com este medico");
         medConsulta.put(medico.getId(), medico);
+		medico.addPaciente(this);
     }
 
     public void removerMedico(String idMedico) {
         if(!medConsulta.containsKey(idMedico))
             throw new RuntimeException("fail: medico não encontrado");
         medConsulta.remove(idMedico);
+        medConsulta.get(idMedico).removerPaciente(this.id);
     }
 
     public Collection<IMedico> getMedicos() {
