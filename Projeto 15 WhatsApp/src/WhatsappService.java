@@ -17,9 +17,13 @@ public class WhatsappService {
     }
 
     public void createChat(String userId, String chatId) {
-        if(rep_chat.get(chatId) != null){
+        for (Chat getChat : rep_chat.values()) {
+            if(getChat)
+        }
+        if(rep_chat.values().contains(chatId)){
             System.out.println("fail: chat " + chatId + " já existe");
-        }else if(!rep_user.containsKey(userId)){
+        }else 
+        if(!rep_user.containsKey(userId)){
             System.out.println("fail: usuário não existe");
         }else{
             Chat chat = new Chat(chatId);

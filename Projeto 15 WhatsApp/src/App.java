@@ -14,8 +14,8 @@ public class App {
         whatsapp.createChat("sara", "guerreiros");
 
         System.out.println(whatsapp.getChatsUser("goku"));
-        // System.out.println(whatsapp.getChatsUser("sara"));
-        // System.out.println(whatsapp.getChatsUser("tina"));
+        System.out.println(whatsapp.getChatsUser("sara"));
+        System.out.println(whatsapp.getChatsUser("tina"));
 
         // //case invite
         // whatsapp.addByInvite("goku", "sara", "guerreiros");

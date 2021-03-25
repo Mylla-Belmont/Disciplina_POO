@@ -1,12 +1,15 @@
 import java.util.Collection;
+import java.util.TreeMap;
 
 public class Paciente implements IPaciente{
     String id;
     String diagnostico;
-    TreeMap<>
+    TreeMap<String, Medico> medConsulta;
 
-    Paciente(String id){
-
+    Paciente(String id, String diagnostico){
+        this.id = id;
+        this.diagnostico = diagnostico;
+        this.medConsulta = new TreeMap<>();
     }
 
     public String getId() {
