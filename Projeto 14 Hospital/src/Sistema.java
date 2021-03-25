@@ -10,20 +10,22 @@ public class Sistema {
             try{
                 String line = scanner.nextLine();
                 System.out.println("$" + line);
-                String[] ui = line.split(" ");
+                String ui[] = line.split(" ");
 
                 if(ui[0].equals("end")){
                     break;
                 }else if(ui[0].equals("addPacs")){
-                    for(int i=0; i < ui[i].length(); i++){
+                    for(int i=0; i < ui.length; i++){
                         String[] info = ui[i].split("-");
                         hospital.addPaciente(new Paciente(info[0], info[1]));
                     }
                 }else if(ui[0].equals("addMeds")){
-                    for(int i=0; i < ui[i].length(); i++){
+                    for(int i=0; i < ui.length; i++){
                         String[] info = ui[i].split("-");
                         hospital.addMedico(new Medico(info[0], info[1]));;
                     }
+                }else if(ui[0].equals("seeAll")){
+                    System.out.println(hospital.showAll());
                 }else
                     System.out.println("fail: comando invalido");
             }catch(RuntimeException e){

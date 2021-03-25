@@ -4,7 +4,7 @@ import java.util.TreeMap;
 public class Medico implements IMedico{
     String id;
     String especialidade;
-    TreeMap<String, Paciente> pacConsulta;
+    TreeMap<String, IPaciente> pacConsulta;
 
     Medico(String id, String especialidade){
         this.id = id;
@@ -17,15 +17,19 @@ public class Medico implements IMedico{
     }
 
     public void addPaciente(IPaciente paciente) {
-        
+        if(pacConsulta.get(paciente.getId()) != null)
+            throw new RuntimeException("fail: medico já está vinculado com este paciente");
+        pacConsulta.put(paciente.getId(), paciente);
     }
 
     public void removerPaciente(String idPaciente) {
-        
+        if(!pacConsulta.containsKey(idPaciente))
+            throw new RuntimeException("fail: paciente não encontrado");
+        pacConsulta.remove(idPaciente);
     }
 
     public Collection<IPaciente> getPacientes() {
-        return null;
+        return pacConsulta.values();
     }
     
 }
