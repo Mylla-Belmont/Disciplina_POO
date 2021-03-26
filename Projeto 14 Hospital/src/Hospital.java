@@ -42,15 +42,22 @@ public class Hospital {
             throw new RuntimeException("fail: paciente não encontrado");
         if(!medicos.containsKey(nomeMedico))
             throw new RuntimeException("fail: medico não encontrado");
-        IMedico medico = medicos.get(nomeMedico);
         IPaciente paciente = pacientes.get(nomePaciente);
+        IMedico medico = medicos.get(nomeMedico);
+        if(paciente.getMedicos().contains(medico))
+            throw new RuntimeException("fail: medico já vinculado");
+        if(medico.getPacientes().contains(paciente))
+            throw new RuntimeException("fail: paciente já vinculado");
         medico.addPaciente(paciente);
         paciente.addMedico(medico);
     }
 
     public String showAll(){
         StringBuilder out = new StringBuilder();
-        out.append(pacientes.toString() + medicos.toString());
+        for(IPaciente paciente : pacientes.values())
+            out.append("Pac:  " + paciente);
+        for(IMedico medico : medicos.values())
+            out.append("Med:  " + medico);
         return out.toString();
     }
 }

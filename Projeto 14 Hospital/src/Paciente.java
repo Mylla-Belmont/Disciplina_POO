@@ -35,6 +35,6 @@ public class Paciente implements IPaciente{
     }
     
     public String toString(){
-        return "Pac: " + id + ":" + diagnostico + "   " + medConsulta.values().toString();
+        return id + ":" + diagnostico + "  Meds: " + medConsulta.values().toString() + "\n";
     }
 }
