@@ -27,7 +27,8 @@ public class Sistema {
                 }else if(ui[0].equals("seeAll")){
                     System.out.println(hospital.showAll());
                 }else if(ui[0].equals("tie")){
-                    
+                    for(int i=2; i < ui.length; i++)
+                        hospital.vincular(ui[1], ui[i]);
                 }else
                     System.out.println("fail: comando invalido");
             }catch(RuntimeException e){

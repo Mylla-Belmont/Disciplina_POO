@@ -38,18 +38,10 @@ public class Hospital {
     }
 
     public void vincular(String nomeMedico, String nomePaciente){
-        if(!pacientes.containsKey(nomePaciente))
-            throw new RuntimeException("fail: paciente não encontrado");
-        if(!medicos.containsKey(nomeMedico))
-            throw new RuntimeException("fail: medico não encontrado");
-        IPaciente paciente = pacientes.get(nomePaciente);
-        IMedico medico = medicos.get(nomeMedico);
-        if(paciente.getMedicos().contains(medico))
-            throw new RuntimeException("fail: medico já vinculado");
-        if(medico.getPacientes().contains(paciente))
+        if(medicos.get(nomeMedico).getPacientes().contains(pacientes.get(nomePaciente)))
             throw new RuntimeException("fail: paciente já vinculado");
-        medico.addPaciente(paciente);
-        paciente.addMedico(medico);
+        medicos.get(nomeMedico).addPaciente(pacientes.get(nomePaciente));
+        pacientes.get(nomePaciente).addMedico(medicos.get(nomeMedico));
     }
 
     public String showAll(){
