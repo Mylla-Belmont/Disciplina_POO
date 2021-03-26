@@ -17,8 +17,8 @@ public class Medico implements IMedico{
     }
 
     public void addPaciente(IPaciente paciente) {
-        if(pacConsulta.get(paciente.getId()) == null)
-            throw new RuntimeException("fail: medico não encontrado");
+        if(pacConsulta.containsValue(paciente))
+            throw new RuntimeException("fail: paciente já vinculado");
         pacConsulta.put(paciente.getId(), paciente);
         paciente.addMedico(this);
     }
@@ -35,6 +35,9 @@ public class Medico implements IMedico{
     }
     
     public String toString(){
-        return id + ":" + especialidade + "  Pacs: " + pacConsulta.values().toString() + "\n";
+        String listaPacientes = new String();
+        for(IPaciente paciente : getPacientes())
+            listaPacientes += paciente.getId() + " ";
+        return id + ":" + especialidade + "  Pacs: " + "[ " + listaPacientes + " ]" + "\n";
     }
 }

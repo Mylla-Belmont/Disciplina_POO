@@ -17,15 +17,14 @@ public class Paciente implements IPaciente{
     }
 
     public void addMedico(IMedico medico) {
-        if(medConsulta.get(medico.getId()) == null)
-            throw new RuntimeException("fail: medico não encontrado");
+        if(medConsulta.containsValue(medico))
+            throw new RuntimeException("fail: medico já vinculado");
         medConsulta.put(medico.getId(), medico);
-		medico.addPaciente(this);
     }
 
     public void removerMedico(String idMedico) {
         if(!medConsulta.containsKey(idMedico))
-            throw new RuntimeException("fail: medico não encontrado");
+            throw new RuntimeException("fail: medico não vinculado");
         medConsulta.remove(idMedico);
         medConsulta.get(idMedico).removerPaciente(this.id);
     }
@@ -35,6 +34,9 @@ public class Paciente implements IPaciente{
     }
     
     public String toString(){
-        return id + ":" + diagnostico + "  Meds: " + medConsulta.values().toString() + "\n";
+        String listaMedicos = new String();
+        for(IMedico medicos : getMedicos())
+            listaMedicos += medicos.getId() + " ";
+        return id + ":" + diagnostico + "  Meds: " + "[ " + listaMedicos + " ]" + "\n";
     }
 }
