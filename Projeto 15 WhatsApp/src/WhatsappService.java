@@ -17,20 +17,15 @@ public class WhatsappService {
     }
 
     public void createChat(String userId, String chatId) {
-        for(Chat getChat : rep_chat.values()){
-            if(getChat.getId().equals(chatId)){
-                System.out.println("fail: chat " + chatId + " já existe");
-                return;
-            }
-        }
-        if(!rep_user.containsKey(userId)){
+        if(rep_chat.get(chatId) != null){
+            System.out.println("fail: chat " + chatId + " já existe");
+        }else if(!rep_user.containsKey(userId)){
             System.out.println("fail: usuário não existe");
-            return;
+        }else{
+            Chat chat = new Chat(chatId);
+            chat.addUserChat(rep_user.get(userId));
+            rep_chat.put(chatId, chat);
         }
-        Chat chat = new Chat(chatId);
-        User user = rep_user.get(userId);
-        chat.addUserChat(user);
-        rep_chat.put(userId, chat);
     }
 
     public String allUsers() {
@@ -40,7 +35,7 @@ public class WhatsappService {
     public String getChatsUser(String userId){
         StringBuilder out = new StringBuilder();
         for(Chat chat : rep_user.get(userId).getChats().values())
-            out.append(chat + " ");
-        return "[" + out + "]";
+            out.append(chat.getId() + " ");
+        return "[" + out.toString() + "]";
     }
 }

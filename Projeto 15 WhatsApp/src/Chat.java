@@ -16,7 +16,10 @@ public class Chat {
     }
 
     public void addUserChat(User user){
+        user.addChat(this);
         users.put(user.getId(), user);
+        user.addNotify(this);
+        inbox.put(user.getId(), new Inbox(user));
     }
 
     public void getMsgs(String userId){
