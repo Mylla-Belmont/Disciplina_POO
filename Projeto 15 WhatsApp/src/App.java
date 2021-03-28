@@ -27,12 +27,9 @@ public class App {
         System.out.println(whatsapp.getUsersChat("guerreiros"));
         System.out.println(whatsapp.getUsersChat("familia"));  //ok
 
-        // //case leaving
-        // whatsapp.removerUserChat("sara", "guerreiros");
-        // System.out.println(whatsapp.getUsersChat("guerreiros"));
-        // //[goku tina]
-        // System.out.println(whatsapp.getChatsUser("sara"));
-        // //[familia]
+        whatsapp.removerUserChat("sara", "guerreiros");
+        System.out.println(whatsapp.getUsersChat("guerreiros"));
+        System.out.println(whatsapp.getChatsUser("sara"));     //ok
 
         // //case mensagens
         // whatsapp.sendMessage("goku", "guerreiros", "oi, eu sou o goku");

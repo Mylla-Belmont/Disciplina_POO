@@ -22,6 +22,11 @@ public class Chat {
         inbox.put(user.getId(), new Inbox(user));
     }
 
+    public void rmUserChat(User user){
+        user.rmChat(this);
+        users.remove(user.getId());
+    }
+
     public void getMsgs(String userId){
 
     }

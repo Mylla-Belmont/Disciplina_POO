@@ -56,4 +56,16 @@ public class WhatsappService {
         }else
             rep_chat.get(chatId).addUserChat(rep_user.get(invitedId));
     }
+
+    public void removerUserChat(String userId, String chatId){
+        if(!rep_user.containsKey(userId)){
+            System.out.println("fail: usuário não existe");
+        }else if(!rep_chat.containsKey(chatId)){
+            System.out.println("fail: chat não existe");    
+        }else if(!rep_user.get(userId).chats.containsKey(chatId)){
+            System.out.println("fail: " + userId + " não está no chat " + chatId);
+        }else{
+            rep_chat.get(chatId).rmUserChat(rep_user.get(userId));
+        }
+    }   
 }
