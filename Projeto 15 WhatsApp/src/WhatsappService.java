@@ -36,6 +36,17 @@ public class WhatsappService {
         StringBuilder out = new StringBuilder();
         for(Chat chat : rep_user.get(userId).getChats().values())
             out.append(chat.getId() + " ");
-        return "[" + out.toString() + "]";
+        return "[ " + out.toString() + "]";
+    }
+
+    public void addByInvite(String gessId, String invitedId, String chatId){
+        if(!rep_user.containsKey(gessId)){
+            System.out.println("fail: usuário não existe");
+        }else if(!rep_user.get(gessId).chats.containsKey(chatId)){
+            System.out.println("fail: " + gessId + " não está no chat " + chatId);
+        }else if(rep_user.get(invitedId).chats.containsKey(chatId)){
+            System.out.println("fail: usuário já está no chat " + chatId);
+        }else
+            rep_user.get(invitedId).addChat(rep_chat.get(chatId));
     }
 }

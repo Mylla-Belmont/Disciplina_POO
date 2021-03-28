@@ -11,23 +11,19 @@ public class App {
         whatsapp.createChat("goku", "guerreiros");
         whatsapp.createChat("goku", "homens");
         whatsapp.createChat("sara", "familia");
-        whatsapp.createChat("sara", "guerreiros");
+        whatsapp.createChat("sara", "guerreiros");  //ok
 
         System.out.println(whatsapp.getChatsUser("goku"));
         System.out.println(whatsapp.getChatsUser("sara"));
-        System.out.println(whatsapp.getChatsUser("tina"));
+        System.out.println(whatsapp.getChatsUser("tina"));  //ok
 
-        // //case invite
-        // whatsapp.addByInvite("goku", "sara", "guerreiros");
-        // whatsapp.addByInvite("sara", "tina", "guerreiros");
-        // whatsapp.addByInvite("tina", "goku", "familia");
-        // //fail: user tina nao esta em chat familia
-        // System.out.println(whatsapp.getChatsUser("sara"));
-        // //[guerreiros familia]
-        // System.out.println(whatsapp.getChatsUser("tina"));
-        // //[guerreiros]
-        // System.out.println(whatsapp.getChatsUser("goku"));
-        // //[guerreiros homens]
+        whatsapp.addByInvite("goku", "sara", "guerreiros");
+        whatsapp.addByInvite("sara", "tina", "guerreiros");
+        whatsapp.addByInvite("tina", "goku", "familia");
+
+        System.out.println(whatsapp.getChatsUser("sara"));
+        System.out.println(whatsapp.getChatsUser("tina"));
+        System.out.println(whatsapp.getChatsUser("goku"));
         // System.out.println(whatsapp.getUsersChat("guerreiros"));
         // //[goku sara tina]
         // System.out.println(whatsapp.getUsersChat("familia"));
