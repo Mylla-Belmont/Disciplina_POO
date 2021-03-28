@@ -16,7 +16,7 @@ public class Chat {
     }
 
     public void addUserChat(User user){
-        users.put(user.id, user);
+        users.put(user.getId(), user);
     }
 
     public void getMsgs(String userId){

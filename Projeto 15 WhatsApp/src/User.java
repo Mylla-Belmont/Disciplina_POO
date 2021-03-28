@@ -12,26 +12,8 @@ public class User {
         this.notify = new ArrayList<>();
     }
 
-    public TreeMap<String, Chat> getChats(){
-        return this.chats;
-    }
-
-    public ArrayList<Notify> getNotify(){
-        return notify;
-    }
-
-    public Notify getNotifyUser(String chat){
-        return null;
-    }
-
     public void addChat(Chat chat){
-        if(this.chats.containsKey(chat.id)){
-            System.out.println("fail: chat já existe");
-        }else
-            this.chats.put(chat.id, chat);
-    }
-
-    public void addNotify(Chat chat){
+        this.chats.put(chat.getId(), chat);
     }
 
     public void rmChat(Chat chat){
@@ -43,6 +25,21 @@ public class User {
 
     public String getId() {
         return id;
+    }
+
+    public TreeMap<String, Chat> getChats(){
+        return this.chats;
+    }
+
+    public void addNotify(Chat chat){
+    }
+
+    public Notify getNotifyUser(String chat){
+        return null;
+    }
+
+    public ArrayList<Notify> getNotify(){
+        return notify;
     }
 
     public String toString(){

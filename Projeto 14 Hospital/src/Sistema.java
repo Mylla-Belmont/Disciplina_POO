@@ -5,6 +5,7 @@ public class Sistema {
         
         Scanner scanner = new Scanner(System.in);
         Hospital hospital = new Hospital();
+        BatePapo batePapo = new BatePapo();
 
         while(true){
             try{
@@ -29,6 +30,9 @@ public class Sistema {
                 }else if(ui[0].equals("tie")){
                     for(int i=2; i < ui.length; i++)
                         hospital.vincular(ui[1], ui[i]);
+                }else if(ui[0].equals("msg")){
+                    for(int i=3; i < ui.length; i++)
+                        batePapo.addMessage(new Mensagem(id, msg));
                 }else
                     System.out.println("fail: comando invalido");
             }catch(RuntimeException e){
