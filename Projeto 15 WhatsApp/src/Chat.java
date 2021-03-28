@@ -26,6 +26,11 @@ public class Chat {
 
     }
 
+    public TreeMap<String, User> getUsers(){
+        return users;
+    }
+
+
     public String toString() {
         return id;
     }

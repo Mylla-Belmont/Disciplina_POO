@@ -19,15 +19,13 @@ public class App {
 
         whatsapp.addByInvite("goku", "sara", "guerreiros");
         whatsapp.addByInvite("sara", "tina", "guerreiros");
-        whatsapp.addByInvite("tina", "goku", "familia");
+        whatsapp.addByInvite("tina", "goku", "familia");    //ok
 
         System.out.println(whatsapp.getChatsUser("sara"));
         System.out.println(whatsapp.getChatsUser("tina"));
         System.out.println(whatsapp.getChatsUser("goku"));
-        // System.out.println(whatsapp.getUsersChat("guerreiros"));
-        // //[goku sara tina]
-        // System.out.println(whatsapp.getUsersChat("familia"));
-        // //[sara]
+        System.out.println(whatsapp.getUsersChat("guerreiros"));
+        System.out.println(whatsapp.getUsersChat("familia"));  //ok
 
         // //case leaving
         // whatsapp.removerUserChat("sara", "guerreiros");
