@@ -10,11 +10,12 @@ public class Inbox {
         this.msgs = new ArrayList<>();
     }
 
-    void addMsg(){
+    void addMsg(String user, String menssage){
+        msgs.add(new Msg(user, menssage));
     }
 
     List<Msg> getMsgs(){
-        return null;
+        return msgs;
     }
 
     User getUser(){

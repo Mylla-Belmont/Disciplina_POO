@@ -9,7 +9,7 @@ public class User {
     User(String id){
         this.id = id;
         this.chats = new TreeMap<>();
-        this.notify = new ArrayList<>();
+        this.notify = new ArrayList<Notify>();
     }
 
     public void addChat(Chat chat){
@@ -32,11 +32,15 @@ public class User {
     }
 
     public void addNotify(Chat chat){
+        notify.add(new Notify(chat.getId()));
     }
 
     public Notify getNotifyUser(String chat){
+        for(Notify noty : notify)
+            if(chat.equals(noty.getId()))
+                return noty;
         return null;
-    }
+      }
 
     public ArrayList<Notify> getNotify(){
         return notify;

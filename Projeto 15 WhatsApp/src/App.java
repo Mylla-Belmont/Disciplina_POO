@@ -7,6 +7,7 @@ public class App {
         whatsapp.createUser("sara");
         whatsapp.createUser("tina");
         System.out.println(whatsapp.allUsers());    //ok
+        System.out.println("\n");
         
         whatsapp.createChat("goku", "guerreiros");
         whatsapp.createChat("goku", "homens");
@@ -16,6 +17,7 @@ public class App {
         System.out.println(whatsapp.getChatsUser("goku"));
         System.out.println(whatsapp.getChatsUser("sara"));
         System.out.println(whatsapp.getChatsUser("tina"));  //ok
+        System.out.println("\n");
 
         whatsapp.addByInvite("goku", "sara", "guerreiros");
         whatsapp.addByInvite("sara", "tina", "guerreiros");
@@ -26,14 +28,15 @@ public class App {
         System.out.println(whatsapp.getChatsUser("goku"));
         System.out.println(whatsapp.getUsersChat("guerreiros"));
         System.out.println(whatsapp.getUsersChat("familia"));  //ok
+        System.out.println("\n");
 
         whatsapp.removerUserChat("sara", "guerreiros");
         System.out.println(whatsapp.getUsersChat("guerreiros"));
         System.out.println(whatsapp.getChatsUser("sara"));     //ok
+        System.out.println("\n");
 
-        // //case mensagens
-        // whatsapp.sendMessage("goku", "guerreiros", "oi, eu sou o goku");
-        // whatsapp.sendMessage("tina", "guerreiros", "oi goku");
+        whatsapp.sendMessage("goku", "guerreiros", "oi, eu sou o goku");
+        whatsapp.sendMessage("tina", "guerreiros", "oi goku");  //ok
 
         // System.out.println(whatsapp.getNotifyUser("goku"));
         // //[guerreiros(1) homens]

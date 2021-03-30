@@ -2,9 +2,8 @@ public class Notify {
     String chatId;
     int unreadCount;
 
-    Notify(String chatId, int unreadCount){
+    Notify(String chatId){
         this.chatId = chatId;
-        this.unreadCount = unreadCount;
     }
 
     public String getId(){
@@ -16,11 +15,11 @@ public class Notify {
     }
 
     public void addCont(){
-        unreadCount += unreadCount;
+        unreadCount++;
     }
 
     public void rmNotifi(){
-        unreadCount -= unreadCount;
+        unreadCount++;
     }
 
     public String toString(){

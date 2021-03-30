@@ -35,6 +35,14 @@ public class Chat {
         return users;
     }
 
+    public void deliverZap(User sendUser, String menssage){
+        for(User user : users.values()){
+            if(!user.getId().equals(sendUser.getId())){
+                inbox.get(sendUser.getId()).addMsg(sendUser.getId(), menssage);
+                user.getNotifyUser(this.id).addCont();
+            }
+        }
+    }
 
     public String toString() {
         return id;
