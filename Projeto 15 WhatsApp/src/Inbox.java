@@ -19,6 +19,6 @@ public class Inbox {
     }
 
     User getUser(){
-        return null;
+        return this.user;
     }
 }

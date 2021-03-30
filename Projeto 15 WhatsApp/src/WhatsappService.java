@@ -80,4 +80,24 @@ public class WhatsappService {
             rep_chat.get(chatId).deliverZap(rep_user.get(userId), menssage);
         }
     }
+
+    public String getNotifyUser(String userId){
+        if(!rep_user.containsKey(userId)){
+            System.out.println("fail: usuário não existe");
+        }
+        return rep_user.get(userId).getNotify().toString();
+    }
+
+    public String readMessageUserChat(String userId, String chatId){
+        if(!rep_user.containsKey(userId)){
+            System.out.println("fail: usuário não existe");
+        }else if(!rep_chat.containsKey(chatId)){
+            System.out.println("fail: chat não existe");   
+        }else if(!rep_user.get(userId).chats.containsKey(chatId)){
+            System.out.println("fail: " + userId + " não está no chat " + chatId);
+        }
+        
+
+        return null;
+    }
 }

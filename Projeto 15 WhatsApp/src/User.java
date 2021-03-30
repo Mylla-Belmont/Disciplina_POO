@@ -12,8 +12,24 @@ public class User {
         this.notify = new ArrayList<Notify>();
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public ArrayList<Notify> getNotify(){
+        return notify;
+    }
+
     public void addChat(Chat chat){
         this.chats.put(chat.getId(), chat);
+    }
+
+    public void addNotify(Chat chat){
+        notify.add(new Notify(chat.getId()));
+    }
+
+    public TreeMap<String, Chat> getChats(){
+        return this.chats;
     }
 
     public void rmChat(Chat chat){
@@ -23,30 +39,10 @@ public class User {
             this.chats.remove(chat.id);
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public TreeMap<String, Chat> getChats(){
-        return this.chats;
-    }
-
-    public void addNotify(Chat chat){
-        notify.add(new Notify(chat.getId()));
-    }
-
     public Notify getNotifyUser(String chat){
         for(Notify noty : notify)
             if(chat.equals(noty.getId()))
                 return noty;
         return null;
-      }
-
-    public ArrayList<Notify> getNotify(){
-        return notify;
-    }
-
-    public String toString(){
-        return id;
     }
 }

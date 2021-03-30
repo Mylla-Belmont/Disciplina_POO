@@ -38,13 +38,11 @@ public class App {
         whatsapp.sendMessage("goku", "guerreiros", "oi, eu sou o goku");
         whatsapp.sendMessage("tina", "guerreiros", "oi goku");  //ok
 
-        // System.out.println(whatsapp.getNotifyUser("goku"));
-        // //[guerreiros(1) homens]
-        // System.out.println(whatsapp.getNotifyUser("tina"));
-        // //[guerreiros(1)]
+        System.out.println(whatsapp.getNotifyUser("goku"));
+        System.out.println(whatsapp.getNotifyUser("tina"));   //ok
 
-        // System.out.println(whatsapp.readMessageUserChat("goku", "guerreiros"));
-        // //[tina: oi goku]
+        System.out.println(whatsapp.readMessageUserChat("goku", "guerreiros"));
+        //[tina: oi goku]
 
         // System.out.println(whatsapp.readMessageUserChat("tina", "guerreiros"));
         // //[goku: oi, eu sou o goku]

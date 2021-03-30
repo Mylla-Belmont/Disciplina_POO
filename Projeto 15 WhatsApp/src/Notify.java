@@ -23,6 +23,6 @@ public class Notify {
     }
 
     public String toString(){
-        return chatId + ":" + unreadCount;
+        return chatId + "(" + unreadCount + ")";
     }
 }
