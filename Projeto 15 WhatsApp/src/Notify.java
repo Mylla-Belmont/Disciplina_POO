@@ -19,7 +19,7 @@ public class Notify {
     }
 
     public void rmNotifi(){
-        unreadCount++;
+        unreadCount = 0;
     }
 
     public String toString(){

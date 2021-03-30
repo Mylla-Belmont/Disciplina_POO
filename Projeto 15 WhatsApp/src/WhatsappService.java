@@ -100,7 +100,7 @@ public class WhatsappService {
             for(User user : rep_user.values())
                 for(Msg msg : rep_chat.get(chatId).getInboxUser(user).getMsgs())
                     if(!msg.userId.equals(userId))
-                        out.append(msg.toString());
+                        out.append(msg.toString() + "\n");
             rep_user.get(userId).getNotifyUser(chatId).rmNotifi();
             return out.toString();
         }

@@ -48,12 +48,11 @@ public class App {
 
         whatsapp.sendMessage("goku", "guerreiros", "vamos sair tina?");
         whatsapp.sendMessage("tina", "guerreiros", "voce ta com fome goku?");
-        whatsapp.sendMessage("goku", "guerreiros", "to com saudade de voce.");
+        whatsapp.sendMessage("goku", "guerreiros", "to com saudade de voce.");  //ok
 
         System.out.println(whatsapp.getNotifyUser("tina"));
-        //[guerreiros(2)]
-        System.out.println(whatsapp.getNotifyUser("goku"));
-        //[guerreiros(1) homens]
+        System.out.println(whatsapp.getNotifyUser("goku"));  //ok
+        System.out.println("\n");
 
         System.out.println(whatsapp.readMessageUserChat("goku", "guerreiros"));
         //[tina: voce ta com fome goku?]
