@@ -105,6 +105,6 @@ public class WhatsappService {
             rep_user.get(userId).getNotifyUser(chatId).rmNotifi();
             return out.toString();
         }
-        return null;
+        return " ";
     }
 }

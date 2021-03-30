@@ -44,9 +44,7 @@ public class App {
 
         System.out.println(whatsapp.readMessageUserChat("goku", "guerreiros"));
         System.out.println(whatsapp.readMessageUserChat("tina", "guerreiros"));
-
-        // System.out.println(whatsapp.readMessageUserChat("sara", "guerreiros"));
-        // //fail: user sara nao esta no chat guerreiros
+        System.out.println(whatsapp.readMessageUserChat("sara", "guerreiros"));  //ok
 
 
         // whatsapp.sendMessage("goku", "guerreiros", "vamos sair tina?");
