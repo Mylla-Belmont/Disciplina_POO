@@ -8,6 +8,6 @@ public class Msg {
     }
 
     public String toString(){
-        return userId + text;
+        return "[" + userId + ": " + text + "]";
     }
 }

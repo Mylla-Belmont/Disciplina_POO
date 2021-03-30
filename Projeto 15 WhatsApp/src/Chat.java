@@ -26,10 +26,16 @@ public class Chat {
         user.rmChat(this);
         users.remove(user.getId());
     }
-
-    public void getMsgs(String userId){
-
+    
+    public boolean hasUser(User user){
+        if(users.containsKey(user.getId()))
+            return true;
+        return false;
     }
+
+    public Inbox getInboxUser(User user){
+        return inbox.get(user.getId());
+    }   
 
     public TreeMap<String, User> getUsers(){
         return users;

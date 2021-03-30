@@ -45,4 +45,8 @@ public class User {
                 return noty;
         return null;
     }
+
+    public String toString(){
+        return id;
+    }
 }

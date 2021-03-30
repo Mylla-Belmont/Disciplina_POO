@@ -40,12 +40,10 @@ public class App {
 
         System.out.println(whatsapp.getNotifyUser("goku"));
         System.out.println(whatsapp.getNotifyUser("tina"));   //ok
+        System.out.println("\n");
 
         System.out.println(whatsapp.readMessageUserChat("goku", "guerreiros"));
-        //[tina: oi goku]
-
-        // System.out.println(whatsapp.readMessageUserChat("tina", "guerreiros"));
-        // //[goku: oi, eu sou o goku]
+        System.out.println(whatsapp.readMessageUserChat("tina", "guerreiros"));
 
         // System.out.println(whatsapp.readMessageUserChat("sara", "guerreiros"));
         // //fail: user sara nao esta no chat guerreiros
