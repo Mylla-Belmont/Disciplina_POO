@@ -46,20 +46,19 @@ public class App {
         System.out.println(whatsapp.readMessageUserChat("tina", "guerreiros"));
         System.out.println(whatsapp.readMessageUserChat("sara", "guerreiros"));  //ok
 
+        whatsapp.sendMessage("goku", "guerreiros", "vamos sair tina?");
+        whatsapp.sendMessage("tina", "guerreiros", "voce ta com fome goku?");
+        whatsapp.sendMessage("goku", "guerreiros", "to com saudade de voce.");
 
-        // whatsapp.sendMessage("goku", "guerreiros", "vamos sair tina?");
-        // whatsapp.sendMessage("tina", "guerreiros", "voce ta com fome goku?");
-        // whatsapp.sendMessage("goku", "guerreiros", "to com saudade de voce.");
+        System.out.println(whatsapp.getNotifyUser("tina"));
+        //[guerreiros(2)]
+        System.out.println(whatsapp.getNotifyUser("goku"));
+        //[guerreiros(1) homens]
 
-        // System.out.println(whatsapp.getNotifyUser("tina"));
-        // //[guerreiros(2)]
-        // System.out.println(whatsapp.getNotifyUser("goku"));
-        // //[guerreiros(1) homens]
-
-        // System.out.println(whatsapp.readMessageUserChat("goku", "guerreiros"));
-        // //[tina: voce ta com fome goku?]
-        // System.out.println(whatsapp.readMessageUserChat("tina", "guerreiros"));
-        // //[goku: vamos sair tina?]
-        // //[goku: to com saudade de voce.]
+        System.out.println(whatsapp.readMessageUserChat("goku", "guerreiros"));
+        //[tina: voce ta com fome goku?]
+        System.out.println(whatsapp.readMessageUserChat("tina", "guerreiros"));
+        //[goku: vamos sair tina?]
+        //[goku: to com saudade de voce.]
     }
 }
