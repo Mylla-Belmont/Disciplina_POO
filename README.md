@@ -28,7 +28,7 @@ O objetivo das atividades era desenvolver o raciocínio orientado a objetos, est
 
 ## 📁 Organização
 
-Cada pasta representa uma lista ou conjunto de exercícios separados por tema ou entrega. Dentro de cada pasta, os arquivos `.java` estão nomeados conforme a atividade correspondente.
+Cada pasta representa uma lista ou conjunto de exercícios separados por tema e entrega. Dentro de cada pasta, é detalhado o que foi feito, com e com quem foi feito, os tópicos aprendidos e quanto tempo levou.
 
 
 ## 🚀 Listas de enunciados dos exercícios:
