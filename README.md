@@ -37,6 +37,8 @@ Cada pasta representa uma lista ou conjunto de exercícios separados por tema ou
    git clone https://github.com/seu-usuario/nome-do-repo.git
 
 
-<p>Listas de enunciados dos exercícios:</p> 
-<p>Link: https://github.com/senapk/poo_2020_2</p>
+# Listas de enunciados dos exercícios:
+
+Link: https://github.com/senapk/poo_2020_2
+
 Link 2: https://github.com/qxcodepoo/arcade
