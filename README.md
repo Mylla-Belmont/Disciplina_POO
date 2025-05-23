@@ -30,14 +30,8 @@ O objetivo das atividades era desenvolver o raciocínio orientado a objetos, est
 
 Cada pasta representa uma lista ou conjunto de exercícios separados por tema ou entrega. Dentro de cada pasta, os arquivos `.java` estão nomeados conforme a atividade correspondente.
 
-## 🚀 Como executar os códigos
 
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/seu-usuario/nome-do-repo.git
-
-
-# Listas de enunciados dos exercícios:
+## 🚀 Listas de enunciados dos exercícios:
 
 Link: https://github.com/senapk/poo_2020_2
 
